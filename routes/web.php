@@ -18,25 +18,26 @@ Route::get('/', function () {
 });
 
 
-// Authentification des clients
+// Authentification des users
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 // Authentification des Admins
-    Route::get('/login-admin','Admin\Auth\LoginController@showLoginForm')->name('login-admin');
-    Route::post('/login-admin','Admin\Auth\LoginController@login')->name('login-admin');
-    Route::post('/logout-admin','Admin\Auth\LoginController@logout')->name('logout-admin');
-        // Inscription Admin
-        // Route::get('/register-admin','Admin\Auth\RegisterController@showRegistrationForm')->name('register-admin');
-        // Route::post('/register-admin','Admin\Auth\RegisterController@register')->name('register-admin');
-        // La page de bureau des Admin
-    Route::get('/home-admin', 'Admin\HomeController@index')->name('home-admin');
+Route::get('/login-admin','Admin\Auth\LoginController@showLoginForm')->name('login-admin');
+Route::post('/login-admin','Admin\Auth\LoginController@login')->name('login-admin');
+Route::post('/logout-admin','Admin\Auth\LoginController@logout')->name('logout-admin');
+Route::get('/home-admin', 'Admin\HomeController@index')->name('home-admin');
 
- 
+// Route pour l'enregistrement des
 Route::post('/attachments', 'AttachmentController@store')->name('attachments.store');
 
+// Route grouper des utilisateur
+Route::name('user.')->group(function(){
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
+// Route grouper des administrateur
 Route::name('admin.')->group(function(){
     Route::resource('/admin/posts','Admin\PostController');
-    
 });
+
