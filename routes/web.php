@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Hash;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 // Authentification des users
@@ -33,7 +31,13 @@ Route::post('/attachments', 'AttachmentController@store')->name('attachments.sto
 
 // Route grouper des utilisateur
 Route::name('user.')->group(function(){
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/', 'User\HomeController@welcome')->name('welcome');
+    Route::get('/home', 'User\HomeController@index')->name('home');
+
+    Route::get('/programs','User\PageController@programs')->name('programs');
+    Route::get('/library','User\PageController@library')->name('library');
+    Route::get('/contact','User\PageController@contact')->name('contact');
+    Route::get('/member','User\PageController@member')->name('member');
 });
 
 // Route grouper des administrateur
