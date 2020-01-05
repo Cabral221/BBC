@@ -41,7 +41,8 @@ Route::name('user.')->group(function(){
 });
 
 // Route grouper des administrateur
-Route::name('admin.')->group(function(){
-    Route::resource('/admin/posts','Admin\PostController');
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::get('/','Admin\HomeController@welcome');
+    Route::resource('/posts','Admin\Blog\PostController');
 });
 
