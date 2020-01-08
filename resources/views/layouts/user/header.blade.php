@@ -1,15 +1,15 @@
 <div class="container info mb-3">
     <div class="row">
         <div class="col-md-6 text-left">
-            <p>33 000 00 00</p>
+            <p style="font-size:10px;font-weight: bold;" class="mt-2">33 000 00 00</p>
         </div>
         <div class="col-md-6 text-right">
-            <p>73 , Cité Keur Gorgui Sacré Coeur Pyrotechnie – Bp 21784 Dakar – Senegal</p>
+            <p style="font-size:10px;font-weight: bold;" class="mt-2">73 , Cité Keur Gorgui Sacré Coeur Pyrotechnie – Bp 21784 Dakar – Senegal</p>
         </div>
     </div>
 </div>
-<nav class="navbar navbar-expand-sm fixed-top navbar-light shadow-sm pt-3 pb-2">
-    <div class="container">
+<nav class="navbar navbar-expand-sm fixed-top navbar-light shadow-sm pb-0" style="z-index: 1000;">
+    <div class="container mt-3">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('images/logo.png') }}" style="width: 79px;" alt="BBC University" srcset="">
         </a>
@@ -26,25 +26,25 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="{{ route('user.welcome') }}" class="nav-link">Home</a>
+                    <a href="{{ route('user.welcome') }}" class="navbar-link btn active">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('user.programs') }}" class="nav-link">Programs</a>
+                    <a href="{{ route('user.programs') }}" class="navbar-link btn">Programs</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('user.library') }}" class="nav-link">Library</a>
+                    <a href="{{ route('user.library') }}" class="navbar-link btn">Library</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('user.contact') }}" class="nav-link">Contact</a>
+                    <a href="{{ route('user.contact') }}" class="navbar-link btn">Contact</a>
                 </li>
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user.member') }}">{{ __('Member') }}</a>
+                    <a class="navbar-link btn" href="{{ route('user.member') }}">{{ __('Member') }}</a>
                 </li>
                 @else
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="navbarDropdown" class="navbar-link btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                     

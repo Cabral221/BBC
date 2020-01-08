@@ -1,17 +1,17 @@
 @extends('layouts.user.app')
 
 @section('text-header')
-<header id="headerwrap" class="backstretched special-max-height mt-5">
-    <div class="container vertical-center">
+<div class="row h-100">
+    <div class="container col-12 my-auto">
         <div class="intro-text vertical-center text-center smoothie">
             <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s"><h1>Welcome TO BBC</h1></div>
             <div class="intro-sub-heading wow fadeIn secondary-font" data-wow-delay="0.4s"><h3>The first UK university in Dakar</h3></div>
             <div>
-                <button class="btn btn-primary">Admission</button>
+                <button class="btn btn-primary border-bottom-danger">Admission</button>
             </div>
         </div>
     </div>
-</header>
+</div>
 @endsection
 
 @section('content')
@@ -77,19 +77,19 @@
 </div>
 <div class="followers bg-primary">
     <div class="container">
-        <div class="row mb-0">
+        <div class="row mb-0 h-100">
             <div class="col-md-6 col-md-6 mb-0">
                 <div class="text-center">
                     <h2>Subscriber on newsLetters</h2>
                     <p>Abonnez-vous pour recevoir les nouvelles de l'institut</p>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-6 mb-0">
+            <div class="col-sm-6 col-md-6 mb-0 my-auto">
                 <form action="#" class="form">
-                    <div class="input-group">
+                    <div class="input-group w-75">
                         <input type="text" class="form-control" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-send"></i></span>
+                        <div class="input-group-prepend border-0">
+                            <button type="submit" class="bg-danger border-0" style="margin-left: 3px;"><span class="input-group-text bg-danger border-0" id="inputGroupPrepend"><i class="fas fa-paper-plane" style="font-size:20px;color:white;"></i></span></button>
                         </div>
                         <div class="invalid-feedback">
                             Please choose a username.

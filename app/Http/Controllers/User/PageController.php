@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public function programs()
     {
-        return 'programs';
+        return view('pages.programs');
     }
     public function library()
     {
