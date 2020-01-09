@@ -41,7 +41,7 @@
     <div class="container">
         <h2>programs</h2>
         <div class="row pt-3 text-center">
-            <div class="col-md-4 col-sm-4 col-xs-6">
+            <div class="col-4 col-lg-4 col-sm-4">
                 <div class="program">
                     <div class="image">
                         <img src="{{ asset('images/logo.png') }}" alt="" srcset="">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
+            <div class="col-4 col-lg-4 col-sm-4">
                 <div class="program">
                     <div class="image">
                         <img src="{{ asset('images/logo.png') }}" alt="" srcset="">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
+            <div class="col-4 col-lg-4 col-sm-4">
                 <div class="program">
                     <div class="image">
                         <img src="{{ asset('images/logo.png') }}" alt="" srcset="">
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
+            <div class="col-4 col-lg-4 col-sm-4">
                 <div class="program">
                     <div class="image">
                         <img src="{{ asset('images/logo.png') }}" alt="" srcset="">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
+            <div class="col-4 col-lg-4 col-sm-4">
                 <div class="program">
                     <div class="image">
                         <img src="{{ asset('images/logo.png') }}" alt="" srcset="">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
+            <div class="col-4 col-lg-4 col-sm-4">
                 <div class="program">
                     <div class="image bg-primary">
                         <img src="{{ asset('images/logo.png') }}" alt="" srcset="">
