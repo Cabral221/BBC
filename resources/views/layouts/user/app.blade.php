@@ -30,6 +30,7 @@
 	
 	<!-- Custom CSS -->
 	<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
 	
 	<!-- Custom Fonts -->
 	{{-- <link href="{{ asset('assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"> --}}
@@ -44,7 +45,6 @@
 	
 	<!-- Styles -->
 	{{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-	<link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
 	
 	
 	<title>@yield('title', "BBC SN University")</title>
