@@ -13,14 +13,15 @@ class PageController extends Controller
     }
     public function library()
     {
-        return 'library';
+        return view('pages.library');
     }
     public function contact()
     {
-        return 'contact';
+        return view('pages.contact');
     }
     public function member()
     {
-        return 'member';
+        return view('pages.member');
+
     }
 }

@@ -7,7 +7,7 @@
         <div class="intro-text vertical-center text-center smoothie">
             <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s">WELCOME TO BBC</div>
             <div class="intro-sub-heading wow fadeIn secondary-font" data-wow-delay="0.4s">The first UK university in <span class="rotate">Dakar, Senegal</span></div>
-            <button type="submit" class="btn btn-primary mt-5"><h4>Admission</h4></button>
+            <a href="submit" class="btn btn-primary mt-5"><h4>Admission</h4></a>
         </div>
     </div>
 </header>

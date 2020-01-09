@@ -5,7 +5,7 @@
 <header id="headerwrap" class="dark-wrapper backstretched special-max-height no-overlay">
     <div class="container vertical-center">
         <div class="intro-text vertical-center text-center smoothie">
-            <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s">View all programs</div>
+            <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s">Contact us !</div>
             <div class="intro-sub-heading wow fadeIn secondary-font" data-wow-delay="0.4s">The first UK university in <span class="rotate">Dakar, Senegal</span></div>
             <a href="#" class="btn btn-primary mt-5"><h4>Admission</h4></a>
         </div>
@@ -16,7 +16,7 @@
 @section('content')
     <div class="bg-primary">
         <div class="container">
-            <div class="header">All Programs</div>
+            <div class="header">Welcome to Contact page</div>
         </div>
     </div>
 @endsection
