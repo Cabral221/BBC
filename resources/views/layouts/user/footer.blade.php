@@ -2,13 +2,13 @@
     <div class="container text-center pt-3">
         <div style="border-bottom: 2px seashell solid">
             <h2>Trust partners</h2>
-            <div class="logo-partner mb-2">
+            <div class="logo-partner mb-5">
                 <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset="">
                 <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset="">
                 <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset="">
             </div>
         </div>
-        <div class="row mb-5 p-2 h-100">
+        <div class="row pb-3 pt-3 h-100">
             <div class="col-md-6 col-sm-6 my-auto p-2">
                 <p class="text-left my-auto">
                     &copy; Copyright BBC University | Design by EMPRO
