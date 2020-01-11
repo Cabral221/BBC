@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse" id="main-navigation">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="{{ route('user.welcome') }}" class="active">Home</a>
+                    <a href="{{ route('user.welcome') }}" class="active-page">Home</a>
                     
                 </li>
                 <li class="dropdown">

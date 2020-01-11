@@ -29,3 +29,7 @@ $('#bg-header').backstretch([
   "images/bg-header2.jpg",
   "images/bg-header2.jpg"
 ], {duration: 3000, fade: 750});
+
+$('#answerOne').collapse('show').height('auto');
+// $('.panel').collapse('show').height('auto');
+// $('.panel').collapse('show').height('auto');

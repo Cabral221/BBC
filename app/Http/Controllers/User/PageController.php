@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
+use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {

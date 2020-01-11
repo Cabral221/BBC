@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
@@ -30,6 +31,7 @@ class HomeController extends Controller
 
     public function welcome()
     {
+        Flashy::error('Welcome aboard!', 'https://serene-beach-27124.herokuapp.com');
         return view('welcome');
     }
 }
