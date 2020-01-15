@@ -1,5 +1,49 @@
 @extends('layouts.user.app')
 
+@section('css')
+<style>
+    /* Style the button that is used to open and close the collapsible content */
+    .collapsible {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .collapsible:after {
+        content: '\02795'; /* Unicode character for "plus" sign (+) */
+        font-size: 14px;
+        color: #e3342f;
+        float: right;
+        margin-left: 5px;
+    }
+    
+    .active:after {
+        content: "\2796"; /* Unicode character for "minus" sign (-) */
+    }
+    
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active, .collapsible:hover {
+        background-color: #ccc;
+    }
+    
+    /* Style the collapsible content. Note: hidden by default */
+    .content {
+        color: white;
+        padding: 0 18px;
+        background-color: black;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+</style>
+@endsection
 
 @section('text-header')
 <!-- Header -->
@@ -15,220 +59,144 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="word-of mt-2 text-center text-dark">
-        <div class="">
-            <h2>Dr Séne, BBC Director</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <img src="#" style="height:200px" alt="" srcset="">
-            </div>
-            <div class="col-md-9">
-                <p>Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores.
-                    Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores.
-                    Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores.
-                    Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores.
-                    Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores.
-                    Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores.
-                    Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores.
-                    Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores, Lorem Ipsum Dolores.
-                </p>
+<div class="white-wrapper">
+<div class="container bg-dark">
+    <div class="row mt-4">
+        <button type="button" class="collapsible text-center"><h4 style="display:inline">Word of Director</h4></button>
+        <div class="content mb-3">
+            <div class="text-white">
+                <div class="word-of mt-2 text-center text-white">
+
+                    <div class="row text-left">
+                        <div class="col-md-3 col-sm-3">
+                            <img src="{{asset('assets/img/news/1.jpg')}}" class="img-responsive" alt="" srcset="">
+                            <h4>Dr Séne, BBC Director</h4>
+                        </div>
+                        <div class="col-md-9 col-sm-9">
+                            <p>Nisi labore ipsum duis veniam ex amet esse. Elit nisi amet voluptate nisi consectetur nulla adipisicing elit ullamco excepteur. Est deserunt sint ad veniam deserunt consequat id duis mollit cillum et. Nisi reprehenderit consequat esse ut occaecat ea id sint exercitation aliquip. Incididunt ipsum sit cupidatat fugiat duis adipisicing velit in tempor amet ut esse. Qui laborum consequat duis laboris deserunt labore ex enim occaecat quis.
+                            </p>
+                            <p>Nisi labore ipsum duis veniam ex amet esse. Elit nisi amet voluptate nisi consectetur nulla adipisicing elit ullamco excepteur. Est deserunt sint ad veniam deserunt consequat id duis mollit cillum et. Nisi reprehenderit consequat esse ut occaecat ea id sint exercitation aliquip. Incididunt ipsum sit cupidatat fugiat duis adipisicing velit in tempor amet ut esse. Qui laborum consequat duis laboris deserunt labore ex enim occaecat quis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                    
             </div>
         </div>
     </div>
 </div>
-<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="{{ asset('images/bg-header3.jpg') }}" data-speed="0.7">
-    <div class="section-inner">
-        <div class="container">
-            {{-- Collapse for programs --}}
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-xs-12 text-dark">
-                    <h1>Programs</h1>
-                </div>
-            </div>
-            <div class="row bg-dark text-center">
-                <div class="col-sm-12 col-md-12 col-xs-12 text-dark">
-                    <div id="faq" role="tablist" aria-multiselectable="true">
-                        
-                        <div class="panel panel-dark">
-                            <div class="panel-heading" role="tab" id="questionThree">
-                                <h5 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerThree" aria-expanded="true" aria-controls="answerThree">
-                                        Mark
-                                    </a>
-                                </h5>
-                            </div>
-                            <div id="answerThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="questionThree">
-                                <div class="panel-body">
-                                    Answer 3...
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="panel panel-dark" style="height:auto">
-                            <div class="panel-heading" role="tab" id="questionOne">
-                                <h3 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#faq" href="#answerOne" aria-expanded="false" aria-controls="answerOne">
-                                        English 
-                                        <i class="fa-1x pe-7s-plus"></i>
-                                    </a>
-                                </h3>
-                            </div>
-                            <div id="answerOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="questionOne" style="height:auto">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h4 class="title">Business</h4>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h4 class="title">Sport Management</h4>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h4 class="title">Tourism</h4>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h4 class="title">Web Design</h4>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h3 class="title">Web Design</h3>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h4 class="title">Web Design</h4>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
+</div>
+<section class="white-wrapper opaqued parallax" data-image-src="{{ asset('images/bg-header3.jpg') }}" data-speed="0.7">
+    <div class="mt-5 mb-5">
+        <div class="container text-dark">
+            <h2>Programs</h2>
+            <p>Ipsum minim amet qui Lorem eiusmod ea officia non quis velit. Deserunt ex sunt adipisicing aliquip amet proident ea duis qui culpa. Anim mollit do et adipisicing qui minim pariatur amet ut in amet. Ea anim velit quis ullamco mollit ut ad laboris aute mollit sint. Anim ex commodo sunt exercitation esse exercitation sit amet labore veniam nostrud.</p>
+            <button type="button" class="collapsible">Engilsh</button>
+            <div class="content mb-3">
+                <div class="section-inner text-white">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                <div class="icon-box-1 match-height mb30">
+                                    <i class="fa-4x pe-7s-camera"></i>
+                                    <div class="card">
+                                        <h3 class="car-title">Web Design</h3>
+                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>    
-                        <div class="panel panel-dark">
-                            <div class="panel-heading" role="tab" id="questionTwo">
-                                <h5 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerTwo" aria-expanded="false" aria-controls="answerTwo">
-                                        <h3 style="display:inline-block;">French</h3> 
-                                        <i class="fa-2x pe-7s-plus"></i>
-                                    </a>
-                                </h5>
-                            </div>
-                            <div id="answerTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="questionTwo">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h4 class="title">Business</h4>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h4 class="title">Sport Management</h4>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h4 class="title">Tourism</h4>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h4 class="title">Web Design</h4>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h3 class="title">Web Design</h3>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
-                                                <i class="fa-4x pe-7s-camera"></i>
-                                                <div class="content-area">
-                                                    <h4 class="title">Web Design</h4>
-                                                    <div class="content">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                <div class="icon-box-1 match-height mb30">
+                                    <i class="fa-4x pe-7s-camera"></i>
+                                    <div class="card">
+                                        <h3 class="car-title">Web Design</h3>
+                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                <div class="icon-box-1 match-height mb30">
+                                    <i class="fa-4x pe-7s-camera"></i>
+                                    <div class="card">
+                                        <h3 class="car-title">Web Design</h3>
+                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
-                        
                     </div>
                 </div>
             </div>
-            {{-- End collapse for programs --}}
+            <button type="button" class="collapsible">French</button>
+            <div class="content mb-3">
+                <div class="section-inner text-white">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                <div class="icon-box-1 match-height mb30">
+                                    <i class="fa-4x pe-7s-camera"></i>
+                                    <div class="card">
+                                        <h3 class="car-title">Web Design</h3>
+                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                <div class="icon-box-1 match-height mb30">
+                                    <i class="fa-4x pe-7s-camera"></i>
+                                    <div class="card">
+                                        <h3 class="car-title">Web Design</h3>
+                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                <div class="icon-box-1 match-height mb30">
+                                    <i class="fa-4x pe-7s-camera"></i>
+                                    <div class="card">
+                                        <h3 class="car-title">Web Design</h3>
+                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 <div class="bg-white text-center text-dark">
     <div class="container mt-3">
         <h3>Latest activities</h3>
         <div class="row text-dark">
-            <div class="col-sm-3 p-3">
+            <div class="col-sm-3 p-3 mt-3 mb-3">
                 <div class="activity">
                     <div class="card">
                         <div class="card-title">
                             <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
                         </div>
-                        <div class="card-title text-left">
+                        <div class="card-title text-left mt-3 mb-3 pl-3 pr-3 pt-3 pb-3">
+                            <h5 style="display:inline" class="text-left">BBC Graduation 2019  Dr Séne, BBC Director</h5>
+                            
+                            <p style="float:right;display:inline">March, 12</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-left">Quis nulla cillum esse fugiat anim aliquip laborum. Labore qui laborum nostrud est adipisicing amet dolor do excepteur. Tempor qui consequat ea qui laborum reprehenderit. Elit excepteur magna commodo est ullamco ad laboris ex in tempor tempor et id ex.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 p-3 mt-3 mb-3">
+                <div class="activity">
+                    <div class="card">
+                        <div class="card-title">
+                            <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
+                        </div>
+                        <div class="card-title text-left mt-3 mb-3 pl-3 pr-3">
                             <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
                             
                             <p style="float:right;display:inline">March, 12</p>
@@ -239,13 +207,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 p-3">
+            <div class="col-sm-3 p-3 mt-3 mb-3">
                 <div class="activity">
                     <div class="card">
                         <div class="card-title">
                             <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
                         </div>
-                        <div class="card-title text-left">
+                        <div class="card-title text-left mt-3 mb-3 pl-3 pr-3">
                             <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
                             
                             <p style="float:right;display:inline">March, 12</p>
@@ -256,30 +224,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 p-3">
+            <div class="col-sm-3 p-3 mt-3 mb-3">
                 <div class="activity">
                     <div class="card">
                         <div class="card-title">
                             <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
                         </div>
-                        <div class="card-title text-left">
-                            <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
-                            
-                            <p style="float:right;display:inline">March, 12</p>
-                        </div>
-                        <div class="card-body">
-                            <p class="text-left">Quis nulla cillum esse fugiat anim aliquip laborum. Labore qui laborum nostrud est adipisicing amet dolor do excepteur. Tempor qui consequat ea qui laborum reprehenderit. Elit excepteur magna commodo est ullamco ad laboris ex in tempor tempor et id ex.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 p-3">
-                <div class="activity">
-                    <div class="card">
-                        <div class="card-title">
-                            <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
-                        </div>
-                        <div class="card-title text-left">
+                        <div class="card-title text-left mt-3 mb-3 pl-3 pr-3">
                             <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
                             
                             <p style="float:right;display:inline">March, 12</p>
@@ -305,10 +256,10 @@
                     <p>Abonnez-vous pour recevoir les nouvelles de l'institut</p>
                 </div>
             </div>
-            <div class=" col-md-6">
+            <div class=" col-md-6 vertical-center text-center">
                 <form action="#" class="form vertical-center">
                     <div class="vertical-center text-center input-group" style="width:100%">
-                        <input type="text" class="form-control text-center" style="width: 70%" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
+                        <input type="text" class="form-control text-center" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
                         <div class="input-group-prepend border-0" style="display:inline-block;float:left">
                             <button type="submit" class="bg-danger border-0" style="margin-left: 3px;height:40px;width:40px"><span class="bg-danger border-0"><i class="fas fa-paper-plane" style="font-size:20px;color:white;"></i></span></button>
                         </div>
@@ -318,4 +269,23 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+    }
+</script>
 @endsection

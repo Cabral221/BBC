@@ -17,7 +17,6 @@
 	
 	
 	
-	
 	<link rel="shortcut icon" href="{{ asset('assets/img/ico/favicon.ico') }}">
 	<link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/ico/apple-touch-icon-144x144.png') }}">
 	<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/ico/apple-touch-icon-114x114.png') }}">
@@ -76,7 +75,7 @@
 	<script src="{{ asset('assets/js/jquery.js') }}"></script>
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('assets/js/plugins.js') }}"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	{{-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> --}}
 	<script src="{{ asset('assets/js/init.js') }}"></script>
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
