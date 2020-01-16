@@ -28,8 +28,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand smoothie logo logo-light" href="{{ route('user.welcome') }}"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
-            <a class="navbar-brand smoothie logo logo-dark" href="{{ route('user.welcome') }}"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
+            <a class="navbar-brand smoothie logo logo-light" href="{{ route('user.welcome') }}"><img src="{{ asset('images/logo1.png') }}" alt="logo"></a>
+            <a class="navbar-brand smoothie logo logo-dark" href="{{ route('user.welcome') }}"><img src="{{ asset('images/logo1.png') }}" alt="logo"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,15 +54,8 @@
                     <a href="{{ route('user.contact') }}">Contact</a>
                 </li>
                 <li class="dropdown">
-                    <a href="{{ route('user.member') }}" class="dropdown-toggle">Member <span class="pe-7s-angle-down"></span></a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-submenu">
-                            <a href="#">Log in</a>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a href="#">Register</a>
-                        </li>
-                    </ul>
+                    <a href="{{ route('user.member') }}">Member</span></a>
+                    
                 </li>
             </ul>
         </div>

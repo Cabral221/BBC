@@ -95,6 +95,14 @@ body {
   background-color: rgba(52, 144, 220, 0.158);
 }
 
+a.program-title{
+  color: #fff;
+}
+
+a.program-title:hover{
+  color: #c2253e;
+}
+
 .followers{
     margin: 0 auto;
     padding: 30px;

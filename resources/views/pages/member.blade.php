@@ -158,7 +158,7 @@
         <div class="row mb-0">
             <div class="col-md-6 mb-0">
                 <div class="text-center">
-                    <h2>Subscriber on newsLetters</h2>
+                    <h2>Subscriber on newsLetter</h2>
                     <p>Abonnez-vous pour recevoir les nouvelles de l'institut</p>
                 </div>
             </div>

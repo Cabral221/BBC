@@ -54,11 +54,11 @@
 </head>
 <body>
 	<div id="app">
-		{{-- <div class="preloader">
+		<div class="preloader">
 			<div class="preloader-img">
 				<span class="loading-animation animate-flicker"><img src="assets/img/loading.GIF" alt="loading"/></span>
 			</div>
-		</div> --}}
+		</div>
 		
 		@include('layouts.user.header')
 		
@@ -85,19 +85,7 @@
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 		
-	<script type="text/javascript">
-		$(document).ready(function() {
-			'use strict';
-			jQuery('#headerwrap').backstretch([
-			"images/bg-header.jpg",
-			"assets/img/bg/bg2.jpg",
-			"assets/img/bg/bg3.jpg"
-			], {
-				duration: 8000,
-				fade: 500
-			});
-		});
-	</script>
+	
 	@yield('js')
 	@include('flashy::message')
 </body>

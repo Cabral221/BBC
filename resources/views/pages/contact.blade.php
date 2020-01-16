@@ -8,7 +8,7 @@
             <div class="intro-text vertical-center text-center smoothie">
                 <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s"><h2>Contact us !</h2></div>
                 <div class="intro-sub-heading wow fadeIn secondary-font" data-wow-delay="0.4s">The first UK university in <span class="rotate">Dakar, Senegal</span></div>
-                <a href="#" class="btn btn-primary mt-5"><h4>Admission</h4></a>
+                <a href="{{ route('user.admission') }}" class="btn btn-primary mt-5"><h4>Admission</h4></a>
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@
         <div class="row mb-0">
             <div class="col-md-6 mb-0">
                 <div class="text-center">
-                    <h2>Subscriber on newsLetters</h2>
+                    <h2>Subscriber on newsLetter</h2>
                     <p>Abonnez-vous pour recevoir les nouvelles de l'institut</p>
                 </div>
             </div>

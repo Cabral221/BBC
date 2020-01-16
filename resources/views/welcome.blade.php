@@ -52,7 +52,7 @@
         <div class="intro-text vertical-center text-center smoothie">
             <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s">WELCOME TO BBC</div>
             <div class="intro-sub-heading wow fadeIn secondary-font" data-wow-delay="0.4s">The first UK university in <span class="rotate">Dakar, Senegal</span></div>
-            <a href="submit" class="btn btn-primary mt-5"><h4>Admission</h4></a>
+            <a href="{{ route('user.admission') }}" class="btn btn-primary mt-5"><h4>Admission</h4></a>
         </div>
     </div>
 </header>
@@ -60,31 +60,31 @@
 
 @section('content')
 <div class="white-wrapper">
-<div class="container bg-dark">
-    <div class="row mt-4">
-        <button type="button" class="collapsible text-center"><h4 style="display:inline">Word of Director</h4></button>
-        <div class="content mb-3">
-            <div class="text-white">
-                <div class="word-of mt-2 text-center text-white">
-
-                    <div class="row text-left">
-                        <div class="col-md-3 col-sm-3">
-                            <img src="{{asset('assets/img/news/1.jpg')}}" class="img-responsive" alt="" srcset="">
-                            <h4>Dr Séne, BBC Director</h4>
-                        </div>
-                        <div class="col-md-9 col-sm-9">
-                            <p>Nisi labore ipsum duis veniam ex amet esse. Elit nisi amet voluptate nisi consectetur nulla adipisicing elit ullamco excepteur. Est deserunt sint ad veniam deserunt consequat id duis mollit cillum et. Nisi reprehenderit consequat esse ut occaecat ea id sint exercitation aliquip. Incididunt ipsum sit cupidatat fugiat duis adipisicing velit in tempor amet ut esse. Qui laborum consequat duis laboris deserunt labore ex enim occaecat quis.
-                            </p>
-                            <p>Nisi labore ipsum duis veniam ex amet esse. Elit nisi amet voluptate nisi consectetur nulla adipisicing elit ullamco excepteur. Est deserunt sint ad veniam deserunt consequat id duis mollit cillum et. Nisi reprehenderit consequat esse ut occaecat ea id sint exercitation aliquip. Incididunt ipsum sit cupidatat fugiat duis adipisicing velit in tempor amet ut esse. Qui laborum consequat duis laboris deserunt labore ex enim occaecat quis.
-                            </p>
+    <div class="container bg-dark">
+        <div class="row mt-4">
+            <button type="button" class="collapsible text-center"><h4 style="display:inline">Word of Director</h4></button>
+            <div class="content mb-3">
+                <div class="text-white">
+                    <div class="word-of mt-2 text-center text-white">
+                        
+                        <div class="row text-left">
+                            <div class="col-md-3 col-sm-3">
+                                <img src="{{asset('assets/img/news/1.jpg')}}" class="img-responsive" alt="" srcset="">
+                                <h4>Dr Séne, BBC Director</h4>
+                            </div>
+                            <div class="col-md-9 col-sm-9">
+                                <p>Nisi labore ipsum duis veniam ex amet esse. Elit nisi amet voluptate nisi consectetur nulla adipisicing elit ullamco excepteur. Est deserunt sint ad veniam deserunt consequat id duis mollit cillum et. Nisi reprehenderit consequat esse ut occaecat ea id sint exercitation aliquip. Incididunt ipsum sit cupidatat fugiat duis adipisicing velit in tempor amet ut esse. Qui laborum consequat duis laboris deserunt labore ex enim occaecat quis.
+                                </p>
+                                <p>Nisi labore ipsum duis veniam ex amet esse. Elit nisi amet voluptate nisi consectetur nulla adipisicing elit ullamco excepteur. Est deserunt sint ad veniam deserunt consequat id duis mollit cillum et. Nisi reprehenderit consequat esse ut occaecat ea id sint exercitation aliquip. Incididunt ipsum sit cupidatat fugiat duis adipisicing velit in tempor amet ut esse. Qui laborum consequat duis laboris deserunt labore ex enim occaecat quis.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
                     
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <section class="white-wrapper opaqued parallax" data-image-src="{{ asset('images/bg-header3.jpg') }}" data-speed="0.7">
     <div class="mt-5 mb-5">
@@ -94,75 +94,68 @@
             <button type="button" class="collapsible">Engilsh</button>
             <div class="content mb-3">
                 <div class="section-inner text-white">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                <div class="icon-box-1 match-height mb30">
-                                    <i class="fa-4x pe-7s-camera"></i>
-                                    <div class="card">
-                                        <h3 class="car-title">Web Design</h3>
-                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                    </div>
+                    
+                    <div class="row text-center">
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="icon-box-1 match-height mb30">
+                                <i class="fa-4x pe-7s-camera"></i>
+                                <div class="card" style="background-color:black;">
+                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
                                 </div>
                             </div>
-                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                <div class="icon-box-1 match-height mb30">
-                                    <i class="fa-4x pe-7s-camera"></i>
-                                    <div class="card">
-                                        <h3 class="car-title">Web Design</h3>
-                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                    </div>
+                        </div>
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="icon-box-1 match-height mb30">
+                                <i class="fa-4x pe-7s-camera"></i>
+                                <div class="card" style="background-color:black;">
+                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
                                 </div>
                             </div>
-                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                <div class="icon-box-1 match-height mb30">
-                                    <i class="fa-4x pe-7s-camera"></i>
-                                    <div class="card">
-                                        <h3 class="car-title">Web Design</h3>
-                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                    </div>
+                        </div>
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="icon-box-1 match-height mb30">
+                                <i class="fa-4x pe-7s-camera"></i>
+                                <div class="card" style="background-color:black;">
+                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
+                    
                 </div>
             </div>
             <button type="button" class="collapsible">French</button>
             <div class="content mb-3">
                 <div class="section-inner text-white">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                <div class="icon-box-1 match-height mb30">
-                                    <i class="fa-4x pe-7s-camera"></i>
-                                    <div class="card">
-                                        <h3 class="car-title">Web Design</h3>
-                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                    </div>
+                    
+                    <div class="row text-center">
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="icon-box-1 match-height mb30">
+                                <i class="fa-4x pe-7s-camera"></i>
+                                <div class="card" style="background-color:black;">
+                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
                                 </div>
                             </div>
-                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                <div class="icon-box-1 match-height mb30">
-                                    <i class="fa-4x pe-7s-camera"></i>
-                                    <div class="card">
-                                        <h3 class="car-title">Web Design</h3>
-                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                <div class="icon-box-1 match-height mb30">
-                                    <i class="fa-4x pe-7s-camera"></i>
-                                    <div class="card">
-                                        <h3 class="car-title">Web Design</h3>
-                                        <div class="card-body">Goodbye gray sky hello blue. There's nothing can hold me when I hold you. Feels so right it cant be wrong.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
                         </div>
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="icon-box-1 match-height mb30">
+                                <i class="fa-4x pe-7s-camera"></i>
+                                <div class="card" style="background-color:black;">
+                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="icon-box-1 match-height mb30">
+                                <i class="fa-4x pe-7s-camera"></i>
+                                <div class="card" style="background-color:black;">
+                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -180,9 +173,10 @@
                             <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
                         </div>
                         <div class="card-title text-left mt-3 mb-3 pl-3 pr-3 pt-3 pb-3">
-                            <h5 style="display:inline" class="text-left">BBC Graduation 2019  Dr Séne, BBC Director</h5>
-                            
-                            <p style="float:right;display:inline">March, 12</p>
+                            <a href="#">
+                                <h5 style="display:inline" class="text-left">BBC Graduation 2019  Dr Séne, BBC Director</h5>
+                                <p style="float:right;display:inline">March, 12</p>
+                            </a>
                         </div>
                         <div class="card-body">
                             <p class="text-left">Quis nulla cillum esse fugiat anim aliquip laborum. Labore qui laborum nostrud est adipisicing amet dolor do excepteur. Tempor qui consequat ea qui laborum reprehenderit. Elit excepteur magna commodo est ullamco ad laboris ex in tempor tempor et id ex.</p>
@@ -197,9 +191,10 @@
                             <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
                         </div>
                         <div class="card-title text-left mt-3 mb-3 pl-3 pr-3">
-                            <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
-                            
-                            <p style="float:right;display:inline">March, 12</p>
+                            <a href="#">
+                                <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
+                                <p style="float:right;display:inline">March, 12</p>
+                            </a>
                         </div>
                         <div class="card-body">
                             <p class="text-left">Quis nulla cillum esse fugiat anim aliquip laborum. Labore qui laborum nostrud est adipisicing amet dolor do excepteur. Tempor qui consequat ea qui laborum reprehenderit. Elit excepteur magna commodo est ullamco ad laboris ex in tempor tempor et id ex.</p>
@@ -214,9 +209,10 @@
                             <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
                         </div>
                         <div class="card-title text-left mt-3 mb-3 pl-3 pr-3">
-                            <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
-                            
-                            <p style="float:right;display:inline">March, 12</p>
+                            <a href="#">
+                                <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
+                                <p style="float:right;display:inline">March, 12</p>
+                            </a>
                         </div>
                         <div class="card-body">
                             <p class="text-left">Quis nulla cillum esse fugiat anim aliquip laborum. Labore qui laborum nostrud est adipisicing amet dolor do excepteur. Tempor qui consequat ea qui laborum reprehenderit. Elit excepteur magna commodo est ullamco ad laboris ex in tempor tempor et id ex.</p>
@@ -231,9 +227,10 @@
                             <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
                         </div>
                         <div class="card-title text-left mt-3 mb-3 pl-3 pr-3">
-                            <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
-                            
-                            <p style="float:right;display:inline">March, 12</p>
+                            <a href="#">
+                                <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
+                                <p style="float:right;display:inline">March, 12</p>
+                            </a>
                         </div>
                         <div class="card-body">
                             <p class="text-left">Quis nulla cillum esse fugiat anim aliquip laborum. Labore qui laborum nostrud est adipisicing amet dolor do excepteur. Tempor qui consequat ea qui laborum reprehenderit. Elit excepteur magna commodo est ullamco ad laboris ex in tempor tempor et id ex.</p>
@@ -243,7 +240,7 @@
             </div>
         </div>
         <div class="row text-center text white">
-            <a href="#" class="btn btn-primary p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
+            <a href="{{ route('user.posts.index') }}" class="btn btn-primary p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
         </div>
     </div>
 </div>
@@ -252,7 +249,7 @@
         <div class="row mb-0">
             <div class="col-md-6 mb-0">
                 <div class="text-center">
-                    <h2>Subscriber on newsLetters</h2>
+                    <h2>Subscriber on newsLetter</h2>
                     <p>Abonnez-vous pour recevoir les nouvelles de l'institut</p>
                 </div>
             </div>
@@ -287,5 +284,18 @@
             } 
         });
     }
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        'use strict';
+        jQuery('#headerwrap').backstretch([
+            "images/bg-header.jpg",
+            "assets/img/bg/bg2.jpg",
+            "assets/img/bg/bg3.jpg"
+        ], {
+            duration: 8000,
+            fade: 500
+        });
+    });
 </script>
 @endsection
