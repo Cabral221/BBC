@@ -54,11 +54,11 @@
 </head>
 <body>
 	<div id="app">
-		<div class="preloader">
+		{{-- <div class="preloader">
 			<div class="preloader-img">
 				<span class="loading-animation animate-flicker"><img src="assets/img/loading.GIF" alt="loading"/></span>
 			</div>
-		</div>
+		</div> --}}
 		
 		@include('layouts.user.header')
 		
