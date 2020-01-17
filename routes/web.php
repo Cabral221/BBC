@@ -29,6 +29,7 @@ Route::get('/home-admin', 'Admin\HomeController@index')->name('home-admin');
 // Route pour l'enregistrement des
 Route::post('/attachments', 'AttachmentController@store')->name('attachments.store');
 
+
 // Route grouper des utilisateur
 Route::name('user.')->group(function(){
     Route::get('/', 'User\HomeController@welcome')->name('welcome');
