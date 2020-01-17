@@ -11,13 +11,13 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::notDraft()->get();
+        $post = Post::draft();
         // dd($posts);
-        return view('admin.posts.index',compact('posts'));
+        return view('admin.posts.index',compact(['posts','post']));
     }
 
     public function create()
     {
-        $post = Post::draft();
         return $this->edit($post);
         // return view('admin.posts.create', compact('post'));
     }
@@ -36,6 +36,6 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->update($request->all());
-        return redirect()->route('admin.posts.index',['id' => $post->id])->with('success','Article modifié');
+        return redirect()->route('admin.blog.posts.index',['id' => $post->id])->with('success','Article modifié');
     }
 }

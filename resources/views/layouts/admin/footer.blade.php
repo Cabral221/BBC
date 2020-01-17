@@ -58,6 +58,61 @@
   <script src="{{asset('asset_admin/js/demo/chart-area-demo.js')}}"></script>
   <script src="{{asset('asset_admin/js/demo/chart-pie-demo.js')}}"></script>
 
+  <script>
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var info_id = button.data('id') 
+  var title = button.data('phone') 
+  var adress = button.data('adress') 
+  var bp = button.data('bp') 
+  var modal = $(this)
+  modal.find('.modal-body #info_id').val(info_id)
+  modal.find('.modal-body #phone').val(title)
+  modal.find('.modal-body #adress').val(adress)
+  modal.find('.modal-body #bp').val(bp)
+})
+
+
+$('#imageModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var info_id = button.data('id') 
+  var name = button.data('name') 
+  var logo = button.data('logo') 
+  var modal = $(this)
+  modal.find('.modal-body #info_id').val(info_id)
+  modal.find('.modal-body #name').val(name)
+  modal.find('.modal-body #logo').html("< img src= {{URL::to('/')}}/image"+logo+" width:'30' class='img-thumbnail' />")
+  modal.find('.modal-body #logo').append("<input type='hidden' name='hidden_image' value='"+logo+"'/>")
+})
+
+$('#update_slides').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var info_id = button.data('id') 
+  var image = button.data('image') 
+  var modal = $(this)
+  modal.find('.modal-body #info_id').val(info_id)
+  modal.find('.modal-body #image').html("< img src= {{URL::to('/')}}/image"+image+" width:'30' class='img-thumbnail' />")
+  modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
+})
+
+
+$('#edit_teamsModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var info_id = button.data('id') 
+  var firstname = button.data('firstname') 
+  var lastname = button.data('lastname') 
+  var job = button.data('job') 
+  var image = button.data('image') 
+  var modal = $(this)
+  modal.find('.modal-body #info_id').val(info_id)
+  modal.find('.modal-body #firstname').val(firstname)
+  modal.find('.modal-body #lastname').val(lastname)
+  modal.find('.modal-body #job').val(job)
+  modal.find('.modal-body #image').html("< img src= {{URL::to('/')}}/image"+image+" width:'30' class='img-thumbnail' />")
+  modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
+})
+    </script>
+    @yield('js')
 </body>
 
 </html>

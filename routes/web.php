@@ -44,8 +44,39 @@ Route::name('user.')->group(function(){
 });
 
 // Route grouper des administrateur
-Route::prefix('admin')->name('admin.')->group(function(){
-    Route::get('/','Admin\HomeController@welcome');
-    Route::resource('/posts','Admin\Blog\PostController');
+Route::prefix('admin/')->name('admin.')->group(function(){
+    Route::prefix('blog')->name('blog.')->group(function(){
+        Route::resource('/posts','Admin\Blog\PostController');
+        Route::resource('/gallerys','Admin\Blog\GalleryController');
+        Route::resource('/books','Admin\Blog\BookController');
+        Route::resource('/comments','Admin\Blog\CommentController');
+        Route::resource('/news','Admin\Blog\NewController');
+    });
+
+    Route::prefix('programms')->name('programms.')->group(function(){
+        Route::resource('/filliers','Admin\Programms\FillierController');
+        Route::resource('/modules','Admin\Programms\ModuleController');
+        Route::resource('/specialites','Admin\Programms\SpecialiteController');
+        Route::resource('/unites','Admin\Programms\UniteController');
+    });
+
+    Route::prefix('templaits')->name('templaits.')->group(function(){
+        Route::resource('/alerts','Admin\Templaits\AlertController');
+        Route::resource('/slides','Admin\Templaits\SlideController');
+    });
+
+    Route::prefix('members')->name('members.')->group(function(){
+        Route::resource('/teams','Admin\Members\TeamController');
+        Route::resource('/networks','Admin\Members\NetworkController');
+    });
+
+    Route::prefix('params')->name('params.')->group(function(){
+        Route::resource('/infos','Admin\Params\InfoController');
+        Route::resource('/admissions','Admin\Params\AdmissionController');
+        Route::resource('/words','Admin\Params\WordController');
+        Route::resource('/parteners','Admin\Params\PartenerController');
+    });
+
+    Route::get('/','Admin\HomeController@welcome')->name('welcome');
 });
 

@@ -9,7 +9,7 @@ class Post extends Model
 {
     use AttachableConcern;
 
-    protected $fillable = ['title','content'];
+    protected $fillable = ['title','content','subtitle'];
 
     public static function draft()
     {

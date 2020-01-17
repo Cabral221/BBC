@@ -266,9 +266,36 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content text-dark">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Welcome aboard</h4>
+        </div>
+        <div class="modal-body">
+          <div>
+              <h4>Titre</h4>
+              <p>Minim duis pariatur laboris et reprehenderit adipisicing deserunt consequat laboris cupidatat.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary p-3">Send</button>
+        </div>
+      </div>
+    </div>
+</div>  
 @endsection
 
 @section('js')
+<script>
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
 <script>
     var coll = document.getElementsByClassName("collapsible");
     var i;

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Info;
+use App\Models\Partner;
+use App\Models\Slide;
+use App\Models\Team;
 class HomeController extends Controller
 {
     /**
@@ -29,6 +32,21 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        return view('admin.welcome');
+
+        $info = Info::first();
+        $part = Partner::get();
+        $slide = Slide::get();
+        $team = Team::get();
+        return view('admin.welcome',compact(['info','part','slide','team']));
+    }
+
+    public function update(Request $request)
+    {
+        $info = Info::findOrFail($request->info);
+        $info->phone = $request->input('phone');
+        $info->adress = $request->input('adress');
+        $info->bp = $request->input('bp');
+        $info->save();
+        return back();
     }
 }
