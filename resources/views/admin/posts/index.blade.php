@@ -97,7 +97,64 @@
     </div>
   </div>
   
-  
+    <!-- Row pour ajout des post -->
+    <div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-12 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Add Posts</h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="">
+            <div class="container">
+              @if (session('success'))
+              <div class="alert alert-success">
+                {{ session('success')}}
+              </div>
+              @endif
+              <form action="{{ route('admin.blog.posts.update',$post->id)}}" method="POST">
+                @csrf
+                {{method_field('PUT')}}
+                <div class="row">
+                    <div class="form-group col-xl-6 col-lg-6">
+                    <label for="tite">Title</label>
+                      <input type="text" class="form-control" name="title" value="{{ $post->title }}">
+                    </div>
+                    
+                    <div class="form-group col-xl-6 col-lg-6">
+                    <label for="subtitle">Subtitle</label>
+                      <input type="text" class="form-control" name="subtitle" value="{{ $post->subTitle }}">
+                    </div>
+                
+                </div>
+                <div class="form-group">
+                <label for="content">Content</label>
+                  <textarea data-id="{{ $post->id }}" data-type="{{ get_class($post) }}" data-url="{{ route('attachments.store') }}" name="content" id="editor" cols="30" rows="10" class="form-control ">
+                    {{ $post->content }}
+                  </textarea>
+                </div>
+                <div class="row">
+                
+                    <div class="form-group col-xl-6 col-lg-6">
+                      <button class="btn btn-primary btn-block">Add</button>
+                    </div>
+
+                    <div class="form-group col-xl-6 col-lg-6">
+                      <button type="reset" class="btn btn-success btn-block">Reinitialiser</button>
+                    </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin du row des ajouts de post -->
   
   <!-- row de l'affichage des post -->
   <div class="row">
@@ -110,7 +167,7 @@
         </div>
         <!-- Card Body -->
         <div class="card-body">
-          <div class="chart-area">
+          <div class="">
             <table class="table table-bordered">
               <thead>
                 <tr>
@@ -130,7 +187,8 @@
                   <td>{{$posts->subTitle}}</td>
                   <td>{{$i}}</td>
                   <td>
-                    <button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$posts->id}}" data-title="{{$posts->title}}" data-subtitle="{{$posts->subTitle}}" data-content="{{$posts->content}}" data-toggle="modal" data-target="#edit_postModal"><i class="far fa-edit"></i></button>
+                    <!-- <button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$posts->id}}" data-title="{{$posts->title}}" data-subtitle="{{$posts->subTitle}}" data-content="{{$posts->content}}" data-toggle="modal" data-target="#edit_postModal"><i class="far fa-edit"></i></button> -->
+                    <a href="{{ route('admin.blog.posts.edit',$posts->id) }}" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'><i class="far fa-edit"></i></a>
                     <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$posts->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
                     <form id="form-delete-{{$posts->id}}" action="{{route('admin.blog.posts.destroy',$posts->id)}}" method="post">
                       @csrf
@@ -152,52 +210,7 @@
   
   
   <!-- Content Row -->
-  <!-- Row pour ajout des post -->
-  <div class="row">
-    <!-- Area Chart -->
-    <div class="col-xl-12 col-lg-7">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Add Posts</h6>
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-          <div class="chart-area">
-            <div class="container">
-              @if (session('success'))
-              <div class="alert alert-success">
-                {{ session('success')}}
-              </div>
-              @endif
-              <form action="{{ route('admin.blog.posts.update',$post->id)}}" method="POST">
-                @csrf
-                {{method_field('PUT')}}
-                <div class="form-group">
-                  <input type="text" class="form-control" name="title" value="{{ $post->title }}">
-                </div>
-                
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subtitle" value="{{ $post->subTitle }}">
-                </div>
-                
-                <div class="form-group">
-                  <textarea data-id="{{ $post->id }}" data-type="{{ get_class($post) }}" data-url="{{ route('attachments.store') }}" name="content" id="editor" cols="30" rows="3" class="form-control ">
-                    {{ $post->content }}
-                  </textarea>
-                </div>
-                
-                <div class="form-group">
-                  <button class="btn btn-primary">Envoyer</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- fin du row des ajouts de post -->
+
   
 </div>
 @endsection
