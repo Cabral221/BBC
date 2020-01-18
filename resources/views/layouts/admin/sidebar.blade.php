@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   
-  <title>SB Admin 2 - Dashboard</title>
+  <title>BBC</title>
   
   <!-- Custom fonts for this template-->
   <link href="{{asset('asset_admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -37,7 +37,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">BBC <sup>&</sup></div>
       </a>
       
       <!-- Divider -->
@@ -67,7 +67,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Custom Components:</h6>
-              <a class="collapse-item" href="{{ route('admin.blog.posts.index') }}">Articles</a>
+              <a class="collapse-item" href="{{ route('admin.blog.posts.index') }}">Posts</a>
               <a class="collapse-item" href="{{ route('admin.blog.comments.index') }}">Comments</a>
               <a class="collapse-item" href="{{ route('admin.blog.gallerys.index') }}">Gallerys</a>
               <a class="collapse-item" href="{{ route('admin.blog.news.index') }}">News</a>

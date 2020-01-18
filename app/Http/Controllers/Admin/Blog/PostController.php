@@ -19,7 +19,7 @@ class PostController extends Controller
     public function create()
     {
         return $this->edit($post);
-        // return view('admin.posts.create', compact('post'));
+        return view('admin.posts.create', compact('post'));
     }
 
     public function store()
@@ -37,5 +37,14 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->update($request->all());
         return redirect()->route('admin.blog.posts.index',['id' => $post->id])->with('success','Article modifié');
+    }
+
+
+    public function destroy($id)
+    {
+        $delete_post = Post::find($id);
+        if($delete_post)
+        $delete_post->delete();
+        return redirect()->back();
     }
 }
