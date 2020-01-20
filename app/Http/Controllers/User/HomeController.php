@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Info;
+use App\Models\Partner;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
@@ -31,7 +34,9 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        Flashy::error('Welcome aboard!', 'https://serene-beach-27124.herokuapp.com');
-        return view('welcome');
+        $info = Info::first();
+        $partners = Partner::all();
+        $slides = Slide::limit(3)->get();
+        return view('welcome',compact(['slides','info','partners']));
     }
 }

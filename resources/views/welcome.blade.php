@@ -316,9 +316,9 @@
     $(document).ready(function() {
         'use strict';
         jQuery('#headerwrap').backstretch([
-            "images/bg-header.jpg",
-            "assets/img/bg/bg2.jpg",
-            "assets/img/bg/bg3.jpg"
+            @foreach($slides as $slide)
+                ["{{ asset($slide->image) }}"],
+            @endforeach
         ], {
             duration: 8000,
             fade: 500

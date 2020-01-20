@@ -31,6 +31,15 @@ body {
 .bg-danger, .btn-danger{
     background-color: #e3342f !important;   
  }
+
+.bg-blue{
+  background-color: rgba(52, 144, 220, 0.226);
+}
+
+.bg-white{
+  background-color: #ffffff;
+}
+
 .bg-primary, .btn-primary{
     background-color: #3490dc !important;   
  }

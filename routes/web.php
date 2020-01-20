@@ -36,12 +36,16 @@ Route::name('user.')->group(function(){
     Route::get('/home', 'User\HomeController@index')->name('home');
 
     Route::get('/programs','User\PageController@programs')->name('programs');
+    
+    Route::resource('/programs','User\ProgramController')->only(['index','show']);
+    // Route::resource('/programs/type','User\TypeController')->only(['index','show']);
+
     Route::get('/library','User\PageController@library')->name('library');
     Route::get('/contact','User\PageController@contact')->name('contact');
     Route::get('/member','User\PageController@member')->name('member');
 
-    Route::get('/admission', 'user\AdmissionController@index')->name('admission');
-    Route::resource('/posts', 'user\PostController')->only(['index','show']);
+    Route::get('/admission', 'User\AdmissionController@index')->name('admission');
+    Route::resource('/posts', 'User\PostController')->only(['index','show']);
 });
 
 // Route grouper des administrateur

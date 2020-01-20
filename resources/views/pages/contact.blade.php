@@ -26,19 +26,19 @@
                         <table class="table">
                             <tr>
                                 <td>Address</td>
-                                <td>73 , Cité Keur Gorgui Sacré Coeur Pyrotechnie</td>
+                                <td>{{ $info->adress }}</td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td>Email@example.com</td>
+                                <td>{{ $info->phone }}</td>
                             </tr>
                             <tr>
                                 <td>Phone</td>
-                                <td>+ 221 33 869 25 00</td>
+                                <td>{{ $info->phone }}</td>
                             </tr>
                             <tr>
                                 <td>Postal</td>
-                                <td>21784</td>
+                                <td>{{ $info->bp }}</td>
                             </tr>
                         </table>
                     </div>
@@ -52,7 +52,7 @@
                     <form method="post" action="sendemail.php" id="contactform" class="main-contact-form wow">
                         <input type="text" style="border-color:black;" class="form-control col-md-4 text-dark" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." />
                         <input type="text" style="border-color:black;" class="form-control col-md-4 text-dark" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />
-                        <input type="text" style="border-color:black;" class="form-control col-md-4 text-dark" name="website" placeholder="Your URL *" id="website" required data-validation-required-message="Please enter your web address." />
+                        {{-- <input type="text" style="border-color:black;" class="form-control col-md-4 text-dark" name="website" placeholder="Your URL *" id="website" required data-validation-required-message="Please enter your web address." /> --}}
                         <textarea name="comments" style="border-color:black;" style="border-color:black;" class="form-control text-dark" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
                         <button class="btn btn-danger btn-block mt30 pull-left" type="submit"> <h4> Send</h4></button>
                     </form>
@@ -62,10 +62,21 @@
 
     </div>
 </section>
-<div style="height: 400px;">
+<div style="">
     <h1 class="text-center text-dark">Visit us !</h1>
-    <div id="googlemap">
-    </div>
+    @map([
+    'lat' => 48.134664,
+    'lng' => 11.555220,
+    'zoom' => 6,
+    'markers' => [
+        [
+            'title' => 'Go NoWare',
+            'lat' => 48.134664,
+            'lng' => 11.555220,
+            'url' => 'https://gonoware.com',
+        ],
+    ],
+])
 </div>
 <div class="followers bg-primary">
     <div class="container">
@@ -92,15 +103,16 @@
 @endsection
 
 @section('js')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY07NMfFdqjMwY4QJWO9FkDsAdCrKcrFU&callback=initMap"
-async defer></script>
 <script>
-    var map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('googlemap'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
-      });
-    }
+    // $(window).ready(function() {
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('googlemap'), {
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 5
+                });
+        }
+    // }
   </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUK-yTMNJg4GpQGHRJrJA15qO7ra1PN44&callback=initMap" async defer></script>
 @endsection

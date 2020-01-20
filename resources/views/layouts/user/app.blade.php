@@ -49,7 +49,7 @@
 	<title>@yield('title', "BBC SN University")</title>
 	
 	@include('layouts.user.style')
-
+	@mapstyles
 	@yield('css')
 </head>
 <body>
@@ -88,5 +88,6 @@
 	
 	@yield('js')
 	@include('flashy::message')
+	@mapscripts
 </body>
 </html>
