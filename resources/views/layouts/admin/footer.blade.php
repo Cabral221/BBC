@@ -111,6 +111,17 @@ $('#edit_teamsModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #image').html("< img src= {{URL::to('/')}}/image"+image+" width:'30' class='img-thumbnail' />")
   modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
 })
+
+
+$('#edit_progModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var prog_id = button.data('id') 
+  var libele = button.data('libele') 
+  var modal = $(this)
+  modal.find('.modal-body #prog_id').val(prog_id)
+  modal.find('.modal-body #libele').val(libele)
+
+})
     </script>
     @yield('js')
 </body>

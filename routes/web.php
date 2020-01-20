@@ -40,8 +40,8 @@ Route::name('user.')->group(function(){
     Route::get('/contact','User\PageController@contact')->name('contact');
     Route::get('/member','User\PageController@member')->name('member');
 
-    Route::get('/admission', 'user\AdmissionController@index')->name('admission');
-    Route::resource('/posts', 'user\PostController')->only(['index','show']);
+    Route::get('/admission', 'User\AdmissionController@index')->name('admission');
+    Route::resource('/posts', 'User\PostController')->only(['index','show']);
 });
 
 // Route grouper des administrateur
@@ -55,6 +55,7 @@ Route::prefix('admin/')->name('admin.')->group(function(){
     });
 
     Route::prefix('programms')->name('programms.')->group(function(){
+        Route::resource('/programms','Admin\Programms\HomeController');
         Route::resource('/filliers','Admin\Programms\FillierController');
         Route::resource('/modules','Admin\Programms\ModuleController');
         Route::resource('/specialites','Admin\Programms\SpecialiteController');

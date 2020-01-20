@@ -20,7 +20,8 @@
   <link href="{{asset('asset_admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
   <link href="{{asset('asset_admin/css/sb-admin-2.css')}}" rel="stylesheet">
   
-  <script src="{{ asset('js/app.js') }}"></script>
+  
+<script src="{{ asset('/js/admin/axios.js')}}"></script>
   
 </head>
 
@@ -85,6 +86,7 @@
           <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Custom Utilities:</h6>
+              <a class="collapse-item" href="{{ route('admin.programms.programms.index') }}">Programms</a>
               <a class="collapse-item" href="{{ route('admin.programms.filliers.index') }}">Filliers</a>
               <a class="collapse-item" href="{{ route('admin.programms.modules.index') }}">Modules</a>
               <a class="collapse-item" href="{{ route('admin.programms.specialites.index') }}">Specialites</a>
