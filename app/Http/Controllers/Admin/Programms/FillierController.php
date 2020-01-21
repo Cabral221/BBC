@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Programms;
-
 use App\Models\Filiere;
+use App\Models\Program;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -12,17 +12,13 @@ use App\Http\Controllers\Controller;
 class FillierController extends Controller
 {
 
-    public function uploadImage(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null){
-        $name = !is_null($filename) ? $filename : str_random('25');
-        $file = $uploadedFile->storeAs($folder, $name.'.'.$uploadedFile->getClientOriginalExtension(), $disk);
-     
-        return $file;
-     }  
+
 
     public function index()
     {
+        $progs = Program::All();
         $fillier = Filiere::get();
-        return view('admin.programms.filliers.index',compact('fillier'));
+        return view('admin.programms.filliers.index',compact(['fillier','progs']));
     }
 
     public function create()
@@ -39,6 +35,13 @@ class FillierController extends Controller
     {
         
     }
+
+    public function uploadImage(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null){
+        $name = !is_null($filename) ? $filename : str_random('25');
+        $file = $uploadedFile->storeAs($folder, $name.'.'.$uploadedFile->getClientOriginalExtension(), $disk);
+     
+        return $file;
+     }  
 
     public function store(Request $request)
     {
@@ -77,5 +80,11 @@ class FillierController extends Controller
         if($delete_filiere)
         $delete_filiere->delete();
         return redirect()->back();
+    }
+
+    public function show($id)
+    {
+        $fil = Filiere::find($id);
+        return view('admin.programms.filliers.create',compact('fil'));
     }
 }

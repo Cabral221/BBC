@@ -10,23 +10,24 @@
 </div>
 
     <!-- Row pour ajout des post -->
+    @foreach($progs as $prog)
     <div class="row">
     <!-- Area Chart -->
     <div class="col-xl-12 col-lg-7">
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">All Programms</h4>
+          <h4 class="m-0 font-weight-bold text-primary">{{ $prog->libele }}</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
           <div class="">
             <div class="container">
-              @if (session('success'))
+              <!-- @if (session('success'))
               <div class="alert alert-success">
                 {{ session('success')}}
               </div>
-              @endif
+              @endif -->
                     <div class="">
                     <table class="table table-bordered text-center">
                     <thead>
@@ -39,7 +40,7 @@
                         </tr>
                     </thead>
                     {{$i = ''}}
-                    @foreach($fillier as $filiere)
+                    @foreach($prog->filieres as $filiere)
                     <tbody>
                         <tr>
                             <th scope="row">{{++$i}}</th>
@@ -47,7 +48,7 @@
                             <td>{{$filiere->libele}}</td>
                             <td><img src="{{ asset($filiere->icon) }}" style="width:30px;height:30px;" alt="" srcset=""></td>
                             <td>
-                                <button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$filiere->id}}" data-libele="{{$filiere->libele}}"  data-toggle="modal" data-target="#edit_progModal" title="View"><i class="fas fa-street-view"></i></button>
+                                <a href="{{route('admin.programms.filliers.show',$filiere->id)}}" class="btn btn-success btn-xs mb-1" style='border-radius:5%;' title="View"><i class="fas fa-street-view"></i></a>
                                 <button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$filiere->id}}" data-libele="{{$filiere->libele}}"  data-toggle="modal" data-target="#edit_progModal" title="Edit"><i class="far fa-edit"></i></button>
                                 <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$filiere->id}}').submit();"  title="Delete" name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
                                 <form id="form-delete-{{$filiere->id}}" action="{{route('admin.programms.filliers.destroy',$filiere->id)}}" method="post">
@@ -66,16 +67,12 @@
       </div>
     </div>
   </div>
+  @endforeach
   <!-- fin du row des ajouts de post -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quam quasi facere quia ad aliquid, omnis ducimus consequuntur ab minima quas, sed iure atque nesciunt corporis distinctio repellendus laudantium eius.
-    </div>
-  </div>
-</div>
+
+
+
 
 </div>
 @endsection
