@@ -36,11 +36,11 @@
         <div class="collapse navbar-collapse" id="main-navigation">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="{{ route('user.welcome') }}" class="active-page">Home</a>
+                    <a href="{{ route('user.welcome') }}" class="{{ isset($current_page) && $current_page == 'home' ? 'active-page' : '' }}">Home</a>
                     
                 </li>
                 <li class="dropdown">
-                    <a href="{{ route('user.programs.index') }}">Programs <span class="pe-7s-angle-down"></span></a>
+                <a href="{{ route('user.programs.index') }}" class="{{ isset($current_page) && $current_page == 'programs' ? 'active-page' : '' }}">Programs <span class="pe-7s-angle-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="header-2.html">Canadian</a></li>
                         <li><a href="header-2.html">English</a></li>
@@ -48,13 +48,13 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="{{ route('user.library') }}">Library</a>
+                    <a href="{{ route('user.library') }}"  class="{{ isset($current_page) && $current_page == 'library' ? 'active-page' : '' }}">Library</a>
                 </li>
                 <li class="dropdown">
-                    <a href="{{ route('user.contact') }}">Contact</a>
+                    <a href="{{ route('user.contact') }}" class="{{ isset($current_page) && $current_page == 'contact' ? 'active-page' : '' }}">Contact</a>
                 </li>
                 <li class="dropdown">
-                    <a href="{{ route('user.member') }}">Member</span></a>
+                    <a href="{{ route('user.member') }}" class="{{ isset($current_page) && $current_page == 'member' ? 'active-page' : '' }}">Member</span></a>
                     
                 </li>
             </ul>

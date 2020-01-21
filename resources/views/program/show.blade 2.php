@@ -147,19 +147,18 @@
         </div>
     </div>
 </section>
+<section>
     <div class="row bg-primary">
         <div class="container">
-            <h2 class="text-center">Spécialisation</h2>
-            <table class="table">
-                <tr>
-                    <th>
-                        <td>Finance</td>
-                        <td>Marketing</td>
-                        <td>Manegment</td>
-                        <td>Human Resource Managment</td>
-                    </th>
-                </tr>
-            </table>
+            <h2>Spécialisation</h2>
+            <div>
+                <table class="table">
+                    <tr>
+                        <th></th>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
+</section>
 @endsection

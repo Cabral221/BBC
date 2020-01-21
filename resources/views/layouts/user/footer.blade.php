@@ -2,10 +2,10 @@
     <div class="container text-center pt-3">
         <div style="border-bottom: 2px seashell solid">
             <h2>Trust partners</h2>
-            <div class="logo-partner mb-5">
+            <div class="logo-partner mb-5 row">
                 @if (isset($partners))
                     @foreach ($partners as $partner)
-                        <img src="{{ asset($partner->logo) }}" class="m-2" alt="" srcset="">
+                        <img src="{{ asset($partner->logo) }}" class="m-2" width="100px" alt="" srcset="">
                     @endforeach
                 @else
                     <p>En négociation</p>
