@@ -17,6 +17,7 @@ class CreateInfosTable extends Migration
             $table->bigIncrements('id');
             $table->string('phone');
             $table->string('adress');
+            $table->string('email');
             $table->string('bp');
             $table->timestamps();
         });

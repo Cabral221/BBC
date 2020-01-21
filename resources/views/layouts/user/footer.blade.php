@@ -3,9 +3,15 @@
         <div style="border-bottom: 2px seashell solid">
             <h2>Trust partners</h2>
             <div class="logo-partner mb-5">
-                <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset="">
-                <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset="">
-                <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset="">
+                @if (isset($partners))
+                    @foreach ($partners as $partner)
+                        <img src="{{ asset($partner->logo) }}" class="m-2" alt="" srcset="">
+                    @endforeach
+                @else
+                    <p>En négociation</p>
+                @endif
+                {{-- <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset="">
+                <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset=""> --}}
             </div>
         </div>
         <div class="row pb-3 pt-3 h-100">
