@@ -11,32 +11,29 @@ use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
-    public function programs()
-    {
-        $image = Slide::first();
-        $partners = Partner::all();
-        $info = Info::first();
-        return view('pages.programs', compact(['info','partners','image']));
-    }
+    
     public function library()
     {
-        $image = Slide::first();
-        $partners = Partner::all();
-        $info = Info::first();
-        return view('pages.library', compact(['info','partners','image']));
+        $info = $this->recapdata();
+        return view('pages.library', $info);
     }
     public function contact()
     {
-        $image = Slide::first();
-        $partners = Partner::all();
-        $info = Info::first();
-        return view('pages.contact', compact(['info','partners','image']));
+        $info = $this->recapdata();
+        return view('pages.contact',$info);
     }
     public function member()
+    {
+        $info = $this->recapdata();
+        return view('pages.member', $info);
+    }
+
+    private function recapdata()
     {
         $image = Slide::first();
         $partners = Partner::all();
         $info = Info::first();
-        return view('pages.member', compact(['info','partners','image']));
+        return compact(['info','partners','image']);
+
     }
 }

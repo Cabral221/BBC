@@ -17,9 +17,50 @@
 
 @section('content')
 
-<div class="bg-primary" style="height: 400px;">
+<div class="" style="height: 400px;">
     <h1 class="text-center text-dark">Admission Page</h1>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="text-dark">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label for="type" class="control-label">Program</label>
+                            <select class="form-control text-dark" id="type" name="program_id">
+                                <option>Canadian</option>
+                                <option>English</option>
+                                <option>French</option>
+                              </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="type" class="control-label text-dark">Diplome</label>
+                            <select class="form-control text-dark" id="type" name="diplome_id">
+                                <option>Licence</option>
+                                <option>Master</option>
+                                <option>BBA</option>
+                                <option>MBA</option>
+                              </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="type" class="control-label text-dark">Diplome</label>
+                            <select class="form-control text-dark" id="type" name="diplome_id">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                              </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection

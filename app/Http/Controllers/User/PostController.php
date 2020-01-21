@@ -13,17 +13,17 @@ class PostController extends Controller
     public function index()
     {
         $image = Slide::first();
-        $parteners = Partner::all();
+        $partners = Partner::all();
         $info = Info::first();
-        return view('post.index', compact(['info','parteners','image']));
+        return view('post.index', compact(['info','partners','image']));
     }
 
-    public function show ()
+    public function show ($id)
     {
         $image = Slide::first();
-        $parteners = Partner::all();
+        $partners = Partner::all();
         $info = Info::first();
-        return view('post.show', compact(['info','parteners','image']));
+        return view('post.show', compact(['info','partners','image']));
     }
 
 }

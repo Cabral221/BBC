@@ -101,18 +101,3 @@
     </div>
 </div>
 @endsection
-
-@section('js')
-<script>
-    // $(window).ready(function() {
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('googlemap'), {
-                    center: {lat: -34.397, lng: 150.644},
-                    zoom: 5
-                });
-        }
-    // }
-  </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUK-yTMNJg4GpQGHRJrJA15qO7ra1PN44&callback=initMap" async defer></script>
-@endsection

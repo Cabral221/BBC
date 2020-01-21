@@ -17,32 +17,12 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        $image = Slide::first();
-        $partners = Partner::all();
-        $info = Info::first();
-        return view('program.index', compact(['info','partners','image']));
+        $info = $this->recapdata();
+        $info['current_page'] = 'programs';
+        // dd($info);
+        return view('program.index',$info);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -52,40 +32,18 @@ class ProgramController extends Controller
      */
     public function show($id)
     {
-        return view('program.show');
+        $info = $this->recapdata();
+        
+        return view('program.show',$info);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    private function recapdata()
     {
-        //
+        
+        $image = Slide::first();
+        $partners = Partner::all();
+        $info = Info::first();
+        return compact(['info','partners','image']);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
