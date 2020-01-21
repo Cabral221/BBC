@@ -5,7 +5,8 @@
 var textarea = document.querySelector('#editor')
 var csrf = $('meta[name="csrf-token"]').attr('content')
 
-if(window.tinyMCE){
+if(window.tinyMCE)
+{
     // const axios = require('axios')
     console.log('Tiny En marche');
     

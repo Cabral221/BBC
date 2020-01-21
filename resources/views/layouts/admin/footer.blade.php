@@ -111,6 +111,39 @@ $('#edit_teamsModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #image').html("< img src= {{URL::to('/')}}/image"+image+" width:'30' class='img-thumbnail' />")
   modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
 })
+
+
+$('#edit_progModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var prog_id = button.data('id') 
+  var libele = button.data('libele') 
+  var modal = $(this)
+  modal.find('.modal-body #prog_id').val(prog_id)
+  modal.find('.modal-body #libele').val(libele)
+
+})
+
+
+
+$('#view_fil').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var fil_id = button.data('id') 
+  var libele = button.data('libele') 
+  var diplome = button.data('diplome') 
+  var outCome = button.data('outCome') 
+  var duration = button.data('duration') 
+  var describe = button.data('describe') 
+  var icon = button.data('icon') 
+  var modal = $(this)
+  modal.find('.modal-body #fil_id').html(fil_id)
+  modal.find('.modal-body #libele').html(libele)
+  modal.find('.modal-body #diplome').html(diplome)
+  modal.find('.modal-body #outCome').html(outCome)
+  modal.find('.modal-body #duration').html(duration)
+  modal.find('.modal-body #describe').html(describe)
+  // modal.find('.modal-body #icon').html("< img src='"+icon+" width:'30' class='img-thumbnail' />")
+  // modal.find('.modal-body #icon').append("<input type='hidden' name='hidden_image' value='"+icon+"'/>")
+})
     </script>
     @yield('js')
 </body>
