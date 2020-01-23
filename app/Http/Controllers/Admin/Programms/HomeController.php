@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\Admin\Programms;
 use\App\Models\Program;
-use App\Http\Controllers\Controller;
+use App\Models\Niveau;
+use App\Models\Filiere;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
     public function index()
     {
         $programms = Program::All();
-        return view('admin.programms.programms.index',compact('programms'));
+        $fil = Filiere::All();
+        $niv = Niveau::All();
+        return view('admin.programms.programms.index',compact(['programms','fil','niv']));
     }
 
     public function create()

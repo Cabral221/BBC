@@ -2,11 +2,11 @@
 </div>
       <!-- End of Main Content -->
  <!-- Footer -->
- <footer class="sticky-footer bg-white ">
- <!-- bg-gradient-primary -->
-        <div class="container my-auto">
+ <footer class="sticky-footer  bg-gradient-primary">
+ <!-- bg-gradient-primary  bg-white-->
+        <div class="container my-auto ">
           <div class="copyright text-center my-auto">
-            <span class="text-primary">Copyright &copy; Your Website 2020 | Design By EMPRO </span>
+            <span class="text-white">Copyright &copy; BBC UNIVERSITY  2020 | Design By EMPRO </span>
           </div>
         </div>
       </footer>
@@ -124,26 +124,29 @@ $('#edit_progModal').on('show.bs.modal', function (event) {
 })
 
 
-
-$('#view_fil').on('show.bs.modal', function (event) {
+$('#edit_moduleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
-  var fil_id = button.data('id') 
+  var module = button.data('id') 
   var libele = button.data('libele') 
-  var diplome = button.data('diplome') 
-  var outCome = button.data('outCome') 
-  var duration = button.data('duration') 
-  var describe = button.data('describe') 
-  var icon = button.data('icon') 
+  var filiere = button.data('filiere') 
+  var niveau = button.data('niveau') 
   var modal = $(this)
-  modal.find('.modal-body #fil_id').html(fil_id)
-  modal.find('.modal-body #libele').html(libele)
-  modal.find('.modal-body #diplome').html(diplome)
-  modal.find('.modal-body #outCome').html(outCome)
-  modal.find('.modal-body #duration').html(duration)
-  modal.find('.modal-body #describe').html(describe)
-  // modal.find('.modal-body #icon').html("< img src='"+icon+" width:'30' class='img-thumbnail' />")
-  // modal.find('.modal-body #icon').append("<input type='hidden' name='hidden_image' value='"+icon+"'/>")
+  modal.find('.modal-body #module').val(module)
+  modal.find('.modal-body #libele').val(libele)
+  modal.find('.modal-body #filiere_id').val(filiere)
+  modal.find('.modal-body #niveau_id').val(niveau)
 })
+
+
+$('#wordModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var word_id = button.data('id') 
+  var editor = button.data('editor') 
+  var modal = $(this)
+  modal.find('.modal-body #word_id').val(word_id)
+  modal.find('.modal-body #editor').val(editor)
+})
+
     </script>
     @yield('js')
 </body>

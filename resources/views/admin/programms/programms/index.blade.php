@@ -205,19 +205,30 @@
                 {{ session('success')}}
               </div>
               @endif
-              <form action="" method="POST">
+              <form action="{{ route('admin.programms.modules.store') }}" method="POST">
                 @csrf
                 <!-- {{method_field('PUT')}} -->
                     <div class="row">
-                        <div class="form-group col-xl-6 col-lg-6">
-                        <label for="tite">Libellet</label>
-                        <input type="text" class="form-control" name="title" value="">
+                        <div class="form-group col-xl-4 col-lg-4">
+                        <label for="libele">Libellet</label>
+                        <input type="text" class="form-control" name="libele" value="">
                         </div>
 
-                        <div class="form-group col-xl-6 col-lg-6">
-                          <label for="tite">Fillieres Group</label>
-                          <select name="programm_id" id="" class="form-control">
-                            <option value="id">id</option>
+                        <div class="form-group col-xl-4 col-lg-4">
+                          <label for="filiere_id">Fillieres Group</label>
+                          <select name="filiere_id" id="" class="form-control">
+                          @foreach($fil as $fils)
+                            <option value="{{ $fils->id }}">{{ $fils->libele }}</option>
+                          @endforeach
+                          </select>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4">
+                          <label for="niveau_id">Niveau Group</label>
+                          <select name="niveau_id" id="" class="form-control">
+                          @foreach($niv as $nivs)
+                            <option value="{{ $nivs->id }}">{{ $nivs->libele }}</option>
+                          @endforeach
                           </select>
                         </div>
 
@@ -380,7 +391,7 @@
                                                 <input type="hidden" name="prog" id="prog_id" value="{{$programms->id}}">
                                                 <label for="libele" style="color:beige;" class="text-dark">{{ __('Libele') }}</label>
                                                 <input  id="libele" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="libele" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                                @error('logo')
+                                                @error('libele')
                                                 <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                                 </span>

@@ -16,7 +16,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">{{ $fil->libele }}</h4>
+          <h4 class="m-0 font-weight-bold text-primary">{{ $fil->program->libele }} : {{ $fil->libele }}</h4>
         </div>
         <!-- Card Body -->
        
@@ -24,31 +24,22 @@
          
                 <div class="row">
 
-                    <div class="col-xl-6">
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <img src="{{asset($fil->icon)}}" alt="" srcset="" style="width:80px;height:80px;">
-                            </div>
-                            <div class="col-xl-6">
-                                {{ $fil->libele }}
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-xl-6">
-                        <div class="row">
-                            <div class="col-xl-6">
-                                {{ $fil->diplome }}
-                            </div>
-
-                            <div class="col-xl-6">
-                            {{ $fil->duration }}
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-xl-4">
+            
+                    <img src="{{asset($fil->icon)}}" alt="" srcset="" style="width:80px;height:80px;">
+                        <div>  {{ $fil->libele }}</div>
+                    </div>  
                   
-                </div>
+                    <div class="col-xl-4">
+                        {{ $fil->diplome }}
+                    </div>
 
+                </div>
+                    <div class="row">
+                   
+                    {{ $fil->duration }}
+                    
+                    </div>
                   
                 <div class="row">
                         <div class="col-xl-4">

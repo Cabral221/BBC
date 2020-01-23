@@ -49,7 +49,7 @@
                             <td><img src="{{ asset($filiere->icon) }}" style="width:30px;height:30px;" alt="" srcset=""></td>
                             <td>
                                 <a href="{{route('admin.programms.filliers.show',$filiere->id)}}" class="btn btn-success btn-xs mb-1" style='border-radius:5%;' title="View"><i class="fas fa-street-view"></i></a>
-                                <button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$filiere->id}}" data-libele="{{$filiere->libele}}"  data-toggle="modal" data-target="#edit_progModal" title="Edit"><i class="far fa-edit"></i></button>
+                                <a href="{{route('admin.programms.filliers.edit',$filiere->id)}}" class="btn btn-success btn-xs mb-1" style='border-radius:5%;' title="Edit"><i class="far fa-edit"></i></a>
                                 <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$filiere->id}}').submit();"  title="Delete" name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
                                 <form id="form-delete-{{$filiere->id}}" action="{{route('admin.programms.filliers.destroy',$filiere->id)}}" method="post">
                                 @csrf

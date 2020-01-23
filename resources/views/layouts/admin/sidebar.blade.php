@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
-  
+  <!-- <img src="{{asset('img/logo1.png')}}" alt="" srcset=""> -->
   <title>BBC</title>
+  <link rel="icon" href="images/logo1.png">
+  <meta name="author" content="">
   
   <!-- Custom fonts for this template-->
   <link href="{{asset('asset_admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -17,9 +18,11 @@
   
   <!-- Custom styles for this template-->
   <link href="{{asset('img')}}" rel="stylesheet">
+  <link href="{{asset('images')}}" rel="stylesheet">
   <link href="{{asset('asset_admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
   <link href="{{asset('asset_admin/css/sb-admin-2.css')}}" rel="stylesheet">
   
+  <!-- <link href="{{asset('asset_admin/style.css')}}" rel="stylesheet"> -->
   
 <script src="{{ asset('/js/admin/axios.js')}}"></script>
   
@@ -35,10 +38,8 @@
       
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">BBC <sup>&</sup></div>
+       
+        <img src="{{asset('images/logo1.png')}}" alt="" srcset="" style="width:70px;height:70px; padding:5px;" class="text-center rounded">
       </a>
       
       <!-- Divider -->

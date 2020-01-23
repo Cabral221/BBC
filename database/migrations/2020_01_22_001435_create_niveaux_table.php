@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateModulesTable extends Migration
+class CreateNiveauxTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('niveaux', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('filiere_id');
-            $table->integer('niveau_id');
             $table->string('libele');
+            // $table->string('licence II');
+            // $table->string('licence III');
+            // $table->string('Master I');
+            // $table->string('Master II');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateModulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('niveaux');
     }
 }
