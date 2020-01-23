@@ -240,7 +240,7 @@
             </div>
         </div>
         <div class="row text-center text white">
-            <a href="{{ route('user.posts.index') }}" class="btn btn-primary p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
+            <a href="{{ route('user.posts.index') }}" class="btn btn-primary btn-bg-primary p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
         </div>
     </div>
 </div>
@@ -254,11 +254,14 @@
                 </div>
             </div>
             <div class=" col-md-6 vertical-center text-center">
-                <form action="#" class="form vertical-center">
+                <form action="{{ route('user.networks.store') }}" method="POST" class="form vertical-center">
+                    @csrf
                     <div class="vertical-center text-center input-group" style="width:100%">
-                        <input type="text" class="form-control text-center" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
+                        <input type="text" name="email" class="form-control text-center" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
                         <div class="input-group-prepend border-0" style="display:inline-block;float:left">
-                            <button type="submit" class="bg-danger border-0" style="margin-left: 3px;height:40px;width:40px"><span class="bg-danger border-0"><i class="fas fa-paper-plane" style="font-size:20px;color:white;"></i></span></button>
+                            <button type="submit" class="bg-danger border-0" style="margin-left: 3px;height:40px;width:40px">
+                                <span class="bg-danger border-0"><i class="fas fa-paper-plane" style="font-size:20px;color:white;"></i></span>
+                            </button>
                         </div>
                     </div>
                 </form>

@@ -15,16 +15,22 @@ class PageController extends Controller
     public function library()
     {
         $info = $this->recapdata();
+
+        $info['current_page'] = 'library';
         return view('pages.library', $info);
     }
     public function contact()
     {
         $info = $this->recapdata();
+
+        $info['current_page'] = 'contact';
         return view('pages.contact',$info);
     }
     public function member()
     {
         $info = $this->recapdata();
+
+        $info['current_page'] = 'member';
         return view('pages.member', $info);
     }
 

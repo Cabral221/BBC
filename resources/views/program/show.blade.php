@@ -74,6 +74,7 @@
                         <td class="vertical-center"><h3>Modules</h3></td>
                         <td>
                             <div class="row">
+
                                 <div class="col-sm-4">
                                     <h4>Licence 1</h4>
                                     <ul>
@@ -87,6 +88,7 @@
                                         <li>Lorem Ipsum Dolores</li>
                                     </ul>
                                 </div>
+                                
                                 <div class="col-sm-4">
                                     <h4>Licence 2</h4>
                                     <ul>
