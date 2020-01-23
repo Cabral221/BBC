@@ -34,9 +34,23 @@ class HomeController extends Controller
 
     public function welcome()
     {
+        // $info = Info::first();
+        // $partners = Partner::all();
+        // $slides = Slide::limit(3)->get();
+        
+        $info = $this->recapdata();
+
+        $info['current_page'] = 'home';
+        
+        return view('welcome',$info);
+    }
+
+    private function recapdata()
+    {
         $info = Info::first();
         $partners = Partner::all();
         $slides = Slide::limit(3)->get();
-        return view('welcome',compact(['slides','info','partners']));
+        return compact(['info','partners','slides']);
+
     }
 }

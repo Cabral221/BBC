@@ -8,7 +8,7 @@
                         <img src="{{ asset($partner->logo) }}" class="m-2" width="100px" alt="" srcset="">
                     @endforeach
                 @else
-                    <p>En négociation</p>
+                    <p>En négociation</p> 
                 @endif
                 {{-- <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset="">
                 <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset=""> --}}
@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-6 col-sm-6 my-auto p-2">
                 <p class="text-center my-auto">
-                    &copy; Copyright BBC University | Design by EMPRO
+                    &copy; Copyright <a href="{{ route('admin.welcome') }}" style="color: blanchedalmond"> <b>BBC University</b> </a> | Design by EMPRO
                 </p>
             </div>
         </div>

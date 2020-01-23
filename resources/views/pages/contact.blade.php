@@ -30,7 +30,7 @@
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td>{{ $info->phone }}</td>
+                                <td>{{ $info->email }}</td>
                             </tr>
                             <tr>
                                 <td>Phone</td>
