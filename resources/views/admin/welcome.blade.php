@@ -108,9 +108,9 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="h5 mb-0 font-weight-bold text-gray-800">{{$p->name}}</div>
-                      <div class="mb-1"><img src="{{asset($p->logo)}}" alt="" srcset="" style="width:60px;height:60px;"></div>
+                      <div class="mb-1"><img src="{{asset($p->logo)}}" class="img-responsive" alt="" srcset="" style="width:100px;height:100px;"></div>
                     </div>
-                    <button data-toggle="modal"   data-target="#imageModal" data-id="{{$p->id}}" data-name="{{$p->name}}" data-logo="{{$p->logo}}"   title="Edit" class="pd-setting-ed btn btn-primary text-white mr-3"><i class="far fa-edit"></i></button>
+                    <button data-toggle="modal"   data-target="#imageModal" data-id="{{$p->id}}" data-name="{{$p->name}}" data-logo="{{$p->logo}}" data-link="{{$p->link}}"   title="Edit" class="pd-setting-ed btn btn-primary text-white mr-3"><i class="far fa-edit"></i></button>
                     <button type="submit" class="mr-3 btn btn-danger btn-xs"  onclick="event.preventDefault();document.querySelector('#form-delet-{{$p->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="fas fa-trash-alt"></i></button>
                     <form id="form-delet-{{$p->id}}" action="{{route('admin.params.parteners.destroy',$p->id)}}" method="post">
                     @csrf
@@ -146,7 +146,7 @@
         @foreach($slide as $sl)
             <div class="col-xl-4 col-lg-4 mb-1">
                 <div class="card p-2" style="width: 20rem;" >
-                    <img class="card-img-top img-responsive mb-1" style="width:auto;height:200px;" src="{{asset($sl->image)}}" alt="Card image cap">
+                    <img class="card-img-top img-responsive mb-1" src="{{asset($sl->image)}}" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title" ><button type="button" data-id="{{$sl->id}}" data-image="{{$sl->image}}" class="btn btn-primary btn-xs mb-1" data-toggle="modal" data-target="#update_slides"><i class="far fa-edit"></i></button></h5>
                     </div>
@@ -226,6 +226,7 @@
             <table class="table table-striped table-default">
               <thead>
                 <tr>
+                  <th scope="col">E-mail</th>
                   <th scope="col">Phone</th>
                   <th scope="col">Adress</th>
                   <th scope="col">BP</th>
@@ -234,10 +235,11 @@
               </thead>
               <tbody>
                 <tr>
+                  <td>{{$info->email}}</td>
                   <td>{{$info->phone}}</td>
-                  <td>{{$info->adress}}</td>
+                  <td>{{$info->address}}</td>
                   <td>{{$info->bp}}</td>
-                  <td><button data-toggle="modal"  data-target="#exampleModal" data-id="{{$info->id}}" data-adress="{{$info->adress}}" data-bp="{{$info->bp}}" data-phone="{{$info->phone}}"  title="Edit" class="pd-setting-ed text-white btn btn-primary"><i class="far fa-edit"></i></button></td>
+                  <td><button data-toggle="modal"  data-target="#exampleModal" data-id="{{$info->id}}" data-adress="{{$info->address}}" data-bp="{{$info->bp}}" data-phone="{{$info->phone}}"  data-email="{{$info->email}}" title="Edit" class="pd-setting-ed text-white btn btn-primary"><i class="far fa-edit"></i></button></td>
                 </tr>
               </tbody>
             </table>
@@ -265,8 +267,12 @@
       <form action="{{route('admin.params.parteners.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">
-          <label for="logo" class="text-dark">Name</label>
+          <label for="name" class="text-dark">Name</label>
           <input type="text" name="name" class="form-control">
+
+          <label for="link" class="text-dark">Lien</label>
+          <input type="text" name="link" class="form-control">
+
           <label for="logo" class="text-dark">Image</label>
           <input type="file" name="logo" class="form-control">
         </div>
@@ -295,6 +301,15 @@
               {{@csrf_field()}}
                   <div class="modal-body">
                       <input type="hidden" name="info" id="info_id" value="{{$info->id}}">
+
+                      <label for="email" style="color:beige;" class="text-dark">{{ __('Email') }}</label>
+                      <input  id="email" type="email" class="form-control @error('name') is-invalid @enderror text-center" name="email" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                      @error('email')
+                      <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
+
                       <label for="phone" style="color:beige;" class="text-dark">{{ __('Phone') }}</label>
                       <input  id="phone" type="number" class="form-control @error('name') is-invalid @enderror text-center" name="phone" value="{{ old('name') }}" required autocomplete="name" autofocus>
                       @error('phone')
@@ -302,6 +317,7 @@
                       <strong>{{ $message }}</strong>
                       </span>
                       @enderror
+
                       <label for="adress" style="color:beige;" class="text-dark">{{ __('Adress') }}</label>
                       <input  id="adress" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="adress" value="{{ old('name') }}" required autocomplete="name" autofocus>
                       @error('adress')
@@ -354,6 +370,15 @@
                                                 <strong>{{ $message }}</strong>
                                                 </span>
                                                 @enderror
+
+                                                <label for="link" style="color:beige;" class="text-dark">{{ __('Lien') }}</label>
+                                                <input  id="link" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="link" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                                @error('lien')
+                                                <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+
                                                 <label for="logo" style="color:beige;" class="text-dark">{{ __('Logo') }}</label>
                                                 <input  id="logo" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="logo" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                 @error('logo')

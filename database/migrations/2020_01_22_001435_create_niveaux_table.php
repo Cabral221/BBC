@@ -16,10 +16,7 @@ class CreateNiveauxTable extends Migration
         Schema::create('niveaux', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('libele');
-            // $table->string('licence II');
-            // $table->string('licence III');
-            // $table->string('Master I');
-            // $table->string('Master II');
+            $table->integer('program_id');
             $table->timestamps();
         });
     }
