@@ -49,12 +49,34 @@
 
                 <div class="col-md-6">
                     <div id="message"></div>
-                    <form method="post" action="sendemail.php" id="contactform" class="main-contact-form wow">
-                        <input type="text" style="border-color:black;" class="form-control col-md-4 text-dark" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." />
-                        <input type="text" style="border-color:black;" class="form-control col-md-4 text-dark" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />
+                    <form method="POST" action="{{ route('user.message') }}" id="contact-form" class="main-contact-form wow">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 col-md-6 ">
+                                <input type="text" style="border-color:black;" class="form-control col-lg-6 col-sm-6 col-md-6 text-dark @error('name') is-invalid @enderror" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." required/>
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-md-6 ">
+                                <input type="text" style="border-color:black;" class="form-control col-lg-6 col-sm-6 col-md-6 text-dark @error('email') is-invalid @enderror" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." required/>
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                            </div>
+                        </div>
                         {{-- <input type="text" style="border-color:black;" class="form-control col-md-4 text-dark" name="website" placeholder="Your URL *" id="website" required data-validation-required-message="Please enter your web address." /> --}}
-                        <textarea name="comments" style="border-color:black;" style="border-color:black;" class="form-control text-dark" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
-                        <button class="btn btn-danger btn-block mt30 pull-left" type="submit"> <h4> Send</h4></button>
+                        <textarea name="message" style="border-color:black;" style="border-color:black;" class="form-control text-dark @error('message') is-invalid @enderror" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message." required></textarea>
+                            @error('message')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        <a class="btn btn-danger btn-block mt30 pull-left" href="#" onclick="event.preventDefault();document.getElementById('contact-form').submit();"> <h4> Send</h4></a>
                     </form>
                 </div>
             </div>
@@ -65,14 +87,14 @@
 <div style="">
     <h1 class="text-center text-dark">Visit us !</h1>
     @map([
-    'lat' => 48.134664,
-    'lng' => 11.555220,
-    'zoom' => 6,
+    'lat' => 14.706713569706585,
+    'lng' => -17.472335847434977,
+    'zoom' => 17,
     'markers' => [
         [
             'title' => 'Go NoWare',
-            'lat' => 48.134664,
-            'lng' => 11.555220,
+            'lat' => 14.7062312,
+            'lng' => -17.4727724,
             'url' => 'https://gonoware.com',
         ],
     ],
@@ -87,12 +109,15 @@
                     <p>Abonnez-vous pour recevoir les nouvelles de l'institut</p>
                 </div>
             </div>
-            <div class=" col-md-6 vertical-center">
-                <form action="#" class="form">
+            <div class=" col-md-6 vertical-center text-center">
+                <form action="{{ route('user.networks.store') }}" method="post" id="form-network" class="vertical-center">
+                    @csrf
                     <div class="vertical-center text-center input-group" style="width:100%">
-                        <input type="text" class="form-control text-center" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
+                        <input type="text" name="email" class="form-control text-center" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
                         <div class="input-group-prepend border-0" style="display:inline-block;float:left">
-                            <button type="submit" class="bg-danger border-0" style="margin-left: 3px;height:40px;width:40px"><span class="bg-danger border-0"><i class="fas fa-paper-plane" style="font-size:20px;color:white;"></i></span></button>
+                            <a href="{{ route('user.networks.store') }}" onclick="event.preventDefault();document.getElementById('form-network').submit();" class="btn btn-danger bg-danger ml-1" style="height:40px;">
+                                <span class="bg-danger border-0"><i class="fas fa-paper-plane" style="font-size:20px;color:white;"></i></span>
+                            </a>
                         </div>
                     </div>
                 </form>

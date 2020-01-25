@@ -14,8 +14,8 @@ class AdmissionController extends Controller
     public function index()
     {
         $image = Slide::first();
-        $parteners = Partner::all();
+        $partners = Partner::all();
         $info = Info::first();
-        return view('pages.admission', compact(['info','parteners','image']));
+        return view('pages.admission', compact(['info','partners','image']));
     }
 }

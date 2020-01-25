@@ -254,14 +254,19 @@
                 </div>
             </div>
             <div class=" col-md-6 vertical-center text-center">
-                <form action="{{ route('user.networks.store') }}" method="POST" class="form vertical-center">
+                <form action="{{ route('user.networks.store') }}" method="post" id="form-network" class="vertical-center">
                     @csrf
                     <div class="vertical-center text-center input-group" style="width:100%">
-                        <input type="text" name="email" class="form-control text-center" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
+                        <input type="text" name="email" class="form-control text-center @error('email') is-invalid @enderror" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         <div class="input-group-prepend border-0" style="display:inline-block;float:left">
-                            <button type="submit" class="bg-danger border-0" style="margin-left: 3px;height:40px;width:40px">
+                            <a href="{{ route('user.networks.store') }}" onclick="event.preventDefault();document.getElementById('form-network').submit();" class="btn btn-danger bg-danger ml-1" style="height:40px;">
                                 <span class="bg-danger border-0"><i class="fas fa-paper-plane" style="font-size:20px;color:white;"></i></span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </form>
@@ -295,9 +300,9 @@
 
 @section('js')
 <script>
-    $(window).on('load',function(){
-        $('#myModal').modal('show');
-    });
+    // $(window).on('load',function(){
+    //     $('#myModal').modal('show');
+    // });
 </script>
 <script>
     var coll = document.getElementsByClassName("collapsible");

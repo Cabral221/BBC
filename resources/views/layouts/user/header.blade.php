@@ -53,10 +53,24 @@
                 <li class="dropdown">
                     <a href="{{ route('user.contact') }}" class="{{ isset($current_page) && $current_page == 'contact' ? 'active-page' : '' }}">Contact</a>
                 </li>
-                <li class="dropdown">
-                    <a href="{{ route('user.member') }}" class="{{ isset($current_page) && $current_page == 'member' ? 'active-page' : '' }}">Member</span></a>
-                    
+                @guest
+                    <li class="dropdown">
+                        <a href="{{ route('user.member') }}" class="{{ isset($current_page) && $current_page == 'member' ? 'active-page' : '' }}">Member</span></a>
+                        
+                    </li>
+                @else
+                <li class="nav-item dropdown">
+                    <a href="#" class="">{{ Auth::user()->firstname }} <span class="pe-7s-angle-down"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
                 </li>
+            @endguest
             </ul>
         </div>
         <!-- /.navbar-collapse -->
