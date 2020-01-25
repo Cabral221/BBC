@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Programms;
 use\App\Models\Program;
 use App\Models\Niveau;
+use App\Models\Diplome;
 use App\Models\Filiere;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,8 +14,13 @@ class HomeController extends Controller
     {
         $programms = Program::All();
         $fil = Filiere::All();
+        $diplome = Diplome::All();
         $niv = Niveau::All();
-        return view('admin.programms.programms.index',compact(['programms','fil','niv']));
+        // foreach($niv as $nivo){
+        //     dd($nivo->program->id);
+        // }
+
+        return view('admin.programms.programms.index',compact(['programms','fil','niv','diplome']));
     }
 
     public function create()

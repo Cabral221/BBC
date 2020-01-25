@@ -41,6 +41,7 @@ class PartenerController extends Controller
             $this->uploadImage($image, $folder, 'public', $image_name);
         }
             $part->name = $request->input('name');
+            $part->link = $request->input('link');
             $part->save();
         return redirect()->route('admin.welcome');
     }
@@ -74,6 +75,7 @@ class PartenerController extends Controller
             }
         }
         $edit_part->name = $request->input('name');
+        $edit_part->link = $request->input('link');
         $edit_part->save();
         return back();
     }

@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Admin\Members;
 
-use App\Http\Controllers\Controller;
+use App\Models\Network;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class NetworkController extends Controller
 {
     public function index()
     {
-        return view('admin.networks.index');
+        $network = Network::All();
+        return view('admin.networks.index',compact('network'));
     }
 
     public function create()
@@ -32,8 +34,11 @@ class NetworkController extends Controller
         
     }
 
-    public function delete()
-    {
-        
-    }
+    public function destroy($id)
+     {
+         $delete_network = Network::find($id);
+         if($delete_network)
+         $delete_network->delete();
+         return redirect()->back();
+     }
 }

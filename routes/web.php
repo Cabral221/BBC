@@ -106,6 +106,8 @@ Route::prefix('admin/')->name('admin.')->group(function(){
     Route::prefix('programms')->name('programms.')->group(function(){
         Route::resource('/programms','Admin\Programms\HomeController');
         Route::resource('/filliers','Admin\Programms\FillierController');
+        Route::resource('/diplomes','Admin\Programms\DiplomeController');
+        Route::resource('/niveaux','Admin\Programms\NiveauController');
         Route::resource('/modules','Admin\Programms\ModuleController');
         Route::resource('/specialites','Admin\Programms\SpecialiteController');
         Route::resource('/unites','Admin\Programms\UniteController');

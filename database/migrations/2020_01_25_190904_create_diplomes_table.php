@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilieresTable extends Migration
+class CreateDiplomesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateFilieresTable extends Migration
      */
     public function up()
     {
-        Schema::create('filieres', function (Blueprint $table) {
+        Schema::create('diplomes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('program_id');
-            $table->string('icon');
             $table->string('libele');
-            $table->text('describe');
-            $table->text('duration');
-            $table->text('requirement');
-            $table->string('outCome');
+            $table->integer('program_id');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreateFilieresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('filieres');
+        Schema::dropIfExists('diplomes');
     }
 }

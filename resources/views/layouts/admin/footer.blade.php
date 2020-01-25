@@ -62,11 +62,13 @@
 $('#exampleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var info_id = button.data('id') 
+  var email = button.data('email') 
   var title = button.data('phone') 
   var adress = button.data('adress') 
   var bp = button.data('bp') 
   var modal = $(this)
   modal.find('.modal-body #info_id').val(info_id)
+  modal.find('.modal-body #email').val(email)
   modal.find('.modal-body #phone').val(title)
   modal.find('.modal-body #adress').val(adress)
   modal.find('.modal-body #bp').val(bp)
@@ -77,10 +79,12 @@ $('#imageModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var info_id = button.data('id') 
   var name = button.data('name') 
+  var link = button.data('link') 
   var logo = button.data('logo') 
   var modal = $(this)
   modal.find('.modal-body #info_id').val(info_id)
   modal.find('.modal-body #name').val(name)
+  modal.find('.modal-body #link').val(link)
   modal.find('.modal-body #logo').html("< img src= {{URL::to('/')}}/image"+logo+" width:'30' class='img-thumbnail' />")
   modal.find('.modal-body #logo').append("<input type='hidden' name='hidden_image' value='"+logo+"'/>")
 })
@@ -145,6 +149,35 @@ $('#wordModal').on('show.bs.modal', function (event) {
   var modal = $(this)
   modal.find('.modal-body #word_id').val(word_id)
   modal.find('.modal-body #editor').val(editor)
+})
+
+
+
+$('#edit_niveauModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var niv_id = button.data('id') 
+  var libele_niv = button.data('libele_niv') 
+  var modal = $(this)
+  modal.find('.modal-body #niv_id').val(niv_id)
+  modal.find('.modal-body #libele_niv').val(libele_niv)
+})
+
+
+
+
+$('#bookModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var book_id = button.data('id') 
+  var title = button.data('title') 
+  var auteur = button.data('auteur') 
+  var dateOut = button.data('dateOut') 
+  var modal = $(this)
+  modal.find('.modal-body #book_id').val(book_id)
+  modal.find('.modal-body #title').val(title)
+  modal.find('.modal-body #auteur').val(auteur)
+  modal.find('.modal-body #dateOut').val(dateOut)
+  modal.find('.modal-body #image').html("< img src= {{URL::to('/')}}/image"+image+" width:'30' class='img-thumbnail' />")
+  modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
 })
 
     </script>

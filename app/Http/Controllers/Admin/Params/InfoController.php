@@ -26,8 +26,9 @@ class InfoController extends Controller
     public function update(Request $request)
     {
         $info = Info::findOrFail($request->info);
+        $info->email = $request->input('email');
         $info->phone = $request->input('phone');
-        $info->adress = $request->input('adress');
+        $info->address = $request->input('adress');
         $info->bp = $request->input('bp');
         $info->save();
         return back();

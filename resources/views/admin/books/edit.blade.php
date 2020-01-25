@@ -1,31 +1,79 @@
-@extends('layouts.app')
+@extends('layouts/admin/app')
+@section('body')
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
 
-@section('content')
-<div class="container">
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success')}}
-        </div>
-    @endif
-    <h2>Editer l'article {{ $post->title }}</h2>
-    <form action="{{ route('admin.posts.update',$post->id)}}" method="POST">
-        {{ method_field('PUT') }}
-        @csrf
-        <div class="form-group">
-        <input type="text" class="form-control" name="title" value="{{ $post->title }}">
-        </div>
-        <div class="form-group">
-            <textarea data-id="{{ $post->id }}" data-type="{{ get_class($post) }}" data-url="{{ route('attachments.store') }}" name="content" id="editor" cols="30" rows="10" class="form-control">
-                {{ $post->content }}
-            </textarea>
-        </div>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800 ">Dashboard</h1>
+  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+</div>
 
-        <div class="form-group">
-            <button class="btn btn-primary">Envoyer</button>
+<!-- Content Row -->
+
+ <!-- Row pour ajout des post -->
+ <div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-12 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Update Books</h6>
         </div>
-    </form>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="">
+            <div class="container">
+              <form action="{{ route( 'admin.blog.books.update' )}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                {{method_field('PUT')}}
+                <div class="row">
+                    <div class="form-group col-xl-4 col-lg-4">
+                    <label for="tite">Title</label>
+                      <input type="text" id="title" class="form-control" name="title" >
+                    </div>
+                    
+                    <div class="form-group col-xl-4 col-lg-4">
+                    <label for="dateout">DateOut</label>
+                      <input type="date" id="date" class="form-control" name="dateout" >
+                    </div>
+
+                    <div class="form-group col-xl-4 col-lg-4">
+                    <label for="image">Image</label>
+                      <input type="file" id="file" class="form-control" name="image" >
+                    </div>
+                
+                </div>
+                <div class="form-group">
+                <label for="resume">Resume</label>
+                  <textarea  name="resume" id="editor" cols="30" rows="6" class="form-control ">
+                    
+                  </textarea>
+                </div>
+                <div class="row">
+                
+                    <div class="form-group col-xl-6 col-lg-6">
+                      <button class="btn btn-primary btn-block">Add</button>
+                    </div>
+
+                    <div class="form-group col-xl-6 col-lg-6">
+                      <button type="reset" class="btn btn-success btn-block">Reinitialiser</button>
+                    </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin du row des ajouts de post -->
+
+
 </div>
 @endsection
+
 
 @section('js')
 <script src="{{ asset('/tinymce/jquery.tinymce.min.js')}}"></script>
