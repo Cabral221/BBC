@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Network;
-use Illuminate\Support\Facades\Flashy;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class NetworkController extends Controller
 {
@@ -18,11 +19,17 @@ class NetworkController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['email' => 'email|unique:networks']);
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|email|unique:networks'
+        ]);
+
+        if($validator->fails()){
+            Flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
 
         Network::create(['email' => $request->email]);
-
-        Flashy::success('Vous etes maintenant abonné');
+        Flashy::success('You are now subscribed');
 
         return redirect()->back();
     }

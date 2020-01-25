@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Hash;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +12,53 @@ use Illuminate\Support\Facades\Hash;
 */
 
 
+// Authentication Routes...
+    // Route::get('login', [
+    //     'as' => 'login',
+    //     'uses' => 'Auth\LoginController@showLoginForm'
+    // ]);
+Route::post('login', [
+    'as' => 'login',
+    'uses' => 'Auth\LoginController@login'
+]);
+Route::post('logout', [
+    'as' => 'logout',
+    'uses' => 'Auth\LoginController@logout'
+]);
+            
+// Password Reset Routes...
+Route::post('password/email', [
+    'as' => 'password.email',
+    'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail'
+]);
+Route::get('password/reset', [
+    'as' => 'password.request',
+    'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm'
+]);
+Route::post('password/reset', [
+    'as' => 'password.update',
+    'uses' => 'Auth\ResetPasswordController@reset'
+]);
+Route::get('password/reset/{token}', [
+    'as' => 'password.reset',
+    'uses' => 'Auth\ResetPasswordController@showResetForm'
+]);
+                            
+// Registration Routes...
+    // Route::get('register', [
+    //     'as' => 'register',
+    //     'uses' => 'Auth\RegisterController@showRegistrationForm'
+    // ]);
+
+Route::post('register', [
+    'as' => 'register',
+    'uses' => 'Auth\RegisterController@register'
+]);
 
 
-// Authentification des users
-Auth::routes();
-
+// Auth::routes();
+                                    
+                                    
 
 // Authentification des Admins
 Route::get('/login-admin','Admin\Auth\LoginController@showLoginForm')->name('login-admin');
@@ -34,18 +74,21 @@ Route::post('/attachments', 'AttachmentController@store')->name('attachments.sto
 Route::name('user.')->group(function(){
     Route::get('/', 'User\HomeController@welcome')->name('welcome');
     Route::get('/home', 'User\HomeController@index')->name('home');
-
+    
     Route::get('/programs','User\PageController@programs')->name('programs');
     
     Route::resource('/programs','User\ProgramController')->only(['index','show']);
     
     Route::resource('/networks','User\NetworkController')->only(['store']);
     // Route::resource('/programs/type','User\TypeController')->only(['index','show']);
-
+    
     Route::get('/library','User\PageController@library')->name('library');
     Route::get('/contact','User\PageController@contact')->name('contact');
     Route::get('/member','User\PageController@member')->name('member');
-
+    
+    // Routes pour les messages
+    Route::post('/message','User\MessageController@store')->name('message');
+    
     Route::get('/admission', 'User\AdmissionController@index')->name('admission');
     Route::resource('/posts', 'User\PostController')->only(['index','show']);
 });
@@ -59,7 +102,7 @@ Route::prefix('admin/')->name('admin.')->group(function(){
         Route::resource('/comments','Admin\Blog\CommentController');
         Route::resource('/news','Admin\Blog\NewController');
     });
-
+    
     Route::prefix('programms')->name('programms.')->group(function(){
         Route::resource('/programms','Admin\Programms\HomeController');
         Route::resource('/filliers','Admin\Programms\FillierController');
@@ -69,24 +112,25 @@ Route::prefix('admin/')->name('admin.')->group(function(){
         Route::resource('/specialites','Admin\Programms\SpecialiteController');
         Route::resource('/unites','Admin\Programms\UniteController');
     });
-
+    
     Route::prefix('templaits')->name('templaits.')->group(function(){
         Route::resource('/alerts','Admin\Templaits\AlertController');
         Route::resource('/slides','Admin\Templaits\SlideController');
     });
-
+    
     Route::prefix('members')->name('members.')->group(function(){
         Route::resource('/teams','Admin\Members\TeamController');
         Route::resource('/networks','Admin\Members\NetworkController');
     });
-
+    
     Route::prefix('params')->name('params.')->group(function(){
         Route::resource('/infos','Admin\Params\InfoController');
         Route::resource('/admissions','Admin\Params\AdmissionController');
         Route::resource('/words','Admin\Params\WordController');
         Route::resource('/parteners','Admin\Params\PartenerController');
     });
-
+    
     Route::get('/','Admin\HomeController@welcome')->name('welcome');
 });
-
+                                    
+                                    

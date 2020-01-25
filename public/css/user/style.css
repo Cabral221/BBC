@@ -137,13 +137,13 @@ a.program-title:hover{
   color: white;
   /* background-color: #fff; */
   background-clip: padding-box;
-  /* border: 1px solid #ced4da; */
-  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+  border-radius: 25px 25px;
   -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-  height: 80px !important;
-  background-color: rgba(52, 144, 220, 0.767) !important;
+  height: 50px !important;
+  background-color: rgba(0, 0, 0, 0.377) !important;
 }
 
 .input-admission::placeholder{

@@ -5,7 +5,7 @@
             <div class="logo-partner mb-5 row">
                 @if (isset($partners))
                     @foreach ($partners as $partner)
-                        <img src="{{ asset($partner->logo) }}" class="m-2" width="100px" alt="" srcset="">
+                        <a href="#"><img src="{{ asset($partner->logo) }}" class="m-2" width="100px" alt="" srcset=""></a>
                     @endforeach
                 @else
                     <p>En négociation</p> 

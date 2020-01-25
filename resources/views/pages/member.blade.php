@@ -17,19 +17,40 @@
 
 @section('content')
 <div style="height:80px;" class="text-dark text-center">
-    <h2 class="vertical-center">Welcome abord </h2>
-    
+    <h2 class="vertical-center">Welcome abord </h2>   
 </div>
 <section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="{{ asset('images/bg-header2.jpg') }}" data-speed="0.7">
     <div class="container">
         <div class="row text-center">
             <div class="col-sm-6 col-md-6 pt-3 pb-3 mt-2">
-                <h3>Log In </h3>
+                <h3>{{ __('Login') }}</h3>
                 <div class="form">
-                    <form action="" method="post" class="form p-5">
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email *">
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Your Password *">
-                        <button type="submit" class="btn btn-primary btn-block p-3 mt-5">Log In</button>
+                    <form action="{{ route('login') }}" id="form-login" method="POST" class="form p-5">
+                        @csrf
+                        <input type="email" class="form-control @error('email-login') is-invalid @enderror" name="email-login" value="{{ old('email-login') }}" placeholder="{{ __('E-Mail Address') }}">
+                        @error('email-login')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        <div class="form-group row p-4">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input pr-3" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label pl-3" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ route('login') }}" onclick="event.preventDefault();document.getElementById('form-login').submit();" class="btn btn-primary btn-block p-3 mt-5">{{ __('Login') }}</a>
                     </form>
                 </div>
             </div>
@@ -39,7 +60,7 @@
                     <div class="info">
                         Don't have an account? Sign up
                     </div>
-                    <form method="POST" action="{{ route('register') }}" class="form">
+                    <form method="POST" action="{{ route('register') }}" id="form-register" class="form">
                         @csrf
                         
                         <div class="form-group row">
@@ -60,7 +81,7 @@
                             <label for="firstname" class="col-md-4 col-form-label text-md-right text-right text-right">{{ __('First Name') }}</label>
                             
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control text-white @error('firstname') is-invalid @enderror" name="name" value="{{ old('firstname') }}" required autocomplete="firstname">
+                                <input id="firstname" type="text" class="form-control text-white @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname">
                                 
                                 @error('firstname')
                                 <span class="invalid-feedback" role="alert">
@@ -69,7 +90,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right text-right">{{ __('E-Mail Address') }}</label>
                             
@@ -108,9 +129,9 @@
                         
                         <div class="form-group row">
                             <div class="col-sm-8 col-sm-offset-2">
-                                <button type="submit" class="btn btn-danger btn-block">
+                                <a href="" onclick="event.preventDefault();document.getElementById('form-register').submit();" class="btn btn-danger btn-block">
                                     S'inscrire
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -163,11 +184,14 @@
                 </div>
             </div>
             <div class=" col-md-6 vertical-center text-center">
-                <form action="#" class="form vertical-center">
+                <form action="{{ route('user.networks.store') }}" method="post" id="form-network" class="vertical-center">
+                    @csrf
                     <div class="vertical-center text-center input-group" style="width:100%">
-                        <input type="text" class="form-control text-center" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
+                        <input type="text" name="email" class="form-control text-center" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
                         <div class="input-group-prepend border-0" style="display:inline-block;float:left">
-                            <button type="submit" class="bg-danger border-0" style="margin-left: 3px;height:40px;width:40px"><span class="bg-danger border-0"><i class="fas fa-paper-plane" style="font-size:20px;color:white;"></i></span></button>
+                            <a href="{{ route('user.networks.store') }}" onclick="event.preventDefault();document.getElementById('form-network').submit();" class="btn btn-danger bg-danger ml-1" style="height:40px;">
+                                <span class="bg-danger border-0"><i class="fas fa-paper-plane" style="font-size:20px;color:white;"></i></span>
+                            </a>
                         </div>
                     </div>
                 </form>
