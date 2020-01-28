@@ -318,7 +318,7 @@
                       </span>
                       @enderror
 
-                      <label for="adress" style="color:beige;" class="text-dark">{{ __('Adress') }}</label>
+                      <label for="adress" style="color:beige;" class="text-dark">{{ __('Address') }}</label>
                       <input  id="adress" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="adress" value="{{ old('name') }}" required autocomplete="name" autofocus>
                       @error('adress')
                       <span class="invalid-feedback" role="alert">
@@ -326,7 +326,7 @@
                       </span>
                       @enderror
                       
-                      <label for="bp" style="color:beige;" class="text-dark">{{ __('Adress') }}</label>
+                      <label for="bp" style="color:beige;" class="text-dark">{{ __('PO Box') }}</label>
                       <input  id="bp" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="bp" value="{{ old('name') }}" required autocomplete="name" autofocus>
                       @error('bp')
                       <span class="invalid-feedback" role="alert">

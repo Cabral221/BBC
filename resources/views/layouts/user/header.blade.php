@@ -12,7 +12,7 @@
                 <div class="pull-right text-right">
                     <ul class="list-inline">
                         <li  style="font-weight:500">
-                        <div><i class="fa fa-envelope-o"></i>{{ $info->adress ?? '73 , Cité Keur Gorgui Sacré Coeur Pyrotechnie'}} - BP {{ $info->bp ??  ' 21784'}} Dakar – Senegal</div>
+                        <div><i class="fa fa-envelope-o"></i>{{ $info->address ?? '73 , Cité Keur Gorgui Sacré Coeur Pyrotechnie'}} - BP {{ $info->bp ??  ' 21784'}} Dakar – Senegal</div>
                         </li>
                     </ul>
                 </div>
