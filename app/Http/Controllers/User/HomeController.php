@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Info;
-use App\Models\Partner;
 use App\Models\Slide;
+use App\Models\Attest;
+use App\Models\Partner;
+use App\Models\Program;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
@@ -37,10 +39,11 @@ class HomeController extends Controller
         // $info = Info::first();
         // $partners = Partner::all();
         // $slides = Slide::limit(3)->get();
-        
         $info = $this->recapdata();
 
         $info['current_page'] = 'home';
+        $info['attests'] = Attest::where('publish',1)->limit(4)->get();
+        $info['programs'] = Program::all();
         
         return view('welcome',$info);
     }

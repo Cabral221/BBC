@@ -64,7 +64,7 @@ Route::post('register', [
 Route::get('/login-admin','Admin\Auth\LoginController@showLoginForm')->name('login-admin');
 Route::post('/login-admin','Admin\Auth\LoginController@login')->name('login-admin');
 Route::post('/logout-admin','Admin\Auth\LoginController@logout')->name('logout-admin');
-Route::get('/home-admin', 'Admin\HomeController@index')->name('home-admin');
+// Route::get('/home-admin', 'Admin\HomeController@index')->name('home-admin');
 
 // Route pour l'enregistrement des
 Route::post('/attachments', 'AttachmentController@store')->name('attachments.store');
@@ -73,20 +73,21 @@ Route::post('/attachments', 'AttachmentController@store')->name('attachments.sto
 // Route grouper des utilisateur
 Route::name('user.')->group(function(){
     Route::get('/', 'User\HomeController@welcome')->name('welcome');
-    Route::get('/home', 'User\HomeController@index')->name('home');
+    // Route::get('/home', 'User\HomeController@index')->name('home');
     
-    Route::get('/programs','User\PageController@programs')->name('programs');
+    // Route::get('/programs','User\PageController@programs')->name('programs');
     
     Route::resource('/programs','User\ProgramController')->only(['index','show']);
     
     Route::resource('/networks','User\NetworkController')->only(['store']);
     // Route::resource('/programs/type','User\TypeController')->only(['index','show']);
     
+    Route::get('/attests', 'User\PageController@attests')->name('attest');
     Route::get('/library','User\PageController@library')->name('library');
     Route::get('/contact','User\PageController@contact')->name('contact');
     Route::get('/member','User\PageController@member')->name('member');
     
-    // Routes pour les messages
+    // Routes pour lo post de  messages
     Route::post('/message','User\MessageController@store')->name('message');
     
     Route::get('/admission', 'User\AdmissionController@index')->name('admission');
@@ -94,7 +95,7 @@ Route::name('user.')->group(function(){
 });
 
 // Route grouper des administrateur
-Route::prefix('admin/')->name('admin.')->group(function(){
+Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin.')->group(function(){
     Route::prefix('blog')->name('blog.')->group(function(){
         Route::resource('/posts','Admin\Blog\PostController');
         Route::resource('/gallerys','Admin\Blog\GalleryController');
@@ -128,9 +129,9 @@ Route::prefix('admin/')->name('admin.')->group(function(){
         Route::resource('/admissions','Admin\Params\AdmissionController');
         Route::resource('/words','Admin\Params\WordController');
         Route::resource('/parteners','Admin\Params\PartenerController');
+        Route::resource('/attests','Admin\Params\AttestController')->except(['show']);
     });
     
     Route::get('/','Admin\HomeController@welcome')->name('welcome');
 });
-                                    
                                     

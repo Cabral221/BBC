@@ -20,7 +20,7 @@ class BookController extends Controller
 
     public function index()
     {
-        $book = Book::All();
+        $book = Book::all();
         return view('admin.books.index',compact('book'));
     }
 

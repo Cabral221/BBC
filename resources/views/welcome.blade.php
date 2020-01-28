@@ -7,7 +7,7 @@
         background-color: black;
         color: white;
         cursor: pointer;
-        padding: 18px;
+        padding: 20px;
         width: 100%;
         border: none;
         text-align: left;
@@ -62,7 +62,7 @@
 <div class="white-wrapper">
     <div class="container bg-dark">
         <div class="row mt-4">
-            <button type="button" class="collapsible text-center"><h4 style="display:inline">Word of Director</h4></button>
+            <button type="button" class="collapsible text-center"><h4 style="display:inline" class="pt-5">Word of Director</h4></button>
             <div class="content mb-3">
                 <div class="text-white">
                     <div class="word-of mt-2 text-center text-white">
@@ -91,77 +91,51 @@
         <div class="container text-dark">
             <h2>Programs</h2>
             <p>Ipsum minim amet qui Lorem eiusmod ea officia non quis velit. Deserunt ex sunt adipisicing aliquip amet proident ea duis qui culpa. Anim mollit do et adipisicing qui minim pariatur amet ut in amet. Ea anim velit quis ullamco mollit ut ad laboris aute mollit sint. Anim ex commodo sunt exercitation esse exercitation sit amet labore veniam nostrud.</p>
-            <button type="button" class="collapsible">Engilsh</button>
-            <div class="content mb-3">
-                <div class="section-inner text-white">
-                    
-                    <div class="row text-center">
-                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="icon-box-1 match-height mb30">
-                                <i class="fa-4x pe-7s-camera"></i>
-                                <div class="card" style="background-color:black;">
-                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
+            <div class="pb-3">Cliquez sur un programme pour voir nos fillière <span class="badge badge-pill text-uppercase">+</span></div>
+            @if (isset($programs) && $programs->count() > 0)
+                @foreach ($programs as $program)
+                    <button type="button" class="collapsible">{{ strtoupper($program->libele) }}</button>
+                    <div class="content mb-3">
+                        <div class="section-inner text-white">
+                            <div class="row text-center">
+
+                                <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                    <div class="icon-box-1 match-height mb30">
+                                        <i class="fa-4x pe-7s-camera"></i>
+                                        <div class="card" style="background-color:black;">
+                                            <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="icon-box-1 match-height mb30">
-                                <i class="fa-4x pe-7s-camera"></i>
-                                <div class="card" style="background-color:black;">
-                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
+                                <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                    <div class="icon-box-1 match-height mb30">
+                                        <i class="fa-4x pe-7s-camera"></i>
+                                        <div class="card" style="background-color:black;">
+                                            <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="icon-box-1 match-height mb30">
-                                <i class="fa-4x pe-7s-camera"></i>
-                                <div class="card" style="background-color:black;">
-                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
+                                <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                    <div class="icon-box-1 match-height mb30">
+                                        <i class="fa-4x pe-7s-camera"></i>
+                                        <div class="card" style="background-color:black;">
+                                            <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
+                            
                         </div>
                     </div>
-                    
-                </div>
-            </div>
-            <button type="button" class="collapsible">French</button>
-            <div class="content mb-3">
-                <div class="section-inner text-white">
-                    
-                    <div class="row text-center">
-                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="icon-box-1 match-height mb30">
-                                <i class="fa-4x pe-7s-camera"></i>
-                                <div class="card" style="background-color:black;">
-                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="icon-box-1 match-height mb30">
-                                <i class="fa-4x pe-7s-camera"></i>
-                                <div class="card" style="background-color:black;">
-                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="icon-box-1 match-height mb30">
-                                <i class="fa-4x pe-7s-camera"></i>
-                                <div class="card" style="background-color:black;">
-                                    <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+                @endforeach
+            @else
+                <p class="text-dark">Pas de programmes pour le moment...</p>
+            @endif
         </div>
     </div>
 </section>
-
+@if (isset($posts) && $post->coun() > 0)
 <div class="bg-white text-center text-dark">
     <div class="container mt-3">
         <h3>Latest activities</h3>
@@ -244,6 +218,38 @@
         </div>
     </div>
 </div>
+@endif
+
+<div class="bg-white text-center text-dark">
+    <div class="container mt-3">
+        <h3>Témoignages</h3>
+        <div class="row text-dark">
+            @if (isset($attests) && $attests->count() > 0)
+                @foreach ($attests as $attest)
+                    <div class="col-sm-3 p-3">
+                        <div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-title text-left pt-3 pb-3">
+                                        <h5 style="display:inline" class="text-left">{{ $attest->author }}</h5>
+                                    </div>
+                                    <p class="card-text text-left">{!! $attest->attest !!}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <p class="text-dark">Pas de temoignage poure le moment...</p>
+            @endif
+        </div>
+        <div class="row text-center text white">
+            <a href="{{ route('user.attest') }}" class="btn btn-primary btn-bg-primary p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
+        </div>
+    </div>
+</div>
+
+{{-- Followors --}}
 <div class="followers bg-primary">
     <div class="container">
         <div class="row mb-0">
@@ -258,11 +264,11 @@
                     @csrf
                     <div class="vertical-center text-center input-group" style="width:100%">
                         <input type="text" name="email" class="form-control text-center @error('email') is-invalid @enderror" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
-                            @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                         <div class="input-group-prepend border-0" style="display:inline-block;float:left">
                             <a href="{{ route('user.networks.store') }}" onclick="event.preventDefault();document.getElementById('form-network').submit();" class="btn btn-danger bg-danger ml-1" style="height:40px;">
                                 <span class="bg-danger border-0"><i class="fas fa-paper-plane" style="font-size:20px;color:white;"></i></span>
@@ -274,26 +280,27 @@
         </div>
     </div>
 </div>
+{{-- end Followers --}}
 
 <!-- Modal Alert -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
-      <div class="modal-content text-dark">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Welcome aboard</h4>
+        <div class="modal-content text-dark">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Welcome aboard</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4>Titre</h4>
+                    <p>Minim duis pariatur laboris et reprehenderit adipisicing deserunt consequat laboris cupidatat.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary p-3">Send</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <div>
-              <h4>Titre</h4>
-              <p>Minim duis pariatur laboris et reprehenderit adipisicing deserunt consequat laboris cupidatat.</p>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary p-3">Send</button>
-        </div>
-      </div>
     </div>
 </div>  
 @endsection
@@ -301,36 +308,36 @@
 @section('js')
 <script>
     // $(window).on('load',function(){
-    //     $('#myModal').modal('show');
-    // });
-</script>
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight){
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            } 
-        });
-    }
-</script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        'use strict';
-        jQuery('#headerwrap').backstretch([
+        //     $('#myModal').modal('show');
+        // });
+    </script>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            'use strict';
+            jQuery('#headerwrap').backstretch([
             @foreach($slides as $slide)
-                ["{{ asset($slide->image) }}"],
+            ["{{ asset($slide->image) }}"],
             @endforeach
-        ], {
-            duration: 8000,
-            fade: 500
+            ], {
+                duration: 5000,
+                fade: 500
+            });
         });
-    });
-</script>
-@endsection
+    </script>
+    @endsection

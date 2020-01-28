@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Info;
 use App\Models\Slide;
+use App\Models\Attest;
 use App\Models\Partner;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
@@ -32,6 +33,14 @@ class PageController extends Controller
 
         $info['current_page'] = 'member';
         return view('pages.member', $info);
+    }
+
+
+    public function attests()
+    {
+        $info = $this->recapdata();
+        $info['attests'] = Attest::where('publish',1)->get();
+        return view('pages.attest',$info);
     }
 
     private function recapdata()

@@ -89,9 +89,9 @@
         var template = $($("#flashy-template").html());
         $(".flashy").remove();
         template.find(".flashy__body").html(message).attr("href", link || "#").end()
-         .appendTo("body").hide().fadeIn(300).delay(2000).animate({
+         .appendTo("body").hide().fadeIn(300).delay(6000).animate({
             marginRight: "-100%"
-        }, 1000, "swing", function() {
+        }, 8000, "swing", function() {
             $(this).remove();
         });
     }

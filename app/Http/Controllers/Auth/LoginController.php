@@ -52,6 +52,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request['email'] = $request->get('email-login');
+        $request['password'] = $request->get('password-login');
 
         $this->validateLogin($request);
 
@@ -92,7 +93,7 @@ class LoginController extends Controller
     {
         $request->validate([
             'email-login' => 'required|string|email',
-            'password' => 'required|string',
+            'password-login' => 'required|string',
         ]);
     }
 

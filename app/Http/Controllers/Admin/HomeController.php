@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Info;
+use App\Models\Team;
+use App\Models\Slide;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Info;
-use App\Models\Partner;
-use App\Models\Slide;
-use App\Models\Team;
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -17,7 +19,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:admin')->except('welcome');
+        $this->middleware('auth:admin');
     }
 
     /**
@@ -33,6 +35,7 @@ class HomeController extends Controller
     public function welcome()
     {
 
+        // dd(Auth::guard('admin')->user()->name);
         $info = Info::first();
         $part = Partner::get();
         $slide = Slide::get();
