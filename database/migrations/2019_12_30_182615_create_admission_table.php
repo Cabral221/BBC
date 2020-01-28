@@ -19,9 +19,10 @@ class CreateAdmissionTable extends Migration
             $table->string('firstname');
             $table->string('email');
             $table->string('phone');
-            $table->integer('lastDiplome');
             $table->integer('program_id');
             $table->integer('filiere_id');
+            $table->integer('niveau_id');
+            $table->integer('diplome_id');
             $table->timestamps();
         });
     }

@@ -9,89 +9,148 @@
   <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
 
-<!-- Content Row -->
-<div class="row">
-
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-primary shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-          </div>
+  <!-- Row pour ajout des images -->
+  <div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-12 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 text-center justify-content-between">
+          <h4 class="m-0 font-weight-bold text-primary">Add Image</h4>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-info shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-            <div class="row no-gutters align-items-center">
-              <div class="col-auto">
-                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="">
+            <div class="container">
+              @if (session('success'))
+              <div class="alert alert-success">
+                {{ session('success')}}
               </div>
-              <div class="col">
-                <div class="progress progress-sm mr-2">
-                  <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
+              @endif
+              <form action="{{ route( 'admin.blog.gallerys.store' ) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <!-- {{method_field('PUT')}} -->
+                    <div class="row">
+                        <div class="form-group col-xl-5 col-lg-5">
+                        <input type="hidden" name="prog" id="prog_id">
+                        <label for="libele">Libellet</label>
+                        <input type="text" class="form-control" id="libele" name="libele" value="">
+                        </div>
+
+                        <div class="form-group col-xl-5 col-lg-5">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control" id="image" name="image" value="">
+                        </div>
+
+                        <div class="form-group col-xl-2 col-lg-2">
+                        <label for="">&nbsp</label>
+                          <button class="btn btn-primary btn-block">Add</button>
+                        </div>
+
+                    </div>
+              </form>
             </div>
           </div>
-          <div class="col-auto">
-            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin du row des ajouts des images -->
+
+
+
+
+
+  <!-- Row pour ajout des images -->
+  <div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-12 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 text-center justify-content-between">
+          <h4 class="m-0 font-weight-bold text-primary">Affichage Image</h4>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+            <div class="row text-center">
+            @foreach($affiche as $img)
+              <div class="col-xl-3">
+                  <div class="card" style="">
+                      <img class="card-img-top img-responsive" src=" {{ asset($img->image) }} " alt="Card image cap">
+                    <div class="card-body">
+                    <p class="card-text"> {{ $img->libele }} </p>
+                    <div class="row">
+                    <div class="col-xl-6"><button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$img->id}}" data-libele="{{ $img->libele }}" data-image="{{$img->image}}"  data-toggle="modal" data-target="#edit_imgModal1"><i class="far fa-edit"></i></button></div>
+                        <div class="col-xl-6">
+                          <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$img->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
+                          <form id="form-delete-{{$img->id}}" action="{{route('admin.blog.gallerys.destroy',$img->id)}}" method="post">
+                          @csrf
+                          @method('delete') 
+                          </form>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+              </div>
+            @endforeach
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Pending Requests Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-warning shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-comments fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
+  <!-- fin du row des ajouts des images -->
 
-<!-- Content Row -->
 
+
+    <!-- modal edition des programss -->
+  @foreach($affiche as $imge)
+  <div class="modal fade" id="edit_imgModal1" tabindex="-1" role="dialog" aria-labelledby="update_progModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update_progModalLabel">Update Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{route('admin.blog.gallerys.update','gallerie')}}" method="post" enctype="multipart/form-data">
+                {{method_field('patch')}}
+                {{@csrf_field()}}
+
+                    <div class="modal-body">
+                        <input type="hidden" name="image_id" id="image_id" value="{{$imge->id}}">
+                        <label for="libele" style="color:beige;" class="text-dark">{{ __('Libele') }}</label>
+                        <input  id="libele" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="libele" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        @error('libele')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+
+                        <label for="image" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
+                        <input  id="image" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="image" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        @error('image')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        
+        </div>
+  </div>
+  </div>
+  @endforeach
+  <!-- fin du modal d'edition des programms -->
 
 
 </div>

@@ -25,7 +25,7 @@
 
                 <div class="row">
 
-                <div class="form-group col-xl-6 col-lg-6">
+                <div class="form-group col-xl-4 col-lg-4">
                     <label for="tite">{{$fil->program->libele}}</label>
                     <select name="program_id" id="" class="form-control">
                     @foreach($progs as $prog)
@@ -34,29 +34,19 @@
                     </select>
                     </div>
                     
-                    <div class="form-group col-xl-6 col-lg-6">
+
+                    <div class="form-group col-xl-4 col-lg-4">
+                    <label for="diplome">Libellet</label>
+                    <input type="text" class="form-control" name="libele" value="{{$fil->libele}}">
+                    </div>
+
+                    <div class="form-group col-xl-4 col-lg-4">
                     <label for="icon">Icone</label>
                     <input type="file" name="icon" class="form-control" id="icon" value="">
                     </div>
 
                 </div>
-
-                    <div class="row">
-                        <div class="form-group col-xl-6 col-lg-6">
-                        <label for="diplome">Libellet</label>
-                        <input type="text" class="form-control" name="libele" value="{{$fil->libele}}">
-                        </div>
-                
                     
-                        <div class="form-group col-xl-6 col-lg-6">
-                        <label for="diplome">Diplome</label>
-                        <input type="text" class="form-control" name="diplome" value="{{$fil->diplome}}">
-                        </div>
-
-                    </div>
-
-                   
-
                     <div class="row">
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="outCome">Outcome</label>

@@ -65,7 +65,6 @@ class FillierController extends Controller
             $filier->program_id = $request->input('program_id');
             $filier->libele = $request->input('libele');
             $filier->describe = $request->input('describe');
-            $filier->diplome = $request->input('diplome');
             $filier->duration = $request->input('duration');
             $filier->requirement = $request->input('requirement');
             $filier->outCome = $request->input('outCome');
@@ -96,7 +95,6 @@ class FillierController extends Controller
             $edit_fil->program_id = $request->input('program_id');
             $edit_fil->libele = $request->input('libele');
             $edit_fil->describe = $request->input('describe');
-            $edit_fil->diplome = $request->input('diplome');
             $edit_fil->duration = $request->input('duration');
             $edit_fil->requirement = $request->input('requirement');
             $edit_fil->outCome = $request->input('outCome');

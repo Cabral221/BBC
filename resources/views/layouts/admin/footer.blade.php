@@ -164,6 +164,17 @@ $('#edit_niveauModal').on('show.bs.modal', function (event) {
 
 
 
+$('#edit_diplomeModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var dip_id = button.data('id') 
+  var libele_dip = button.data('libele_dip') 
+  var modal = $(this)
+  modal.find('.modal-body #dip_id').val(dip_id)
+  modal.find('.modal-body #libele_dip').val(libele_dip)
+})
+
+
+
 
 $('#bookModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
@@ -180,6 +191,30 @@ $('#bookModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
 })
 
+
+$('#edit_imgModal1').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var img_id = button.data('id') 
+  var libele = button.data('libele') 
+  var modal = $(this)
+  modal.find('.modal-body #image_id').val(img_id)
+  modal.find('.modal-body #libele').val(libele)
+  modal.find('.modal-body #image').html("< img src= {{URL::to('/')}}/image"+image+" width:'30' class='img-thumbnail' />")
+  modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
+})
+
+
+
+$('#edit_newModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var new_id = button.data('id') 
+  var libele = button.data('libele') 
+  var editor = button.data('editor') 
+  var modal = $(this)
+  modal.find('.modal-body #new_id').val(new_id)
+  modal.find('.modal-body #libele').val(libele)
+  modal.find('.modal-body #editor').val(editor)
+})
     </script>
     @yield('js')
 </body>

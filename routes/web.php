@@ -101,6 +101,7 @@ Route::prefix('admin/')->name('admin.')->group(function(){
         Route::resource('/books','Admin\Blog\BookController');
         Route::resource('/comments','Admin\Blog\CommentController');
         Route::resource('/news','Admin\Blog\NewController');
+        Route::resource('/messages','Admin\Blog\MessageController');
     });
     
     Route::prefix('programms')->name('programms.')->group(function(){

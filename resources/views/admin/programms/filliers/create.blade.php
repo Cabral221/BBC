@@ -26,34 +26,35 @@
 
                     <div class="col-xl-4">
             
-                    <img src="{{asset($fil->icon)}}" alt="" srcset="" style="width:80px;height:80px;">
-                        <div>  {{ $fil->libele }}</div>
+                    <img src="{{asset($fil->icon)}}" alt="" class="img-responsive pr-2" srcset="" >
+                        <div class="mt-1"> <h3>{{ $fil->libele }}</h3> </div>
                     </div>  
                   
-                    <div class="col-xl-4">
-                        {{ $fil->diplome }}
-                    </div>
+                    <div class="col-xl-8 pl-2">
+                    <h1>OutCome</h1>
+                            {{ $fil->outCome }}
+                        </div>
 
                 </div>
-                    <div class="row">
-                   
+                    <div class="row p-2">
+                   <h1>Duration</h1>
                     {{ $fil->duration }}
                     
                     </div>
                   
-                <div class="row">
-                        <div class="col-xl-4">
-                            {{ $fil->outCome }}
-                        </div>
-                        <div class="col-xl-4">
+                <div class="row p-2">
+                      
+                        <div class="col-xl-6">
+                        <h1>Describe</h1>
                             {{ $fil->describe }}
                         </div>
 
-                        <div class="col-xl-4">
+                        <div class="col-xl-6">
+                        <h1>Requirement</h1>
                             {{ $fil->requirement }}
                         </div>
                 </div>
-     
+    
         </div>
     </div>
   </div>

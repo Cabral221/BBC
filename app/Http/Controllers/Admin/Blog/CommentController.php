@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\Admin\Blog;
 
-use App\Http\Controllers\Controller;
+
+use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CommentController extends Controller
 {
     public function index()
     {
-        return view('admin.comments.index');
+        $comments = Comment::All();
+        $post = Post::All();
+        return view('admin.comments.index',compact(['comments','post']));
     }
 
     public function create()
@@ -32,8 +37,11 @@ class CommentController extends Controller
         
     }
 
-    public function delete()
+    public function destroy($id)
     {
-        
+        $delete_com = Comment::find($id);
+        if($delete_com)
+        $delete_com->delete();
+        return redirect()->back();   
     }
 }
