@@ -6,7 +6,7 @@
  <!-- bg-gradient-primary  bg-white-->
         <div class="container my-auto ">
           <div class="copyright text-center my-auto">
-            <span class="text-white">Copyright &copy; BBC UNIVERSITY  2020 | Design By EMPRO </span>
+            <span class="text-white">Copyright &copy; <a href="{{ route('user.welcome') }}" style="color: blanchedalmond;text-decoration:none;">BBC UNIVERSITY</a>  2020 - {{ Date('Y') }} | Design By EMPRO </span>
           </div>
         </div>
       </footer>
@@ -45,6 +45,7 @@
   <script src="{{asset('asset_admin/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('asset_admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
+  
   <!-- Core plugin JavaScript-->
   <script src="{{asset('asset_admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
@@ -58,6 +59,8 @@
   <script src="{{asset('asset_admin/js/demo/chart-area-demo.js')}}"></script>
   <script src="{{asset('asset_admin/js/demo/chart-pie-demo.js')}}"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
+  
   <script>
 $('#exampleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)

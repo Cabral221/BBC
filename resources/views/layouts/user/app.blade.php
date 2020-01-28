@@ -72,12 +72,12 @@
 		@include('layouts.user.script')
 		
 	</div>
+	<script src="{{ asset('js/app.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.js') }}"></script>
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('assets/js/plugins.js') }}"></script>
 	{{-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> --}}
 	<script src="{{ asset('assets/js/init.js') }}"></script>
-	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>

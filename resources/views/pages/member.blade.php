@@ -19,7 +19,7 @@
 <div style="height:80px;" class="text-dark text-center">
     <h2 class="vertical-center">Welcome abord </h2>   
 </div>
-<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="{{ asset('images/bg-header2.jpg') }}" data-speed="0.7">
+<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="{{ asset('images/bg-study.jpg') }}" data-speed="0.7">
     <div class="container">
         <div class="row text-center">
             <div class="col-sm-6 col-md-6 pt-3 pb-3 mt-2">
@@ -33,8 +33,8 @@
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
-                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}">
-                        @error('password')
+                        <input type="password" name="password-login" id="password" class="form-control @error('password-login') is-invalid @enderror" placeholder="{{ __('Password') }}">
+                        @error('password-login')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

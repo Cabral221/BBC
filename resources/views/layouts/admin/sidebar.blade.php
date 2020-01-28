@@ -24,14 +24,7 @@
   
   <!-- <link href="{{asset('asset_admin/style.css')}}" rel="stylesheet"> -->
   
-<script src="{{ asset('/js/admin/axios.js')}}"></script>
-  <style>
-  .sidebar{
-    /* position:fixed;
-        z-index:20;
-        margin-bottom:30px; */
-  }
-  </style>
+
 </head>
 
 <body id="page-top">
@@ -43,9 +36,9 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-       
-        <img src="{{asset('images/logo1.png')}}" alt=""  srcset="" style="width:70px;height:70px; padding:5px;" class="text-center img-responsive rounded">
+
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.welcome') }}">
+        <img src="{{asset('images/logo1.png')}}" alt="" srcset="" style="width:70px;height:70px; padding:5px;" class="text-center rounded">
       </a>
       
       <!-- Divider -->
@@ -181,9 +174,11 @@
               <a class="collapse-item" href="{{ route('admin.members.networks.index')  }}">Networks</a>
             </div>
           </div>
+
         </li> -->
     
                 
+
                 
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">

@@ -11,8 +11,8 @@ class WordController extends Controller
 {
     public function index()
     {
-        $teams = Team::All();
-        $word = Word::All();
+        $teams = Team::all();
+        $word = Word::all();
         return view('admin.words.index',compact((['teams','word'])));
     }
 
