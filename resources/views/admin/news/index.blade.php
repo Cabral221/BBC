@@ -10,89 +10,150 @@
 </div>
 
 <!-- Content Row -->
-<div class="row">
-
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-primary shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-info shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-            <div class="row no-gutters align-items-center">
-              <div class="col-auto">
-                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-              </div>
-              <div class="col">
-                <div class="progress progress-sm mr-2">
-                  <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pending Requests Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-warning shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-comments fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Content Row -->
 
+   <!-- Row pour ajout des post -->
+   <div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-12 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 text-center justify-content-between">
+          <h4 class="m-0 font-weight-bold text-primary">Add News</h4>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="">
+            <div class="container">
+              @if (session('success'))
+              <div class="alert alert-success">
+                {{ session('success')}}
+              </div>
+              @endif
+              <form action="{{ route( 'admin.blog.news.store' ) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <!-- {{method_field('PUT')}} -->
+                   
+                        <label for="libele">Libellet</label>
+                        <input type="text" class="form-control" id="libele" name="libele" value="">
+                        
+
+                        <label for="content">Content</label>
+                        <textarea name="content" id="editor" class="form-control" cols="30" rows="10"></textarea>
+                    
+                
+                    <br>
+                        <div class="form-group row">
+                          <div class="col-xl-6"><button class="btn btn-primary btn-block" type="submit">Add</button></div>
+                          <div class="col-xl-6"><button class="btn btn-success btn-block" type="reset">Reinitialiser</button></div>
+                        </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin du row des ajouts de post -->
+
+
+
+<!-- Row pour ajout des post -->
+@foreach($news as $n)
+<div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-12 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 ">
+          <div class="row">
+              <div class="col-xl-10"><h4 class="m-0 font-weight-bold text-primary text-capitalize">{{ $n->title }}</h4></div>
+              <div class="col-xl-2">
+              <button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$n->id}}" data-libele="{{$n->title}}" data-editor="{{$n->content}}"  data-toggle="modal" data-target="#edit_newModal"><i class="far fa-edit"></i></button>
+                  <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$n->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
+                  <form id="form-delete-{{$n->id}}" action="{{route('admin.blog.news.destroy',$n->id)}}" method="post">
+                  @csrf
+                  @method('delete') 
+                  </form>
+              </div>
+          </div>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="">
+            <div class="container">
+              {!! $n->content !!}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
+  <!-- fin du row des ajouts de post -->
+
+
+
+
+
+@foreach($news as $new)
+<div class="modal fade" id="edit_newModal" tabindex="-1" role="dialog" aria-labelledby="update_newModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="update_newModalLabel">Update News</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <form action="{{route('admin.blog.news.update','News')}}" method="post">
+          {{method_field('patch')}}
+          {{@csrf_field()}}
+              <div class="modal-body">
+                  <input type="hidden" name="lib_id" id="new_id" value="{{$new->id}}">
+                  <label for="libele" style="color:beige;" class="text-dark">{{ __('Libele') }}</label>
+                  <input  id="libele" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="libele" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                  @error('libele')
+                  <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                  </span>
+                  @enderror
+
+
+                  <label for="editor" style="color:beige;" class="text-dark">{{ __('Content') }}</label>
+                  <textarea id="editor" cols="30" rows="10"  class="form-control @error('name') is-invalid @enderror text-center" name="content" value="{{ old('name') }}" required autocomplete="name" autofocus></textarea>
+                  @error('content')
+                  <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                  </span>
+                  @enderror
+                  
+              </div>
+              <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </form>
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+@endforeach
+                    <!-- fin du modal d'edition des programms -->
+
+
+
 
 
 </div>
+@endsection
+
+
+@section('js')
+<script src="{{ asset('/tinymce/jquery.tinymce.min.js')}}"></script>
+<script src="{{ asset('/tinymce/tinymce.min.js')}}"></script>
+<script src="{{ asset('/js/admin/editor.js')}}"></script>
 @endsection

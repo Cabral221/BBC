@@ -1,6 +1,7 @@
 <?php
 
 use App\Admin;
+use App\Models\Info;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,13 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
         // Seed des infos concernant BBC ( address, BP, phone)
+
+        Info::create([
+            'phone' => "33 779 90 87",
+            'address' => "Mermoz",
+            'email' => "administration@bbcsn.com",
+            'bp' => "Boite"
+        ]);
 
         // Seed des parteners
 

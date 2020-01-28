@@ -11,4 +11,9 @@ class Diplome extends Model
     {
         return $this->belongsTo(Program::class);
     }
+
+    public function admissions()
+    {
+        return $this->hasMany(Admission::class);
+    }
 }

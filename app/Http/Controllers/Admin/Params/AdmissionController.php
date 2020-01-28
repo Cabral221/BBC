@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Admin\Params;
 
-use App\Http\Controllers\Controller;
+use App\Models\Admission;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdmissionController extends Controller
 {
     public function index()
     {
-        return view('admin.admissions.index');
+        $admission = Admission::All();
+        return view('admin.admissions.index',compact('admission'));
     }
 
     public function create()
@@ -32,8 +34,11 @@ class AdmissionController extends Controller
         
     }
 
-    public function delete()
+    public function destroy($id)
     {
-        
+        $delete_ad = Admission::find($id);
+        if($delete_ad)
+        $delete_ad->delete();
+        return redirect()->back();
     }
 }

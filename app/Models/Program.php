@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\Niveau;
 use App\Models\Diplome;
+use App\Models\Filiere;
+use App\Models\Admission;
 use Illuminate\Database\Eloquent\Model;
 
 class Program extends Model
@@ -21,5 +23,10 @@ class Program extends Model
     public function diplomes()
     {
         return $this->hasMany(Diplome::class);
+    }
+
+    public function admissions()
+    {
+        return $this->hasMany(Admission::class);
     }
 }

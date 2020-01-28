@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Module;
 use App\Models\Program;
+use App\Models\Admission;
 use Illuminate\Database\Eloquent\Model;
 
 class Niveau extends Model
@@ -16,5 +17,10 @@ class Niveau extends Model
     public function program()
     {
         return $this->belongsTo(Program::class);
+    }
+
+    public function admissions()
+    {
+        return $this->belongsTo(Admission::class);
     }
 }
