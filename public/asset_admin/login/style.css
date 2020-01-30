@@ -1,0 +1,93 @@
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: url(bg-2.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  font-family: Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+.loginbox{
+    width: 400px;
+    height: 420px;
+    background: rgba(0, 0, 0, 0.692);
+    color: #ffffff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.avatar{
+    background: black;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: fixed;
+    overflow: hidden;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.loginbox label{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: normal;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 4px;
+    
+}
+
+.loginbox input[type="email"], input[type="password"] {
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    outline: none;
+    height: 50px;
+    color: white;
+    font-size: 18px;
+}
+
+.loginbox input[type="submit"] {
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    height: 50px;
+    background: rgb(177, 31, 14);
+    color: white;
+    font-size: 20px;
+    border-radius: 25px;
+}
+
+.loginbox input[type="submit"]:hover {
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid rgb(177, 31, 14);
+}
+
+.loginbox span.invalid-feedback{
+    color: red;
+    font-size: 13px;
+}
+
+.loginbox input.is-invalid{
+    border-bottom: 2px solid red;
+}
