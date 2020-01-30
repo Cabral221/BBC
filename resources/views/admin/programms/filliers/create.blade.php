@@ -26,7 +26,7 @@
 
                     <div class="col-xl-4">
             
-                    <img src="{{asset($fil->icon)}}" alt="" class="img-responsive pr-2" srcset="" >
+                    <img src="{{asset($fil->icon)}}" alt="" class="pr-2" width="250px" srcset="" >
                         <div class="mt-1"> <h3>{{ $fil->libele }}</h3> </div>
                     </div>  
                   

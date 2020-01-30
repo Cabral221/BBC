@@ -40,12 +40,8 @@
                     
                 </li>
                 <li class="dropdown">
-                <a href="{{ route('user.programs.index') }}" class="{{ isset($current_page) && $current_page == 'programs' ? 'active-page' : '' }}">Programs <span class="pe-7s-angle-down"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="header-2.html">Canadian</a></li>
-                        <li><a href="header-2.html">English</a></li>
-                        <li><a href="header-1.html">French</a></li>
-                    </ul>
+                <a href="{{ route('user.programs.index') }}" class="{{ isset($current_page) && $current_page == 'programs' ? 'active-page' : '' }}">Programs</a>
+                    
                 </li>
                 <li class="dropdown">
                     <a href="{{ route('user.library') }}"  class="{{ isset($current_page) && $current_page == 'library' ? 'active-page' : '' }}">Library</a>
@@ -56,7 +52,6 @@
                 @guest
                     <li class="dropdown">
                         <a href="{{ route('user.member') }}" class="{{ isset($current_page) && $current_page == 'member' ? 'active-page' : '' }}">Member</span></a>
-                        
                     </li>
                 @else
                 <li class="nav-item dropdown">

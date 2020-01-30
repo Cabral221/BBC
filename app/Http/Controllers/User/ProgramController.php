@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
+use Carbon\Carbon;
 use App\Models\Info;
+use App\Models\Neew;
 use App\Models\Slide;
+use App\Models\Filiere;
 use App\Models\Partner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,20 +22,23 @@ class ProgramController extends Controller
     {
         $info = $this->recapdata();
         $info['current_page'] = 'programs';
+        $info['news'] = Neew::where('date','>',Carbon::now())->limit(10)->get();
         // dd($info);
         return view('program.index',$info);
     }
 
 
     /**
-     * Display the specified resource.
+     * Display the specified resource filiere.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
+        $filiere = Filiere::find($id);
         $info = $this->recapdata();
+        $info['filiere'] = $filiere;
         
         return view('program.show',$info);
     }

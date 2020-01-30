@@ -253,52 +253,21 @@
                         </div>
                         <hr>
                         <div>
-                            <h4 class="">Latest Articles</h4>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img class="widget-img" src="assets/img/widget/widget1.jpg" alt="">
+                            <h4 class="">Latest News</h4>
+                            @if (isset($news) && $news->count() > 0)
+                                @foreach ($news as $new)
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <span class="media-heading"><a href="#">{{ $new->title }}</a></span>
+                                            <small class="muted">{{ $new->date }}</small>
+                                        </div>
+                                    </div>                                
+                                @endforeach
+                            @else
+                                <div class="media">
+                                    <p>No event for the moment...</p>
                                 </div>
-                                <div class="media-body">
-                                    <span class="media-heading"><a href="#">Panic In London</a></span>
-                                    <small class="muted">Posted 14 April 2019</small>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img class="widget-img" src="assets/img/widget/widget2.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <span class="media-heading"><a href="#">New iPhone News</a></span>
-                                    <small class="muted">Posted 14 April 2019</small>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img class="widget-img" src="assets/img/widget/widget3.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <span class="media-heading"><a href="#">Our Year In Review</a></span>
-                                    <small class="muted">Posted 14 April 2019</small>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img class="widget-img" src="assets/img/widget/widget4.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <span class="media-heading"><a href="#">jQuery Tutorial</a></span>
-                                    <small class="muted">Posted 14 April 2019</small>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="pull-left">
-                                    <img class="widget-img" src="assets/img/widget/widget5.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <span class="media-heading"><a href="#">Sheen Interview</a></span>
-                                    <small class="muted">Posted 14 April 2019</small>
-                                </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

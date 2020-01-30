@@ -4,7 +4,7 @@
 <style>
     /* Style the button that is used to open and close the collapsible content */
     .collapsible {
-        background-color: black;
+        background-color: #3490dc;
         color: white;
         cursor: pointer;
         padding: 20px;
@@ -30,14 +30,15 @@
     
     /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
     .active, .collapsible:hover {
-        background-color: #ccc;
+        background-color: black;
     }
     
     /* Style the collapsible content. Note: hidden by default */
     .content {
-        color: white;
+        border: 1px solid red;
+        color: black;
         padding: 0 18px;
-        background-color: black;
+        background-color: white;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.2s ease-out;
@@ -60,27 +61,27 @@
 
 @section('content')
 <div class="white-wrapper">
-    <div class="container bg-dark">
+    <div class="container">
         <div class="row mt-4">
             <button type="button" class="collapsible text-center"><h4 style="display:inline" class="pt-5">Word of Director</h4></button>
             <div class="content mb-3">
                 <div class="text-white">
-                    <div class="word-of mt-2 text-center text-white">
-                        
-                        <div class="row text-left">
-                            <div class="col-md-3 col-sm-3">
-                                <img src="{{asset('assets/img/news/1.jpg')}}" class="img-responsive" alt="" srcset="">
-                                <h4>Dr Séne, BBC Director</h4>
-                            </div>
-                            <div class="col-md-9 col-sm-9">
-                                <p>Nisi labore ipsum duis veniam ex amet esse. Elit nisi amet voluptate nisi consectetur nulla adipisicing elit ullamco excepteur. Est deserunt sint ad veniam deserunt consequat id duis mollit cillum et. Nisi reprehenderit consequat esse ut occaecat ea id sint exercitation aliquip. Incididunt ipsum sit cupidatat fugiat duis adipisicing velit in tempor amet ut esse. Qui laborum consequat duis laboris deserunt labore ex enim occaecat quis.
-                                </p>
-                                <p>Nisi labore ipsum duis veniam ex amet esse. Elit nisi amet voluptate nisi consectetur nulla adipisicing elit ullamco excepteur. Est deserunt sint ad veniam deserunt consequat id duis mollit cillum et. Nisi reprehenderit consequat esse ut occaecat ea id sint exercitation aliquip. Incididunt ipsum sit cupidatat fugiat duis adipisicing velit in tempor amet ut esse. Qui laborum consequat duis laboris deserunt labore ex enim occaecat quis.
-                                </p>
+                    @if (isset($word) && $word != null)
+                        <div class="word-of mt-2 text-center text-dark">
+                            
+                            <div class="row text-left">
+                                <div class="col-md-3 col-sm-3">
+                                    <img src="{{asset($word->team->image)}}" class="img-responsive" alt="" srcset="">
+                                    <h4>{{ $word->team->firstname .' ' . $word->team->lastname }}, {{ $word->team->job }}</h4>
+                                </div>
+                                <div class="col-md-9 col-sm-9">
+                                    {!! $word->content !!}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
+                    @else
+                        <p>En cors de redaction... </p>                        
+                    @endif
                 </div>
             </div>
         </div>
@@ -97,32 +98,21 @@
                     <button type="button" class="collapsible">{{ strtoupper($program->libele) }}</button>
                     <div class="content mb-3">
                         <div class="section-inner text-white">
-                            <div class="row text-center">
-
-                                <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                    <div class="icon-box-1 match-height mb30">
-                                        <i class="fa-4x pe-7s-camera"></i>
-                                        <div class="card" style="background-color:black;">
-                                            <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
+                            <div class="row text-center pl-3 pr-3">
+                                @if ($program->filieres->count() > 0)
+                                    @foreach ($program->filieres as $filiere)
+                                        <div class="card p-4 col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                            <div class="icon-box-1 match-height mb30">
+                                                <img src="{{ asset($filiere->icon) }}" alt="" width="100px" srcset="">
+                                            </div>
+                                            <div class="text-dark pt-4" style="color:black;">
+                                                <a href="{{ route('user.programs.show',$filiere->id) }}" class="program-title"><h3 class="car-title">{{ strtoupper($filiere->libele) }}</h3></a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                    <div class="icon-box-1 match-height mb30">
-                                        <i class="fa-4x pe-7s-camera"></i>
-                                        <div class="card" style="background-color:black;">
-                                            <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                    <div class="icon-box-1 match-height mb30">
-                                        <i class="fa-4x pe-7s-camera"></i>
-                                        <div class="card" style="background-color:black;">
-                                            <a href="#" class="program-title"><h3 class="car-title">Web Design</h3></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @endforeach
+                                @else
+                                    <p>Pas de filieres pour ce programme...</p>
+                                @endif
 
                             </div>
                             

@@ -5,7 +5,7 @@
             <div class="logo-partner mb-5 row">
                 @if (isset($partners))
                     @foreach ($partners as $partner)
-                        <a href="#"><img src="{{ asset($partner->logo) }}" class="m-2" width="100px" alt="" srcset=""></a>
+                        <a href="{{ $partner->link }}" target="_blank"><img src="{{ asset($partner->logo) }}" class="m-2" width="100px" alt="" srcset=""></a>
                     @endforeach
                 @else
                     <p>En négociation</p> 
@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-6 col-sm-6 my-auto p-2">
                 <p class="text-center my-auto">
-                    &copy; Copyright <a href="{{ route('admin.welcome') }}" style="color: blanchedalmond"> <b>BBC University</b> </a> 2020 - {{ Date('Y') }} | Design by EMPRO
+                    &copy; Copyright <a href="{{ route('admin.welcome') }}" style="color: blanchedalmond" target="_blank"b>BBC University</b> </a> 2020 - {{ Date('Y') }} | Design by EMPRO
                 </p>
             </div>
         </div>
