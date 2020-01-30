@@ -86,7 +86,7 @@ class BookController extends Controller
         $edit_book->auteur = $request->input('auteur');
         $edit_book->dateOut = $request->input('dateOut');
         $edit_book->save();
-        Storage::disk('public')->delete($imgdel);
+        Storage::disk('public')->delete($imgdel); 
         return back();
     }
 
