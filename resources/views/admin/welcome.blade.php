@@ -346,6 +346,7 @@
 </div>
 <!-- Fin du modal des infos -->
 
+
 <!-- modal edition des logo partners -->
 @foreach($part as $p)
 <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
@@ -356,6 +357,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+
       </div>
       <form action="{{route('admin.params.parteners.update','part')}}" method="post" enctype="multipart/form-data">
         {{method_field('patch')}}
