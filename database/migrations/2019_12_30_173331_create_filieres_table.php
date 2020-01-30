@@ -21,7 +21,7 @@ class CreateFilieresTable extends Migration
             $table->text('describe');
             $table->text('duration');
             $table->text('requirement');
-            $table->string('outCome');
+            $table->text('outCome');
             $table->timestamps();
         });
     }

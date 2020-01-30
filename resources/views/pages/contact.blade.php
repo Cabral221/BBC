@@ -26,7 +26,7 @@
                         <table class="table">
                             <tr>
                                 <td>Address</td>
-                                <td>{{ $info->adress }}</td>
+                                <td>{{ $info->address }}</td>
                             </tr>
                             <tr>
                                 <td>Email</td>
