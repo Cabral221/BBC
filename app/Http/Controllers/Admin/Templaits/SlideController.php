@@ -56,6 +56,8 @@ class SlideController extends Controller
         $data = $request->validate([
             'image' => 'nullable | image | mimes:jpeg,png,jpg,gif | max:2048'
          ]);
+         $edit_slide = Slide::findOrFail($request->slides);
+         $imagedel = $edit_slide->image;
 
          $edit_slide = Slide::findOrFail($request->slides);
         // dd($edit_slide);
@@ -72,6 +74,8 @@ class SlideController extends Controller
                 //Maintenant nous pouvons enregistrer l'image dans le dossier en utilisant la méthode uploadImage();
                 $this->uploadImage($image, $folder, 'public', $image_name);
             }
+            $edit_slide->save();
+            Storage::disk('public')->delete($imagedel); 
             $imgDel = $edit_slide->image;
             $edit_slide->save();
             Storage::disk('public')->delete($imgDel);

@@ -13,6 +13,7 @@
                     <ul class="list-inline">
                         <li  style="font-weight:500">
                         <div><i class="fa fa-envelope-o"></i>{{ $info->address ?? '73 , Cité Keur Gorgui Sacré Coeur Pyrotechnie'}} - BP {{ $info->bp ??  ' 21784'}} Dakar – Senegal</div>
+
                         </li>
                     </ul>
                 </div>
@@ -42,6 +43,7 @@
                 <li class="dropdown">
                 <a href="{{ route('user.programs.index') }}" class="{{ isset($current_page) && $current_page == 'programs' ? 'active-page' : '' }}">Programs</a>
                     
+
                 </li>
                 <li class="dropdown">
                     <a href="{{ route('user.library') }}"  class="{{ isset($current_page) && $current_page == 'library' ? 'active-page' : '' }}">Library</a>
@@ -52,6 +54,7 @@
                 @guest
                     <li class="dropdown">
                         <a href="{{ route('user.member') }}" class="{{ isset($current_page) && $current_page == 'member' ? 'active-page' : '' }}">Member</span></a>
+
                     </li>
                 @else
                 <li class="nav-item dropdown">

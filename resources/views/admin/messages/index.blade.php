@@ -10,8 +10,6 @@
 </div>
 
 
-
-
         @foreach( $sms as $com )
         <div class="row">
     <!-- Area Chart -->
@@ -19,6 +17,36 @@
       <div class="card shadow ">
         <!-- Card Header - Dropdown -->
         <div class="card-header pb-0">
+        <h4 class="text-dark text-capitalize"> All Message </h4>
+       </div>
+        <!-- Card Body -->
+        <div class="card-body">
+        <table class="table ">
+       <tr>
+       <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Options</th>
+       </tr>
+        @foreach( $sms as $com )
+     <tr>
+     <tbody>
+        <td class="text-capitalize">{{ $com->name }}</td>
+        <td>{{ $com->email }}</td>
+        <td class="text-truncate"  style="max-width: 100px;">{{ $com->message }}</td>
+        <td>
+        <a href="{{route('admin.blog.messages.show',$com->id)}}"><i class="far fa-eye" title="view"></i></a>
+        <button type="submit" class="mr-3 mb-1" class="" style='background:white;color:red;border:0px;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$com->id}}').submit();"  name="delete" data-toggle="tooltip" title="delete"><i class="far fa-trash-alt"></i></button>
+        <form id="form-delete-{{$com->id}}" action="{{route('admin.blog.messages.destroy',$com->id)}}" method="post">
+        @csrf
+        @method('delete') 
+        </form>
+        </td>
+        </tbody>
+     </tr>
+        @endforeach
+        </table>
+
         <div class="row">
           <div class="col-xl-11"><h4 class="text-dark text-capitalize"> {{ $com->name }} </h4></div>
             <div class="col-xl-1">

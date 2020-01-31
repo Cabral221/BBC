@@ -33,6 +33,17 @@
               @endif
               <form action="{{ route( 'admin.blog.news.store' ) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+<<<<<<< HEAD
+                <!-- {{method_field('PUT')}} -->
+                   
+                        <label for="libele">Libellet</label>
+                        <input type="text" class="form-control" id="libele" name="libele" value="">
+                        
+
+                        <label for="content">Content</label>
+                        <textarea name="content" id="editor" class="form-control" cols="30" rows="10"></textarea>
+                    
+=======
                 
                    
                         <label for="libele">Libele</label>
@@ -43,6 +54,7 @@
 
                         <label for="content" style="mt-4">Description de l'évenement</label>
                         <textarea name="content" id="editor" class="form-control" cols="30" rows="10"></textarea>
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                 
                     <br>
                         <div class="form-group row">
@@ -70,9 +82,15 @@
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 ">
           <div class="row">
+<<<<<<< HEAD
+              <div class="col-xl-10"><h4 class="m-0 font-weight-bold text-primary text-capitalize">{{ $n->title }}</h4></div>
+              <div class="col-xl-2">
+              <button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$n->id}}" data-libele="{{$n->title}}" data-editor="{{$n->content}}"  data-toggle="modal" data-target="#edit_newModal"><i class="far fa-edit"></i></button>
+=======
               <div class="col-xl-10"><h4 class="m-0 font-weight-bold text-primary text-capitalize">{{ $n->title }}</h4> Date: {{ $n->date }}</div>
               <div class="col-xl-2">
               <button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$n->id}}" data-libele="{{$n->title}}" data-date="{{ $n->date }}" data-editor="{{$n->content}}"  data-toggle="modal" data-target="#edit_newModal"><i class="far fa-edit"></i></button>
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                   <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$n->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
                   <form id="form-delete-{{$n->id}}" action="{{route('admin.blog.news.destroy',$n->id)}}" method="post">
                   @csrf
@@ -83,7 +101,11 @@
         </div>
         <!-- Card Body -->
         <div class="card-body">
+<<<<<<< HEAD
+          <div class="">
+=======
           <div class="p-0 m-0">
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
             <div class="container">
               {!! $n->content !!}
             </div>
@@ -115,7 +137,11 @@
               <div class="modal-body">
                   <input type="hidden" name="lib_id" id="new_id" value="{{$new->id}}">
                   <label for="libele" style="color:beige;" class="text-dark">{{ __('Libele') }}</label>
+<<<<<<< HEAD
+                  <input  id="libele" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="libele" value="{{ old('name') }}" required autocomplete="name" autofocus>
+=======
                   <input  id="libele" type="text" class="form-control @error('libele') is-invalid @enderror text-center" name="libele" value="{{ old('name') ?? $new->libele }}" required autocomplete="libele" autofocus>
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                   @error('libele')
                   <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -123,6 +149,10 @@
                   @enderror
 
 
+<<<<<<< HEAD
+                  <label for="editor" style="color:beige;" class="text-dark">{{ __('Content') }}</label>
+                  <textarea id="editor" cols="30" rows="10"  class="form-control @error('name') is-invalid @enderror text-center" name="content" value="{{ old('name') }}" required autocomplete="name" autofocus></textarea>
+=======
                   <label for="date" style="color:beige;" class="text-dark">{{ __('Date') }}</label>
                   <input  id="date" type="datetime-local" class="form-control @error('date') is-invalid @enderror text-center" name="date" value="{{ $new->date ?? old('date')  }}" required autocomplete="date">
                   @error('date')
@@ -134,6 +164,7 @@
 
                   <label for="editor" style="color:beige;" class="text-dark">{{ __('Content') }}</label>
                   <textarea id="editor" cols="30" rows="10"  class="form-control @error('name') is-invalid @enderror text-center" name="content" value="{{ old('content') }}" required autocomplete="content" autofocus></textarea>
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                   @error('content')
                   <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>

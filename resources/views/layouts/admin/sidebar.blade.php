@@ -117,13 +117,11 @@
                   <i class="fas fa-fw fa-table"></i>
                   <span>Message</span></a>
                 </li>
-
-                <li class="nav-item">
+               <li class="nav-item">
                   <a class="nav-link" href="{{route('admin.params.attests.index')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Attest</span></a>
                   </li>
-
         
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">

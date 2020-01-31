@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "content-hash": "013a70d00e46437a907413e49c834f3f",
+=======
     "content-hash": "aa73160556c95aaf20a4cc030936f9ba",
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -40,6 +44,8 @@
             "time": "2019-12-04T15:06:13+00:00"
         },
         {
+<<<<<<< HEAD
+=======
             "name": "doctrine/cache",
             "version": "1.10.0",
             "source": {
@@ -290,6 +296,7 @@
             "time": "2019-11-10T09:48:07+00:00"
         },
         {
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
             "name": "doctrine/inflector",
             "version": "1.3.1",
             "source": {

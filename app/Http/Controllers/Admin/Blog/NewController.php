@@ -16,6 +16,15 @@ class NewController extends Controller
         return view('admin.news.index',compact('news'));
     }
 
+    public function create()
+    {
+        
+    }
+
+    public function edit()
+    {
+        
+    }
 
 
     public function update(Request $request)
@@ -33,6 +42,8 @@ class NewController extends Controller
 
     public function store(Request $request)
     {
+        $new = new Neew();
+            $new->title = $request->input('libele');
         // dd($request->all());
         $new = new Neew();
             $new->title = $request->input('libele');

@@ -59,7 +59,7 @@ class PartenerController extends Controller
     public function update(Request $request)
     {
         $edit_part = Partner::findOrFail($request->part);
-        
+        $imgdel = $edit_part->logo;
         if($edit_part){
             if($request->has('logo')){
                 //On enregistre l'image dans une variable
@@ -77,6 +77,7 @@ class PartenerController extends Controller
         $edit_part->name = $request->input('name');
         $edit_part->link = $request->input('link');
         $edit_part->save();
+        Storage::disk('public')->delete($imgdel); 
         return back();
     }
 

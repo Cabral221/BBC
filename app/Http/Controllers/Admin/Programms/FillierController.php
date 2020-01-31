@@ -77,7 +77,7 @@ class FillierController extends Controller
     public function update(Request $request,$id)
     {
         $edit_fil = Filiere::find($id);
-        
+        $imgdel = $edit_fil->icon;
         if($edit_fil){
             if($request->has('icon')){
                 //On enregistre l'image dans une variable
@@ -99,6 +99,7 @@ class FillierController extends Controller
             $edit_fil->requirement = $request->input('requirement');
             $edit_fil->outCome = $request->input('outCome');
             $edit_fil->save();
+            Storage::disk('public')->delete($imgdel); 
             return redirect()->route('admin.programms.filliers.index');
     }
 

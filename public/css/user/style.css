@@ -99,7 +99,11 @@ a.active-page:hover{
 }
 
 a.program-title{
+<<<<<<< HEAD
+  color: #fff;
+=======
   color: black;
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
 }
 
 a.program-title:hover{
