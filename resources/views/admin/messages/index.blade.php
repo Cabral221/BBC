@@ -11,7 +11,6 @@
 
 
 
-
         <div class="row">
     <!-- Area Chart -->
     <div class="col-xl-12 col-lg-7">
@@ -36,8 +35,8 @@
         <td>{{ $com->email }}</td>
         <td class="text-truncate"  style="max-width: 100px;">{{ $com->message }}</td>
         <td>
-        <a href="{{route('admin.blog.messages.show',$com->id)}}">edite</a>
-        <button type="submit" class="mr-3 mb-1 bg-danger" class="" style='border-radius:5%;color:white;border:0px;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$com->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
+        <a href="{{route('admin.blog.messages.show',$com->id)}}"><i class="far fa-eye" title="view"></i></a>
+        <button type="submit" class="mr-3 mb-1" class="" style='background:white;color:red;border:0px;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$com->id}}').submit();"  name="delete" data-toggle="tooltip" title="delete"><i class="far fa-trash-alt"></i></button>
         <form id="form-delete-{{$com->id}}" action="{{route('admin.blog.messages.destroy',$com->id)}}" method="post">
         @csrf
         @method('delete') 

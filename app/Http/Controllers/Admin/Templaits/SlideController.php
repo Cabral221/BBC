@@ -57,6 +57,7 @@ class SlideController extends Controller
             'image' => 'nullable | image | mimes:jpeg,png,jpg,gif | max:2048'
          ]);
          $edit_slide = Slide::findOrFail($request->slides);
+         $imagedel = $edit_slide->image;
         // dd($edit_slide);
         if($edit_slide){
             if($request->has('image')){
@@ -72,6 +73,7 @@ class SlideController extends Controller
                 $this->uploadImage($image, $folder, 'public', $image_name);
             }
             $edit_slide->save();
+            Storage::disk('public')->delete($imagedel); 
         }
         return redirect()->route('admin.welcome');
      }

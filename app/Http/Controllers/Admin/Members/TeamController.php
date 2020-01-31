@@ -65,6 +65,7 @@ class TeamController extends Controller
             "image" => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048'
          ]);
          $edit_team = Team::findOrFail($request->team);
+         $imgdel = $edit_team->image;
         // dd($edit_team);
         if($edit_team){
             if($request->has('image')){
@@ -83,6 +84,7 @@ class TeamController extends Controller
             $edit_team->lastname = $request->input('lastname');
             $edit_team->job = $request->input('job');
             $edit_team->save();
+            Storage::disk('public')->delete($imgdel); 
         }
         return redirect()->route('admin.welcome');
      }
