@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Info;
 use App\Models\Message;
+use App\Mail\messageCreated;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
@@ -21,7 +22,9 @@ class MessageController extends Controller{
             'email' => 'required|max:255',
             'message' => 'required|min:15',
         ]);
-
+        
+        $message = new messageCreated($request->get('name'), $request->get('email'),$request->get('message'));
+        
         Mail::send('email-contact',[
                 'name' => $request->get('name'),
                 'email' => $request->get('email'),

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Book;
 use App\Models\Info;
 use App\Models\Slide;
 use App\Models\Attest;
 use App\Models\Partner;
+use App\Models\Gallerie;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
@@ -18,6 +20,9 @@ class PageController extends Controller
         $info = $this->recapdata();
 
         $info['current_page'] = 'library';
+        $info['books'] = Book::all();
+        $info['galeries'] = Gallerie::all();
+        // dd($info['galeries']);
         return view('pages.library', $info);
     }
     public function contact()
@@ -31,6 +36,7 @@ class PageController extends Controller
     {
         $info = $this->recapdata();
 
+        $info['galeries'] = Gallerie::all();
         $info['current_page'] = 'member';
         return view('pages.member', $info);
     }

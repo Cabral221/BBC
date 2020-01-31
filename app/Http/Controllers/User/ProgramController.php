@@ -8,6 +8,7 @@ use App\Models\Neew;
 use App\Models\Slide;
 use App\Models\Filiere;
 use App\Models\Partner;
+use App\Models\Program;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,6 +23,7 @@ class ProgramController extends Controller
     {
         $info = $this->recapdata();
         $info['current_page'] = 'programs';
+        $info['programs'] = Program::all();
         $info['news'] = Neew::where('date','>',Carbon::now())->limit(10)->get();
         // dd($info);
         return view('program.index',$info);

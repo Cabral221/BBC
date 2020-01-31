@@ -11,14 +11,20 @@ class messageCreated extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $name;
+    public $email;
+    public $msg;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name,$email,$msg)
     {
-        //
+        $this->name = $name;
+        $this->email = $email;
+        $this->msg = $msg;
     }
 
     /**
