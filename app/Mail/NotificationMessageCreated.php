@@ -2,16 +2,16 @@
 
 namespace App\Mail;
 
+use App\Admin;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class messageCreated extends Mailable
+class NotificationMessageCreated extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $idMes;
     public $name;
     public $email;
     public $msg;
@@ -21,9 +21,8 @@ class messageCreated extends Mailable
      *
      * @return void
      */
-    public function __construct($id,$name,$email,$msg)
+    public function __construct($name,$email,$msg)
     {
-        $this->idMes = $id;
         $this->name = $name;
         $this->email = $email;
         $this->msg = $msg;
@@ -36,6 +35,6 @@ class messageCreated extends Mailable
      */
     public function build()
     {
-        return $this->from($this->email)->markdown('emails.messageCreated');
+        return $this->from(Admin::first()->email)->markdown('emails.notifmessagesforuser');
     }
 }

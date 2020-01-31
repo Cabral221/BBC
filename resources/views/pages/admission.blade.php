@@ -108,10 +108,10 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="text-dark">
-                    <form action="" method="post" class="form from-admission">
+                    <form action="" method="post" class="form from-admission" id="form-admission">
                         <div class="form-group mb-4">
                             <div class="select-style">
-                                <select class="form-control" id="type" name="program_id">
+                                <select class="form-control" id="program" name="program_id">
                                     <option><h1>Canadian</h1></option>
                                     <option>English</option>
                                     <option>French</option>
@@ -120,7 +120,7 @@
                         </div>
                         <div class="form-group mb-4">
                             <div class="select-style">
-                                <select class="form-control" id="type" name="diplome_id">
+                                <select class="form-control" id="diplome" name="diplome_id">
                                     <option>Licence</option>
                                     <option>Master</option>
                                     <option>BBA</option>
@@ -130,7 +130,7 @@
                         </div>
                         <div class="form-group mb-4">
                             <div class="select-style">
-                                <select class="form-control" id="type" name="niveau">
+                                <select class="form-control" id="niveau" name="niveau">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -200,5 +200,6 @@
         });
     }
 </script>
+<script src="{{ asset('js/user/admission.js') }}"></script>
 @endsection
 
