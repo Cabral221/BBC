@@ -4,7 +4,11 @@
 <style>
     /* Style the button that is used to open and close the collapsible content */
     .collapsible {
+<<<<<<< HEAD
         background-color: black;
+=======
+        background-color: #3490dc;
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
         color: white;
         cursor: pointer;
         padding: 20px;
@@ -30,14 +34,25 @@
     
     /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
     .active, .collapsible:hover {
+<<<<<<< HEAD
         background-color: #ccc;
+=======
+        background-color: black;
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
     }
     
     /* Style the collapsible content. Note: hidden by default */
     .content {
+<<<<<<< HEAD
         color: white;
         padding: 0 18px;
         background-color: black;
+=======
+        border: 1px solid red;
+        color: black;
+        padding: 0 18px;
+        background-color: white;
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.2s ease-out;
@@ -60,11 +75,16 @@
 
 @section('content')
 <div class="white-wrapper">
+<<<<<<< HEAD
     <div class="container bg-dark">
+=======
+    <div class="container">
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
         <div class="row mt-4">
             <button type="button" class="collapsible text-center"><h4 style="display:inline" class="pt-5">Word of Director</h4></button>
             <div class="content mb-3">
                 <div class="text-white">
+<<<<<<< HEAD
                     <div class="word-of mt-2 text-center text-white">
                         
                         <div class="row text-left">
@@ -81,6 +101,24 @@
                         </div>
                     </div>
                     
+=======
+                    @if (isset($word) && $word != null)
+                        <div class="word-of mt-2 text-center text-dark">
+                            
+                            <div class="row text-left">
+                                <div class="col-md-3 col-sm-3">
+                                    <img src="{{asset($word->team->image)}}" class="img-responsive" alt="" srcset="">
+                                    <h4>{{ $word->team->firstname .' ' . $word->team->lastname }}, {{ $word->team->job }}</h4>
+                                </div>
+                                <div class="col-md-9 col-sm-9">
+                                    {!! $word->content !!}
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <p>En cors de redaction... </p>                        
+                    @endif
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                 </div>
             </div>
         </div>
@@ -97,6 +135,7 @@
                     <button type="button" class="collapsible">{{ strtoupper($program->libele) }}</button>
                     <div class="content mb-3">
                         <div class="section-inner text-white">
+<<<<<<< HEAD
                             <div class="row text-center">
 
                                 <div class="col-sm-4 wow fadeIn" data-wow-delay="0.2s">
@@ -123,6 +162,23 @@
                                         </div>
                                     </div>
                                 </div>
+=======
+                            <div class="row text-center pl-3 pr-3">
+                                @if ($program->filieres->count() > 0)
+                                    @foreach ($program->filieres as $filiere)
+                                        <div class="card p-4 col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                            <div class="icon-box-1 match-height mb30">
+                                                <img src="{{ asset($filiere->icon) }}" alt="" width="100px" srcset="">
+                                            </div>
+                                            <div class="text-dark pt-4" style="color:black;">
+                                                <a href="{{ route('user.programs.show',$filiere->id) }}" class="program-title"><h3 class="car-title">{{ strtoupper($filiere->libele) }}</h3></a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <p>Pas de filieres pour ce programme...</p>
+                                @endif
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
 
                             </div>
                             

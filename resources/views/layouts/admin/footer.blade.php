@@ -212,10 +212,12 @@ $('#edit_newModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var new_id = button.data('id') 
   var libele = button.data('libele') 
+  var date = button.data('date') 
   var editor = button.data('editor') 
   var modal = $(this)
   modal.find('.modal-body #new_id').val(new_id)
   modal.find('.modal-body #libele').val(libele)
+  modal.find('.modal-body #date').val(date)
   modal.find('.modal-body #editor').val(editor)
 })
     </script>

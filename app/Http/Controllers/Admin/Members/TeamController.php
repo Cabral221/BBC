@@ -66,6 +66,7 @@ class TeamController extends Controller
          ]);
          $edit_team = Team::findOrFail($request->team);
          $imgdel = $edit_team->image;
+
         // dd($edit_team);
         if($edit_team){
             if($request->has('image')){

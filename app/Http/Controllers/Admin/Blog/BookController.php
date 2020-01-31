@@ -66,7 +66,9 @@ class BookController extends Controller
     {
         $edit_book = Book::findOrFail($request->book);
         
+
         $imgdel = $edit_book->image;
+
         if($edit_book){
             if($request->has('image')){
                 //On enregistre l'image dans une variable

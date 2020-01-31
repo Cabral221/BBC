@@ -26,7 +26,11 @@
                         <table class="table">
                             <tr>
                                 <td>Address</td>
+<<<<<<< HEAD
                                 <td>{{ $info->adress }}</td>
+=======
+                                <td>{{ $info->address }}</td>
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                             </tr>
                             <tr>
                                 <td>Email</td>

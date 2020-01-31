@@ -24,6 +24,7 @@
                 <h3>Title</h3>
                 <p class="text-dark">Ex tempor excepteur aute culpa ullamco excepteur ipsum aute tempor nostrud commodo aute. Aute in cupidatat enim deserunt fugiat sit minim. Cillum laborum quis esse fugiat minim esse do eu duis Lorem qui laborum ea laboris. Pariatur sit occaecat cupidatat in eiusmod sit ea pariatur. Deserunt adipisicing quis eiusmod sunt minim mollit. Duis duis laborum occaecat dolore ex incididunt consequat duis tempor veniam fugiat deserunt eu nostrud. Sunt ea ut officia id. Nulla ullamco occaecat quis eu cillum. Officia ullamco ut do velit mollit Lorem id. Eu sint est eu qui aliqua do non id. Commodo incididunt sit consequat nisi reprehenderit veniam quis aliquip officia est et qui. Minim amet eu sunt reprehenderit eu veniam adipisicing proident consequat cupidatat minim deserunt minim esse. Dolor cillum incididunt dolore culpa est culpa ex dolor tempor irure deserunt proident in veniam. Dolor nostrud culpa fugiat cupidatat est.</p>
                 <div class="col-sm-8 text-dark">
+<<<<<<< HEAD
                     <div class="row">
                         <h2 class="text-center"># English</h2>
                         <div class="row">
@@ -242,6 +243,43 @@
                         <hr>
                     </div>
 
+=======
+                    @if (isset($programs) && $programs->count())
+                        @foreach ($programs as $program)
+                            <div class="row">
+                                <h2 class="text-center"># {{ $program->libele }}</h2>
+                                @if ($program->filieres->count() > 0)
+                                    @foreach ($program->filieres as $filiere)
+                                        <div class="row">
+                                            <div class="col-sm-12 blog-item mb10 wow match-height">
+                                                <div class="row">
+                                                    <a href="{{ route('user.programs.show',$filiere->id) }}">
+                                                        <div class="program col-xs-12 pt-3 pb-3 m-3">
+                                                            <div class="media row">
+                                                                <div class="pull col-sm-2 col-lg-2 col-xs-2 text-center vertical-center">
+                                                                    <img class="img-circle img-responsive" style="padding:10px;heigth:80px" src="{{ $filiere->icon }}" alt="">
+                                                                </div>
+                                                                <div class="media-body col-sm-10 col-lg-10 col-xs-10">
+                                                                    <span class="media-heading"><h5>{{ $filiere->libele }}</h5></span>
+                                                                    <p>{{ $filiere->describe }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <p>Aucun filieres pour ce programme...</p>
+                                @endif
+                                <hr>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>Aucun type de programme pour le moment...</p>
+                    @endif
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                 </div>
 
                 <div id="post-sidebar" class="col-sm-3 col-sm-offset-1">
@@ -253,6 +291,7 @@
                         </div>
                         <hr>
                         <div>
+<<<<<<< HEAD
                             <h4 class="">Latest Articles</h4>
                             <div class="media">
                                 <div class="pull-left">
@@ -299,6 +338,23 @@
                                     <small class="muted">Posted 14 April 2019</small>
                                 </div>
                             </div>
+=======
+                            <h4 class="">Latest News</h4>
+                            @if (isset($news) && $news->count() > 0)
+                                @foreach ($news as $new)
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <span class="media-heading">{{ $new->title }}</span>
+                                            <small class="muted">{{ $new->date }}</small>
+                                        </div>
+                                    </div>                                
+                                @endforeach
+                            @else
+                                <div class="media">
+                                    <p>No event for the moment...</p>
+                                </div>
+                            @endif
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                         </div>
                     </div>
                 </div>

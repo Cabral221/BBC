@@ -58,6 +58,8 @@ class SlideController extends Controller
          ]);
          $edit_slide = Slide::findOrFail($request->slides);
          $imagedel = $edit_slide->image;
+
+         $edit_slide = Slide::findOrFail($request->slides);
         // dd($edit_slide);
         if($edit_slide){
             if($request->has('image')){
@@ -74,6 +76,9 @@ class SlideController extends Controller
             }
             $edit_slide->save();
             Storage::disk('public')->delete($imagedel); 
+            $imgDel = $edit_slide->image;
+            $edit_slide->save();
+            Storage::disk('public')->delete($imgDel);
         }
         return redirect()->route('admin.welcome');
      }

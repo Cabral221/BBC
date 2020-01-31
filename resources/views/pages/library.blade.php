@@ -25,6 +25,7 @@
 <div class="container text-dark p-3">
     <div class="header text-center"><h3>Book recommended</h3></div>
     <div class="row p-3 mt-5">
+<<<<<<< HEAD
         <div class="col-sm-6 col-md-4 col-lg-3 pt-2">
             <div class="media">
                 <div class="pull-left">
@@ -97,11 +98,33 @@
                 </div>
             </div>
         </div>
+=======
+        @if (isset($books) && $books->count() > 0)
+            @foreach ($books as $book)
+                <div class="col-sm-6 col-md-4 col-lg-3 pt-2">
+
+                    <div class="media">
+                        <div class="pull-left">
+                            <img class="" width="100px" src="{{ $book->image }}" alt="">
+                        </div>
+                        <div class="media-body text-dark">
+                            <span class="media-heading">{{ $book->title }} by <strong>{{ $book->auteur }}</strong></span>
+                            <small class="muted">{{ $book->dateOut }}</small>
+                        </div>
+                    </div>
+
+                </div>                
+            @endforeach
+        @else
+            <p>Aucun livre recommander pour le moment...</p>
+        @endif
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
     </div>
     <div class="header text-center p-3"><h3>BBC on images</h3></div>
     <div class="row" p-3 mt-5>
         <div class="gallery">
             <div class="card-columns">
+<<<<<<< HEAD
                 <div class="card">
                     <a href="images/img-test.jpg" data-lightbox="mygallery" data-title="EMPRO"><img class="card-img-top img-responsive" src="images/img-test.jpg"></a>
                     <div class="card-body">
@@ -145,11 +168,28 @@
                         <h5 class="card-title">Card title that wraps to a new line</h5>
                     </div>
                 </div>
+=======
+                @if (isset($galeries) && $galeries->count() > 0)
+                    @foreach ($galeries as $galery)
+                        <div class="card">
+                            <a href="{{ $galery->image }}" data-lightbox="mygallery" data-title="{{ $galery->libele }}"><img class="card-img-top img-responsive" src="{{ $galery->image }}"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $galery->libele }}</h5>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <p class="text-center">Aucune images pour le moment...</p>
+                @endif
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
             </div>
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 @endsection
 
 @section('name')
+=======
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
 @endsection

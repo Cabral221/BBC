@@ -103,7 +103,10 @@ Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin
         Route::resource('/comments','Admin\Blog\CommentController');
         Route::resource('/news','Admin\Blog\NewController');
         Route::resource('/messages','Admin\Blog\MessageController');
+<<<<<<< HEAD
         Route::post('/response','Admin\Blog\MessageController@response')->name('messages.response');
+=======
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
     });
     
     Route::prefix('programms')->name('programms.')->group(function(){
@@ -133,9 +136,16 @@ Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin
         Route::resource('/parteners','Admin\Params\PartenerController');
         Route::resource('/attests','Admin\Params\AttestController')->except(['show']);
     });
+<<<<<<< HEAD
 
     Route::get('/','Admin\HomeController@welcome')->name('welcome');
     Route::get('/admin.edite/{id}','Auth\AdminController@edite')->name('edite');
     Route::put('/{id}/admin.edite','Auth\AdminController@update')->name('update');
 });
      
+=======
+    
+    Route::get('/','Admin\HomeController@welcome')->name('welcome');
+});
+                                    
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf

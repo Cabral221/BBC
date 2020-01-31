@@ -3,7 +3,11 @@ body{
   padding: 0;
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
   background: url(bg-2.jpg);
+=======
+  background: url(bg-3.jpg);
+>>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
