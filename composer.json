@@ -9,10 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-<<<<<<< HEAD
-=======
         "doctrine/dbal": "^2.10",
->>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
         "fideloper/proxy": "^4.0",
         "gonoware/laravel-maps": "^1.2",
         "laravel/framework": "^6.2",
