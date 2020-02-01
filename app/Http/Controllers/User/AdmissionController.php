@@ -6,6 +6,7 @@ use App\Models\Info;
 use App\Models\Slide;
 use App\Models\Partner;
 use App\Models\Program;
+use App\Models\Gallerie;
 use App\Models\Admission;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
@@ -19,7 +20,9 @@ class AdmissionController extends Controller
         $partners = Partner::all();
         $info = Info::first();
         $programs = Program::all();
-        return view('pages.admission', compact(['info','partners','image','programs']));
+        $galeries = Gallerie::all();
+        
+        return view('pages.admission', compact(['info','partners','image','programs','galeries']));
     }
 
     public function store(Request $request)

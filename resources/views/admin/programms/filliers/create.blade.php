@@ -5,7 +5,6 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800 ">Dashboard</h1>
-  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
 
     <!-- Row pour ajout des post -->
@@ -26,11 +25,7 @@
 
                     <div class="col-xl-4">
             
-<<<<<<< HEAD
-                    <img src="{{asset($fil->icon)}}" alt="" class="img-responsive pr-2" srcset="" >
-=======
                     <img src="{{asset($fil->icon)}}" alt="" class="pr-2" width="250px" srcset="" >
->>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                         <div class="mt-1"> <h3>{{ $fil->libele }}</h3> </div>
                     </div>  
                   

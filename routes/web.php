@@ -95,7 +95,7 @@ Route::name('user.')->group(function(){
     
     Route::get('/admission', 'User\AdmissionController@index')->name('admission');
     Route::post('/admission', 'User\AdmissionController@store')->name('admission');
-    Route::resource('/posts', 'User\PostController')->only(['index','show']);
+    // Route::resource('/posts', 'User\PostController')->only(['index','show']);
 });
 
 // Route grouper des administrateur

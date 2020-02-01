@@ -61,47 +61,6 @@
 @endsection
 
 @section('content')
-<div>
-    <div class="container mt-3">
-        <div class="row pt-3 pb-3">
-            <button type="button" class="collapsible text-center pt-5 pb-5"><h4 style="display:inline">LICENCE</h4></button>
-            <div class="content">
-                <div class="text-white m-5">
-                    <ul>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                    </ul>
-                    <div class="row text-center">
-                        <button type="button" class="btn btn-primary p-5">Brochure</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div>
-    <div class="container mt-3">
-        <div class="row pt-3 pb-3">
-            <button type="button" class="collapsible text-center pt-5 pb-5"><h4 style="display:inline">MASTER</h4></button>
-            <div class="content mb-3">
-                <div class="text-white m-5">
-                    <ul>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                        <li class="m-3">Sunt amet occaecat est non incididunt.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="">
     <h1 class="text-center text-dark">Admission Page</h1>
     <div class="container">
@@ -174,8 +133,32 @@
     </div>
 </div>
 <div>
-    <p class="text-dark text-center">Quelques choses a mettre</p>
 </div>
+
+{{-- Carousel galery --}}
+<section class="opaqued light-opaqued parallax">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row"><h3 class="text-dark text-center">BBC on images</h3></div>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    @if (isset($galeries) && $galeries->count() > 0)
+                        <ul class="owl-carousel-paged testimonial-owl wow fadeIn list-unstyled" data-items="4" data-items-desktop="[1200,4]" data-items-desktop-small="[980,4]" data-items-tablet="[768,3]" data-items-mobile="[479,2]">
+                            @foreach ($galeries as $galery)
+                                <li>
+                                    <img src="{{ $galery->image }}" class="img-responsive" alt="">
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p class="text-center text-dark">Aucune image de la galerie pour le moment...</p>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{-- /end Carousel galery --}}
 
 @endsection
 
