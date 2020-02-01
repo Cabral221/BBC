@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-6 col-sm-6 my-auto p-2">
                 <p class="text-center my-auto">
-                    &copy; Copyright <a href="{{ route('admin.welcome') }}" style="color: blanchedalmond" target="_blank"b>BBC University</b> </a> 2020 - {{ Date('Y') }} | Design by EMPRO
+                    &copy; Copyright <a href="{{ route('admin.welcome') }}" style="color: blanchedalmond" target="_blank"b>BBC University</b> </a> 2020 - {{ Date('Y') }} | Developed by EMPRO
 
                 </p>
             </div>
