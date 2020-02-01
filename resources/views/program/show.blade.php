@@ -198,7 +198,8 @@
 </section>
     <div class="row bg-primary">
         <div class="container">
-            <h2 class="text-center">Spécialisation</h2>
+            <h2 class="text-center">Specialization</h2>
+            <div class="btn btn-danger">Geni logiciel</div>
             <table class="table">
                 <tr>
                     <th>

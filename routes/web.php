@@ -69,6 +69,9 @@ Route::post('/logout-admin','Admin\Auth\LoginController@logout')->name('logout-a
 // Route pour l'enregistrement des
 Route::post('/attachments', 'AttachmentController@store')->name('attachments.store');
 
+Route::post('/admission/degree','User\AdmissionController@getDedgree');
+Route::post('/admission/niveau','User\AdmissionController@getNiveau');
+Route::post('/admission/filiere','User\AdmissionController@getFiliere');
 
 // Route grouper des utilisateur
 Route::name('user.')->group(function(){
@@ -91,6 +94,7 @@ Route::name('user.')->group(function(){
     Route::post('/message','User\MessageController@store')->name('message');
     
     Route::get('/admission', 'User\AdmissionController@index')->name('admission');
+    Route::post('/admission', 'User\AdmissionController@store')->name('admission');
     Route::resource('/posts', 'User\PostController')->only(['index','show']);
 });
 
