@@ -22,4 +22,18 @@ class MessageController extends Controller
         $delete_sms->delete();
         return redirect()->back();
     }
+
+
+    public function show(Request $request,$id)
+    {
+
+        $affiche = Message::find($id);
+        $affiche->read_at = now();
+        return view('admin.messages.sms_affiche',compact('affiche'));
+    }
+
+    public function response(Request $request)
+    {
+            // dd('hdhfh');
+    }
 }

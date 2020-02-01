@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
-use Carbon\Carbon;
-use App\Models\Info;
-use App\Models\Neew;
 use App\Models\Slide;
-use App\Models\Filiere;
 use App\Models\Partner;
+use Carbon\Carbon;
+use App\Models\Neew;
+use App\Models\Info;
+use App\Models\Filiere;
 use App\Models\Program;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,13 +31,13 @@ class ProgramController extends Controller
 
 
     /**
-     * Display the specified resource filiere.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
+        $info = $this->recapdata();
         $filiere = Filiere::find($id);
         $info = $this->recapdata();
         $info['filiere'] = $filiere;

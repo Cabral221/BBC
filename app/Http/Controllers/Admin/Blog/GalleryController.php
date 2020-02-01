@@ -64,7 +64,7 @@ class GalleryController extends Controller
     public function update(Request $request)
     {
         $edit_fil = Gallerie::findOrFail($request->image_id);
-        
+        $imgdel =$edit_fil->image;
         if($edit_fil){
             if($request->has('image')){
                 //On enregistre l'image dans une variable
@@ -81,6 +81,7 @@ class GalleryController extends Controller
         }
             $edit_fil->libele = $request->input('libele');
             $edit_fil->save();
+            Storage::disk('public')->delete($imgdel); 
             return redirect()->back();
     }
 

@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
-
 use App\Admin;
-use App\Models\Info;
 use App\Models\Message;
-use App\Mail\messageCreated;
-use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Info;
+use App\Mail\messageCreated;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotificationMessageCreated;
 
@@ -17,6 +16,12 @@ class MessageController extends Controller{
 
     public function store(Request $request)
     {
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'message' => 'required|min:90',
+        ]);
         // $request;    
         // \join()
         $request->validate([

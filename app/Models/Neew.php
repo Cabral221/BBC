@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Neew extends Model
 {
     public $table = 'news';
-
     public $fillable = ['date','libele','content'];
 
     public function getDateAttribute($date){
