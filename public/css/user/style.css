@@ -17,6 +17,10 @@ body {
     background-color: #e3342f !important;   
  }
 
+ .bg-dark{
+   background-color: black;
+ }
+
 .bg-blue{
   background-color: rgba(52, 144, 220, 0.226);
 }
@@ -99,15 +103,22 @@ a.active-page:hover{
 }
 
 a.program-title{
-<<<<<<< HEAD
-  color: #fff;
-=======
   color: black;
->>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
 }
 
 a.program-title:hover{
   color: #c2253e;
+}
+
+a.document{
+  text-decoration: none;
+  background-color: white;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 8px 10px;
+  border: 2px solid #c2253e;
 }
 
 .followers{

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Document;
 use App\Models\Info;
 use App\Models\Word;
 use App\Models\Slide;
@@ -46,6 +47,7 @@ class HomeController extends Controller
         $info['attests'] = Attest::where('publish',1)->limit(4)->get();
         $info['programs'] = Program::all();
         $info['word'] = Word::first();
+        $info['docs'] = Document::all();
         
         return view('welcome',$info);
     }

@@ -239,6 +239,32 @@
     </div>
 </div>
 
+<div class="bg-dark">
+    <div class="container mt-3">
+
+        <h3>Documents utils</h3>
+            @if (isset($docs) && $docs->count() > 0)
+            <div class="row pt-5 pb-5 text-white text-bold">
+                @foreach ($docs as $doc)
+                    <div class=" col-sm-6 col-xl-6 text-white p-3">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <span style="font-size: 22px;font-weight:bold">{{ $doc->name }}</span> 
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="{{ asset($doc->url) }}" class="document">Download <i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            @else
+                <p>Aucun document pour le moment</p>
+            @endif  
+            
+    </div>
+</div>
+
 {{-- Followors --}}
 <div class="followers bg-primary">
     <div class="container">
