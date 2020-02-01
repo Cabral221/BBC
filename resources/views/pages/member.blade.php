@@ -39,20 +39,6 @@
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
-<<<<<<< HEAD
-                        <div class="form-group row p-4">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input pr-3" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label pl-3" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-=======
->>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                         <a href="{{ route('login') }}" onclick="event.preventDefault();document.getElementById('form-login').submit();" class="btn btn-primary btn-block p-3 mt-5">{{ __('Login') }}</a>
                     </form>
                 </div>
@@ -148,30 +134,6 @@
 <section class="opaqued light-opaqued parallax">
     <div class="section-inner">
         <div class="container">
-<<<<<<< HEAD
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <ul class="owl-carousel-paged testimonial-owl wow fadeIn list-unstyled" data-items="4" data-items-desktop="[1200,4]" data-items-desktop-small="[980,4]" data-items-tablet="[768,3]" data-items-mobile="[479,2]">
-                        <li>
-                            <img src="images/img-test.jpg" class="img-responsive" alt="">
-                        </li>
-                        <li>
-                            <img src="images/image1.png" class="img-responsive" alt="">
-                        </li>
-                        <li>
-                            <img src="images/image2.png" class="img-responsive" alt="">
-                        </li>
-                        <li>
-                            <img src="images/image3.png" class="img-responsive" alt="">
-                        </li>
-                        <li>
-                            <img src="images/image5.png" class="img-responsive" alt="">
-                        </li>
-                        <li>
-                            <img src="assets/img/logo/logo6.png" class="img-responsive" alt="">
-                        </li>
-                    </ul>
-=======
             <div class="row"><h3 class="text-dark text-center">BBC on images</h3></div>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
@@ -186,7 +148,6 @@
                     @else
                         <p class="text-center text-dark">Aucune image de la galerie pour le moment...</p>
                     @endif
->>>>>>> 44c8856871d282fb03d8a4e0f03d92da647038bf
                 </div>
             </div>
         </div>

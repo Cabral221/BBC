@@ -49,6 +49,7 @@ class DocumentController extends Controller
         }
             $docs->name = $request->input('libele');
             $docs->save();
+            Flashy::success('Your document has been successfully saved');
             return redirect()->back();
     }
 
