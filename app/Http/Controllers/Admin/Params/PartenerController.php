@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin\Params;
 use App\Models\Partner;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class PartenerController extends Controller
 {
@@ -43,6 +44,7 @@ class PartenerController extends Controller
             $part->name = $request->input('name');
             $part->link = $request->input('link');
             $part->save();
+            Flashy::success('Your partener has been successfully added');
         return redirect()->route('admin.welcome');
     }
 
@@ -78,6 +80,7 @@ class PartenerController extends Controller
         $edit_part->link = $request->input('link');
         $edit_part->save();
         Storage::disk('public')->delete($imgdel); 
+        Flashy::success('Your partener has been successfully changed');
         return back();
     }
 
@@ -86,6 +89,7 @@ class PartenerController extends Controller
         $delete_part = Partner::find($id);
         if($delete_part)
         $delete_part->delete();
+        Flashy::success('Your partener has been successfully deleted');
         return redirect()->back();
     }
 }

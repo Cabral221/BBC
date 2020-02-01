@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Params;
 
 use App\Models\Admission;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
 
 class AdmissionController extends Controller
@@ -39,6 +40,7 @@ class AdmissionController extends Controller
         $delete_ad = Admission::find($id);
         if($delete_ad)
         $delete_ad->delete();
+        Flashy::success('Your admission has been successfully deleted');
         return redirect()->back();
     }
 }

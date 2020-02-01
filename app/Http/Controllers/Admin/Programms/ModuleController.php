@@ -6,6 +6,7 @@ use App\Models\Module;
 use App\Models\Niveau;
 use App\Models\Filiere;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
 
 class ModuleController extends Controller
@@ -35,6 +36,7 @@ class ModuleController extends Controller
         $edite_module->filiere_id = $request->input('filiere_id');
         $edite_module->niveau_id = $request->input('niveau_id');
         $edite_module->save();
+        Flashy::success('Your module has been successfully changed');
         return redirect()->back();
     }
 
@@ -45,6 +47,7 @@ class ModuleController extends Controller
         $module->niveau_id = $request->input('niveau_id');
         $module->libele = $request->input('libele');
         $module->save();
+        Flashy::success('Your module has been successfully added');
         return redirect()->back();
     }
 
@@ -53,6 +56,7 @@ class ModuleController extends Controller
         $delete_module = Module::find($id);
         if($delete_module)
         $delete_module->delete();
+        Flashy::success('Your module has been successfully deleted');
         return redirect()->back();
     }
 }

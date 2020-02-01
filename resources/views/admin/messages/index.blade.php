@@ -10,7 +10,7 @@
 </div>
 
 
-        @foreach( $sms as $com )
+        
         <div class="row">
     <!-- Area Chart -->
     <div class="col-xl-12 col-lg-7">
@@ -26,6 +26,7 @@
        <th>Name</th>
         <th>Email</th>
         <th>Message</th>
+        <th>Etat</th>
         <th>Options</th>
        </tr>
         @foreach( $sms as $com )
@@ -34,6 +35,15 @@
         <td class="text-capitalize">{{ $com->name }}</td>
         <td>{{ $com->email }}</td>
         <td class="text-truncate"  style="max-width: 100px;">{{ $com->message }}</td>
+        <td>
+          @if( $com->read_at == NULL )
+            <p class="text-success">unread message</p>
+          @endif
+
+          @if( $com->read_at != NULL )
+          <p>Read message</p>
+          @endif
+        </td>
         <td>
         <a href="{{route('admin.blog.messages.show',$com->id)}}"><i class="far fa-eye" title="view"></i></a>
         <button type="submit" class="mr-3 mb-1" class="" style='background:white;color:red;border:0px;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$com->id}}').submit();"  name="delete" data-toggle="tooltip" title="delete"><i class="far fa-trash-alt"></i></button>
@@ -47,27 +57,11 @@
         @endforeach
         </table>
 
-        <div class="row">
-          <div class="col-xl-11"><h4 class="text-dark text-capitalize"> {{ $com->name }} </h4></div>
-            <div class="col-xl-1">
-              <button type="submit" class="mr-3 mb-1 bg-danger" class="" style='border-radius:5%;color:white;border:0px;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$com->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
-              <form id="form-delete-{{$com->id}}" action="{{route('admin.blog.messages.destroy',$com->id)}}" method="post">
-              @csrf
-              @method('delete') 
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-        <p>E-mail : {{ $com->email }}</p>
-          <p class="text-italic"> {{ $com->message }} </p>
-        </div>
-      </div>
-    </div>
+      
   </div>
-  <!-- fin du row des ajouts de post -->
-        @endforeach
+  </div>
+  </div>
+  </div>
 
 
 

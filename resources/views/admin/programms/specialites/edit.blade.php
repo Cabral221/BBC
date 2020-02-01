@@ -1,34 +1,80 @@
-@extends('layouts.app')
+@extends('layouts/admin/app')
+@section('body')
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
 
-@section('content')
-<div class="container">
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success')}}
-        </div>
-    @endif
-    <h2>Editer l'article {{ $post->title }}</h2>
-    <form action="{{ route('admin.posts.update',$post->id)}}" method="POST">
-        {{ method_field('PUT') }}
-        @csrf
-        <div class="form-group">
-        <input type="text" class="form-control" name="title" value="{{ $post->title }}">
-        </div>
-        <div class="form-group">
-            <textarea data-id="{{ $post->id }}" data-type="{{ get_class($post) }}" data-url="{{ route('attachments.store') }}" name="content" id="editor" cols="30" rows="10" class="form-control">
-                {{ $post->content }}
-            </textarea>
-        </div>
-
-        <div class="form-group">
-            <button class="btn btn-primary">Envoyer</button>
-        </div>
-    </form>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800 ">Dashboard</h1>
+  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
-@endsection
 
-@section('js')
-<script src="{{ asset('/tinymce/jquery.tinymce.min.js')}}"></script>
-<script src="{{ asset('/tinymce/tinymce.min.js')}}"></script>
-<script src="{{ asset('/js/admin/editor.js')}}"></script>
+<!-- Content Row -->
+
+    <!-- Row pour ajout des diplome -->
+    <div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-12 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 text-center justify-content-between">
+          <h4 class="m-0 font-weight-bold text-primary">Update Specialites</h4>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="">
+            <div class="container">
+                    <div class="">
+                    <form action=" {{route('admin.programms.specialites.update',$edit->id)}}" method="POST">
+                @csrf
+                {{method_field('PUT')}}
+                    <div class="row">
+                        <div class="form-group col-xl-6 col-lg-6">
+                        <label for="tite">Libellet</label>
+                        <input type="text" class="form-control" name="title" value="{{ $edit->libele }}">
+                        </div>
+
+                        <div class="form-group col-xl-6 col-lg-6">
+                          <label for="tite">Fillieres Group</label>
+                          <select name="specialite" id="" class="form-control">
+                            <option default>Select Filieres</option>
+                          @foreach($programms as $prog2)
+                            <ul class="list-group">
+                            <option disabled> {{ $prog2->libele }} : </option>
+                                <li class="list-group-item">
+                                  @foreach($prog2->filieres as $file)
+                                    <option  value="{{ $file->id }}"> &nbsp&nbsp&nbsp&nbsp -{{ $file->libele }} </option>
+                                </li>
+                                  @endforeach
+                            </ul>
+                            @endforeach
+                          </select>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-xl-6 col-lg-6">
+                          <button type="submit" class="btn btn-primary btn-block">Add</button>
+                        </div>
+                
+                    
+                        <div class="form-group col-xl-6 col-lg-6">
+                        <button type="reset" class="btn btn-success btn-block">Reinitialiser</button>
+                        </div>
+
+                    </div>
+              </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin du row des ajouts de diplome -->
+
+
+
+</div>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Params;
 use App\Models\Team;
 use App\Models\Word;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
 
 class WordController extends Controller
@@ -31,6 +32,7 @@ class WordController extends Controller
         $word_update = Word::findOrFail($request->word);
         $word_update->content = $request->input('content');
         $word_update->save();
+        Flashy::success('Your word has been successfully changed');
         return redirect()->back();
     }
 
@@ -40,6 +42,7 @@ class WordController extends Controller
         $word->team_id = $request->input('word');
         $word->content = $request->input('content');
         $word->save();
+        Flashy::success('Your word has been successfully added');
         return redirect()->back();
     }
 

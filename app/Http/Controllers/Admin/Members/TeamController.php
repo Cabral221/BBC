@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin\Members;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Team;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+
 class TeamController extends Controller
 {
     public function uploadImage(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null){
@@ -44,6 +46,7 @@ class TeamController extends Controller
             $team->lastname = $request->input('lastname');
             $team->job = $request->input('job');
             $team->save();
+            Flashy::success('Your element has been successfully added');
         return redirect()->route('admin.welcome');
     }
 
@@ -87,6 +90,7 @@ class TeamController extends Controller
             $edit_team->save();
             Storage::disk('public')->delete($imgdel); 
         }
+        Flashy::success('Your element has been successfully changed');
         return redirect()->route('admin.welcome');
      }
 
@@ -95,6 +99,7 @@ class TeamController extends Controller
          $delete_team = Team::find($id);
          if($delete_team)
          $delete_team->delete();
+         Flashy::success('Your element has been successfully deleted');
          return redirect()->back();
      }
 }

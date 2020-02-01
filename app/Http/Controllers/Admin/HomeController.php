@@ -7,6 +7,7 @@ use App\Models\Team;
 use App\Models\Slide;
 use App\Models\Partner;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,6 +51,7 @@ class HomeController extends Controller
         $info->adress = $request->input('adress');
         $info->bp = $request->input('bp');
         $info->save();
+        Flashy::success('Your info has been successfully changed');
         return back();
     }
 }

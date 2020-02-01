@@ -40,7 +40,6 @@
       </div>
     </div>
   </div>
-
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset('asset_admin/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('asset_admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -61,6 +60,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
   
+  @include('flashy::message')
   <script>
 $('#exampleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)

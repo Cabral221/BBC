@@ -103,6 +103,7 @@ Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin
         Route::resource('/comments','Admin\Blog\CommentController');
         Route::resource('/news','Admin\Blog\NewController');
         Route::resource('/messages','Admin\Blog\MessageController');
+        Route::resource('/documents','Admin\Blog\DocumentController');
         Route::post('/response','Admin\Blog\MessageController@response')->name('messages.response');
 
     });
@@ -136,8 +137,8 @@ Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin
     });
 
         Route::get('/','Admin\HomeController@welcome')->name('welcome');
-        Route::get('/admin.edite/{id}','Auth\AdminController@edite')->name('edite');
-        Route::put('/{id}/admin.edite','Auth\AdminController@update')->name('update');
+        Route::get('/admin.edite/{id}','Admin\Auth\AdminController@edite')->name('edite');
+        Route::get('/{id}/admin.update','Admin\Auth\AdminController@update')->name('update');
      
     
     Route::get('/','Admin\HomeController@welcome')->name('welcome');

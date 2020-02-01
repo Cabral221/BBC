@@ -72,6 +72,7 @@
               <a class="collapse-item" href="{{ route('admin.programms.programms.index') }}">Programms</a>
               <a class="collapse-item" href="{{ route('admin.programms.filliers.index') }}">Filliers</a>
               <a class="collapse-item" href="{{ route('admin.programms.modules.index') }}">Modules</a>
+              <a class="collapse-item" href="{{ route('admin.blog.documents.index') }}">Documents</a>
               <a class="collapse-item" href="{{ route('admin.programms.specialites.index') }}">Specialites</a>
               <a class="collapse-item" href="{{ route('admin.programms.unites.index') }}">Unites</a>
             </div>
@@ -90,7 +91,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.params.admissions.index')}}">
               <i class="fas fa-fw fa-table"></i>
-              <span>Ammissions</span></a>
+              <span>Admissions</span></a>
             </li>
             
             <li class="nav-item">

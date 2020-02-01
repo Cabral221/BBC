@@ -31,7 +31,6 @@
                         <th scope="col">Firstname</th>
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
-                        <th scope="col">LastDiplome</th>
                         <th scope="col">Filliere</th>
                         <th scope="col">Programms</th>
                         <th scope="col">Niveau</th>
@@ -47,7 +46,6 @@
                             <td>{{$admin->firstname}}</td>
                             <td>{{$admin->email}}</td>
                             <td>{{$admin->phone}}</td>
-                            <td>{{$admin->diplome->libele}}</td>
                             <td>{{$admin->filiere->libele}}</td>
                             <td>{{$admin->program->libele}}</td>
                             <td>{{$admin->niveau->libele}}</td>
