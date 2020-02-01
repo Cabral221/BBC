@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin\Templaits;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Slide;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+
 class SlideController extends Controller
 {
     public function uploadImage(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null){
@@ -39,6 +41,7 @@ class SlideController extends Controller
         }
             // $slides->image = $request->input('image');
             $slides->save();
+            Flashy::success('Your image has been successfully added');
         return redirect()->route('admin.welcome');
     }
 
@@ -80,6 +83,7 @@ class SlideController extends Controller
             $edit_slide->save();
             Storage::disk('public')->delete($imgDel);
         }
+        Flashy::success('Your image has been successfully changed');
         return redirect()->route('admin.welcome');
      }
 

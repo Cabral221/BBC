@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin\Blog;
 
 use App\Models\Gallerie;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -48,6 +49,7 @@ class GalleryController extends Controller
         }
             $image_add->libele = $request->input('libele');
             $image_add->save();
+            Flashy::success('Your image has been successfully added');
             return redirect()->back();
     }
 
@@ -82,6 +84,7 @@ class GalleryController extends Controller
             $edit_fil->libele = $request->input('libele');
             $edit_fil->save();
             Storage::disk('public')->delete($imgdel); 
+            Flashy::success('Your image has been successfully changed');
             return redirect()->back();
     }
 
@@ -90,6 +93,7 @@ class GalleryController extends Controller
         $delet_img = Gallerie::find($id);
         if($delet_img)
         $delet_img->delete();
+        Flashy::success('Your Image has been successfully deleted');
         return redirect()->back();
         
     }

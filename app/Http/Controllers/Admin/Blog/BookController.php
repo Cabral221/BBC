@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin\Blog;
 
 use App\Models\Book;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
@@ -49,6 +50,7 @@ class BookController extends Controller
             $book->dateOut = $request->input('dateout');
             $book->auteur = $request->input('auteur');
             $book->save();
+            Flashy::success('Your book has been successfully added');
         return redirect()->back();
     }
 
@@ -89,6 +91,7 @@ class BookController extends Controller
         $edit_book->dateOut = $request->input('dateOut');
         $edit_book->save();
         Storage::disk('public')->delete($imgdel); 
+        Flashy::success('Your book has been successfully changed');
         return back();
     }
 
@@ -99,6 +102,7 @@ class BookController extends Controller
         $delet_book = Book::find($id);
         if($delet_book)
         $delet_book->delete();
+        Flashy::success('Your book has been successfully deleted');
         return redirect()->back();
     }
 }

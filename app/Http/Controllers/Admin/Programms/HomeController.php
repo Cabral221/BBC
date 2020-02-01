@@ -6,6 +6,7 @@ use App\Models\Niveau;
 use App\Models\Diplome;
 use App\Models\Filiere;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
@@ -38,6 +39,7 @@ class HomeController extends Controller
         $edite_prog = Program::findOrFail($request->prog);
         $edite_prog->libele = $request->input('libele');
         $edite_prog->save();
+        Flashy::success('Your program has been successfully changed');
         return back();
     }
 
@@ -46,6 +48,7 @@ class HomeController extends Controller
       $prog = new Program();
       $prog->libele = $request->input('libele');
       $prog->save();
+      Flashy::success('Your program has been successfully added');
       return redirect()->back();
 
         
@@ -57,6 +60,7 @@ class HomeController extends Controller
         $delete_prog = Program::find($id);
         if($delete_prog)
         $delete_prog->delete();
+        Flashy::success('Your program has been successfully deleted');
         return redirect()->back();
     }
 }

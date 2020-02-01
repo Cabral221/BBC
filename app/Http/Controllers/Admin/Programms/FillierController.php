@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin\Programms;
 use App\Models\Filiere;
 use App\Models\Program;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class FillierController extends Controller
 {
@@ -69,6 +70,7 @@ class FillierController extends Controller
             $filier->requirement = $request->input('requirement');
             $filier->outCome = $request->input('outCome');
             $filier->save();
+            Flashy::success('Your faculty has been successfully added');
             return redirect()->route('admin.programms.filliers.index');
     }
 
@@ -100,6 +102,7 @@ class FillierController extends Controller
             $edit_fil->outCome = $request->input('outCome');
             $edit_fil->save();
             Storage::disk('public')->delete($imgdel); 
+            Flashy::success('Your faculty has been successfully changed');
             return redirect()->route('admin.programms.filliers.index');
     }
 
@@ -109,6 +112,7 @@ class FillierController extends Controller
         $delete_filiere = Filiere::find($id);
         if($delete_filiere)
         $delete_filiere->delete();
+        Flashy::success('Your faculty has been successfully deleted');
         return redirect()->back();
     }
 

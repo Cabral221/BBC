@@ -434,7 +434,7 @@
                 {{ session('success')}}
               </div>
               @endif
-              <form action="" method="POST">
+              <form action=" {{route('admin.programms.specialites.store')}}" method="POST">
                 @csrf
                 <!-- {{method_field('PUT')}} -->
                     <div class="row">
@@ -445,8 +445,18 @@
 
                         <div class="form-group col-xl-6 col-lg-6">
                           <label for="tite">Fillieres Group</label>
-                          <select name="programm_id" id="" class="form-control">
-                            <option value="id">id</option>
+                          <select name="specialite" id="" class="form-control">
+                            <option default>Select Filieres</option>
+                          @foreach($programms as $prog2)
+                            <ul class="list-group">
+                            <option disabled> {{ $prog2->libele }} : </option>
+                                <li class="list-group-item">
+                                  @foreach($prog2->filieres as $file)
+                                    <option  value="{{ $file->id }}"> &nbsp&nbsp&nbsp&nbsp -{{ $file->libele }} </option>
+                                </li>
+                                  @endforeach
+                            </ul>
+                            @endforeach
                           </select>
                         </div>
 
@@ -473,16 +483,16 @@
   <!-- fin du row des ajouts de post -->
 
 
-  <div class="row">
+  <!-- <div class="row"> -->
     <!-- Area Chart -->
-    <div class="col-xl-12 col-lg-7">
-      <div class="card shadow mb-4">
+    <!-- <div class="col-xl-12 col-lg-7">
+      <div class="card shadow mb-4"> -->
         <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 text-center justify-content-between">
+        <!-- <div class="card-header py-3 text-center justify-content-between">
           <h4 class="m-0 font-weight-bold text-primary">Add Unites</h4>
-        </div>
+        </div> -->
         <!-- Card Body -->
-        <div class="card-body">
+        <!-- <div class="card-body">
           <div class="">
             <div class="container">
               @if (session('success'))
@@ -492,7 +502,7 @@
               @endif
               <form action="" method="POST">
                 @csrf
-                <!-- {{method_field('PUT')}} -->
+                {{method_field('PUT')}} 
                     <div class="row">
                         <div class="form-group col-xl-4 col-lg-4">
                         <label for="tite">Libellet</label>
@@ -530,7 +540,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- fin du row des ajouts de post -->
 
 

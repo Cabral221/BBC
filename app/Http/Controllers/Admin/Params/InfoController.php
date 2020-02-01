@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Params;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Info;
+use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
+use App\Http\Controllers\Controller;
 
 class InfoController extends Controller
 {
@@ -31,6 +32,7 @@ class InfoController extends Controller
         $info->address = $request->input('adress');
         $info->bp = $request->input('bp');
         $info->save();
+        Flashy::success('Your info has been successfully changed');
         return back();
     }
 

@@ -135,9 +135,9 @@
                       </span>
                       @enderror
 
-                      <label for="dateOut" style="color:beige;" class="text-dark">{{ __('DateOut') }}</label>
+                      <label for="dateOut" style="color:beige;" class="text-dark">{{ __('Release date') }}</label>
                       <input  id="dateOut" type="date" class="form-control @error('name') is-invalid @enderror text-center" name="dateOut" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                      @error('dateOut')
+                      @error('dateout')
                       <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                       </span>

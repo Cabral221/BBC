@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Blog;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
 
 class PostController extends Controller
@@ -12,7 +13,6 @@ class PostController extends Controller
     {
         $posts = Post::notDraft()->get();
         $post = Post::draft();
-        // dd($posts);
         return view('admin.posts.index',compact(['posts','post']));
     }
 
@@ -36,6 +36,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->update($request->all());
+        Flashy::success('Your article has been successfully changed');
         return redirect()->route('admin.blog.posts.index',['id' => $post->id])->with('success','Article modifié');
     }
 
@@ -45,6 +46,7 @@ class PostController extends Controller
         $delete_post = Post::find($id);
         if($delete_post)
         $delete_post->delete();
+        Flashy::success('Your article has been successfully deleted');
         return redirect()->back();
     }
 }
