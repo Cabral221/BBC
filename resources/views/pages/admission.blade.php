@@ -107,49 +107,45 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+                @if(session('errors'))
+                    <div class="alert alert-danger">{{ $errors->first() }}</div>
+                @endif
                 <div class="text-dark">
-                    <form action="" method="post" class="form from-admission" id="form-admission">
+                    <form action="{{ route('user.admission') }}" method="post" class="form from-admission" id="form-admission">
+                        @csrf
                         <div class="form-group mb-4">
                             <div class="select-style">
                                 <select class="form-control" id="program" name="program_id">
-                                    <option><h1>Canadian</h1></option>
-                                    <option>English</option>
-                                    <option>French</option>
+                                    <option value="" default>Select a program</option>
+                                    @foreach ($programs as $program)
+                                        <option value="{{ $program->id }}">{{ strtoupper($program->libele) }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="form-group mb-4">
                             <div class="select-style">
-                                <select class="form-control" id="diplome" name="diplome_id">
-                                    <option>Licence</option>
-                                    <option>Master</option>
-                                    <option>BBA</option>
-                                    <option>MBA</option>
+                                <select class="form-control" id="niveau" name="niveau_id">
                                 </select>
                             </div>
                         </div>
                         <div class="form-group mb-4">
                             <div class="select-style">
-                                <select class="form-control" id="niveau" name="niveau">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                <select class="form-control" id="filiere" name="filiere_id">
                                 </select>
                             </div>
                         </div>
                         <div class="form-group mb-4">
                             <div class="col-sm-6 pl-0">
                                 <div class="form-group">
-                                    <label for="name" class="control-label sr-only" sr-only>First Name</label>
-                                    <input type="text" placeholder="First name *" class="input-admission" name="name" id="name">
+                                    <label for="First Name" class="control-label sr-only" sr-only>First Name</label>
+                                    <input type="text" placeholder="First name *" class="input-admission" name="firstname" id="firstname" required="required">
                                 </div>
                             </div>
                             <div class="col-sm-6  pr-0">
                                 <div class="form-group">
-                                    <label for="email" class="control-label sr-only">Last Name</label>
-                                    <input type="email" placeholder="Last name *" class="input-admission" name="email" id="email">
+                                    <label for="lastname" class="control-label sr-only">Last Name</label>
+                                    <input type="text" placeholder="Last name *" class="input-admission" name="lastname" id="lastname" required="required">
                                 </div>
                             </div>
                         </div>
@@ -157,19 +153,19 @@
                         <div class="form-group">
                             <div class="col-sm-6 pl-0">
                                 <div class="form-group">
-                                    <label for="name" class="control-label sr-only">Email</label>
-                                    <input type="text" placeholder="Email *" class="input-admission" name="name" id="name">
+                                    <label for="email" class="control-label sr-only">Email</label>
+                                    <input type="email" placeholder="Email *" class="input-admission" name="email" id="name" required="required">
                                 </div>
                             </div>
                             <div class="col-sm-6 pr-0">
                                 <div class="form-group">
                                     <label for="phone" class="control-label sr-only">Phone</label>
-                                    <input type="number" placeholder="Phone *" class="input-admission" name="phone" id="phone">
+                                    <input type="number" placeholder="Phone *" class="input-admission" name="phone" id="phone" require="required">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group text-center">
-                            <button type="submit" class="btn btn-block btn-danger p-4"><b>SOUMMETRE</b></button>
+                            <button type="submit" id="submit-adminssion" onclick="document.getElementById('form-admission').submit()" class="btn btn-block btn-danger p-4"><b>Send</b></button>
                         </div>
                     </form>
                 </div>
@@ -178,7 +174,7 @@
     </div>
 </div>
 <div>
-    Quelques choses a mettre
+    <p class="text-dark text-center">Quelques choses a mettre</p>
 </div>
 
 @endsection

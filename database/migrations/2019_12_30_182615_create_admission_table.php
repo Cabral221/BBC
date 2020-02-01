@@ -22,7 +22,6 @@ class CreateAdmissionTable extends Migration
             $table->integer('program_id');
             $table->integer('filiere_id');
             $table->integer('niveau_id');
-            $table->integer('diplome_id');
             $table->timestamps();
         });
     }
