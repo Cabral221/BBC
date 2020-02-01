@@ -86,7 +86,6 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Networks</span></a>
           </li>
-          
           <!-- Nav Item - Tables -->
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.params.admissions.index')}}">
