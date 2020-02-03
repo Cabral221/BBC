@@ -12,7 +12,7 @@ use App\Models\Program;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProgramController extends Controller
+class ProgrammeController extends Controller
 {
     /**
      * Display a listing of the resource.

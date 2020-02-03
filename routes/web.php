@@ -80,7 +80,7 @@ Route::name('user.')->group(function(){
     
     // Route::get('/programs','User\PageController@programs')->name('programs');
     
-    Route::resource('/programs','User\ProgramController')->only(['index','show']);
+    Route::resource('/programs','User\ProgrammeController')->only(['index','show']);
     
     Route::resource('/networks','User\NetworkController')->only(['store']);
     // Route::resource('/programs/type','User\TypeController')->only(['index','show']);
