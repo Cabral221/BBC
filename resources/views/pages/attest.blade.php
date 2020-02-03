@@ -41,6 +41,9 @@
             @endif
             
         </div>
+        <div class="text-center">
+            {{ $attests->links() }}
+        </div>
     </div>
 </div>
 

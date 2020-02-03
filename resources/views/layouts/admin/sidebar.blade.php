@@ -134,7 +134,7 @@
                               <h6 class="collapse-header">Custom Components:</h6>
                               {{-- <a class="collapse-item" href="{{ route('admin.blog.posts.index') }}">Posts</a>
                               <a class="collapse-item" href="{{ route('admin.blog.comments.index') }}">Comments</a> --}}
-                              <a class="collapse-item" href="{{ route('admin.blog.gallerys.index') }}">Gallerys</a>
+                              <a class="collapse-item" href="{{ route('admin.blog.gallerys.index') }}">Gallery</a>
                               <!-- <a class="collapse-item" href="{{ route('admin.blog.news.index') }}">News</a> -->
                               <a class="collapse-item" href="{{ route('admin.blog.books.index') }}">Books</a>
                             </div>

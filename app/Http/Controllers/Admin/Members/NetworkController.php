@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Members;
 
+use App\Models\Link;
 use App\Models\Network;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
@@ -11,28 +12,9 @@ class NetworkController extends Controller
 {
     public function index()
     {
-        $network = Network::All();
-        return view('admin.networks.index',compact('network'));
-    }
-
-    public function create()
-    {
-        
-    }
-
-    public function edit()
-    {
-        
-    }
-
-    public function update()
-    {
-        
-    }
-
-    public function store()
-    {
-        
+        $network = Network::paginate(15);
+        $links = Link::all();
+        return view('admin.networks.index',compact('network','links'));
     }
 
     public function destroy($id)
@@ -40,7 +22,7 @@ class NetworkController extends Controller
          $delete_network = Network::find($id);
          if($delete_network)
          $delete_network->delete();
-         Flashy::success('Your followers has been successfully changed');
+         Flashy::error('Your followers has been successfully deleted');
          return redirect()->back();
      }
 }

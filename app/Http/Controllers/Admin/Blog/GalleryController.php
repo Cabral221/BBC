@@ -21,7 +21,7 @@ class GalleryController extends Controller
 
     public function index()
     {
-        $affiche = Gallerie::All();
+        $affiche = Gallerie::paginate(12);
         return view('admin.gallerys.index',compact('affiche'));
     }
 

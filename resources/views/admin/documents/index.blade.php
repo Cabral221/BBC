@@ -37,13 +37,13 @@
                 @csrf
                     <div class="row">
                         <div class="form-group col-xl-5 col-lg-5">
-                        <label for="libele">Libellet</label>
+                        <label for="libele">Name</label>
                         <input type="text" class="form-control" id="libele" name="libele" value="">
                         </div>
 
 
                         <div class="form-group col-xl-5 col-lg-5">
-                        <label for="url">Document</label>
+                        <label for="url">Documents</label>
                         <input type="file" class="form-control" id="url" name="url" value="">
                         </div>
                 
@@ -60,7 +60,7 @@
                     <thead>
                         <tr class="text-center">
                         <th scope="col">No</th>
-                        <th scope="col">Libelle</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Trash</th>
                         </tr>
                     </thead>
@@ -81,6 +81,7 @@
                     </tbody>
                     @endforeach
                     </table>
+                    {{ $doc->links() }}
                 </div>
             </div>
           </div>

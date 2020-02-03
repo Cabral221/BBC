@@ -34,20 +34,20 @@
                 @csrf
                 
                    
-                        <label for="libele">Libele</label>
+                        <label for="libele">Title</label>
                         <input type="text" class="form-control mb-3" id="libele" name="libele" value="">
 
-                        <label for="libele">Date et heure <small class="muted">Ex: 01/01/2002 18:00</small></label>
+                        <label for="libele">Date and hour <small class="muted">Ex: 01/01/2002 18:00</small></label>
                         <input type="datetime-local" class="form-control mb-3" id="libele" name="date" value="">
 
-                        <label for="content" style="mt-4">Description de l'évenement</label>
+                        <label for="content" style="mt-4">Description of event</label>
                         <textarea name="content" id="editor" class="form-control" cols="30" rows="10"></textarea>
 
                 
                     <br>
                         <div class="form-group row">
                           <div class="col-xl-6"><button class="btn btn-primary btn-block" type="submit">Add</button></div>
-                          <div class="col-xl-6"><button class="btn btn-success btn-block" type="reset">Reinitialiser</button></div>
+                          <div class="col-xl-6"><button class="btn btn-success btn-block" type="reset">Reset</button></div>
                         </div>
 
               </form>
@@ -94,6 +94,7 @@
     </div>
   </div>
   @endforeach
+  {{ $news->links() }}
   <!-- fin du row des ajouts de post -->
 
 
@@ -105,7 +106,7 @@
   <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="update_newModalLabel">Update News</h5>
+          <h5 class="modal-title" id="update_newModalLabel">Edit New</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
@@ -115,7 +116,7 @@
           {{@csrf_field()}}
               <div class="modal-body">
                   <input type="hidden" name="lib_id" id="new_id" value="{{$new->id}}">
-                  <label for="libele" style="color:beige;" class="text-dark">{{ __('Libele') }}</label>
+                  <label for="libele" style="color:beige;" class="text-dark">{{ __('Wording') }}</label>
                   <input  id="libele" type="text" class="form-control @error('libele') is-invalid @enderror text-center" name="libele" value="{{ old('name') ?? $new->libele }}" required autocomplete="libele" autofocus>
 
                   @error('libele')
@@ -143,7 +144,7 @@
                   
               </div>
               <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary">Update</button>
+                  <button type="submit" class="btn btn-primary">Edit</button>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
           </form>

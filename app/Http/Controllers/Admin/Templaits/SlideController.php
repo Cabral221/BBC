@@ -45,16 +45,6 @@ class SlideController extends Controller
         return redirect()->route('admin.welcome');
     }
 
-    public function create()
-    {
-        
-    }
-
-    public function edit()
-    {
-        
-    }
-
     public function update(Request $request){
         $data = $request->validate([
             'image' => 'nullable | image | mimes:jpeg,png,jpg,gif | max:2048'

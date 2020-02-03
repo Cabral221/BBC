@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="form-group col-xl-5 col-lg-5">
                         <input type="hidden" name="prog" id="prog_id">
-                        <label for="libele">Libellet</label>
+                        <label for="libele">Title</label>
                         <input type="text" class="form-control" id="libele" name="libele" value="">
                         </div>
 
@@ -67,7 +67,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Affichage Image</h4>
+          <h4 class="m-0 font-weight-bold text-primary">All Pictures</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -93,6 +93,7 @@
               </div>
             @endforeach
             </div>
+            {{ $affiche->links() }}
           </div>
         </div>
       </div>
@@ -109,7 +110,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="update_progModalLabel">Update Image</h5>
+                <h5 class="modal-title" id="update_progModalLabel">Edit Image</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -120,7 +121,7 @@
 
                     <div class="modal-body">
                         <input type="hidden" name="image_id" id="image_id" value="{{$imge->id}}">
-                        <label for="libele" style="color:beige;" class="text-dark">{{ __('Libele') }}</label>
+                        <label for="libele" style="color:beige;" class="text-dark">{{ __('Wording') }}</label>
                         <input  id="libele" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="libele" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         @error('libele')
                         <span class="invalid-feedback" role="alert">
@@ -139,7 +140,7 @@
                         
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </form>

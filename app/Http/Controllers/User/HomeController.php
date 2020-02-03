@@ -44,10 +44,10 @@ class HomeController extends Controller
         $info = $this->recapdata();
 
         $info['current_page'] = 'home';
-        $info['attests'] = Attest::where('publish',1)->limit(4)->get();
+        $info['attests'] = Attest::where('publish',1)->paginate(4);
         $info['programs'] = Program::all();
         $info['word'] = Word::first();
-        $info['docs'] = Document::all();
+        $info['docs'] = Document::paginate(10);
         
         return view('welcome',$info);
     }

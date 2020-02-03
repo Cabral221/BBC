@@ -13,7 +13,7 @@ class NewController extends Controller
 {
     public function index()
     {
-        $news = Neew::All();
+        $news = Neew::paginate(5);
         return view('admin.news.index',compact('news'));
     }
 
@@ -21,13 +21,12 @@ class NewController extends Controller
     public function store(Request $request)
     {
         $new = new Neew();
-            $new->title = $request->input('libele');
-        $new = new Neew();
-            $new->title = $request->input('libele');
-            $new->date = $request->input('date');
-            $new->content = $request->input('content');
-            $new->save();
-            Flashy::success('Your activity has been successfully added');
+        $new->title = $request->input('libele');
+        $new->date = $request->input('date');
+        $new->content = $request->input('content');
+        $new->save();
+        Flashy::success('Your activity has been successfully added');
+        
         return redirect()->back();
     }
 

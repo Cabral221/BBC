@@ -16,7 +16,7 @@
       <div class="card shadow ">
         <!-- Card Header - Dropdown -->
         <div class="card-header pb-0">
-        <h4 class="text-dark text-capitalize"> All Message </h4>
+        <h4 class="text-dark text-capitalize"> All Messages </h4>
        </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -25,7 +25,7 @@
        <th>Name</th>
         <th>Email</th>
         <th>Message</th>
-        <th>Etat</th>
+        <th>State</th>
         <th>Options</th>
        </tr>
         @foreach( $sms as $com )
@@ -55,7 +55,7 @@
      </tr>
         @endforeach
         </table>
-
+        {{ $sms->links() }}
       
   </div>
   </div>

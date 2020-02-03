@@ -77,7 +77,6 @@ Route::post('/admission/filiere','User\AdmissionController@getFiliere');
 Route::name('user.')->group(function(){
     Route::get('/', 'User\HomeController@welcome')->name('welcome');
     // Route::get('/home', 'User\HomeController@index')->name('home');
-    
     // Route::get('/programs','User\PageController@programs')->name('programs');
     
     Route::resource('/programs','User\ProgrammeController')->only(['index','show']);
@@ -119,17 +118,18 @@ Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin
         Route::resource('/niveaux','Admin\Programms\NiveauController');
         Route::resource('/modules','Admin\Programms\ModuleController');
         Route::resource('/specialites','Admin\Programms\SpecialiteController');
-        Route::resource('/unites','Admin\Programms\UniteController');
+        // Route::resource('/unites','Admin\Programms\UniteController');
     });
     
     Route::prefix('templaits')->name('templaits.')->group(function(){
-        Route::resource('/alerts','Admin\Templaits\AlertController');
+        // Route::resource('/alerts','Admin\Templaits\AlertController');
         Route::resource('/slides','Admin\Templaits\SlideController');
     });
     
     Route::prefix('members')->name('members.')->group(function(){
         Route::resource('/teams','Admin\Members\TeamController');
-        Route::resource('/networks','Admin\Members\NetworkController');
+        Route::resource('/networks','Admin\Members\NetworkController')->only(['index','destroy']);
+        Route::resource('/link','Admin\Members\LinkController')->only(['store','destroy',]);
     });
     
     Route::prefix('params')->name('params.')->group(function(){
@@ -140,11 +140,11 @@ Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin
         Route::resource('/attests','Admin\Params\AttestController')->except(['show']);
     });
 
-        Route::get('/','Admin\HomeController@welcome')->name('welcome');
-        Route::get('/admin.edite/{id}','Admin\Auth\AdminController@edite')->name('edite');
-        Route::get('/{id}/admin.update','Admin\Auth\AdminController@update')->name('update');
+    Route::get('/','Admin\HomeController@welcome')->name('welcome');
+    Route::get('/admin.edite/{id}','Admin\Auth\AdminController@edite')->name('edite');
+    Route::get('/{id}/admin.update','Admin\Auth\AdminController@update')->name('update');
      
     
-    Route::get('/','Admin\HomeController@welcome')->name('welcome');
+    // Route::get('/','Admin\HomeController@welcome')->name('welcome');
 });
                                     

@@ -2,7 +2,7 @@
 
 @section('text-header')
 <!-- Header -->
-<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="{{asset('assets/img/bg/bg2.jpg')}}" data-speed="0.7">
+<section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="{{asset('assets/img/bg/bg6.jpg')}}" data-speed="0.7">
     <div class="section-inner pad-top-200">
         <div class="container vertical-center">
             <div class="intro-text vertical-center text-center smoothie">
@@ -13,6 +13,7 @@
         </div>
     </div>
 </section>
+
 @endsection
 
 @section('content')
@@ -34,8 +35,8 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-sm-4">
-                <div class="text-center">
+            <div class="col-sm-4">
+                {{-- <div class="text-center">
                     <img src="{{ asset('images/image1.png') }}" alt="" srcset="">
                     <div class="text">
                         <h2>Mr Doe John</h2>
@@ -49,7 +50,6 @@
 <section>
     <div class="row">
         <div class="container text-dark">
-            <h2 class="text-center p-5">Culpa deserunt ut aliqua aliquip</h2>
             <div>
                 <table class=table style="border-left: none;">
                     <tr>
@@ -91,5 +91,6 @@
                 <h4 class="card-body">{{ $specialite->libele }}</h4>
             </diV>
             @endforeach
+        </div>
     </div>
 @endsection

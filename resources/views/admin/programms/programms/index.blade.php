@@ -22,7 +22,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Add Programms</h4>
+          <h4 class="m-0 font-weight-bold text-primary">Add Programs</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="form-group col-xl-9 col-lg-9">
                         <input type="hidden" name="prog" id="prog_id">
-                        <label for="libele">Libellet</label>
+                        <label for="libele">Wording</label>
                         <input type="text" class="form-control" id="libele" name="libele" value="">
                         </div>
                 
@@ -56,7 +56,7 @@
                     <thead>
                         <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Libelle</th>
+                        <th scope="col">Wording</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Trash</th>
                         </tr>
@@ -97,7 +97,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Add Niveau</h4>
+          <h4 class="m-0 font-weight-bold text-primary">Add Level</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -112,12 +112,12 @@
                 @csrf
                     <div class="row">
                         <div class="form-group col-xl-4 col-lg-4">
-                        <label for="libele">Libellet</label>
+                        <label for="libele">Wording</label>
                         <input type="text" class="form-control" id="libele" name="libele" value="">
                         </div>
 
                         <div class="form-group col-xl-6 col-lg-6">
-                        <label for="prog_niv">Programms</label>
+                        <label for="prog_niv">Programs</label>
                         <select name="prog_niv" id="" class="form-control">
                           @foreach($programms as $prog)
                             <option value="{{ $prog->id }}">{{ $prog->libele }}</option>
@@ -137,8 +137,8 @@
                     <thead>
                         <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Libelle</th>
-                        <th scope="col">Programms</th>
+                        <th scope="col">Wording</th>
+                        <th scope="col">Programs</th>
                         <th scope="col">Options</th>
                         </tr>
                     </thead>
@@ -181,7 +181,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Add Diplome</h4>
+          <h4 class="m-0 font-weight-bold text-primary">Add Diploma</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -196,12 +196,12 @@
                 @csrf
                     <div class="row">
                         <div class="form-group col-xl-4 col-lg-4">
-                        <label for="libele">Libellet</label>
+                        <label for="libele">Wording</label>
                         <input type="text" class="form-control" id="libele" name="libele" value="">
                         </div>
 
                         <div class="form-group col-xl-6 col-lg-6">
-                        <label for="prog_dip">Programms</label>
+                        <label for="prog_dip">Programs</label>
                         <select name="prog_dip" id="" class="form-control">
                           @foreach($programms as $prog)
                             <option value="{{ $prog->id }}">{{ $prog->libele }}</option>
@@ -221,8 +221,8 @@
                     <thead>
                         <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Libelle</th>
-                        <th scope="col">Programms</th>
+                        <th scope="col">Wording</th>
+                        <th scope="col">Programs</th>
                         <th scope="col">Options</th>
                         </tr>
                     </thead>
@@ -264,7 +264,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary ">Add Filliere</h4>
+          <h4 class="m-0 font-weight-bold text-primary ">Add Faculty</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -275,7 +275,7 @@
                 <div class="row">
 
                 <div class="form-group col-xl-4 col-lg-4">
-                    <label for="tite">Programms Group</label>
+                    <label for="tite">Programs Group</label>
                     <select name="program_id" id="" class="form-control">
                     @foreach($programms as $prog)
                       <option value="{{ $prog->id }}">{{ $prog->libele }}</option>
@@ -285,7 +285,7 @@
                     
 
                     <div class="form-group col-xl-4 col-lg-4">
-                    <label for="diplome">Libellet</label>
+                    <label for="diplome">Wording</label>
                     <input type="text" class="form-control" name="libele" value="">
                     </div>
 
@@ -333,7 +333,7 @@
                 
                     
                         <div class="form-group col-xl-6 col-lg-6">
-                        <button type="reset" class="btn btn-success btn-block">Reinitialiser</button>
+                        <button type="reset" class="btn btn-success btn-block">Reset</button>
                         </div>
 
                     </div>
@@ -370,14 +370,14 @@
                 <!-- {{method_field('PUT')}} -->
                     <div class="row">
                         <div class="form-group col-xl-4 col-lg-4">
-                        <label for="libele">Libellet</label>
+                        <label for="libele">Wording</label>
                         <input type="text" class="form-control" name="libele" value="">
                         </div>
 
                              <div class="form-group col-xl-4 col-lg-4">
-                          <label for="tite">Fillieres Group</label>
+                          <label for="tite">Faculty Group</label>
                           <select name="specialite" id="" class="form-control">
-                            <option default>Select Filieres</option>
+                            <option default>Select Faculty</option>
                           @foreach($programms as $prog2)
                             <ul class="list-group">
                             <option disabled> {{ $prog2->libele }} : </option>
@@ -392,7 +392,7 @@
                         </div>
 
                         <div class="form-group col-xl-4 col-lg-4">
-                          <label for="niveau_id">Niveau Group</label>
+                          <label for="niveau_id">Level Group</label>
                           <select name="niveau_id" id="" class="form-control">
                           @foreach($niv as $nivs)
                             <option value="{{ $nivs->id }}">{{ $nivs->libele }}</option>
@@ -409,7 +409,7 @@
                 
                     
                         <div class="form-group col-xl-6 col-lg-6">
-                        <button type="reset" class="btn btn-success btn-block">Reinitialiser</button>
+                        <button type="reset" class="btn btn-success btn-block">Reset</button>
                         </div>
 
                     </div>
@@ -430,7 +430,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Add Specialites</h4>
+          <h4 class="m-0 font-weight-bold text-primary">Add Specialty</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -446,14 +446,14 @@
                 <!-- {{method_field('PUT')}} -->
                     <div class="row">
                         <div class="form-group col-xl-6 col-lg-6">
-                        <label for="tite">Libellet</label>
+                        <label for="tite">Wording</label>
                         <input type="text" class="form-control" name="title" value="">
                         </div>
 
                         <div class="form-group col-xl-6 col-lg-6">
-                          <label for="tite">Fillieres Group</label>
+                          <label for="tite">Faculty Group</label>
                           <select name="specialite" id="" class="form-control">
-                            <option default>Select Filieres</option>
+                            <option default>Select Faculty</option>
                           @foreach($programms as $prog2)
                             <ul class="list-group">
                             <option disabled> {{ $prog2->libele }} : </option>
@@ -476,7 +476,7 @@
                 
                     
                         <div class="form-group col-xl-6 col-lg-6">
-                        <button type="reset" class="btn btn-success btn-block">Reinitialiser</button>
+                        <button type="reset" class="btn btn-success btn-block">Reset</button>
                         </div>
 
                     </div>
@@ -557,7 +557,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="update_progModalLabel">Modifier vos programms</h5>
+                                        <h5 class="modal-title" id="update_progModalLabel">Edit programs</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
@@ -567,7 +567,7 @@
                                        {{@csrf_field()}}
                                             <div class="modal-body">
                                                 <input type="hidden" name="prog" id="prog_id" value="{{$prog->id}}">
-                                                <label for="libele" style="color:beige;" class="text-dark">{{ __('Libele') }}</label>
+                                                <label for="libele" style="color:beige;" class="text-dark">{{ __('Wording') }}</label>
                                                 <input  id="libele" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="libele" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                 @error('libele')
                                                 <span class="invalid-feedback" role="alert">
@@ -598,7 +598,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="update_Label">Modifier vos niveau</h5>
+                                        <h5 class="modal-title" id="update_Label">Edit Level</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
@@ -608,7 +608,7 @@
                                        {{@csrf_field()}}
                                             <div class="modal-body">
                                                 <input type="hidden" name="nivo" id="niv_id" value="{{$nivo->id}}">
-                                                <label for="libele_niv" style="color:beige;" class="text-dark">{{ __('Libele') }}</label>
+                                                <label for="libele_niv" style="color:beige;" class="text-dark">{{ __('Wording') }}</label>
                                                 <input  id="libele_niv" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="libele_niv" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                 @error('libele')
                                                 <span class="invalid-feedback" role="alert">
@@ -617,7 +617,7 @@
                                                 @enderror
 
 
-                                                <label for="niv_prog" style="color:beige;" class="text-dark">{{ __('Programms') }}</label>
+                                                <label for="niv_prog" style="color:beige;" class="text-dark">{{ __('Programs') }}</label>
                                                 <select name="niv_prog" class="form-control @error('name') is-invalid @enderror text-center" required autocomplete="name" autofocus>
                                                 @foreach( $programms as $progs )
                                                   <option value=" {{ $progs->id }} "> {{ $progs->libele }} </option>
@@ -651,7 +651,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="update_Label">Modifier vos niveau</h5>
+                                        <h5 class="modal-title" id="update_Label">Edit Diploma</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
@@ -661,7 +661,7 @@
                                        {{@csrf_field()}}
                                             <div class="modal-body">
                                                 <input type="hidden" name="diplome" id="dip_id" value="{{$dipe->id}}">
-                                                <label for="libele_dip" style="color:beige;" class="text-dark">{{ __('Libele') }}</label>
+                                                <label for="libele_dip" style="color:beige;" class="text-dark">{{ __('Wording') }}</label>
                                                 <input  id="libele_dip" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="libele_dip" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                 @error('libele')
                                                 <span class="invalid-feedback" role="alert">
@@ -670,7 +670,7 @@
                                                 @enderror
 
 
-                                                <label for="dip_prog" style="color:beige;" class="text-dark">{{ __('Programms') }}</label>
+                                                <label for="dip_prog" style="color:beige;" class="text-dark">{{ __('Programs') }}</label>
                                                 <select name="dip_prog" class="form-control @error('name') is-invalid @enderror text-center" required autocomplete="name" autofocus>
                                                 @foreach( $programms as $progs )
                                                   <option value=" {{ $progs->id }} "> {{ $progs->libele }} </option>

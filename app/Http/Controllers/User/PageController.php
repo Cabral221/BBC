@@ -21,7 +21,7 @@ class PageController extends Controller
 
         $info['current_page'] = 'library';
         $info['books'] = Book::all();
-        $info['galeries'] = Gallerie::all();
+        $info['galeries'] = Gallerie::paginate();
         // dd($info['galeries']);
         return view('pages.library', $info);
     }
@@ -45,7 +45,7 @@ class PageController extends Controller
     public function attests()
     {
         $info = $this->recapdata();
-        $info['attests'] = Attest::where('publish',1)->get();
+        $info['attests'] = Attest::where('publish',1)->paginate(20);
         return view('pages.attest',$info);
     }
 

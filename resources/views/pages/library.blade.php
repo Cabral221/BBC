@@ -62,6 +62,9 @@
                     <p class="text-center">Aucune images pour le moment...</p>
                 @endif
             </div>
+            <div class="text-center">
+                {{ $galeries->links() }}
+            </div>
         </div>
     </div>
 </div>

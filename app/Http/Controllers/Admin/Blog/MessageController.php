@@ -14,7 +14,7 @@ class MessageController extends Controller
 {
     public function index()
     {
-        $sms = Message::All();
+        $sms = Message::paginate(15);
         return view('admin.messages.index',compact('sms'));
     }
 

@@ -22,10 +22,6 @@ class FillierController extends Controller
         return view('admin.programms.filliers.index',compact(['fillier','progs']));
     }
 
-    public function create()
-    {
-        
-    }
 
     public function edit($id)
     {

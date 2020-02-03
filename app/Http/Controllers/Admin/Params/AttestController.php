@@ -17,9 +17,9 @@ class AttestController extends Controller
      */
     public function index()
     {
-        $word = Word::all();
-        $attests = Attest::all();
-        return view('admin.attests.index',compact(['attests','word']));
+        // $word = Word::all();
+        $attests = Attest::paginate(12);
+        return view('admin.attests.index',compact(['attests']));
     }
 
     /**
