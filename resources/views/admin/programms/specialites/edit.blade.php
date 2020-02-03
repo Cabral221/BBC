@@ -17,7 +17,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Update Specialites</h4>
+          <h4 class="m-0 font-weight-bold text-primary">Edit Specialty</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -29,14 +29,14 @@
                 {{method_field('PUT')}}
                     <div class="row">
                         <div class="form-group col-xl-6 col-lg-6">
-                        <label for="tite">Libellet</label>
+                        <label for="tite">Wording</label>
                         <input type="text" class="form-control" name="title" value="{{ $edit->libele }}">
                         </div>
 
                         <div class="form-group col-xl-6 col-lg-6">
-                          <label for="tite">Fillieres Group</label>
+                          <label for="tite">Faculty Group</label>
                           <select name="specialite" id="" class="form-control">
-                            <option default>Select Filieres</option>
+                            <option default>Select Faculty</option>
                           @foreach($programms as $prog2)
                             <ul class="list-group">
                             <option disabled> {{ $prog2->libele }} : </option>
@@ -54,12 +54,12 @@
 
                     <div class="row">
                         <div class="form-group col-xl-6 col-lg-6">
-                          <button type="submit" class="btn btn-primary btn-block">Add</button>
+                          <button type="submit" class="btn btn-primary btn-block">Edit</button>
                         </div>
                 
                     
                         <div class="form-group col-xl-6 col-lg-6">
-                        <button type="reset" class="btn btn-success btn-block">Reinitialiser</button>
+                        <button type="reset" class="btn btn-success btn-block">Reset</button>
                         </div>
 
                     </div>

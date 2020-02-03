@@ -14,7 +14,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary ">Update Filliere</h4>
+          <h4 class="m-0 font-weight-bold text-primary ">Edit Faculty</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -35,7 +35,7 @@
                     
 
                     <div class="form-group col-xl-4 col-lg-4">
-                    <label for="diplome">Libellet</label>
+                    <label for="diplome">Wording</label>
                     <input type="text" class="form-control" name="libele" value="{{$fil->libele}}">
                     </div>
 
@@ -76,12 +76,12 @@
 
                     <div class="row">
                         <div class="form-group col-xl-6 col-lg-6">
-                          <button type="submit" class="btn btn-primary btn-block">Add</button>
+                          <button type="submit" class="btn btn-primary btn-block">Edit</button>
                         </div>
                 
                     
                         <div class="form-group col-xl-6 col-lg-6">
-                        <button type="reset" class="btn btn-success btn-block">Reinitialiser</button>
+                        <button type="reset" class="btn btn-success btn-block">Reset</button>
                         </div>
 
                     </div>

@@ -43,7 +43,7 @@
 
 
                         <div class="form-group col-xl-5 col-lg-5">
-                        <label for="url">Document</label>
+                        <label for="url">Documents</label>
                         <input type="file" class="form-control" id="url" name="url" value="">
                         </div>
                 

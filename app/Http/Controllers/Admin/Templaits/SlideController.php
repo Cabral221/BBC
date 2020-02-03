@@ -77,8 +77,12 @@ class SlideController extends Controller
         return redirect()->route('admin.welcome');
      }
 
-    public function delete($id)
+    public function destroy($id)
     {
-        
+        $delete_slides = Slide::find($id);
+        if($delete_slides);
+        $delete_slides->delete();
+        Flashy::success('Your image has been successfully delete');
+        return redirect()->back();
     }
 }

@@ -70,7 +70,7 @@
                 </tr>
               @endforeach
             @else
-                <tr><td>Aucun lien pour le moment...</td></tr>
+                <tr class="text-primary" style="background:0px;"><td>No link yet ...</td></tr>
             @endif
           </tbody>
         </table>

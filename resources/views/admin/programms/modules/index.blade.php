@@ -34,7 +34,7 @@
                         <tr>
                         <th scope="col">No</th>
                         <th scope="col">Modules</th>
-                        <th scope="col">Niveau</th>
+                        <th scope="col">Level</th>
                         <th>Options</th>
                         </tr>
                     </thead>
@@ -73,7 +73,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="update_progModalLabel">Update Module</h5>
+                                        <h5 class="modal-title" id="update_progModalLabel">Edit Module</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
@@ -83,7 +83,7 @@
                                        {{@csrf_field()}}
                                             <div class="modal-body">
                                                 <input type="hidden" name="module" id="module" value="{{$modules->id}}">
-                                                <label for="libele" style="color:beige;" class="text-dark">Libele</label>
+                                                <label for="libele" style="color:beige;" class="text-dark">Wording</label>
                                                 <input  id="libele" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="libele" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                 @error('libele')
                                                 <span class="invalid-feedback" role="alert">
@@ -92,7 +92,7 @@
                                                 @enderror
 
 
-                                                <label for="filiere_id"  style="color:beige;" class="text-dark">Filiere</label>
+                                                <label for="filiere_id"  style="color:beige;" class="text-dark">Faculty</label>
                                                 <select name="filiere_id" id="filiere_id" class="form-control @error('name') is-invalid @enderror text-center" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                   @foreach($fil as $fils)
                                                       <option value="{{ $fils->id }}" >{{ $fils->libele }}</option>
@@ -121,7 +121,7 @@
                                                 
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Update</button>
+                                                <button type="submit" class="btn btn-primary">Edit</button>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             </div>
                                         </form>

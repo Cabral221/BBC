@@ -46,7 +46,7 @@
                 
                 </div>
                 <div class="form-group">
-                <label for="auteur">Auteur</label>
+                <label for="auteur">Author</label>
                 <input type="text" id="auteur" class="form-control" name="auteur" >
                 </div>
                 <div class="row">
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="form-group col-xl-6 col-lg-6">
-                      <button type="reset" class="btn btn-success btn-block">Reinitialiser</button>
+                      <button type="reset" class="btn btn-success btn-block">Reset</button>
                     </div>
 
                 </div>
@@ -142,7 +142,7 @@
                       </span>
                       @enderror
                       
-                      <label for="auteur" style="color:beige;" class="text-dark">{{ __('Auteur') }}</label>
+                      <label for="auteur" style="color:beige;" class="text-dark">{{ __('Author') }}</label>
                       <input  id="auteur" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="auteur" value="{{ old('name') }}" required autocomplete="name" autofocus>
                       @error('auteur')
                       <span class="invalid-feedback" role="alert">
@@ -151,7 +151,7 @@
                       @enderror
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="submit" class="btn btn-primary">Edit</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </form>

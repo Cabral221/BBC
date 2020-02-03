@@ -51,7 +51,7 @@
                 <textarea name="respons" id="editor" cols="30" rows="10"></textarea>
                 <div class="row mt-2">
                     <div class="col-xl-6"> <button type="submit" class="btn btn-primary btn-block">Reply</button> </div>
-                    <div class="col-xl-6"> <button type="reset" class="btn btn-success btn-block">Reinitialiser</button> </div>
+                    <div class="col-xl-6"> <button type="reset" class="btn btn-success btn-block">Reset</button> </div>
                 </div>
             </form>
         </div>

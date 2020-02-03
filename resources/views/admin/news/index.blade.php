@@ -106,7 +106,7 @@
   <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="update_newModalLabel">Update News</h5>
+          <h5 class="modal-title" id="update_newModalLabel">Edit New</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
@@ -116,7 +116,7 @@
           {{@csrf_field()}}
               <div class="modal-body">
                   <input type="hidden" name="lib_id" id="new_id" value="{{$new->id}}">
-                  <label for="libele" style="color:beige;" class="text-dark">{{ __('Libele') }}</label>
+                  <label for="libele" style="color:beige;" class="text-dark">{{ __('Wording') }}</label>
                   <input  id="libele" type="text" class="form-control @error('libele') is-invalid @enderror text-center" name="libele" value="{{ old('name') ?? $new->libele }}" required autocomplete="libele" autofocus>
 
                   @error('libele')
@@ -144,7 +144,7 @@
                   
               </div>
               <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary">Update</button>
+                  <button type="submit" class="btn btn-primary">Edit</button>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
           </form>

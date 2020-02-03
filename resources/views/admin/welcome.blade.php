@@ -67,7 +67,18 @@
               <div class="card p-2" style="width: 20rem;" >
                 <img class="card-img-top img-responsive mb-1" src="{{asset($sl->image)}}" alt="Card image cap">
                 <div class="card-body">
+                <div class="row text-center">
+                  <div class="col-xl-6">
                   <h5 class="card-title" ><button type="button" data-id="{{$sl->id}}" data-image="{{$sl->image}}" class="btn btn-primary btn-xs mb-1" data-toggle="modal" data-target="#update_slides"><i class="far fa-edit"></i></button></h5>
+                  </div>
+                      <div class="col-xl-6">
+                      <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$sl->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
+                  <form id="form-delete-{{$sl->id}}" action="{{route('admin.templaits.slides.destroy',$sl->id)}}" method="post">
+                  @csrf
+                  @method('delete') 
+                  </form> 
+                      </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -178,7 +189,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Partners Image</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add Partner Image</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -189,7 +200,7 @@
             <label for="name" class="text-dark">Name</label>
             <input type="text" name="name" class="form-control">
             
-            <label for="link" class="text-dark">Lien</label>
+            <label for="link" class="text-dark">Link</label>
             <input type="text" name="link" class="form-control">
             
             <label for="logo" class="text-dark">Image</label>
@@ -210,7 +221,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modifier les Infos</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Informations</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -272,7 +283,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="imageModalLabel">Modifier les Part</h5>
+        <h5 class="modal-title" id="imageModalLabel">Edit Partners</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -292,7 +303,7 @@
           </span>
           @enderror
           
-          <label for="link" style="color:beige;" class="text-dark">{{ __('Lien') }}</label>
+          <label for="link" style="color:beige;" class="text-dark">{{ __('Link') }}</label>
           <input  id="link" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="link" value="{{ old('name') }}" required autocomplete="name" autofocus>
           @error('lien')
           <span class="invalid-feedback" role="alert">
@@ -300,7 +311,7 @@
           </span>
           @enderror
           
-          <label for="logo" style="color:beige;" class="text-dark">{{ __('Logo') }}</label>
+          <label for="logo" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
           <input  id="logo" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="logo" value="{{ old('name') }}" required autocomplete="name" autofocus>
           @error('logo')
           <span class="invalid-feedback" role="alert">
@@ -328,7 +339,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="slideModalLabel">Slides Image</h5>
+        <h5 class="modal-title" id="slideModalLabel"> Add Slides Image</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -357,7 +368,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="update_slidesModalLabel">Modifier vos slides</h5>
+        <h5 class="modal-title" id="update_slidesModalLabel">Edit slides</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -367,7 +378,7 @@
         {{@csrf_field()}}
         <div class="modal-body">
           <input type="hidden" name="slides" id="info_id" value="{{$sl->id}}">
-          <label for="image" style="color:beige;" class="text-dark">{{ __('Logo') }}</label>
+          <label for="image" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
           <input  id="image" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="image" value="{{ old('name') }}" required autocomplete="name" autofocus>
           @error('logo')
           <span class="invalid-feedback" role="alert">
@@ -394,7 +405,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="teamsModalModalLabel">Ajouter les Teams</h5>
+        <h5 class="modal-title" id="teamsModalModalLabel">Add Teams</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

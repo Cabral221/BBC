@@ -33,7 +33,7 @@
                         <tr>
                         <th scope="col">No</th>
                         <th scope="col">Programs</th>
-                        <th scope="col">Libelle</th>
+                        <th scope="col">Wording</th>
                         <th scope="col">Icon</th>
                         <th scope="col">Options</th>
                         </tr>

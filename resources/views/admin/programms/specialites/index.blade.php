@@ -17,7 +17,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">All Specialites</h4>
+          <h4 class="m-0 font-weight-bold text-primary">All Specialty</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -28,8 +28,8 @@
                     <thead>
                         <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Libelle</th>
-                        <th scope="col">Filieres</th>
+                        <th scope="col">Wording</th>
+                        <th scope="col">Faculty</th>
                         <th scope="col">Options</th>
                         </tr>
                     </thead>
