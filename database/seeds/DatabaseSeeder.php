@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        // Seed des infos concernant BBC ( address, BP, phone)
 
         // Seed du mot de bienvenue
         Word::create([
@@ -26,15 +25,11 @@ class DatabaseSeeder extends Seeder
         // Seed des infos concernant BBC ( address, BP, phone)
         Info::create([
             'phone' => "+221 33 869 25 00",
-            'address' => "Mermoz",
-            'email' => "administration@bbcsn.com",
-            'bp' => "Boite"
+            'address' => "Dakar Mermoz",
+            'email' => "infos@bbcsn.com",
+            'bp' => "0000"
         ]);
 
-        // Seed des parteners
-
-        // Seed du compte d'administrateur
- 
         // Seed du compte d'administrateur
         Admin::create([
             'name' => "Administrateur",

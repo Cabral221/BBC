@@ -1,12 +1,11 @@
 @extends('layouts/admin/app')
 @section('body')
   <!-- Begin Page Content -->
-  <div class="container-fluid">
-
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800 ">Dashboard</h1>
-</div>
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800 ">Dashboard</h1>
+  </div>
   <!-- Row pour ajout des diplome -->
   <div class="row">
     <!-- Area Chart -->
@@ -20,7 +19,7 @@
         <div class="card-body">
           <div class="">
             <div class="container">
-           
+            
                     <div class="">
                     <table class="table table-bordered">
                     <thead>
@@ -41,7 +40,7 @@
                     <tbody>
                         <tr class="text-center">
                             <th scope="row">{{++$i}}</th>
-                            <td>{{$admin->lastname}}</td>
+                            <td><a href="{{route('admin.params.admissions.show',$admin->id)}}">{{$admin->lastname}}</a></td>
                             <td>{{$admin->firstname}}</td>
                             <td>{{$admin->email}}</td>
                             <td>{{$admin->phone}}</td>
@@ -59,6 +58,7 @@
                     </tbody>
                     @endforeach
                     </table>
+                    {{ $admission->links() }}
                 </div>
             </div>
           </div>
@@ -67,8 +67,5 @@
     </div>
   </div>
   <!-- fin du row des ajouts de diplome -->
-
-
-
 </div>
 @endsection

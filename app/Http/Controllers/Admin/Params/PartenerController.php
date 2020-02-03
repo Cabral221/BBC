@@ -48,16 +48,6 @@ class PartenerController extends Controller
         return redirect()->route('admin.welcome');
     }
 
-    public function create()
-    {
-        
-    }
-
-    public function edit()
-    {
-        
-    }
-
     public function update(Request $request)
     {
         $edit_part = Partner::findOrFail($request->part);

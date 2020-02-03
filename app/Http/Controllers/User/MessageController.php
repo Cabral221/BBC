@@ -37,16 +37,6 @@ class MessageController extends Controller{
         
         $message = new NotificationMessageCreated($request->get('name'), $request->get('email'),$request->get('message'));
         Mail::to($request->get('email'))->send($message);
-        // Mail::send('email-contact',[
-        //         'name' => $request->get('name'),
-        //         'email' => $request->get('email'),
-        //         'content' => $request->get('message')
-        //     ], function ($message){
-        //         // var_dump($message);die();
-        //         $bbcmail = Info::first();
-        //         // dd($bbcmail);
-        //         $message->to($bbcmail->email)->subject('BBC :: New Message from bbcsn.com');
-        //     });
         
         Flashy::success('your message has been successfully sent');
         return redirect()->route('user.contact');

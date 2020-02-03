@@ -52,6 +52,7 @@
                             </div>
                             @endforeach
                         </div>
+                        {{ $attests->links() }}
                     </div>
                 </div>
             </div>

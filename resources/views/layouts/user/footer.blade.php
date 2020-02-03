@@ -12,24 +12,19 @@
                 @else
                     <p>En négociation</p> 
                 @endif
-                {{-- <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset="">
-                <img src="{{ asset('images/BTEC.png') }}" class="m-2" alt="" srcset=""> --}}
             </div>
         </div>
         <div class="row pb-3 pt-3 h-100">
             <div class="col-md-6 col-sm-6 ">
                 <div class="mb-2 my-auto">
-                    <a href="" style="m-2"><i class="fab fa-twitter m-2" style="font-size:30px;color:white;"></i></a>
-                    <a href="" style="m-2"><i class="fab fa-youtube m-2" style="font-size:30px;color:white"></i></a>
-                    <a href="" style="m-2"><i class="fab fa-linkedin m-2" style="font-size:30px;color:white"></i></a>
-                    <a href="" style="m-2"><i class="fab fa-instagram m-2" style="font-size:30px;color:white"></i></a>
-                    <a href="" style="m-2"><i class="fab fa-facebook m-2" style="font-size:30px;color:white"></i></a>
+                    @foreach (App\Helpers\LinkHelpers::getLink() as $link)
+                <a href="{{ $link->link }} " target="_blank" style="m-2"><i class="fab fa-{{ $link->slug }} m-2" style="font-size:30px;color:white;"></i></a>
+                    @endforeach
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 my-auto p-2">
                 <p class="text-center my-auto">
                     &copy; Copyright <a href="{{ route('admin.welcome') }}" style="color: blanchedalmond" target="_blank"b>BBC University</b> </a> 2020 - {{ Date('Y') }} | Developed by EMPRO
-
                 </p>
             </div>
         </div>

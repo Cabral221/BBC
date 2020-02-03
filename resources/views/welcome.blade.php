@@ -212,7 +212,7 @@
 
 <div class="bg-white text-center text-dark">
     <div class="container mt-3">
-        <h3>Témoignages</h3>
+        <h3>Testimony</h3>
         <div class="row text-dark">
             @if (isset($attests) && $attests->count() > 0)
                 @foreach ($attests as $attest)
@@ -242,7 +242,7 @@
 <div class="bg-dark">
     <div class="container mt-3">
 
-        <h3>Documents utils</h3>
+        <h3 class="text-center">Utils documents</h3>
             @if (isset($docs) && $docs->count() > 0)
             <div class="row pt-5 pb-5 text-white text-bold">
                 @foreach ($docs as $doc)
@@ -258,6 +258,7 @@
                     </div>
                 @endforeach
             </div>
+            {{ $docs->links() }}
             @else
                 <p>Aucun document pour le moment</p>
             @endif  

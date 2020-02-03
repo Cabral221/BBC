@@ -34,20 +34,20 @@
                 @csrf
                 
                    
-                        <label for="libele">Libele</label>
+                        <label for="libele">Title</label>
                         <input type="text" class="form-control mb-3" id="libele" name="libele" value="">
 
-                        <label for="libele">Date et heure <small class="muted">Ex: 01/01/2002 18:00</small></label>
+                        <label for="libele">Date and hour <small class="muted">Ex: 01/01/2002 18:00</small></label>
                         <input type="datetime-local" class="form-control mb-3" id="libele" name="date" value="">
 
-                        <label for="content" style="mt-4">Description de l'évenement</label>
+                        <label for="content" style="mt-4">Description of event</label>
                         <textarea name="content" id="editor" class="form-control" cols="30" rows="10"></textarea>
 
                 
                     <br>
                         <div class="form-group row">
                           <div class="col-xl-6"><button class="btn btn-primary btn-block" type="submit">Add</button></div>
-                          <div class="col-xl-6"><button class="btn btn-success btn-block" type="reset">Reinitialiser</button></div>
+                          <div class="col-xl-6"><button class="btn btn-success btn-block" type="reset">Reset</button></div>
                         </div>
 
               </form>
@@ -94,6 +94,7 @@
     </div>
   </div>
   @endforeach
+  {{ $news->links() }}
   <!-- fin du row des ajouts de post -->
 
 

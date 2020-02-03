@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="form-group col-xl-5 col-lg-5">
                         <input type="hidden" name="prog" id="prog_id">
-                        <label for="libele">Libellet</label>
+                        <label for="libele">Title</label>
                         <input type="text" class="form-control" id="libele" name="libele" value="">
                         </div>
 
@@ -67,7 +67,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Affichage Image</h4>
+          <h4 class="m-0 font-weight-bold text-primary">All pictures</h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -93,6 +93,7 @@
               </div>
             @endforeach
             </div>
+            {{ $affiche->links() }}
           </div>
         </div>
       </div>

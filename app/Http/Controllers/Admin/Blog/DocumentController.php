@@ -13,7 +13,7 @@ class DocumentController extends Controller
 {
     public function index()
     {
-        $doc  =  Document::all();
+        $doc  =  Document::paginate(10);
         return view('admin.documents.index',compact('doc'));
     }
 

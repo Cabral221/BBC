@@ -11,13 +11,13 @@ class AdmissionController extends Controller
 {
     public function index()
     {
-        $admission = Admission::All();
+        $admission = Admission::paginate(10);
         return view('admin.admissions.index',compact('admission'));
     }
 
-    public function create()
+    public function show($id)
     {
-        
+        dd($id);
     }
 
     public function edit()

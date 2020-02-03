@@ -17,16 +17,6 @@ class WordController extends Controller
         return view('admin.words.index',compact((['teams','word'])));
     }
 
-    public function create()
-    {
-        
-    }
-
-    public function edit()
-    {
-        
-    }
-
     public function update(Request $request)
     {
         $word_update = Word::findOrFail($request->word);
