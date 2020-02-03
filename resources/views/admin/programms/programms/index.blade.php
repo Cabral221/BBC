@@ -374,12 +374,20 @@
                         <input type="text" class="form-control" name="libele" value="">
                         </div>
 
-                        <div class="form-group col-xl-4 col-lg-4">
-                          <label for="filiere_id">Fillieres Group</label>
-                          <select name="filiere_id" id="" class="form-control">
-                          @foreach($fil as $fils)
-                            <option value="{{ $fils->id }}">{{ $fils->libele }}</option>
-                          @endforeach
+                             <div class="form-group col-xl-4 col-lg-4">
+                          <label for="tite">Fillieres Group</label>
+                          <select name="specialite" id="" class="form-control">
+                            <option default>Select Filieres</option>
+                          @foreach($programms as $prog2)
+                            <ul class="list-group">
+                            <option disabled> {{ $prog2->libele }} : </option>
+                                <li class="list-group-item">
+                                  @foreach($prog2->filieres as $file)
+                                    <option  value="{{ $file->id }}"> &nbsp&nbsp&nbsp&nbsp -{{ $file->libele }} </option>
+                                </li>
+                                  @endforeach
+                            </ul>
+                            @endforeach
                           </select>
                         </div>
 

@@ -67,7 +67,18 @@
               <div class="card p-2" style="width: 20rem;" >
                 <img class="card-img-top img-responsive mb-1" src="{{asset($sl->image)}}" alt="Card image cap">
                 <div class="card-body">
+                <div class="row text-center">
+                  <div class="col-xl-6">
                   <h5 class="card-title" ><button type="button" data-id="{{$sl->id}}" data-image="{{$sl->image}}" class="btn btn-primary btn-xs mb-1" data-toggle="modal" data-target="#update_slides"><i class="far fa-edit"></i></button></h5>
+                  </div>
+                      <div class="col-xl-6">
+                      <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$sl->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
+                  <form id="form-delete-{{$sl->id}}" action="{{route('admin.templaits.slides.destroy',$sl->id)}}" method="post">
+                  @csrf
+                  @method('delete') 
+                  </form> 
+                      </div>
+                  </div>
                 </div>
               </div>
             </div>
