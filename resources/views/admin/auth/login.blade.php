@@ -10,7 +10,9 @@
 <body>
     <div class="body">
         <div class="loginbox">
-            <img src="{{ asset('asset_admin/login/avatar.png')}}" class="avatar" alt="" srcset="">
+            <div class="div-avatar">
+                <img src="{{ asset('asset_admin/login/avatar.png')}}" class="avatar" alt="" srcset="">
+            </div>
             <h1>BBC Administration</h1>
             <form method="POST" action="{{ route('login-admin') }}">
                 @csrf

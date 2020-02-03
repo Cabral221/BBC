@@ -24,11 +24,23 @@ body{
     padding: 70px 30px;
 }
 
+.div-avatar{
+    border-radius: 50%;
+    width: 95px;
+    height: 95px;
+    position: fixed;
+    overflow: hidden;
+    top: -55px;
+    left: calc(50% - 57px);
+    background-color: #e3342f;
+    padding: 10px;
+}
+
 .avatar{
-    background: black;
+    background: rgba(3, 3, 3, 0.021);
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    /* border-radius: 20%; */
     position: fixed;
     overflow: hidden;
     top: -50px;
@@ -71,7 +83,7 @@ h1{
     border: none;
     outline: none;
     height: 50px;
-    background: rgb(177, 31, 14);
+    background: #e3342f;
     color: white;
     font-size: 20px;
     border-radius: 25px;
@@ -80,14 +92,14 @@ h1{
 .loginbox input[type="submit"]:hover {
     cursor: pointer;
     background: transparent;
-    border: 2px solid rgb(177, 31, 14);
+    border: 2px solid #e3342f;
 }
 
 .loginbox span.invalid-feedback{
-    color: red;
+    color: #e3342f;
     font-size: 13px;
 }
 
 .loginbox input.is-invalid{
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid #e3342f;
 }
