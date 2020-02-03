@@ -64,15 +64,15 @@
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-user-graduate"></i>
-            <span>Etudes</span>
+            <span>studies</span>
           </a>
           <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Custom Utilities:</h6>
-              <a class="collapse-item" href="{{ route('admin.programms.programms.index') }}">Programms</a>
-              <a class="collapse-item" href="{{ route('admin.programms.filliers.index') }}">Filliers</a>
+              <a class="collapse-item" href="{{ route('admin.programms.programms.index') }}">Programs</a>
+              <a class="collapse-item" href="{{ route('admin.programms.filliers.index') }}">Faculty</a>
               <a class="collapse-item" href="{{ route('admin.programms.modules.index') }}">Modules</a>
-              <a class="collapse-item" href="{{ route('admin.programms.specialites.index') }}">Specialites</a>
+              <a class="collapse-item" href="{{ route('admin.programms.specialites.index') }}">Speciality</a>
               <a class="collapse-item" href="{{ route('admin.blog.documents.index') }}">Documents</a>
             </div>
           </div>

@@ -91,8 +91,8 @@
     <div class="mt-5 mb-5">
         <div class="container text-dark">
             <h2>Programs</h2>
-            <p>Ipsum minim amet qui Lorem eiusmod ea officia non quis velit. Deserunt ex sunt adipisicing aliquip amet proident ea duis qui culpa. Anim mollit do et adipisicing qui minim pariatur amet ut in amet. Ea anim velit quis ullamco mollit ut ad laboris aute mollit sint. Anim ex commodo sunt exercitation esse exercitation sit amet labore veniam nostrud.</p>
-            <div class="pb-3">Cliquez sur un programme pour voir nos fillière <span class="badge badge-pill text-uppercase">+</span></div>
+            <p>Choosing your program of study can become a stressful decision for some of you. The training you choose should, in the best of all worlds, reflect the person you are. There is a good chance that you will succeed in your studies when they interest and motivate you. Think about the types of activities you organize, the courses that have attracted your attention the most, or your strengths and weaknesses in the different subjects.</p>
+            <div class="pb-3">Click on a program to see our sector <span class="badge badge-pill text-uppercase">+</span></div>
             @if (isset($programs) && $programs->count() > 0)
                 @foreach ($programs as $program)
                     <button type="button" class="collapsible">{{ strtoupper($program->libele) }}</button>

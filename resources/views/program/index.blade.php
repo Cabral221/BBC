@@ -21,8 +21,7 @@
         <div class="container text-dark">
             
             <div class="row">
-                <h3>Title</h3>
-                <p class="text-dark">Ex tempor excepteur aute culpa ullamco excepteur ipsum aute tempor nostrud commodo aute. Aute in cupidatat enim deserunt fugiat sit minim. Cillum laborum quis esse fugiat minim esse do eu duis Lorem qui laborum ea laboris. Pariatur sit occaecat cupidatat in eiusmod sit ea pariatur. Deserunt adipisicing quis eiusmod sunt minim mollit. Duis duis laborum occaecat dolore ex incididunt consequat duis tempor veniam fugiat deserunt eu nostrud. Sunt ea ut officia id. Nulla ullamco occaecat quis eu cillum. Officia ullamco ut do velit mollit Lorem id. Eu sint est eu qui aliqua do non id. Commodo incididunt sit consequat nisi reprehenderit veniam quis aliquip officia est et qui. Minim amet eu sunt reprehenderit eu veniam adipisicing proident consequat cupidatat minim deserunt minim esse. Dolor cillum incididunt dolore culpa est culpa ex dolor tempor irure deserunt proident in veniam. Dolor nostrud culpa fugiat cupidatat est.</p>
+                <p class="text-dark">Choosing your program of study can become a stressful decision for some of you. The training you choose should, in the best of all worlds, reflect the person you are. There is a good chance that you will succeed in your studies when they interest and motivate you. Think about the types of activities you organize, the courses that have attracted your attention the most, or your strengths and weaknesses in the different subjects.</p>
                 <div class="col-sm-8 text-dark">
                     @if (isset($programs) && $programs->count())
                         @foreach ($programs as $program)
@@ -63,11 +62,11 @@
 
                 <div id="post-sidebar" class="col-sm-3 col-sm-offset-1">
                     <div class="widget mb50">
-                        <div>
+                        {{-- <div>
                             <img src="{{asset('assets/img/news/1.jpg')}}" class="img-responsive" alt="" srcset="">
                             <h4>Dr Doe John </h4>
                             <h6>Director of programs</h6>
-                        </div>
+                        </div> --}}
                         <hr>
                         <div>
                             <h4 class="">Latest News</h4>
