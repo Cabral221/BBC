@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         MercurySeries\Flashy\FlashyServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -228,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Flashy' => MercurySeries\Flashy\Flashy::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

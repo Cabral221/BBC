@@ -55,11 +55,6 @@ Route::post('register', [
     'uses' => 'Auth\RegisterController@register'
 ]);
 
-
-// Auth::routes();
-                                    
-                                    
-
 // Authentification des Admins
 Route::get('/login-admin','Admin\Auth\LoginController@showLoginForm')->name('login-admin');
 Route::post('/login-admin','Admin\Auth\LoginController@login')->name('login-admin');
@@ -144,6 +139,7 @@ Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin
     Route::get('/admin.edite/{id}','Admin\Auth\AdminController@edite')->name('edite');
     Route::get('/{id}/admin.update','Admin\Auth\AdminController@update')->name('update');
      
+    Route::get('/generate-pdf','Admin\PDFController@generatePDF')->name('generate-pdf');
     
     // Route::get('/','Admin\HomeController@welcome')->name('welcome');
 });

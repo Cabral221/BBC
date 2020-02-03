@@ -123,6 +123,7 @@
         </div>
         <!-- Card Body -->
         <div class="card-body">
+          <a href="{{ route('admin.generate-pdf') }}" class="btn btn-primary">Dowload all emails</a>
             <table class="table table-striped table responsive table-default">
               <thead>
                 <tr>

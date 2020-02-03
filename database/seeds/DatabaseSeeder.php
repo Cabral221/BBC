@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             'phone' => "+221 33 869 25 00",
             'address' => "Dakar Mermoz",
             'email' => "infos@bbcsn.com",
-            'bp' => "0000"
+            'bp' => "21784"
         ]);
 
         // Seed du compte d'administrateur
