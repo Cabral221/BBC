@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Filiere extends Model
 {
+    
+
     public function program()
     {
         return $this->belongsTo(Program::class);
