@@ -7,6 +7,7 @@ use App\Models\Specialite;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class SpecialiteController extends Controller
 {
@@ -30,6 +31,15 @@ class SpecialiteController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'specialite' => 'required',
+            'title' => 'required|min:2'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
         $update = Specialite::find($id);
         $update->libele = $request->input('title');
         $update->filiere_id = $request->input('specialite');
@@ -40,6 +50,15 @@ class SpecialiteController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'specialite' => 'required',
+            'title' => 'required|min:2'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
             $spec = new Specialite();
             $spec->libele = $request->input('title');
             $spec->filiere_id = $request->input('specialite');

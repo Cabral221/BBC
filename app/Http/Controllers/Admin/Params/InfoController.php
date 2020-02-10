@@ -5,6 +5,7 @@ use App\Models\Info;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class InfoController extends Controller
 {
@@ -26,6 +27,19 @@ class InfoController extends Controller
 
     public function update(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|min:2|email',
+            'phone' => 'required|min:9|max:14',
+            'adress' => 'required',
+            'bp' => 'required'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
+
         $info = Info::findOrFail($request->info);
         $info->email = $request->input('email');
         $info->phone = $request->input('phone');

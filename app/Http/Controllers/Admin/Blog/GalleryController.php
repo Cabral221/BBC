@@ -9,6 +9,7 @@ use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class GalleryController extends Controller
 {
@@ -30,10 +31,15 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $image_add = new Gallerie();
-        
-        $request->validate([
-            "image" => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048'
+        $validator = Validator::make($request->all(), [
+            "libele" => 'required|min:2',
+            "image" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
         ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
 
         if($request->has('image')){
             //On enregistre l'image dans un dossier
@@ -65,6 +71,15 @@ class GalleryController extends Controller
 
     public function update(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            "libele" => 'required|min:2',
+            "image" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
         $edit_fil = Gallerie::findOrFail($request->image_id);
         $imgdel =$edit_fil->image;
         if($edit_fil){

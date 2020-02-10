@@ -34,9 +34,9 @@
                         </div>
 
                         <div class="form-group col-xl-6 col-lg-6">
-                          <label for="tite">Faculty Group</label>
+                          <label for="tite">Select Faculty</label>
                           <select name="specialite" id="" class="form-control">
-                            <option default>Select Faculty</option>
+                            <option default></option>
                           @foreach($programms as $prog2)
                             <ul class="list-group">
                             <option disabled> {{ $prog2->libele }} : </option>

@@ -8,6 +8,7 @@ use App\Models\Filiere;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class ModuleController extends Controller
 {
@@ -31,6 +32,16 @@ class ModuleController extends Controller
 
     public function update(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'filiere_id' => 'required',
+            'niveau_id' => 'required',
+            'libele' => 'required|min:2'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
         $edite_module = Module::findOrFail($request->module);
         $edite_module->libele = $request->input('libele');
         $edite_module->filiere_id = $request->input('filiere_id');
@@ -42,8 +53,18 @@ class ModuleController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'specialite' => 'required',
+            'niveau_id' => 'required',
+            'libele' => 'required|min:2'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
         $module = new Module();
-        $module->filiere_id = $request->input('filiere_id');
+        $module->filiere_id = $request->input('specialite');
         $module->niveau_id = $request->input('niveau_id');
         $module->libele = $request->input('libele');
         $module->save();

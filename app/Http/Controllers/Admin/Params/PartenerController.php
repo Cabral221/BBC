@@ -8,6 +8,7 @@ use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class PartenerController extends Controller
 {
@@ -24,11 +25,18 @@ class PartenerController extends Controller
     public function store(Request $request)
     {
         $part = new Partner();
-        
-        $request->validate([
-            "logo" => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048'
-        ]);
 
+    
+      $validator = Validator::make($request->all(), [
+        'name' => 'required|min:2',
+        'link' => 'required',
+        "logo" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
+    ]);
+
+    if ($validator->fails()) {
+            flashy::error($validator->messages()->first());
+        return redirect()->back();
+    }
         if($request->has('logo')){
             //On enregistre l'image dans un dossier
             $image = $request->file('logo');
@@ -51,6 +59,18 @@ class PartenerController extends Controller
     public function update(Request $request)
     {
         $edit_part = Partner::findOrFail($request->part);
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2',
+            'link' => 'required',
+            "logo" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
+
         $imgdel = $edit_part->logo;
         if($edit_part){
             if($request->has('logo')){

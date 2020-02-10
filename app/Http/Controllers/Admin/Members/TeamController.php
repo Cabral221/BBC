@@ -9,6 +9,7 @@ use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class TeamController extends Controller
 {
@@ -22,13 +23,17 @@ class TeamController extends Controller
     {
 
         $team = new Team();
-        
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'lastname'=>'required|min:2',
             'firstname' => 'required|min:2',
             'job' => 'required|min:2',
             "image" => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048'
         ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
 
         if($request->has('image')){
             //On enregistre l'image dans un dossier
@@ -52,12 +57,19 @@ class TeamController extends Controller
 
 
     public function update(Request $request){
-        $data = $request->validate([
+       
+         $validator = Validator::make($request->all(), [
             'lastname'=>'required|min:2',
             'firstname' => 'required|min:2',
             'job' => 'required|min:2',
             "image" => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048'
-         ]);
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
+
          $edit_team = Team::findOrFail($request->team);
          $imgdel = $edit_team->image;
 

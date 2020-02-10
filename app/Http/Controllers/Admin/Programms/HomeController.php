@@ -8,6 +8,7 @@ use App\Models\Filiere;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -36,6 +37,14 @@ class HomeController extends Controller
 
     public function update(Request $request)
     {
+            $validator = validator::make($request->all(),[
+            'libele' => 'required'
+            ]);
+            
+            if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+                return redirect()->back();
+            }
         $edite_prog = Program::findOrFail($request->prog);
         $edite_prog->libele = $request->input('libele');
         $edite_prog->save();
@@ -45,6 +54,14 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'libele' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            flashy::error($validator->messages()->first());
+        return redirect()->back();
+    }
       $prog = new Program();
       $prog->libele = $request->input('libele');
       $prog->save();

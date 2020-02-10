@@ -6,11 +6,21 @@ use App\Models\Niveau;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class NiveauController extends Controller
 {
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'prog_niv' => 'required',
+            'libele' => 'required|min:2'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
       $niveau = new Niveau();
       $niveau->libele = $request->input('libele');
       $niveau->program_id = $request->input('prog_niv');
@@ -30,6 +40,15 @@ class NiveauController extends Controller
 
     public function update(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'libele_niv' => 'required|min:2',
+            'niv_prog' => 'required'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
         $edite_prog = Niveau::findOrFail($request->nivo);
         $edite_prog->libele = $request->input('libele_niv');
         $edite_prog->program_id = $request->input('niv_prog');

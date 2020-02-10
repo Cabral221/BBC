@@ -216,6 +216,7 @@
   </div>
   <!-- fin du modal des logo partener -->
 </div> 
+
 <!-- Debut du Modal des infos -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -241,7 +242,7 @@
           @enderror
           
           <label for="phone" style="color:beige;" class="text-dark">{{ __('Phone') }}</label>
-          <input  id="phone" type="number" class="form-control @error('name') is-invalid @enderror text-center" name="phone" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <input  id="phone" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="phone" value="{{ old('name') }}" required autocomplete="name" autofocus>
           @error('phone')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

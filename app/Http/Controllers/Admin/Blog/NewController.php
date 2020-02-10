@@ -8,6 +8,7 @@ use App\Models\Message;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class NewController extends Controller
 {
@@ -20,6 +21,16 @@ class NewController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'libele' => 'required|min:2',
+            'date' => 'required',
+            'content' => 'required'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
         $new = new Neew();
         $new->title = $request->input('libele');
         $new->date = $request->input('date');
@@ -32,6 +43,16 @@ class NewController extends Controller
 
     public function update(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'libele' => 'required|min:2',
+            'date' => 'required',
+            'content' => 'required'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
         $edit_new = Neew::findOrFail($request->lib_id);
         $edit_new->title = $request->input('libele');
         $edit_new->date = $request->input('date');

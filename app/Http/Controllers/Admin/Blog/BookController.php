@@ -9,6 +9,7 @@ use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
 {
@@ -30,9 +31,18 @@ class BookController extends Controller
     {
         $book = new Book();
         
-        $request->validate([
-            "image" => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048'
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|min:2',
+            'dateout' => 'required|min:2',
+            'auteur' => 'required',
+            "image" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
         ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
 
         if($request->has('image')){
             //On enregistre l'image dans un dossier
@@ -66,9 +76,18 @@ class BookController extends Controller
 
     public function update(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|min:2',
+            'dateout' => 'required|min:2',
+            'auteur' => 'required',
+            "image" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
         $edit_book = Book::findOrFail($request->book);
-        
-
         $imgdel = $edit_book->image;
 
         if($edit_book){

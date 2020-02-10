@@ -9,6 +9,7 @@ use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class SlideController extends Controller
 {
@@ -23,9 +24,14 @@ class SlideController extends Controller
 
         $slides = new Slide();
         
-        $request->validate([
-            "image" => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048'
+        $validator = Validator::make($request->all(), [
+            "image" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
         ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
 
         if($request->has('image')){
             //On enregistre l'image dans un dossier
@@ -46,9 +52,17 @@ class SlideController extends Controller
     }
 
     public function update(Request $request){
-        $data = $request->validate([
-            'image' => 'nullable | image | mimes:jpeg,png,jpg,gif | max:2048'
-         ]);
+     
+
+         $validator = Validator::make($request->all(), [
+            "image" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
+
          $edit_slide = Slide::findOrFail($request->slides);
          $imagedel = $edit_slide->image;
 

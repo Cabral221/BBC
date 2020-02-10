@@ -9,6 +9,7 @@ use MercurySeries\Flashy\Flashy;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class FillierController extends Controller
 {
@@ -42,10 +43,20 @@ class FillierController extends Controller
     public function store(Request $request)
     {
         $filier = new Filiere();
-        
-        $request->validate([
-            "icon" => 'nullable | image | mimes:jpeg,png,jpg,gif | max: 2048'
+        $validator = Validator::make($request->all(), [
+            'program_id' => 'required',
+            'libele' => 'required|min:2',
+            'describe' => 'required',
+            'duration' => 'required',
+            'requirement' => 'required',
+            'outCome' => 'required',
+            "icon" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
         ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
 
         if($request->has('icon')){
             //On enregistre l'image dans un dossier
@@ -75,6 +86,20 @@ class FillierController extends Controller
     public function update(Request $request,$id)
     {
         $edit_fil = Filiere::find($id);
+        $validator = Validator::make($request->all(), [
+            'program_id' => 'required',
+            'libele' => 'required|min:2',
+            'describe' => 'required',
+            'duration' => 'required',
+            'requirement' => 'required',
+            'outCome' => 'required',
+            "icon" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
+        ]);
+    
+        if ($validator->fails()) {
+                flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
         $imgdel = $edit_fil->icon;
         if($edit_fil){
             if($request->has('icon')){
