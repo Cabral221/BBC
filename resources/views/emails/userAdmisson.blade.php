@@ -11,7 +11,7 @@ Phone : {{ $request['phone'] }}<br>
 @component('mail::panel')
 Program : <b>{{ $request['program_id']->libele }}</b><br>
 Level : <b>{{ $request['niveau_id']->libele }}</b><br>
-Faculty : <b>{{ $request['filiere_id']->lebele }}</b><br>
+Faculty : <b>{{ $request['filiere_id']->libele }}</b><br>
 @endcomponent
 
 @component('mail::button', ['url' => env('APP_URL')])
