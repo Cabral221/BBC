@@ -90,7 +90,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('admin.params.admissions.index')}}">
                 <i class="fas fa-graduation-cap"></i>
-                <span>Admissions</span></a>
+                <span>Admissions</span>@if (App\Helpers\AdmissionHelper::unreadAdmission())<span class="right badge badge-pill badge-success vertical-center" style="float:right;font-size:10px;margin-top:4px">{{ App\Helpers\AdmissionHelper::unreadAdmission() }}</span>@endif</a>
               </li>
               
               <li class="nav-item">

@@ -39,7 +39,7 @@
                     {{$i = ''}}
                     @foreach($admission as $admin)
                     <tbody>
-                        <tr class="text-center">
+                        <tr class="text-center" style="color:#4e73df">
                             <th scope="row">{{++$i}}</th>
                             <td>{{$admin->lastname}}</td>
                             <td>{{$admin->firstname}}</td>

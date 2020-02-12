@@ -53,7 +53,7 @@
             <div class="col-md-6 mb-0">
                 <div class="text-center">
                     <h2>Subscriber on newsLetter</h2>
-                    <p>Abonnez-vous pour recevoir les nouvelles de l'institut</p>
+                    <p>Subscribe to receive news from the institute</p>
                 </div>
             </div>
             <div class=" col-md-6 vertical-center text-center">

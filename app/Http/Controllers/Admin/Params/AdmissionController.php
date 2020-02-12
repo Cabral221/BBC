@@ -11,8 +11,8 @@ class AdmissionController extends Controller
 {
     public function index()
     {
-        $admission = Admission::Where('etat',0)->paginate(10);
-        $admins = Admission::Where('etat',1)->paginate(10);
+        $admission = Admission::Where('etat',0)->orderBy('id','desc')->paginate(10);
+        $admins = Admission::Where('etat',1)->orderBy('id','desc')->paginate(10);
         return view('admin.admissions.index',compact(['admission','admins']));
     }
 

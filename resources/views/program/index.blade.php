@@ -21,7 +21,7 @@
         <div class="container text-dark">
             
             <div class="row">
-                <p class="text-dark">Choosing your program of study can become a stressful decision for some of you. The training you choose should, in the best of all worlds, reflect the person you are. There is a good chance that you will succeed in your studies when they interest and motivate you. Think about the types of activities you organize, the courses that have attracted your attention the most, or your strengths and weaknesses in the different subjects.</p>
+                <p class="text-dark lead">Choosing your program of study can become a stressful decision for some of you. The training you choose should, in the best of all worlds, reflect the person you are. There is a good chance that you will succeed in your studies when they interest and motivate you. Think about the types of activities you organize, the courses that have attracted your attention the most, or your strengths and weaknesses in the different subjects.</p>
                 <div class="col-sm-8 text-dark">
                     @if (isset($programs) && $programs->count())
                         @foreach ($programs as $program)

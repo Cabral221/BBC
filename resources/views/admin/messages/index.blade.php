@@ -30,7 +30,7 @@
        </tr>
         @foreach( $sms as $com )
      <tr>
-     <tbody>
+     <tbody style="color:{{ ($com->read_at == NULL) ? '#4e73df' : '' }}">
         <td class="text-capitalize">{{ $com->name }}</td>
         <td>{{ $com->email }}</td>
         <td class="text-truncate"  style="max-width: 100px;">{{ $com->message }}</td>

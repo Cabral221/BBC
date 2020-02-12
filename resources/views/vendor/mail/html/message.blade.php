@@ -3,7 +3,7 @@
 @slot('header')
 @component('mail::header', ['url' => config('app.url')])
 <div>
-    <img src="{{ asset('images/logo1.png') }}" alt="" srcset="">
+    <img src="{{ asset('images/logo1.png') }}" width="100px" alt="" srcset="">
 </div>
 BBC University
 @endcomponent

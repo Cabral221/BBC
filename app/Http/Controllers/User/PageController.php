@@ -21,7 +21,7 @@ class PageController extends Controller
 
         $info['current_page'] = 'library';
         $info['books'] = Book::all();
-        $info['galeries'] = Gallerie::paginate();
+        $info['galeries'] = Gallerie::paginate(12);
         // dd($info['galeries']);
         return view('pages.library', $info);
     }

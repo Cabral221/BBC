@@ -23,6 +23,8 @@
             <div class="row">
                 <div class="col-md-6 text-dark">
                     <div class="row">
+                        <p class="lead"><h3> Do you have any goals ? Contact us ? </h3></p>
+
                         <table class="table">
                             <tr>
                                 <td>Address</td>
@@ -42,8 +44,7 @@
                             </tr>
                         </table>
                     </div>
-                    <p class="lead">Sold old ten are quit lose deal his sent. You correct how sex several far distant believe journey parties. We shyness enquire uncivil affixed it carried to. </p>
-                    <p>End sitting shewing who saw besides son musical adapted. Contrasted interested eat alteration pianoforte sympathize was. He families believed if no elegance interest surprise an. It abode wrong miles an so delay plate.</p>
+                
                     
                 </div>
 
@@ -106,7 +107,7 @@
             <div class="col-md-6 mb-0">
                 <div class="text-center">
                     <h2>Subscriber on newsLetter</h2>
-                    <p>Abonnez-vous pour recevoir les nouvelles de l'institut</p>
+                    <p>Subscribe to receive news from the institute</p>
                 </div>
             </div>
             <div class=" col-md-6 vertical-center text-center">

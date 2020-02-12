@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Admin;
 use App\Models\Info;
 use App\Models\Slide;
 use App\Models\Partner;
 use App\Models\Program;
 use App\Models\Gallerie;
 use App\Models\Admission;
+use App\Mail\AdmissionMail;
 use Illuminate\Http\Request;
+use App\Mail\UserAdmissionMail;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class AdmissionController extends Controller
 {
@@ -36,9 +40,15 @@ class AdmissionController extends Controller
             'email' => 'required|email',
             'phone' => 'required|integer',
         ]);
+        $admission = Admission::create($request->all());
 
+        $message = new AdmissionMail($request->all(),$admission->id);
+        // dd($message);
+        Mail::to(Admin::first()->email)->send($message);
 
-        Admission::create($request->all());
+        $notifUser = new UserAdmissionMail($request->all());
+        Mail::to($request->email)->send($notifUser);
+
         Flashy::success('your pre-registration has been sent. We will study it as soon as possible Thank you for your trust.');
         return redirect()->route('user.admission');
     }
