@@ -2,7 +2,9 @@
 
 use App\Admin;
 use App\Models\Info;
+use App\Models\Team;
 use App\Models\Word;
+use App\Models\Slide;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +18,19 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
+        // Seed du premier image comme slide
+        Slide::create([
+            'image' => '/default-slide.jpg'
+        ]);
+
+        // Seed du directeur des programs
+        Team::create([
+            'lastname' => 'Baldé',
+            'firstname' => 'Mrs',
+            'job' => 'Director of Program',
+            'image' => '/default.jpg'
+        ]);
+
         // Seed du mot de bienvenue
         Word::create([
             'content' => 'Ceci est un texte obtenu a partir du seed des donnes',
@@ -26,7 +41,7 @@ class DatabaseSeeder extends Seeder
         Info::create([
             'phone' => "+221 33 869 25 00",
             'address' => "Dakar Mermoz",
-            'email' => "infos@bbcsn.com",
+            'email' => "info@bbcsn.com",
             'bp' => "21784"
         ]);
 

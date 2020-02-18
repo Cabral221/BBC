@@ -269,18 +269,18 @@
 {{-- Followors --}}
 <div class="followers bg-primary">
     <div class="container">
-        <div class="row mb-0">
+        <div class="row row-follow mb-0">
             <div class="col-md-6 mb-0">
                 <div class="text-center">
                     <h2>Subscriber on newsLetter</h2>
                     <p>Subscribe to receive news from the institute</p>
                 </div>
             </div>
-            <div class=" col-md-6 vertical-center text-center">
-                <form action="{{ route('user.networks.store') }}" method="post" id="form-network" class="vertical-center">
+            <div class=" col-md-6 text-center">
+                <form action="{{ route('user.networks.store') }}" method="post" id="form-network" style="display:flex;">
                     @csrf
-                    <div class="vertical-center text-center input-group" style="width:100%">
-                        <input type="text" name="email" class="form-control text-center @error('email') is-invalid @enderror" style="width: 70%;color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
+                    <div class="text-center input-group" style="width:100%;display:flex;">
+                        <input type="text" name="email" class="form-control text-center @error('email') is-invalid @enderror" style="color:black" id="validationCustomUsername" placeholder="Your email" aria-describedby="inputGroupPrepend" required>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

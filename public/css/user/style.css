@@ -233,7 +233,17 @@ a.document{
 }
 
 
-
+@media only screen and (min-width: 975px){
+  .row-follow{
+    display: table;
+    width: 100%;
+  }
+  .row-follow [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
 
 
 /* mbprlf import from bootstrap 4 */

@@ -3,7 +3,7 @@
         <div style="border-bottom: 2px seashell solid">
             <h2>Trust partners</h2>
             <div class="logo-partner mb-5 row">
-                @if (isset($partners))
+                @if (isset($partners) && $partners->count() > 0)
                     @foreach ($partners as $partner)
 
                         <a href="{{ $partner->link }}" target="_blank"><img src="{{ asset($partner->logo) }}" class="m-2" width="100px" alt="" srcset=""></a>
