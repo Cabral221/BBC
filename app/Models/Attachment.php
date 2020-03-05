@@ -11,7 +11,7 @@ class Attachment extends Model
     public static function boot()
     {
         parent::boot();
-        self::deleted(function($attachment){
+        self::deleted(function(Attachment $attachment){
             $attachment->deleteFile();
         });
     } 
