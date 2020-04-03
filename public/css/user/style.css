@@ -5,7 +5,7 @@ body {
     background-position: center; */
     margin: 0;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
     line-height: 1.6;
     color: #ffffff;
@@ -124,6 +124,34 @@ a.document{
 .followers{
     margin: 0 auto;
     padding: 30px;
+}
+
+.testi .card {
+  box-shadow: 5px 5px 5px grey;
+  /* background-color: #000000; */
+}
+.testi .card-text{
+  position: relative;
+  /* text-align: justify; */
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.testi .card-text::before{
+  content: '"';
+  font-size: 3rem;
+  position: absolute;
+  top: -20px;
+  left: -5px;
+  font-style: italic;
+}
+.testi .card-text::after{
+  content: '"';
+  font-size: 3rem;
+  position: absolute;
+  bottom: -20px;
+  right: -5px;
+  font-style: italic;
 }
 
 /* .icon-list > ul{

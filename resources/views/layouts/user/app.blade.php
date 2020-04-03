@@ -8,20 +8,11 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	
-	<!-- Scripts -->
-	{{-- <script src="{{ asset('js/jquery.js')}}"></script>
-	<script src="{{ asset('js/user/jquery-backstretch/jquery.backstretch.min.js')}}"></script>
-	<script src="{{ asset('js/user/app.js') }}" defer></script>
-	<script src="{{ asset('js/app.js') }}" defer></script> --}}
-	
-	
-	
-	
-	<link rel="shortcut icon" href="{{ asset('assets/img/ico/favicon.ico') }}">
-	<link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/ico/apple-touch-icon-144x144.png') }}">
-	<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/ico/apple-touch-icon-114x114.png') }}">
-	<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/ico/apple-touch-icon-72x72.png') }}">
-	<link rel="apple-touch-icon" href="{{ asset('assets/img/ico/apple-touch-icon-57x57.png') }}">
+	<link rel="shortcut icon" href="{{ asset('images/logo1.png') }}">
+	<link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/logo1.png') }}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/logo1.png') }}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/logo1.pngg') }}">
+	<link rel="apple-touch-icon" href="{{ asset('images/logo1.png') }}">
 	<!-- Bootstrap Core CSS -->
 	<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">

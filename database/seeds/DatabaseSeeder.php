@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
 
         // Seed du directeur des programs
         Team::create([
-            'lastname' => 'Baldé',
+            'lastname' => 'Balde',
             'firstname' => 'Mrs',
             'job' => 'Director of Program',
             'image' => '/default.jpg'
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
         // Seed du compte d'administrateur
         Admin::create([
             'name' => "Administrateur",
-            'email' => "infos@bbcsn.com",
+            'email' => "philia@bbc-sn.com",
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),

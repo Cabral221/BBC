@@ -1,2 +1,2 @@
 #!/bin/sh
-rsync -av ./ usernameServeFtp@domain.com --include=vendor
+rsync -av ./ bbcsncomtb-empro@ssh.cluster028.hosting.ovh.net:~/www --include=vendor --include=public/.htaccess --exclude-from=.gitignore --exclude=".*"

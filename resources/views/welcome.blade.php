@@ -63,7 +63,7 @@
 <div class="white-wrapper">
     <div class="container">
         <div class="row mt-4">
-            <button type="button" class="collapsible text-center"><h4 style="display:inline" class="pt-5">Word of Director</h4></button>
+            <button type="button" class="collapsible text-center"><h4 style="display:inline" class="pt-5">Wording</h4></button>
             <div class="content mb-3">
                 <div class="text-white">
                     @if (isset($word) && $word != null)
@@ -71,8 +71,8 @@
                             
                             <div class="row text-left">
                                 <div class="col-md-3 col-sm-3">
-                                    <img src="{{asset($word->team->image)}}" class="img-responsive" alt="" srcset="">
-                                    <h4>{{ $word->team->firstname .' ' . $word->team->lastname }}, {{ $word->team->job }}</h4>
+                                    <img src="{{asset($word->team->image)}}" class="img-responsive img-wording" alt="" srcset="">
+                                    <h4>{{ $word->team->firstname .' ' . strtoupper($word->team->lastname) }}, {{ $word->team->job }}</h4>
                                 </div>
                                 <div class="col-md-9 col-sm-9">
                                     {!! $word->content !!}
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     @else
-                        <p>En cors de redaction... </p>                        
+                        <p>En cours de redaction... </p>                        
                     @endif
                 </div>
             </div>
@@ -212,18 +212,18 @@
 
 <div class="bg-white text-center text-dark">
     <div class="container mt-3">
-        <h3>Testimony</h3>
+        <h3>Testimonials</h3>
         <div class="row text-dark">
             @if (isset($attests) && $attests->count() > 0)
                 @foreach ($attests as $attest)
-                    <div class="col-sm-3 p-3">
-                        <div>
+                    <div class="col-sm-4 col-md-3 col-xs-6 p-3">
+                        <div class="testi">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="card-title text-left pt-3 pb-3">
-                                        <h5 style="display:inline" class="text-left">{{ $attest->author }}</h5>
+                                    <div class="card-title pt-3 pb-3">
+                                        <h5 style="display:inline" class="header">{{ $attest->author }}</h5>
                                     </div>
-                                    <p class="card-text text-left">{!! $attest->attest !!}</p>
+                                    <div class="card-text text-muted">{!! $attest->attest !!}</div>
                                 </div>
                             </div>
                         </div>
@@ -248,10 +248,10 @@
                 @foreach ($docs as $doc)
                     <div class=" col-sm-6 col-xl-6 text-white p-3">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <span style="font-size: 22px;font-weight:bold">{{ $doc->name }}</span> 
+                            <div class="col-sm-6 col-xs-6">
+                                <span style="font-size: 20px;font-weight:bold">{{ $doc->name }}</span> 
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 col-xs-6">
                                 <a href="{{ asset($doc->url) }}" class="document">Download <i class="fas fa-download"></i></a>
                             </div>
                         </div>

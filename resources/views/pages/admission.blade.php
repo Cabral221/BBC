@@ -62,7 +62,7 @@
 
 @section('content')
 <div class="">
-    <h1 class="text-center text-dark">Admission Page</h1>
+    <h1 class="text-center text-dark">Build your admission</h1>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -151,7 +151,7 @@
                             @endforeach
                         </ul>
                     @else
-                        <p class="text-center text-dark">Aucune image de la galerie pour le moment...</p>
+                        <p class="text-center text-dark">Aucune image dans la galerie pour le moment...</p>
                     @endif
                 </div>
             </div>

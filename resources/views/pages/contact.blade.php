@@ -93,10 +93,10 @@
     'zoom' => 17,
     'markers' => [
         [
-            'title' => 'Go NoWare',
+            'title' => 'BBC University',
             'lat' => 14.7062312,
             'lng' => -17.4727724,
-            'url' => 'https://gonoware.com',
+            'url' => 'https://www.bbc-sn.com',
         ],
     ],
 ])

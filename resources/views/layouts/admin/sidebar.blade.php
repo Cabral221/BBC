@@ -7,7 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <!-- <img src="{{asset('img/logo1.png')}}" alt="" srcset=""> -->
   <title>BBC</title>
   <link rel="icon" href="images/logo1.png">
   <meta name="author" content="">
@@ -21,8 +20,7 @@
   <link href="{{asset('images')}}" rel="stylesheet">
   <link href="{{asset('asset_admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
   <link href="{{asset('asset_admin/css/sb-admin-2.css')}}" rel="stylesheet">
-  
-  <!-- <link href="{{asset('asset_admin/style.css')}}" rel="stylesheet"> -->
+
   
   
 </head>
@@ -46,10 +44,18 @@
       
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href=" {{ route( 'admin.welcome' ) }} ">
+        <a class="nav-link" href="{{ route('admin.welcome') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Home</span></a>
-        </li>
+          <span>Home</span>
+        </a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="https://www.ovh.com/fr/mail/">
+          <i class="fas fa-envelope fa-fw"></i>
+          <span>WEB MAIL OVH</span>
+        </a>
+      </li>
         
         <!-- Divider -->
         <hr class="sidebar-divider">
