@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-md-6 text-dark">
                     <div class="row">
-                        <p class="lead"><h3> Do you have any goals ? Contact us ? </h3></p>
+                        <p class="lead"><h3> Do you have any goals ? Contact us ! </h3></p>
 
                         <table class="table">
                             <tr>
