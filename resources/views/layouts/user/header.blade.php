@@ -4,9 +4,9 @@
         <div class="container">
             <div class="clearfix">
                 <ul class="list-inline social-links wow pull-left">
-                    <li style="font-weight:500">
+                    <li style="font-weight:500"><a href="tel:+221338692500">
                         <i class="fa fa-mobile"></i> {{ $info->phone ?? ' +221 33 869 25 00' }}
-                    </li>
+                    </li></a>
                 </ul>
 
                 <div class="pull-right text-right">

@@ -32,11 +32,11 @@
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td>{{ $info->email }}</td>
+                                <td><a href="mailto:{{ $info->email }}">{{ $info->email }}</a></td>
                             </tr>
                             <tr>
                                 <td>Phone</td>
-                                <td>{{ $info->phone }}</td>
+                                <td><a href="tel:+{{ $info->phone }}">{{ $info->phone }}</a></td>
                             </tr>
                             <tr>
                                 <td>Postal</td>
