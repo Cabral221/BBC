@@ -3,6 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="title" content="BBC University Senegal">
+	<meta name="description" content="The first UK university in Senegal">
+	<meta name="keywords" content="BBC University, bbc senegal, bbc dakar, iniversity uk, uk university, senegal university UK">
 	
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
