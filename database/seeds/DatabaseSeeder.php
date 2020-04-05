@@ -41,13 +41,13 @@ class DatabaseSeeder extends Seeder
         Info::create([
             'phone' => "+221 33 869 25 00",
             'address' => "Dakar Mermoz",
-            'email' => "info@bbcsn.com",
+            'email' => "philia@bbc-sn.com",
             'bp' => "21784"
         ]);
 
         // Seed du compte d'administrateur
         Admin::create([
-            'name' => "Administrateur",
+            'name' => "Philia Schiemen",
             'email' => "philia@bbc-sn.com",
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
