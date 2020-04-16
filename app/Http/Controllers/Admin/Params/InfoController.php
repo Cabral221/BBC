@@ -30,7 +30,7 @@ class InfoController extends Controller
 
         $validator = Validator::make($request->all(), [
             'email' => 'required|min:2|email',
-            'phone' => 'required|min:9|max:14',
+            'phone' => 'required|min:9|max:20',
             'adress' => 'required',
             'bp' => 'required'
         ]);

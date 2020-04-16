@@ -51,7 +51,7 @@
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link" href="https://www.ovh.com/fr/mail/">
+        <a class="nav-link" target="_blank" href="https://www.ovh.com/fr/mail/">
           <i class="fas fa-envelope fa-fw"></i>
           <span>WEB MAIL OVH</span>
         </a>
