@@ -119,6 +119,7 @@
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="prog_niv">Programs</label>
                         <select name="prog_niv" id="" class="form-control">
+                          <option value="">Select a program...</option>
                           @foreach($programms as $prog)
                             <option value="{{ $prog->id }}">{{ $prog->libele }}</option>
                           @endforeach
@@ -147,8 +148,8 @@
                     <tbody>
                         <tr class="text-center">
                             <th scope="row">{{++$i}}</th>
-                            <td>{{$nivo->libele}}</td>
-                            <td>{{$nivo->program->libele}}</td>
+                            <td>{ {$nivo->libele }}</td>
+                            <td>{{ $nivo->program->libele ?? '' }}</td>
                             <td><button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$nivo->id}}" data-libele_niv="{{$nivo->libele}}" data-niv_prog="{{$nivo->program_id}}"  data-toggle="modal" data-target="#edit_niveauModal"><i class="far fa-edit"></i></button>
                            
                                 <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$nivo->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>

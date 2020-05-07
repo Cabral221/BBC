@@ -13,7 +13,7 @@ class NiveauController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'prog_niv' => 'required',
+            'prog_niv' => 'required|integer',
             'libele' => 'required|min:2'
         ]);
     
