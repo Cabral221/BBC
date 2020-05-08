@@ -243,28 +243,53 @@
     <div class="container mt-3">
 
         <h3 class="text-center">Utils documents</h3>
-            @if (isset($docs) && $docs->count() > 0)
-            <div class="row pt-5 pb-5 text-white text-bold">
-                @foreach ($docs as $doc)
-                    <div class=" col-sm-6 col-xl-6 text-white p-3">
-                        <div class="row">
-                            <div class="col-sm-6 col-xs-6">
-                                <span style="font-size: 20px;font-weight:bold">{{ $doc->name }}</span> 
-                            </div>
-                            <div class="col-sm-6 col-xs-6">
-                                <a href="{{ asset($doc->url) }}" class="document">Download <i class="fas fa-download"></i></a>
-                            </div>
+        @if (isset($docs) && $docs->count() > 0)
+        <div class="row pt-5 pb-5 text-white text-bold">
+            @foreach ($docs as $doc)
+                <div class=" col-sm-6 col-xl-6 text-white p-3">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6">
+                            <span style="font-size: 20px;font-weight:bold">{{ $doc->name }}</span> 
+                        </div>
+                        <div class="col-sm-6 col-xs-6">
+                            <a href="{{ asset($doc->url) }}" class="document">Download <i class="fas fa-download"></i></a>
                         </div>
                     </div>
-                @endforeach
-            </div>
-            {{ $docs->links() }}
-            @else
-                <p>Aucun document pour le moment</p>
-            @endif  
+                </div>
+            @endforeach
+        </div>
+        {{ $docs->links() }}
+        @else
+            <p>Aucun document pour le moment</p>
+        @endif  
             
     </div>
 </div>
+
+{{-- Carousel galery --}}
+<section class="opaqued light-opaqued parallax">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row"><h3 class="text-dark text-center">BBC on images</h3></div>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    @if (isset($galeries) && $galeries->count() > 0)
+                        <ul class="owl-carousel-paged testimonial-owl wow fadeIn list-unstyled" data-items="4" data-items-desktop="[1200,4]" data-items-desktop-small="[980,4]" data-items-tablet="[768,3]" data-items-mobile="[479,2]">
+                            @foreach ($galeries as $galery)
+                                <li>
+                                    <img src="{{ $galery->image }}" class="img-responsive" alt="">
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p class="text-center text-dark">Aucune image de la galerie pour le moment...</p>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{-- /end Carousel galery --}}
 
 {{-- Followors --}}
 <div class="followers bg-primary">

@@ -9,6 +9,7 @@ use App\Models\Slide;
 use App\Models\Attest;
 use App\Models\Partner;
 use App\Models\Program;
+use App\Models\Gallerie;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
@@ -48,6 +49,7 @@ class HomeController extends Controller
         $info['programs'] = Program::all();
         $info['word'] = Word::first();
         $info['docs'] = Document::paginate(10);
+        $info['galeries'] = Gallerie::orderBy('created_at','desc')->limit(4)->get();
         
         return view('welcome',$info);
     }
