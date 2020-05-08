@@ -121,7 +121,9 @@
                     <li class="nav-item">
                       <a class="nav-link" href="{{route('admin.blog.messages.index')}}">
                         <i class="fas fa-envelope-open-text"></i>
-                        <span>Message</span></a>
+                        <span>Message</span>@if (App\Helpers\MessageHelper::unreadMessage())<span class="right badge badge-pill badge-success vertical-center" style="float:right;font-size:10px;margin-top:4px">{{ App\Helpers\MessageHelper::unreadMessage() }}</span>@endif
+                      
+                      </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.params.attests.index')}}">

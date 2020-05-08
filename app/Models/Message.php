@@ -13,6 +13,6 @@ class Message extends Model
 
     public static function getUnreadMessage()
     {
-        return Message::whereNull('read_at')->get();
+        return Message::whereNull('read_at')->orderBy('created_at','desc')->get();
     }
 }

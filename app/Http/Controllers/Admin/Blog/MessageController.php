@@ -39,8 +39,14 @@ class MessageController extends Controller
 
     public function response(Request $request)
     {
+        $request->validate([
+            'respons' => 'required|string|min:15'
+        ]);
+        
         $this->validate($request,[ 'respons' => 'required|min:6' ]);
-        Mail::to($request->hidden)->send(new ResponseMessage(Auth::user()->email,$request->respons));
+        Mail::to($request->hidden)->send(
+            new ResponseMessage($request->name, Auth::user()->email,$request->respons)
+        );
         Flashy::success('Your email has been sent');
         return redirect()->back();
     }

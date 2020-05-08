@@ -148,8 +148,8 @@
                     <tbody>
                         <tr class="text-center">
                             <th scope="row">{{++$i}}</th>
-                            <td>{ {$nivo->libele }}</td>
-                            <td>{{ $nivo->program->libele ?? '' }}</td>
+                            <td>{{ $nivo->libele }}</td>
+                            <td>{{ $nivo->program->libele }}</td>
                             <td><button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$nivo->id}}" data-libele_niv="{{$nivo->libele}}" data-niv_prog="{{$nivo->program_id}}"  data-toggle="modal" data-target="#edit_niveauModal"><i class="far fa-edit"></i></button>
                            
                                 <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$nivo->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
@@ -233,7 +233,7 @@
                         <tr class="text-center">
                             <th scope="row">{{++$i}}</th>
                             <td>{{$dip->libele}}</td>
-                            <td>{{$dip->program->libele}}</td>
+                            <td>{{$dip->program->libele ?? ''}}</td>
                             <td><button type="button" class="btn btn-success btn-xs mb-1" style='border-radius:5%;'  data-id="{{$dip->id}}" data-libele_dip="{{$dip->libele}}" data-dip_prog="{{$dip->program_id}}"  data-toggle="modal" data-target="#edit_diplomeModal"><i class="far fa-edit"></i></button>
                            
                                 <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$dip->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>

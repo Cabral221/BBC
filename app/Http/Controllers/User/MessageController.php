@@ -20,13 +20,6 @@ class MessageController extends Controller{
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
-            'message' => 'required|min:90',
-        ]);
-        // $request;    
-        // \join()
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|max:255',
             'message' => 'required|min:15',
         ]);
 

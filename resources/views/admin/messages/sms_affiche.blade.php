@@ -47,6 +47,7 @@
             <form action=" {{route('admin.blog.messages.response')}} " method="post">
             @csrf
                 <input type="hidden" name="hidden" value="{{ $affiche->email }}">
+                <input type="hidden" name="name" value="{{ $affiche->name }}">
                 <label for="respons">Reply</label>
                 <textarea name="respons" id="editor" cols="30" rows="10"></textarea>
                 <div class="row mt-2">

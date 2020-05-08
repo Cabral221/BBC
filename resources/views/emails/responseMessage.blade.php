@@ -1,12 +1,12 @@
 @component('mail::message')
-# Dear Internet user,
+# Dear {{ strtoupper($nameToSend) }},
 
 @component('mail::panel')
  {!! $sms !!}
 @endcomponent
 <br>
 @component('mail::button', ['url' => env('APP_URL')])
-Button Come back when you want
+Come back when you want
 @endcomponent
 
 Thanks,<br>

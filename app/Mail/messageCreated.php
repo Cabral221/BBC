@@ -16,6 +16,8 @@ class messageCreated extends Mailable
     public $email;
     public $msg;
 
+    public $allAdmin = [];
+
     /**
      * Create a new message instance.
      *
@@ -27,6 +29,8 @@ class messageCreated extends Mailable
         $this->name = $name;
         $this->email = $email;
         $this->msg = $msg;
+
+        $this->allAdmin = Admin::all();
     }
 
     /**
@@ -36,6 +40,9 @@ class messageCreated extends Mailable
      */
     public function build()
     {
-        return $this->from($this->email)->markdown('emails.messageCreated');
+        return $this->from($this->email)
+                    ->cc($this->allAdmin)
+                    ->subject('New message from BBC')
+                    ->markdown('emails.messageCreated');
     }
 }

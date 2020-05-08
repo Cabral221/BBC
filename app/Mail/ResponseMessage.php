@@ -12,16 +12,18 @@ class ResponseMessage extends Mailable
     use Queueable, SerializesModels;
     public $email;
     public $sms;
+    public $nameToSend;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($email,$sms)
+    public function __construct($nameToSend, $email,$sms)
     {
         
         $this->email = $email;
         $this->sms = $sms;
+        $this->nameToSend = $nameToSend;
     }
 
     /**
@@ -31,6 +33,7 @@ class ResponseMessage extends Mailable
      */
     public function build()
     {
-        return  $this->from($this->email)->markdown('emails.responseMessage');
+        return  $this->from($this->email)
+            ->markdown('emails.responseMessage');
     }
 }
