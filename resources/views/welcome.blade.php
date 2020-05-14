@@ -63,7 +63,7 @@
 <div class="white-wrapper">
     <div class="container">
         <div class="row mt-4">
-            <button type="button" class="collapsible text-center"><h4 style="display:inline" class="pt-5">Wording</h4></button>
+            <button type="button" class="collapsible text-center"><h4 style="display:inline" class="pt-5">Word of welcome</h4></button>
             <div class="content mb-3">
                 <div class="text-white">
                     @if (isset($word) && $word != null)
@@ -90,45 +90,67 @@
 <section class="white-wrapper opaqued parallax" data-image-src="{{ asset('images/bg-header3.jpg') }}" data-speed="0.7">
     <div class="mt-5 mb-5">
         <div class="container text-dark">
-            <p>Our Mission is to create a first class British university in Senegal, offering British university degrees and solid links with universities in the United Kingdom. With its different streams including English, Business Administration (options: Management, Marketing, Human Resources, or Finance / Banking), Supply Chain Management, your new university wants to facilitate off-site access to British higher degrees. The BBC wants to offer international qualifications (HND 1 & 2, BBA, MBA) at an affordable cost, in order to open up job opportunities for Africans both at home and abroad. To restore hope to those who have been denied a UK visa due to the exorbitant costs of studying and traveling abroad, through two-year postgraduate studies here in Dakar, Senegal leading to a graduate programs in the UK.</p>
-            <h2>Programs</h2>
-            <div class="pb-3">Click on a program to see our sector <span class="badge badge-pill text-uppercase">+</span></div>
-            @if (isset($programs) && $programs->count() > 0)
-                @foreach ($programs as $program)
-                    <button type="button" class="collapsible">{{ strtoupper($program->libele) }}</button>
-                    <div class="content mb-3">
-                        <div class="section-inner22 text-white">
-                            <div class="row text-center pl-3 pr-3">
-                                @if ($program->filieres->count() > 0)
-                                    @foreach ($program->filieres as $filiere)
-                                        <div class="card p-4 col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb20">
-                                                <img src="{{ asset($filiere->icon) }}" alt="" width="100px" srcset="">
-                                            </div>
-                                            <div class="text-dark pt-2" style="color:black;">
-                                                <a href="{{ route('user.programs.show',$filiere->id) }}" class="program-title">
-                                                    <h4 class="card-title">{{ strtoupper($filiere->libele) }}</h4>
-                                                    <p class="text-info">Program degree: 
-                                                        @foreach($program->diplomes as $diplome)
-                                                        <span class="text-warning">{{ $diplome->libele }} | </span>
-                                                        @endforeach
-                                                    </p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <p>Pas de filieres pour ce programme...</p>
-                                @endif
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2>Programs</h2>
+                    <p>Our Mission is to create a first class British university in Senegal, offering British university degrees and solid links with universities in the United Kingdom. With its different streams including English, Business Administration (options: Management, Marketing, Human Resources, or Finance / Banking), Supply Chain Management, your new university wants to facilitate off-site access to British higher degrees. The BBC wants to offer international qualifications (HND 1 & 2, BBA, MBA) at an affordable cost, in order to open up job opportunities for Africans both at home and abroad. To restore hope to those who have been denied a UK visa due to the exorbitant costs of studying and traveling abroad, through two-year postgraduate studies here in Dakar, Senegal leading to a graduate programs in the UK.</p>
+                    <div class="pb-3">Click on a program to see our sector <span class="badge badge-pill text-uppercase">+</span></div>
+                    @if (isset($programs) && $programs->count() > 0)
+                        @foreach ($programs as $program)
+                            <button type="button" class="collapsible">
+                                <div style="display: inline">
+                                    <div class="col text-left">{{ strtoupper($program->libele) }}</div>
+                                    <small class="col text-right mr-5">Degree: 
+                                        @foreach($program->diplomes as $diplome)
+                                            <span class="text-danger">{{ $diplome->libele }} </span> | 
+                                        @endforeach
+                                    </small>
+                                </div>
+                            </button>
+                            <div class="content mb-3">
+                                <div class="section-inner22 text-white">
+                                    <div class="row text-center pl-3 pr-3">
+                                        @if ($program->filieres->count() > 0)
+                                            @foreach ($program->filieres as $filiere)
+                                                <div class="card p-4 col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                                    <div class="icon-box-1 match-height mb20">
+                                                        <img src="{{ asset($filiere->icon) }}" alt="" width="100px" srcset="">
+                                                    </div>
+                                                    <div class="text-dark pt-2" style="color:black;">
+                                                        <a href="{{ route('user.programs.show',$filiere->id) }}" class="program-title">
+                                                            <h4 class="card-title">{{ strtoupper($filiere->libele) }}</h4>
+                                                            
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <p>Pas de filieres pour ce programme...</p>
+                                        @endif
 
+                                    </div>
+                                    
+                                </div>
                             </div>
-                            
+                        @endforeach
+                    @else
+                        <p class="text-dark">Pas de programmes pour le moment...</p>
+                    @endif
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="alert alert-info"><h3><span><i class="fas fa-info-circle"></i></span> News</h3></div>
+                        <div class="card-body">
+                            <div> Chers(es) Etudiants(es),Nous avons le plaisir de vous annoncer notre nouvelle session des cours de renforcement en Anglais <strong> Jour & soir </strong>qui démarre à partir du <span class="text-info"><strong>lundi 22 Juin 2020</strong></span> .Les inscriptions ont commencé et se poursuivent. Pour toutes informations, veuillez contacter:</div>
+                            <div class="text-center">
+                                <h5>MR Koffi Adika au 77 846 03 06</h5>
+                                <h5>MR Dauda Bangura au 78 521 55 03</h5>
+                            </div>
+                            <div class="text-info">NB: Place limitée!!!</div>
                         </div>
                     </div>
-                @endforeach
-            @else
-                <p class="text-dark">Pas de programmes pour le moment...</p>
-            @endif
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -332,22 +354,28 @@
 {{-- end Followers --}}
 
 <!-- Modal Alert -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content text-dark">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Welcome aboard</h4>
+                <h4 class="modal-title" id="myModalLabel">Welcome to BBC University</h4>
             </div>
             <div class="modal-body">
-                <div>
-                    <h4>Titre</h4>
-                    <p>Minim duis pariatur laboris et reprehenderit adipisicing deserunt consequat laboris cupidatat.</p>
+                <div class="alert alert-info">
+                    <div class="mt-auto mr-auto mb-3 text-center">
+                        <img src="{{ asset('images/logo1.png') }}" width="100px" alt="BBC University">
+                    </div>
                 </div>
+                <div> Chers(es) Etudiants(es), Nous avons le plaisir de vous annoncer notre nouvelle session des cours de renforcement en <strong><span style="font-size: 1.5rem;">Anglais</span> Jour & soir </strong>qui démarre à partir du <span class="text-info"><strong>lundi 22 Juin 2020</strong></span> .Les inscriptions ont commencé et se poursuivent. Pour toutes informations, veuillez contacter:</div>
+                <div class="mr-auto ml-auto text-center">
+                    <h5>MR Koffi Adika au 77 846 03 06</h5>
+                    <h5>MR Dauda Bangura au 78 521 55 03</h5>
+                </div>
+                <div class="text-info">NB: Place limitée !!!</div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary p-3">Send</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -355,10 +383,10 @@
 @endsection
 
 @section('js')
-<script>
-    // $(window).on('load',function(){
-        //     $('#myModal').modal('show');
-        // });
+    <script>
+        $(window).on('load',function(){
+            $('#newsModal').modal('show');
+        });
     </script>
     <script>
         var coll = document.getElementsByClassName("collapsible");
@@ -389,4 +417,4 @@
             });
         });
     </script>
-    @endsection
+@endsection
