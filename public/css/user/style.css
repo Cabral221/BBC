@@ -78,6 +78,9 @@ a.active-page:hover{
     height: 500px;
     background-image: url('bg-header.jpg');
 } */
+.section-inner2{
+  padding: 50px 0 !important;
+}
 
 .word-of{
     margin: 5px auto;

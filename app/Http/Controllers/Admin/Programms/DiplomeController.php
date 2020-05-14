@@ -14,7 +14,7 @@ class DiplomeController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'libele' => 'required|min:2',
-            'prog_dip' => 'required'
+            'prog_dip' => 'required|integer'
         ]);
     
         if ($validator->fails()) {
@@ -32,7 +32,11 @@ class DiplomeController extends Controller
     public function destroy($id)
     {
         $delete_prog = Diplome::find($id);
-        if($delete_prog)
+        if(!$delete_prog){
+            Flashy::success('Your diploma is not valid');
+            return redirect()->back();
+        }
+        
         $delete_prog->delete();
         Flashy::success('Your diploma has been successfully deleted');
         return redirect()->back();
@@ -42,7 +46,7 @@ class DiplomeController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'libele_dip' => 'required|min:2',
-            'dip_prog' => 'required'
+            'dip_prog' => 'required|integer'
         ]);
     
         if ($validator->fails()) {

@@ -90,23 +90,30 @@
 <section class="white-wrapper opaqued parallax" data-image-src="{{ asset('images/bg-header3.jpg') }}" data-speed="0.7">
     <div class="mt-5 mb-5">
         <div class="container text-dark">
+            <p>Our Mission is to create a first class British university in Senegal, offering British university degrees and solid links with universities in the United Kingdom. With its different streams including English, Business Administration (options: Management, Marketing, Human Resources, or Finance / Banking), Supply Chain Management, your new university wants to facilitate off-site access to British higher degrees. The BBC wants to offer international qualifications (HND 1 & 2, BBA, MBA) at an affordable cost, in order to open up job opportunities for Africans both at home and abroad. To restore hope to those who have been denied a UK visa due to the exorbitant costs of studying and traveling abroad, through two-year postgraduate studies here in Dakar, Senegal leading to a graduate programs in the UK.</p>
             <h2>Programs</h2>
-            <p>Choosing your program of study can become a stressful decision for some of you. The training you choose should, in the best of all worlds, reflect the person you are. There is a good chance that you will succeed in your studies when they interest and motivate you. Think about the types of activities you organize, the courses that have attracted your attention the most, or your strengths and weaknesses in the different subjects.</p>
             <div class="pb-3">Click on a program to see our sector <span class="badge badge-pill text-uppercase">+</span></div>
             @if (isset($programs) && $programs->count() > 0)
                 @foreach ($programs as $program)
                     <button type="button" class="collapsible">{{ strtoupper($program->libele) }}</button>
                     <div class="content mb-3">
-                        <div class="section-inner text-white">
+                        <div class="section-inner22 text-white">
                             <div class="row text-center pl-3 pr-3">
                                 @if ($program->filieres->count() > 0)
                                     @foreach ($program->filieres as $filiere)
                                         <div class="card p-4 col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="icon-box-1 match-height mb30">
+                                            <div class="icon-box-1 match-height mb20">
                                                 <img src="{{ asset($filiere->icon) }}" alt="" width="100px" srcset="">
                                             </div>
-                                            <div class="text-dark pt-4" style="color:black;">
-                                                <a href="{{ route('user.programs.show',$filiere->id) }}" class="program-title"><h3 class="car-title">{{ strtoupper($filiere->libele) }}</h3></a>
+                                            <div class="text-dark pt-2" style="color:black;">
+                                                <a href="{{ route('user.programs.show',$filiere->id) }}" class="program-title">
+                                                    <h4 class="card-title">{{ strtoupper($filiere->libele) }}</h4>
+                                                    <p class="text-info">Program degree: 
+                                                        @foreach($program->diplomes as $diplome)
+                                                        <span class="text-warning">{{ $diplome->libele }} | </span>
+                                                        @endforeach
+                                                    </p>
+                                                </a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -268,7 +275,7 @@
 
 {{-- Carousel galery --}}
 <section class="opaqued light-opaqued parallax">
-    <div class="section-inner">
+    <div class="section-inner2">
         <div class="container">
             <div class="row"><h3 class="text-dark text-center">BBC on images</h3></div>
             <div class="row">
@@ -373,9 +380,9 @@
         $(document).ready(function() {
             'use strict';
             jQuery('#headerwrap').backstretch([
-            @foreach($slides as $slide)
-            ["{{ asset($slide->image) }}"],
-            @endforeach
+                @foreach($slides as $slide)
+                ["{{ asset($slide->image) }}"],
+                @endforeach
             ], {
                 duration: 5000,
                 fade: 500

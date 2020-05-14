@@ -54,7 +54,6 @@
                 @guest
                     <li class="dropdown">
                         <a href="{{ route('user.member') }}" class="{{ isset($current_page) && $current_page == 'member' ? 'active-page' : '' }}">Member</span></a>
-
                     </li>
                 @else
                 <li class="nav-item dropdown">
@@ -68,7 +67,10 @@
                         </li>
                     </ul>
                 </li>
-            @endguest
+                @endguest
+                <li class="dropdown">
+                    <a href="{{ route('user.admission') }}" class="btn-primary outline text-white">Admission</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
