@@ -87,6 +87,9 @@ Route::name('user.')->group(function(){
     // Routes pour lo post de  messages
     Route::post('/message','User\MessageController@store')->name('message');
     
+    // Route poour les news
+    Route::get('/news/{new}', 'User\NewsController@index')->name('new');
+
     Route::get('/admission', 'User\AdmissionController@index')->name('admission');
     Route::post('/admission', 'User\AdmissionController@store')->name('admission');
     // Route::resource('/posts', 'User\PostController')->only(['index','show']);

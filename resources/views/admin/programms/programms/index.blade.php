@@ -1,4 +1,4 @@
-@extends('layouts/admin/app')
+@extends('layouts/admin/app2')
 @section('body')
 <!-- <script>
   tinymce.init({
@@ -118,7 +118,7 @@
 
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="prog_niv">Programs</label>
-                        <select name="prog_niv" id="" class="form-control">
+                        <select name="prog_niv" class="form-control">
                           <option value="">Select a program...</option>
                           @foreach($programms as $prog)
                             <option value="{{ $prog->id }}">{{ $prog->libele }}</option>
@@ -277,7 +277,7 @@
 
                 <div class="form-group col-xl-4 col-lg-4">
                     <label for="tite">Programs Group</label>
-                    <select name="program_id" id="" class="form-control">
+                    <select name="program_id" class="form-control">
                     @foreach($programms as $prog)
                       <option value="{{ $prog->id }}">{{ $prog->libele }}</option>
                     @endforeach
@@ -302,13 +302,13 @@
                     <div class="row">
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="outCome">Outcome</label>
-                        <textarea name="outCome" id="editor2" class="form-control" cols="30" rows="6"></textarea>
+                        <textarea name="outCome" id="editor-outcome" class="form-control" cols="30" rows="6"></textarea>
                         </div>
                 
                     
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="duration">Duration</label>
-                        <textarea name="duration" id="editor2" class="form-control" cols="30" rows="6"></textarea>
+                        <textarea name="duration" id="editor-duration" class="form-control" cols="30" rows="6"></textarea>
                         </div>
 
                     </div>
@@ -316,13 +316,14 @@
                     <div class="row">
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="describe">Describe</label>
-                        <textarea name="describe" id="editor2" class="form-control" cols="30" rows="6"></textarea>
+                        {{-- <div id="editor-describe"></div> --}}
+                        <textarea name="describe" id="editor-describe" class="form-control" cols="30" rows="6"></textarea>
                         </div>
                 
                     
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="requirement">Requirement</label>
-                        <textarea name="requirement" id="editor2" class="form-control" cols="30" rows="6"></textarea>
+                        <textarea name="requirement" id="editor-requirement" class="form-control" cols="30" rows="6"></textarea>
                         </div>
 
                     </div>
@@ -377,7 +378,7 @@
 
                              <div class="form-group col-xl-4 col-lg-4">
                           <label for="specialite">Select Faculty</label>
-                          <select name="specialite" id="" class="form-control">
+                          <select name="specialite" class="form-control">
                             <option default></option>
                           @foreach($programms as $prog2)
                             <ul class="list-group">
@@ -394,7 +395,7 @@
 
                         <div class="form-group col-xl-4 col-lg-4">
                           <label for="niveau_id">Level Group</label>
-                          <select name="niveau_id" id="" class="form-control">
+                          <select name="niveau_id" class="form-control">
                           @foreach($niv as $nivs)
                             <option value="{{ $nivs->id }}">{{ $nivs->libele }}</option>
                           @endforeach
@@ -453,7 +454,7 @@
 
                         <div class="form-group col-xl-6 col-lg-6">
                           <label for="tite">Select Faculty</label>
-                          <select name="specialite" id="" class="form-control">
+                          <select name="specialite" class="form-control">
                             <option default></option>
                           @foreach($programms as $prog2)
                             <ul class="list-group">
@@ -612,9 +613,9 @@
                                                 <label for="libele_niv" style="color:beige;" class="text-dark">{{ __('Wording') }}</label>
                                                 <input  id="libele_niv" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="libele_niv" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                 @error('libele')
-                                                <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                                </span>
+                                                  <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                  </span>
                                                 @enderror
 
 
@@ -701,8 +702,10 @@
 @endsection
 
 @section('js')
-<!-- <script src="{{ asset('/tinymce/jquery.tinymce.min.js')}}"></script>
-<script src="{{ asset('/tinymce/tinymce.min.js')}}"></script>
-<script src="{{ asset('/js/admin/editor.js')}}"></script>
-<script src="{{ asset('/js/admin/editor2.js')}}"></script> -->
+  <script>
+    CKEDITOR.replace('describe');
+    CKEDITOR.replace( 'requirement' );
+    CKEDITOR.replace( 'duration' );
+    CKEDITOR.replace( 'outCome' );
+  </script>
 @endsection

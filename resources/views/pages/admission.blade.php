@@ -61,9 +61,9 @@
 @endsection
 
 @section('content')
-<div class="">
+<div class="container">
     <h1 class="text-center text-dark">Build your admission</h1>
-    <div class="container">
+    @if (1 === 2)
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 @if(session('errors'))
@@ -130,7 +130,18 @@
                 </div>
             </div>
         </div>
-    </div>
+    @else
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="alert-info p-5">
+                    <h2>Sorry !</h2>
+                    <p>Cette page est actuellement en maintenance. Veillez nous contacter pour soummettre votre demande d'admission. Merci !</p>
+                </div>
+                <hr>
+                <a href="{{ route('user.contact') }}" class="btn btn-success btn-lg btn-block">Contacter nous</a>
+            </div>
+        </div>
+    @endif
 </div>
 <div>
 </div>
@@ -141,7 +152,7 @@
         <div class="container">
             <div class="row"><h3 class="text-dark text-center">BBC on images</h3></div>
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
+                <div class="col-12">
                     @if (isset($galeries) && $galeries->count() > 0)
                         <ul class="owl-carousel-paged testimonial-owl wow fadeIn list-unstyled" data-items="4" data-items-desktop="[1200,4]" data-items-desktop-small="[980,4]" data-items-tablet="[768,3]" data-items-mobile="[479,2]">
                             @foreach ($galeries as $galery)

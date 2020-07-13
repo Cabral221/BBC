@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Blog;
 use Carbon\Carbon;
 use App\Models\Neew;
 use App\Models\Message;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
@@ -35,6 +36,7 @@ class NewController extends Controller
         $new->title = $request->input('libele');
         $new->date = $request->input('date');
         $new->content = $request->input('content');
+        $new->slug = Str::slug($new->title);
         $new->save();
         Flashy::success('Your activity has been successfully added');
         

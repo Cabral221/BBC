@@ -18,8 +18,8 @@
 
 @section('content')
 <section class="pt-5 pb-5">
-    <div class="row">
-        <div class="container text-dark">
+    <div class="container">
+        <div class="row text-dark">
             <div class="col-sm-8">
                 <div class="bg-blue p-5">
                     <div class="row">
@@ -29,7 +29,7 @@
                         <div class="col-sm-9 col-md-9 col-lg-9 col-xs-9">
                             <h3>{{ $filiere->program->libele . ' : ' .$filiere->libele }}</h3>
                             <ul>
-                                <li>{{ $filiere->describe }}</li>
+                                <li>{!! $filiere->describe !!}</li>
                             </ul>
                         </div>
                     </div>
@@ -48,41 +48,45 @@
     </div>
 </section>
 <section>
-    <div class="row">
-        <div class="container text-dark">
+    <div class="container">
+        <div class="row text-dark">
             <div>
-                <table class=table style="border-left: none;">
-                    <tr>
-                        <td style="width:30%" class="vertical-center"><h3>Course Duration</h3></td>
-                        <td>{{ $filiere->duration }}</td>
-                    </tr>
-                    <tr>
-                        <td class="vertical-center"><h3>Course entry requirement</h3></td>
-                        <td>{{ $filiere->requirement }}</td>
-                    </tr>
-                    <tr>
-                        <td class="vertical-center"><h3>Course Learning Outcome</h3></td>
-                        <td>{{ $filiere->outCome }}</td>
-                    </tr>
-                    <tr>
-                        <td class="vertical-center"><h3>Modules</h3></td>
-                        <td>        
-                            <ul>
-                                @if ($filiere->mudules != null)
+                <div class="pl-5 pr-5" style="border-left: none;">
+                    
+                    <div><h3>Course Duration</h3></div>
+                    <div>{!! $filiere->duration !!}</div>
+                    <hr>
+                    
+                    <div><h3>Modules</h3></div>
+                    <div>
+                        <p>Modules that has been included</p>
+                            @if ($filiere->modules != null)
+                                <div class="row">
                                     @foreach ($filiere->modules as $module)
-                                        <li>{{ $module->lebele }}</li>
+                                        <div class="col-sm-6 col-xs-12 col-md-4 my-1">
+                                            - <button class="btn-sm btn-outline-danger text-bold" disabled>{{ $module->libele }}</button>
+                                        </div>
                                     @endforeach
-                                @else
-                                    <p>Aucun module pour ce filiere...</p>
-                                @endif
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
+                                </div>
+                            @else
+                                <p>Aucun module pour ce filiere...</p>
+                            @endif
+                    </div>
+                    <hr>
+                    
+                    <div><h3>Admission Requirements and mode of assessments</h3></div>
+                    <div>{!! $filiere->requirement !!}</div>
+                    <hr>
+
+                    <div><h3>Course Learning Outcome</h3></div>
+                    <div>{!! $filiere->outCome !!}</div>
+                    <hr>
+                </div>
             </div>
         </div>
     </div>
 </section>
+@if ($filiere->specialites->count() > 0)
     <div class="row bg-primary">
         <div class="container">
             <h2 class="text-center">Specialization</h2>
@@ -93,4 +97,5 @@
             @endforeach
         </div>
     </div>
+@endif
 @endsection

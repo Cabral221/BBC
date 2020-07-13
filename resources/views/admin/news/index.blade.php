@@ -111,7 +111,7 @@
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <form action="{{route('admin.blog.news.update','News')}}" method="post">
+      <form action="{{route('admin.blog.news.update','News')}}" method="post" novalidate>
           {{method_field('patch')}}
           {{@csrf_field()}}
               <div class="modal-body">
@@ -134,7 +134,7 @@
 
 
                   <label for="editor" style="color:beige;" class="text-dark">{{ __('Content') }}</label>
-                  <textarea id="editor" cols="30" rows="10"  class="form-control @error('name') is-invalid @enderror text-center" name="content" value="{{ old('content') }}" required autocomplete="content" autofocus></textarea>
+                  <textarea id="editorModal" cols="30" rows="10"  class="form-control @error('name') is-invalid @enderror text-center" name="content" value="{{ old('content') }}" required></textarea>
 
                   @error('content')
                   <span class="invalid-feedback" role="alert">

@@ -112,20 +112,22 @@
                                     <div class="row text-center pl-3 pr-3">
                                         @if ($program->filieres->count() > 0)
                                             @foreach ($program->filieres as $filiere)
-                                                <div class="card p-4 col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                                    <div class="icon-box-1 match-height mb20">
-                                                        <img src="{{ asset($filiere->icon) }}" alt="" width="100px" srcset="">
-                                                    </div>
-                                                    <div class="text-dark pt-2" style="color:black;">
-                                                        <a href="{{ route('user.programs.show',$filiere->id) }}" class="program-title">
-                                                            <h4 class="card-title">{{ strtoupper($filiere->libele) }}</h4>
-                                                            
+                                                <div class="p-4 col-sm-4 wow fadeIn" data-wow-delay="0.2s">
+                                                    <a href="{{ route('user.programs.show',$filiere->id) }}">
+                                                        <div class="icon-box-1 match-height mb20">
+                                                            <img src="{{ asset($filiere->icon) }}" alt="" width="100px" srcset="">
+                                                        </div>
+                                                        <div class="text-dark pt-2" style="color:black;">
+                                                            {{-- <a href="{{ route('user.programs.show',$filiere->id) }}" class="program-title"> --}}
+                                                                <h4 class="card-title">{{ strtoupper($filiere->libele) }}</h4>
+                                                                
+                                                            {{-- </a> --}}
+                                                        </div>
                                                         </a>
-                                                    </div>
                                                 </div>
                                             @endforeach
                                         @else
-                                            <p>Pas de filieres pour ce programme...</p>
+                                            <p>No class for this program...</p>
                                         @endif
 
                                     </div>
@@ -141,14 +143,59 @@
                     <div class="card">
                         <div class="alert alert-info"><h3><span><i class="fas fa-info-circle"></i></span> News</h3></div>
                         <div class="card-body">
-                            <div> Chers(es) Etudiants(es),Nous avons le plaisir de vous annoncer notre nouvelle session des cours de renforcement en Anglais <strong> Jour & soir </strong>qui démarre à partir du <span class="text-info"><strong>lundi 22 Juin 2020</strong></span> .Les inscriptions ont commencé et se poursuivent. Pour toutes informations, veuillez contacter:</div>
-                            <div class="text-center">
-                                <h5>MR Koffi Adika au 77 846 03 06</h5>
-                                <h5>MR Dauda Bangura au 78 521 55 03</h5>
+                            @foreach ($news as $new)
+                            <div class="mt-3 mb-3">
+                                <a href="{{route('user.new',$new)}}">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            {{ $new->title }}
+                                            <div>
+                                                <em>{{ $new->date }}</em>
+                                                {{-- <u class="text-right">details</u> --}}
+                                            </div>
+                                            
+                                        </div>
+                                    </div>            
+                                </a>
                             </div>
-                            <div class="text-info">NB: Place limitée!!!</div>
+                            @endforeach
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+{{-- Carousel galery --}}
+<section class="opaqued light-opaqued parallax">
+    <div class="section-inner2">
+        <div class="container">
+            <div class="row"><h3 class="text-dark text-center">BBC on images</h3></div>
+            <div class="row">
+                <div class="col-12">
+                    @if (isset($galeries) && $galeries->count() > 0)
+                        <ul class="owl-carousel-paged testimonial-owl wow fadeIn list-unstyled" data-items="4" data-items-desktop="[1200,4]" data-items-desktop-small="[980,4]" data-items-tablet="[768,3]" data-items-mobile="[479,2]">
+                            @foreach ($galeries as $galery)
+                                <li>
+                                    <img src="{{ $galery->image }}" class="img-responsive" alt="">
+                                </li>
+                            @endforeach
+                        </ul>
+                        <div class="text-center">
+                            <p><small>left to right or right to left</small></p>
+                            <div class="row text-center text white">
+                                <a href="{{ route('user.library') }}" class="btn btn-primary btn-bg-primary p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
+                            </div>
+                        </div>
+                    @else
+                        <p class="text-center text-dark">Aucune image de la galerie pour le moment...</p>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{-- /end Carousel galery --}}
                 </div>
             </div>
         </div>
@@ -295,30 +342,6 @@
     </div>
 </div>
 
-{{-- Carousel galery --}}
-<section class="opaqued light-opaqued parallax">
-    <div class="section-inner2">
-        <div class="container">
-            <div class="row"><h3 class="text-dark text-center">BBC on images</h3></div>
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    @if (isset($galeries) && $galeries->count() > 0)
-                        <ul class="owl-carousel-paged testimonial-owl wow fadeIn list-unstyled" data-items="4" data-items-desktop="[1200,4]" data-items-desktop-small="[980,4]" data-items-tablet="[768,3]" data-items-mobile="[479,2]">
-                            @foreach ($galeries as $galery)
-                                <li>
-                                    <img src="{{ $galery->image }}" class="img-responsive" alt="">
-                                </li>
-                            @endforeach
-                        </ul>
-                    @else
-                        <p class="text-center text-dark">Aucune image de la galerie pour le moment...</p>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-{{-- /end Carousel galery --}}
 
 {{-- Followors --}}
 <div class="followers bg-primary">
@@ -367,12 +390,21 @@
                         <img src="{{ asset('images/logo1.png') }}" width="100px" alt="BBC University">
                     </div>
                 </div>
-                <div> Chers(es) Etudiants(es), Nous avons le plaisir de vous annoncer notre nouvelle session des cours de renforcement en <strong><span style="font-size: 1.5rem;">Anglais</span> Jour & soir </strong>qui démarre à partir du <span class="text-info"><strong>lundi 22 Juin 2020</strong></span> .Les inscriptions ont commencé et se poursuivent. Pour toutes informations, veuillez contacter:</div>
-                <div class="mr-auto ml-auto text-center">
-                    <h5>MR Koffi Adika au 77 846 03 06</h5>
-                    <h5>MR Dauda Bangura au 78 521 55 03</h5>
+                <div> 
+                    <p>Madame/Monsieur,</p>
+                    <p>Face au succ&eacute;s que nous avons connu dans nos sessions pr&eacute;c&eacute;dentes, le British Business Coll&egrave;ge a le plaisir de vous annoncer&nbsp; l'ouverture d'une nouvelle session de cours d'Anglais &agrave; compter du&nbsp;<strong class="text-info">lundi 13 Juillet (en pr&eacute;sentiel) et mardi 14 Juillet (en ligne) 2020</strong>&nbsp;pour une dur&eacute;e de&nbsp;<strong>2 mois</strong>.</p>
+                    <p>Nous n'oublions pas non plus que sans vous, nous ne serions pas une structure incontournable dans&nbsp; dans le domaine du coaching en Anglais.</p>
+                    <p>Pour plus de renseignement, contactez-nous:</p>
+                    <ul>
+                        <li>T&eacute;l&eacute;phone: +221 33 869 25 00</li>
+                    </ul>
+                    <p>Whatsapp:</p>
+                    <ul>
+                        <li>77 846 03 06</li>
+                        <li>78 424 61 92</li>
+                        <li>78 521 55 03</li>
+                    </ul>
                 </div>
-                <div class="text-info">NB: Place limitée !!!</div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

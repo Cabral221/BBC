@@ -1,66 +1,4 @@
-
-</div>
-      <!-- End of Main Content -->
- <!-- Footer -->
-  <footer class="sticky-footer  bg-gradient-primary">
-    <!-- bg-gradient-primary  bg-white-->
-    <div class="container my-auto ">
-      <div class="copyright text-center my-auto">
-        <span class="text-white">Copyright &copy; <a href="{{ route('user.welcome') }}" style="color: blanchedalmond;text-decoration:none;">BBC UNIVERSITY</a>  2020 - {{ Date('Y') }} | Developed By EMPRO </span>
-      </div>
-    </div>
-  </footer>
-  <!-- End of Footer -->
-
-</div>
-<!-- End of Content Wrapper c' est le dernier div-->
-</div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Bootstrap core JavaScript-->
-  <script src="{{asset('asset_admin/vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('asset_admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-  
-  <!-- Core plugin JavaScript-->
-  <script src="{{asset('asset_admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="{{asset('asset_admin/js/sb-admin-2.min.js')}}"></script>
-
-  <!-- Page level plugins -->
-  <script src="{{asset('asset_admin/vendor/chart.js/Chart.min.js')}}"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="{{asset('asset_admin/js/demo/chart-area-demo.js')}}"></script>
-  <script src="{{asset('asset_admin/js/demo/chart-pie-demo.js')}}"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
-  
-  @include('flashy::message')
-  <script>
+<script>
 $('#exampleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var info_id = button.data('id') 
@@ -75,7 +13,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #adress').val(adress)
   modal.find('.modal-body #bp').val(bp)
 })
-
 
 $('#imageModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
@@ -101,7 +38,6 @@ $('#update_slides').on('show.bs.modal', function (event) {
   modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
 })
 
-
 $('#edit_teamsModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var info_id = button.data('id') 
@@ -118,7 +54,6 @@ $('#edit_teamsModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
 })
 
-
 $('#edit_progModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var prog_id = button.data('id') 
@@ -128,7 +63,6 @@ $('#edit_progModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #libele').val(libele)
 
 })
-
 
 $('#edit_moduleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
@@ -143,7 +77,6 @@ $('#edit_moduleModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #niveau_id').val(niveau)
 })
 
-
 $('#wordModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var word_id = button.data('id') 
@@ -152,8 +85,6 @@ $('#wordModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #word_id').val(word_id)
   modal.find('.modal-body #editor').val(editor)
 })
-
-
 
 $('#edit_niveauModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
@@ -164,8 +95,6 @@ $('#edit_niveauModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #libele_niv').val(libele_niv)
 })
 
-
-
 $('#edit_diplomeModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var dip_id = button.data('id') 
@@ -174,9 +103,6 @@ $('#edit_diplomeModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #dip_id').val(dip_id)
   modal.find('.modal-body #libele_dip').val(libele_dip)
 })
-
-
-
 
 $('#bookModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
@@ -193,7 +119,6 @@ $('#bookModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
 })
 
-
 $('#edit_imgModal1').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var img_id = button.data('id') 
@@ -205,23 +130,16 @@ $('#edit_imgModal1').on('show.bs.modal', function (event) {
   modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
 })
 
-
-
 $('#edit_newModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
   var new_id = button.data('id') 
   var libele = button.data('libele') 
   var date = button.data('date') 
-  var editor = button.data('editor')
+  var editor = button.data('editor') 
   var modal = $(this)
   modal.find('.modal-body #new_id').val(new_id)
   modal.find('.modal-body #libele').val(libele)
   modal.find('.modal-body #date').val(date)
-  tinyMCE.activeEditor.setContent(editor);
-  // modal.find('.modal-body #editorModal').val(editor)
+  modal.find('.modal-body #editor').val(editor)
 })
 </script>
-    @yield('js')
-</body>
-
-</html>

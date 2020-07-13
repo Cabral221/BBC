@@ -21,8 +21,12 @@
         <div class="container text-dark">
             
             <div class="row">
-                <p class="text-dark lead">Choosing your program of study can become a stressful decision for some of you. The training you choose should, in the best of all worlds, reflect the person you are. There is a good chance that you will succeed in your studies when they interest and motivate you. Think about the types of activities you organize, the courses that have attracted your attention the most, or your strengths and weaknesses in the different subjects.</p>
+                <hr>
                 <div class="col-sm-8 text-dark">
+                    <div class="row">
+                        <p>Choosing your program of study can become a stressful decision for some of you. The training you choose should, in the best of all worlds, reflect the person you are. There is a good chance that you will succeed in your studies when they interest and motivate you. Think about the types of activities you organize, the courses that have attracted your attention the most, or your strengths and weaknesses in the different subjects.</p>
+                        <p>BBC University offers a British program, Canadian and French.</p>
+                    </div>
                     @if (isset($programs) && $programs->count())
                         @foreach ($programs as $program)
                             <div class="row">
@@ -39,8 +43,8 @@
                                                                     <img class="img-circle img-responsive" style="padding:10px;heigth:80px" src="{{ $filiere->icon }}" alt="">
                                                                 </div>
                                                                 <div class="media-body col-sm-10 col-lg-10 col-xs-10">
-                                                                    <span class="media-heading"><h5>{{ $filiere->libele }}</h5></span>
-                                                                    <p>{{ $filiere->describe }}</p>
+                                                                    <H4 class="media-heading"><h4>{{ $filiere->libele }}</h4></H4>
+                                                                    <p>{!! $filiere->describe !!}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -67,7 +71,6 @@
                             <h4>Dr Doe John </h4>
                             <h6>Director of programs</h6>
                         </div> --}}
-                        <hr>
                         <div>
                             <h4 class="">Latest News</h4>
                             @if (isset($news) && $news->count() > 0)
@@ -88,7 +91,7 @@
                     </div>
                 </div>
             </div>
-
+            
         </div>
     </div>
 </section>

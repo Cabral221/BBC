@@ -1,4 +1,4 @@
-@extends('layouts/admin/app')
+@extends('layouts/admin/app2')
 @section('body')
 <div class="container-fluid">
 
@@ -97,7 +97,10 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('/tinymce/jquery.tinymce.min.js')}}"></script>
-<script src="{{ asset('/tinymce/tinymce.min.js')}}"></script>
-<script src="{{ asset('/js/admin/editor.js')}}"></script>
+  <script>
+    CKEDITOR.replace( 'describe' );
+    CKEDITOR.replace( 'requirement' );
+    CKEDITOR.replace( 'duration' );
+    CKEDITOR.replace( 'outCome' );
+  </script>
 @endsection

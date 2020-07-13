@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta name="title" content="BBC University Senegal">
-	<meta name="description" content="Our Mission is to create a first class British university in Senegal, offering British university degrees and solid links with universities in the United Kingdom. With its different streams including English, Business Administration (options: Management, Marketing, Human Resources, or Finance / Banking), Supply Chain Management, your new university wants to facilitate off-site access to British higher degrees.">
-	<meta name="keywords" content="BBC, BBC SN, bbc sn, BBC University, bbc senegal, bbc dakar, iniversity uk, uk university, senegal university UK, ecole, universite">
+	<meta name="description" content="British Business College is a private university in Dakar that’s located in Mermoz- Dakar, Senegal. Our Mission is to create a first class British university in Senegal, offering British university degrees and solid links with universities in the United Kingdom. With its different streams including English, Business Administration (options: Management, Marketing, Human Resources, or Finance / Banking), Supply Chain Management, your new university wants to facilitate off-site access to British higher degrees.">
+	<meta name="keywords" content="bbc, bbc sn, bbc sn university, University, British Business College, BBC, BBC SN, bbc sn, BBC University, bbc senegal, bbc dakar, iniversity uk, uk university, senegal university UK, ecole, universite">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	
 	<title>@yield('title', "BBC SN University")</title>
