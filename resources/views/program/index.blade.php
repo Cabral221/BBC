@@ -16,83 +16,77 @@
 @endsection
 
 @section('content')
-<section>
-    <div class="section mt-3 mb-3">
-        <div class="container text-dark">
-            
-            <div class="row">
+    <div class="container">
+        <div class="row text-dark">
+            <div class="col-sm-8 text-dark">
                 <hr>
-                <div class="col-sm-8 text-dark">
-                    <div class="row">
-                        <p>Choosing your program of study can become a stressful decision for some of you. The training you choose should, in the best of all worlds, reflect the person you are. There is a good chance that you will succeed in your studies when they interest and motivate you. Think about the types of activities you organize, the courses that have attracted your attention the most, or your strengths and weaknesses in the different subjects.</p>
-                        <p>BBC University offers a British program, Canadian and French.</p>
-                    </div>
-                    @if (isset($programs) && $programs->count())
-                        @foreach ($programs as $program)
-                            <div class="row">
-                                <h2 class="text-center"># {{ $program->libele }}</h2>
-                                @if ($program->filieres->count() > 0)
-                                    @foreach ($program->filieres as $filiere)
-                                        <div class="row">
-                                            <div class="col-sm-12 blog-item mb10 wow match-height">
-                                                <div class="row">
-                                                    <a href="{{ route('user.programs.show',$filiere->id) }}">
-                                                        <div class="program col-xs-12 pt-3 pb-3 m-3">
-                                                            <div class="media row">
-                                                                <div class="pull col-sm-2 col-lg-2 col-xs-2 text-center vertical-center">
-                                                                    <img class="img-circle img-responsive" style="padding:10px;heigth:80px" src="{{ $filiere->icon }}" alt="">
-                                                                </div>
-                                                                <div class="media-body col-sm-10 col-lg-10 col-xs-10">
-                                                                    <H4 class="media-heading"><h4>{{ $filiere->libele }}</h4></H4>
-                                                                    <p>{!! $filiere->describe !!}</p>
-                                                                </div>
+                <div>
+                    <p>Choosing your program of study can become a stressful decision for some of you. The training you choose should, in the best of all worlds, reflect the person you are. There is a good chance that you will succeed in your studies when they interest and motivate you. Think about the types of activities you organize, the courses that have attracted your attention the most, or your strengths and weaknesses in the different subjects.</p>
+                    <p>BBC University offers a British program, Canadian and French.</p>
+                </div>
+                @if (isset($programs) && $programs->count())
+                    @foreach ($programs as $program)
+                            <div class="col-12"><h2 class="text-center">{{ $program->libele }}</h2></div>
+                            @if ($program->filieres->count() > 0)
+                                @foreach ($program->filieres as $filiere)
+                                    {{-- <div class="row"> --}}
+                                        <div class="col-12 blog-item mb10 ">
+                                                <a href="{{ route('user.programs.show',[$program, $filiere]) }}">
+                                                    <div class="program col-xs-12 mt-3 mb-3">
+                                                        <div class="media row">
+                                                            <div class="pull col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
+                                                                <img 
+                                                                class="img-circle img-responsive img-centered" 
+                                                                style="padding:10px; width:80%;" 
+                                                                src="{{ $filiere->icon }}" 
+                                                                alt="logo-{{$filiere->slug}}">
+                                                            </div>
+                                                            <div class="media-body col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                                                                <H4 class="media-heading"><h4>{{ $filiere->libele }}</h4></H4>
+                                                                <p>{!! $filiere->truncateDescribe(100) !!}</p>
                                                             </div>
                                                         </div>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                                    </div>
+                                                </a>
                                         </div>
-                                    @endforeach
-                                @else
-                                    <p>Aucun filieres pour ce programme...</p>
-                                @endif
-                                <hr>
-                            </div>
-                        @endforeach
-                    @else
-                        <p>Aucun type de programme pour le moment...</p>
-                    @endif
-                </div>
-
-                <div id="post-sidebar" class="col-sm-3 col-sm-offset-1">
-                    <div class="widget mb50">
-                        {{-- <div>
-                            <img src="{{asset('assets/img/news/1.jpg')}}" class="img-responsive" alt="" srcset="">
-                            <h4>Dr Doe John </h4>
-                            <h6>Director of programs</h6>
-                        </div> --}}
-                        <div>
-                            <h4 class="">Latest News</h4>
-                            @if (isset($news) && $news->count() > 0)
-                                @foreach ($news as $new)
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <span class="media-heading">{{ $new->title }}</span>
-                                            <small class="muted">{{ $new->date }}</small>
-                                        </div>
-                                    </div>                                
+                                    {{-- </div> --}}
                                 @endforeach
                             @else
-                                <div class="media">
-                                    <p>No event for the moment...</p>
-                                </div>
+                                <p>Aucun filieres pour ce programme...</p>
                             @endif
-                        </div>
-                    </div>
+                            <hr>
+                    @endforeach
+                @else
+                    <p>Aucun type de programme pour le moment...</p>
+                @endif
+            </div>
+            <div class="col-sm-4">
+                <div class="widget mb50">
+                        <h4 class="">Latest News</h4>
+                        @if (isset($news) && $news->count() > 0)
+                            @foreach ($news as $new)
+                                <div class="mt-3 mb-3">
+                                    <a href="{{route('user.new',$new)}}">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                {{ $new->title }}
+                                                <div>
+                                                    <em>{{ $new->date }}</em>
+                                                    {{-- <u class="text-right">details</u> --}}
+                                                </div>
+                                                
+                                            </div>
+                                        </div>            
+                                    </a>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="media">
+                                <p>No event for the moment...</p>
+                            </div>
+                        @endif
                 </div>
             </div>
-            
         </div>
     </div>
-</section>
 @endsection

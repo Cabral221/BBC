@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Slide;
-use App\Models\Partner;
 use Carbon\Carbon;
-use App\Models\Neew;
 use App\Models\Info;
+use App\Models\Neew;
+use App\Models\Slide;
 use App\Models\Filiere;
+use App\Models\Partner;
 use App\Models\Program;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,7 +25,7 @@ class ProgrammeController extends Controller
         $info = $this->recapdata();
         $info['current_page'] = 'programs';
         $info['programs'] = Program::all();
-        $info['news'] = Neew::where('date','>',Carbon::now())->limit(10)->get();
+        $info['news'] = Neew::limit(10)->get();
         // dd($info);
         return view('program.index',$info);
     }
@@ -35,15 +36,16 @@ class ProgrammeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Program $program, Filiere $filiere)
     {
         $info = $this->recapdata();
-        $filiere = Filiere::find($id);
-        $info = $this->recapdata();
         $info['filiere'] = $filiere;
+        $info['program'] = $program;
         
         return view('program.show',$info);
     }
+
+    
 
     private function recapdata()
     {

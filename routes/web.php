@@ -74,7 +74,9 @@ Route::name('user.')->group(function(){
     // Route::get('/home', 'User\HomeController@index')->name('home');
     // Route::get('/programs','User\PageController@programs')->name('programs');
     
-    Route::resource('/programs','User\ProgrammeController')->only(['index','show']);
+    Route::get('/programs','User\ProgrammeController@index')->name('programs.index');
+    Route::get('/{program}/{filiere}','User\ProgrammeController@show')->name('programs.show');
+    // Route::resource('/programs','User\ProgrammeController')->only(['index','show']);
     
     Route::resource('/networks','User\NetworkController')->only(['store']);
     // Route::resource('/programs/type','User\TypeController')->only(['index','show']);

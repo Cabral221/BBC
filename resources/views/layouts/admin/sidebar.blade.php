@@ -88,10 +88,10 @@
       
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <!-- <a class="nav-link" href=" {{route('admin.params.infos.index')}} "> -->
+        {{-- <!-- <a class="nav-link" href=" {{route('admin.params.infos.index')}} "> --> --}}
         <a class="nav-link" href=" {{route('admin.members.networks.index')}} ">
         <i class="fas fa-network-wired"></i>
-        <span>Networks</span></a>
+        <span>Networks and visitors</span></a>
       </li>
           
           <!-- Nav Item - Tables -->

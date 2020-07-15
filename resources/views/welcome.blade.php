@@ -112,16 +112,13 @@
                                     <div class="row text-center pl-3 pr-3">
                                         @if ($program->filieres->count() > 0)
                                             @foreach ($program->filieres as $filiere)
-                                                <div class="p-4 col-sm-4 wow fadeIn" data-wow-delay="0.2s">
-                                                    <a href="{{ route('user.programs.show',$filiere->id) }}">
+                                                <div class="p-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="0.2s">
+                                                    <a href="{{ route('user.programs.show',[$program, $filiere]) }}">
                                                         <div class="icon-box-1 match-height mb20">
                                                             <img src="{{ asset($filiere->icon) }}" alt="" width="100px" srcset="">
                                                         </div>
                                                         <div class="text-dark pt-2" style="color:black;">
-                                                            {{-- <a href="{{ route('user.programs.show',$filiere->id) }}" class="program-title"> --}}
-                                                                <h4 class="card-title">{{ strtoupper($filiere->libele) }}</h4>
-                                                                
-                                                            {{-- </a> --}}
+                                                            <h4 class="card-title">{{ strtoupper($filiere->libele) }}</h4>
                                                         </div>
                                                         </a>
                                                 </div>

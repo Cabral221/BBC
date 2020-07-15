@@ -22,32 +22,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-dark">
-                    <div class="row">
-                        <p class="lead"><h3> Do you have any goals ? Contact us ! </h3></p>
-
-                        <table class="table">
-                            <tr>
-                                <td>Address</td>
-                                <td>{{ $info->address }}</td>
-                            </tr>
-                            <tr>
-                                <td>Email</td>
-                                <td><a href="mailto:{{ $info->email }}">{{ $info->email }}</a></td>
-                            </tr>
-                            <tr>
-                                <td>Phone</td>
-                                <td><a href="tel:+{{ $info->phone }}">{{ $info->phone }}</a></td>
-                            </tr>
-                            <tr>
-                                <td>Postal</td>
-                                <td>{{ $info->bp }}</td>
-                            </tr>
-                        </table>
-                    </div>
-                
-                    
+                    <p class="lead"><h3> Do you have any goals ? Contact us ! </h3></p>
+                    <table class="table">
+                        <tr>
+                            <td>Address</td>
+                            <td>{{ $info->address }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><a href="mailto:{{ $info->email }}">{{ $info->email }}</a></td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td><a href="tel:+{{ $info->phone }}">{{ $info->phone }}</a></td>
+                        </tr>
+                        <tr>
+                            <td>Postal</td>
+                            <td>{{ $info->bp }}</td>
+                        </tr>
+                    </table>
                 </div>
-
                 <div class="col-md-6">
                     <div id="message"></div>
                     <form method="POST" action="{{ route('user.message') }}" id="contact-form" class="main-contact-form wow">
