@@ -36,7 +36,6 @@ class AdmissionMail extends Mailable
     public function build()
     {
         $this->request['program_id'] = Program::find($this->request['program_id']);
-        $this->request['niveau_id'] = Niveau::find($this->request['niveau_id']);
         $this->request['filiere_id'] = Filiere::find($this->request['filiere_id']);
         return $this->from($this->request['email'])->markdown('emails.admissionNotification');
     }

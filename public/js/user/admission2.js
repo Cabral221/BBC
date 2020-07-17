@@ -4,7 +4,7 @@ $(document).ready(function(){
     const button = document.getElementById('submit-admission');
 
 
-
+    
     var program = form.querySelector('#program');
     // var diplome = form.querySelector('#diplome');
     var niveau = form.querySelector('#niveau');
@@ -38,7 +38,7 @@ $(document).ready(function(){
         if($(this).val() != ''){
             // Recuperer tout les niveau existant pour cet program
             var allNiveau = callAxios('/admission/niveau',{id: parseInt($(program).val())});
-
+             
                 allNiveau.then(function (data) {
                     let selectNiveau = '<option value="">Start in...</option>'
                     data.map(function (niv) {
@@ -64,7 +64,7 @@ $(document).ready(function(){
 
 
     let inputs = form.querySelectorAll('input');
-
+    
     let activeButton = 0
 
     function handleButton (c){
@@ -97,7 +97,7 @@ $(document).ready(function(){
     function checkvalueniveau (event) {
         if($(this).val() != ''){
             var allFiliere = callAxios('/admission/filiere',{id: parseInt($(program).val())});
-
+             
             allFiliere.then(function (data) {
                 let selectFiliere = '<option value="">select your sector...</option>'
                 data.map(function (fil) {
@@ -108,8 +108,8 @@ $(document).ready(function(){
                 $(filiere).html(selectFiliere);
                 $(filiere).parent().show();
             })
-
-
+            
+        
         }else{
              // Reinitialiser les valeur des autres select
              $(this).prop('selectedIndex',0);

@@ -24,7 +24,7 @@ class AdmissionController extends Controller
         $partners = Partner::all();
         $info = Info::first();
         $programs = Program::all();
-        $galeries = Gallerie::all();
+        $galeries = Gallerie::orderBy('created_at','desc')->limit(10)->get();
         
         return view('pages.admission', compact(['info','partners','image','programs','galeries']));
     }
@@ -33,7 +33,6 @@ class AdmissionController extends Controller
     {
         $this->validate($request,[
             'program_id' => 'required',
-            'niveau_id' => 'required',
             'filiere_id' => 'required',
             'firstname' => 'required|string|min:2',
             'lastname' => 'required|string|min:2',
@@ -43,7 +42,6 @@ class AdmissionController extends Controller
         $admission = Admission::create($request->all());
 
         $message = new AdmissionMail($request->all(),$admission->id);
-        // dd($message);
         Mail::to(Admin::first()->email)->send($message);
 
         $notifUser = new UserAdmissionMail($request->all());

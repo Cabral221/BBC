@@ -13,7 +13,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Admissions</h4>
+          <h4 class="m-0 font-weight-bold text-primary">Admissions <span class="small muted">({{ $admission->total() }})</span></h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -31,7 +31,6 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Faculty</th>
                         <th scope="col">Programs</th>
-                        <th scope="col">Level</th>
                         <th scope="col">View</th>
                         <th>Options</th>
                         </tr>
@@ -47,7 +46,6 @@
                             <td>{{$admin->phone}}</td>
                             <td>{{$admin->filiere->libele}}</td>
                             <td>{{$admin->program->libele}}</td>
-                            <td>{{$admin->niveau->libele}}</td>
                             <td><a href="{{route('admin.params.admissions.show',$admin->id)}}"><i class="fas fa-eye"></i></a></td>
                             <td>       
                                 <button type="submit" class="mr-3 btn btn-xs mb-1 text-danger" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$admin->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
@@ -79,7 +77,7 @@
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 text-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Admissions Read</h4>
+          <h4 class="m-0 font-weight-bold text-primary">Admissions Read <span class="small muted">({{ $admins->total() }})</span></h4>
         </div>
         <!-- Card Body -->
         <div class="card-body">
@@ -97,7 +95,6 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Faculty</th>
                         <th scope="col">Programs</th>
-                        <th scope="col">Level</th>
                         <th>Options</th>
                         </tr>
                     </thead>
@@ -112,7 +109,6 @@
                             <td>{{$admin->phone}}</td>
                             <td>{{$admin->filiere->libele}}</td>
                             <td>{{$admin->program->libele}}</td>
-                            <td>{{$admin->niveau->libele}}</td>
                             <td>       
                                 <button type="submit" class="mr-3 btn btn-xs mb-1 text-danger" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$admin->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
                                 <form id="form-delete-{{$admin->id}}" action="{{route('admin.params.admissions.destroy',$admin->id)}}" method="post">

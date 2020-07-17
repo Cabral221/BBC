@@ -28,7 +28,7 @@
                 <p>  <span> Phone </span>  :        <span> {{ $view->phone }} </span> </p>
                 <p>  <span> Faculty </span>  :      <span> {{ $view->filiere->libele }} </span> </p>
                 <p>  <span> Program </span>  :      <span> {{ $view->program->libele }} </span> </p>
-                <p>  <span> Level </span>  :        <span> </span> {{ $view->niveau->libele }} </p>
+                {{-- <p>  <span> Level </span>  :        <span> </span> {{ $view->niveau->libele }} </p> --}}
                 
             </div>
       

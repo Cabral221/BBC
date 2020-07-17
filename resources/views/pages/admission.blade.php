@@ -63,7 +63,7 @@
 @section('content')
 <div class="container">
     <h1 class="text-center text-dark">Build your admission</h1>
-    @if (1 === 2)
+    @if (1 === 1)
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 @if(session('errors'))
@@ -84,24 +84,18 @@
                         </div>
                         <div class="form-group mb-4">
                             <div class="select-style">
-                                <select class="form-control" id="niveau" name="niveau_id">
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group mb-4">
-                            <div class="select-style">
                                 <select class="form-control" id="filiere" name="filiere_id">
                                 </select>
                             </div>
                         </div>
                         <div class="form-group mb-4">
-                            <div class="col-sm-6 pl-0">
+                            <div class="col-sm-6 p-1">
                                 <div class="form-group">
                                     <label for="First Name" class="control-label sr-only" sr-only>First Name</label>
                                     <input type="text" placeholder="First name *" class="input-admission" name="firstname" id="firstname" required="required">
                                 </div>
                             </div>
-                            <div class="col-sm-6  pr-0">
+                            <div class="col-sm-6 p-1">
                                 <div class="form-group">
                                     <label for="lastname" class="control-label sr-only">Last Name</label>
                                     <input type="text" placeholder="Last name *" class="input-admission" name="lastname" id="lastname" required="required">
@@ -110,13 +104,13 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-6 pl-0">
+                            <div class="col-sm-6 p-1">
                                 <div class="form-group">
                                     <label for="email" class="control-label sr-only">Email</label>
                                     <input type="email" placeholder="Email *" class="input-admission" name="email" id="name" required="required">
                                 </div>
                             </div>
-                            <div class="col-sm-6 pr-0">
+                            <div class="col-sm-6 p-1">
                                 <div class="form-group">
                                     <label for="phone" class="control-label sr-only">Phone</label>
                                     <input type="number" placeholder="Phone *" class="input-admission" name="phone" id="phone" require="required">

@@ -35,7 +35,6 @@ class UserAdmissionMail extends Mailable
     public function build()
     {
         $this->request['program_id'] = Program::find($this->request['program_id']);
-        $this->request['niveau_id'] = Niveau::find($this->request['niveau_id']);
         $this->request['filiere_id'] = Filiere::find($this->request['filiere_id']);
         return $this->from(Admin::first()->email)->markdown('emails.userAdmisson');
     }

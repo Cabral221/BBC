@@ -11,8 +11,8 @@ class AdmissionController extends Controller
 {
     public function index()
     {
-        $admission = Admission::Where('etat',0)->orderBy('id','desc')->paginate(10);
-        $admins = Admission::Where('etat',1)->orderBy('id','desc')->paginate(10);
+        $admission = Admission::Where('etat',0)->orderBy('created_at','desc')->paginate(10);
+        $admins = Admission::Where('etat',1)->orderBy('updated_at','desc')->paginate(10);
         return view('admin.admissions.index',compact(['admission','admins']));
     }
 
@@ -22,21 +22,6 @@ class AdmissionController extends Controller
         $view->etat = 1;
         $view->save();
         return view('admin.admissions.create',compact('view'));
-    }
-
-    public function edit()
-    {
-        
-    }
-
-    public function update()
-    {
-        
-    }
-
-    public function store()
-    {
-        
     }
 
     public function destroy($id)
