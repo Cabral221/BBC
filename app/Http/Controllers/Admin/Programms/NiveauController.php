@@ -18,7 +18,7 @@ class NiveauController extends Controller
         ]);
     
         if ($validator->fails()) {
-                flashy::error($validator->messages()->first());
+                Flashy::error($validator->messages()->first());
             return redirect()->back();
         }
       $niveau = new Niveau();
@@ -46,7 +46,7 @@ class NiveauController extends Controller
         ]);
     
         if ($validator->fails()) {
-                flashy::error($validator->messages()->first());
+                Flashy::error($validator->messages()->first());
             return redirect()->back();
         }
         $edite_prog = Niveau::findOrFail($request->nivo);

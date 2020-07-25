@@ -37,7 +37,7 @@ class SpecialiteController extends Controller
         ]);
     
         if ($validator->fails()) {
-                flashy::error($validator->messages()->first());
+                Flashy::error($validator->messages()->first());
             return redirect()->back();
         }
         $update = Specialite::find($id);
@@ -56,7 +56,7 @@ class SpecialiteController extends Controller
         ]);
     
         if ($validator->fails()) {
-                flashy::error($validator->messages()->first());
+                Flashy::error($validator->messages()->first());
             return redirect()->back();
         }
             $spec = new Specialite();

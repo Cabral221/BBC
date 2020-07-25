@@ -18,7 +18,7 @@ class DiplomeController extends Controller
         ]);
     
         if ($validator->fails()) {
-                flashy::error($validator->messages()->first());
+                Flashy::error($validator->messages()->first());
             return redirect()->back();
         }
         $diplome = new Diplome();
@@ -50,7 +50,7 @@ class DiplomeController extends Controller
         ]);
     
         if ($validator->fails()) {
-                flashy::error($validator->messages()->first());
+                Flashy::error($validator->messages()->first());
             return redirect()->back();
         }
         $edite_prog = Diplome::findOrFail($request->diplome);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Document;
+use App\Models\Book;
 use App\Models\Info;
 use App\Models\Neew;
 use App\Models\Word;
@@ -40,9 +41,6 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        // $info = Info::first();
-        // $partners = Partner::all();
-        // $slides = Slide::limit(3)->get();
         $info = $this->recapdata();
 
         $info['current_page'] = 'home';
@@ -50,6 +48,7 @@ class HomeController extends Controller
         $info['programs'] = Program::all();
         $info['word'] = Word::first();
         $info['docs'] = Document::paginate(10);
+        $info['books'] = Book::paginate(5);
         $info['galeries'] = Gallerie::orderBy('created_at','desc')->limit(10)->get();
         $info['news'] = Neew::orderBy('created_at', 'desc')->limit(5)->get();
         

@@ -20,16 +20,6 @@ class ModuleController extends Controller
         return view('admin.programms.modules.index',compact(['modul','fil','niv']));
     }
 
-    public function create()
-    {
-        
-    }
-
-    public function edit()
-    {
-        
-    }
-
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -60,8 +50,8 @@ class ModuleController extends Controller
         ]);
     
         if ($validator->fails()) {
-                flashy::error($validator->messages()->first());
-            return redirect()->back();
+                Flashy::error($validator->messages()->first());
+            return redirect()->back()->withInput();
         }
         $module = new Module();
         $module->filiere_id = $request->input('specialite');

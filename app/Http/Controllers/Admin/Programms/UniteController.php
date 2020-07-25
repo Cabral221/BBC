@@ -11,29 +11,4 @@ class UniteController extends Controller
     {
         return view('admin.unites.index');
     }
-
-    public function create()
-    {
-        
-    }
-
-    public function edit()
-    {
-        
-    }
-
-    public function update()
-    {
-        
-    }
-
-    public function store()
-    {
-        
-    }
-
-    public function delete()
-    {
-        
-    }
 }

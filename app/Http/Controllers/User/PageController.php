@@ -22,7 +22,7 @@ class PageController extends Controller
         $info['current_page'] = 'library';
         $info['books'] = Book::all();
         $info['galeries'] = Gallerie::orderBy('created_at', 'desc')->paginate(12);
-        // dd($info['galeries']);
+        // dd(Date('Y',strtotime($info['books'][0]->dateOut)));
         return view('pages.library', $info);
     }
     public function contact()

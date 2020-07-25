@@ -27,15 +27,20 @@
     <div class="row p-3 mt-5">
         @if (isset($books) && $books->count() > 0)
             @foreach ($books as $book)
-                <div class="col-sm-6 col-md-4 col-lg-3 pt-2">
+                <div class="col-sm-6 col-md-6 col-lg-6 pt-2">
 
                     <div class="media">
                         <div class="pull-left">
-                            <img class="" width="100px" src="{{ $book->image }}" alt="">
+                            <img class="" width="100px" src="{{ $book->image }}" alt="pochette du livre">
                         </div>
                         <div class="media-body text-dark">
-                            <span class="media-heading">{{ $book->title }} by <strong>{{ $book->auteur }}</strong></span>
-                            <small class="muted">{{ $book->dateOut }}</small>
+                            <div>
+                                <span class="media-heading"> <h5>{{ $book->title }}</h5></span>
+                            </div>
+                            <div>
+                                <small class="muted">by</small> : <strong>{{ $book->auteur }}</strong>
+                            </div>
+                            <small class="muted"> P. {{ Date('Y',strtotime($book->dateOut)) }}</small>
                         </div>
                     </div>
 

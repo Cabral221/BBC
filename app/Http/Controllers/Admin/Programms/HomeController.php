@@ -42,7 +42,7 @@ class HomeController extends Controller
             ]);
             
             if ($validator->fails()) {
-                flashy::error($validator->messages()->first());
+                Flashy::error($validator->messages()->first());
                 return redirect()->back();
             }
         $edite_prog = Program::findOrFail($request->prog);
@@ -59,9 +59,9 @@ class HomeController extends Controller
         ]);
 
         if ($validator->fails()) {
-            flashy::error($validator->messages()->first());
-        return redirect()->back();
-    }
+            Flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
       $prog = new Program();
       $prog->libele = $request->input('libele');
       $prog->save();

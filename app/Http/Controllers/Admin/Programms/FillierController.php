@@ -54,7 +54,7 @@ class FillierController extends Controller
         ]);
     
         if ($validator->fails()) {
-                flashy::error($validator->messages()->first());
+                Flashy::error($validator->messages()->first());
             return redirect()->back();
         }
 
@@ -97,7 +97,7 @@ class FillierController extends Controller
         ]);
     
         if ($validator->fails()) {
-                flashy::error($validator->messages()->first());
+                Flashy::error($validator->messages()->first());
             return redirect()->back();
         }
         $imgdel = $edit_fil->icon;

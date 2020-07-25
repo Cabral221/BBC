@@ -116,7 +116,7 @@ Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin
         Route::resource('/filliers','Admin\Programms\FillierController');
         Route::resource('/diplomes','Admin\Programms\DiplomeController');
         Route::resource('/niveaux','Admin\Programms\NiveauController');
-        Route::resource('/modules','Admin\Programms\ModuleController');
+        Route::resource('/modules','Admin\Programms\ModuleController')->except(['create','edit']);
         Route::resource('/specialites','Admin\Programms\SpecialiteController');
         // Route::resource('/unites','Admin\Programms\UniteController');
     });

@@ -158,6 +158,29 @@
                             @endforeach
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-header"><h4>Books recommended</h4></div>
+                        <div class="card-body">
+                            @if (isset($books) && $books->count() >= 1)
+                                @foreach ($books as $book)
+                                    <div class="media">
+                                        <div class="pull-left">
+                                            <img class="" width="100px" src="{{ $book->image }}" alt="pochette du livre">
+                                        </div>
+                                        <div class="media-body text-dark">
+                                            <div>
+                                                <span class="media-heading"> <h6>{{ $book->title }}</h6></span>
+                                            </div>
+                                            <div>
+                                                <small class="muted">by</small> : <strong>{{ $book->auteur }}</strong>
+                                            </div>
+                                            <small class="muted"> P. {{ Date('Y',strtotime($book->dateOut)) }}</small>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
