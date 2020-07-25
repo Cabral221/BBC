@@ -180,6 +180,9 @@
                                 @endforeach
                             @endif
                         </div>
+                        <div class="card-footer text-center">
+                            <a href="{{ route('user.library') }}" class="btn btn-danger btn-sm">Show more +</a>
+                        </div>
                     </div>
                 </div>
             </div>

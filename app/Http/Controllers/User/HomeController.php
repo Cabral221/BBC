@@ -48,7 +48,7 @@ class HomeController extends Controller
         $info['programs'] = Program::all();
         $info['word'] = Word::first();
         $info['docs'] = Document::paginate(10);
-        $info['books'] = Book::paginate(5);
+        $info['books'] = Book::paginate(3);
         $info['galeries'] = Gallerie::orderBy('created_at','desc')->limit(10)->get();
         $info['news'] = Neew::orderBy('created_at', 'desc')->limit(5)->get();
         
