@@ -51,7 +51,7 @@
 <header id="headerwrap" class="dark-wrapper backstretched special-max-height no-overlay">
     <div class="container vertical-center">
         <div class="intro-text vertical-center text-center smoothie">
-            <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s">WELCOME TO BBC</div>
+            <h1 class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s">BBC - University</h1>
             <div class="intro-sub-heading wow fadeIn secondary-font" data-wow-delay="0.4s">The first UK university in <span class="rotate">Dakar, Senegal</span></div>
             <a href="{{ route('user.admission') }}" class="btn btn-primary mt-5"><h4>Admission</h4></a>
         </div>
@@ -63,7 +63,7 @@
 <div class="white-wrapper">
     <div class="container">
         <div class="row mt-4">
-            <button type="button" class="collapsible text-center"><h4 style="display:inline" class="pt-5">Word of welcome</h4></button>
+            <button type="button" class="collapsible text-center"><h2 style="display:inline" class="pt-5">Word of welcome</h2></button>
             <div class="content mb-3">
                 <div class="text-white">
                     @if (isset($word) && $word != null)
@@ -99,7 +99,7 @@
                         @foreach ($programs as $program)
                             <button type="button" class="collapsible">
                                 <div style="display: inline">
-                                    <div class="col text-left">{{ strtoupper($program->libele) }}</div>
+                                    <h3 class="col text-left">{{ strtoupper($program->libele) }}</h3>
                                     <small class="col text-right mr-5">Degree: 
                                         @foreach($program->diplomes as $diplome)
                                             <span class="text-danger">{{ $diplome->libele }} </span> | 
@@ -115,12 +115,12 @@
                                                 <div class="p-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="0.2s">
                                                     <a href="{{ route('user.programs.show',[$program, $filiere]) }}">
                                                         <div class="icon-box-1 match-height mb20">
-                                                            <img src="{{ asset($filiere->icon) }}" alt="" width="100px" srcset="">
+                                                            <img src="{{ asset($filiere->icon) }}" alt="{{ $filiere->libele }}" width="100px" srcset="">
                                                         </div>
                                                         <div class="text-dark pt-2" style="color:black;">
                                                             <h4 class="card-title">{{ strtoupper($filiere->libele) }}</h4>
                                                         </div>
-                                                        </a>
+                                                    </a>
                                                 </div>
                                             @endforeach
                                         @else
@@ -142,13 +142,12 @@
                         <div class="card-body">
                             @foreach ($news as $new)
                             <div class="mt-3 mb-3">
-                                <a href="{{route('user.new',$new)}}">
+                                <a href="{{route('user.news.show',[$new])}}">
                                     <div class="card">
                                         <div class="card-header">
                                             {{ $new->title }}
                                             <div>
                                                 <em>{{ $new->date }}</em>
-                                                {{-- <u class="text-right">details</u> --}}
                                             </div>
                                             
                                         </div>
@@ -165,7 +164,7 @@
                                 @foreach ($books as $book)
                                     <div class="media">
                                         <div class="pull-left">
-                                            <img class="" width="100px" src="{{ $book->image }}" alt="pochette du livre">
+                                            <img class="" width="100px" src="{{ $book->image }}" alt="BBC BOOK {{ $book->title }}">
                                         </div>
                                         <div class="media-body text-dark">
                                             <div>
@@ -188,132 +187,47 @@
             </div>
             <div class="row">
                 <div class="col-12">
-
-{{-- Carousel galery --}}
-<section class="opaqued light-opaqued parallax">
-    <div class="section-inner2">
-        <div class="container">
-            <div class="row"><h3 class="text-dark text-center">BBC on images</h3></div>
-            <div class="row">
-                <div class="col-12">
-                    @if (isset($galeries) && $galeries->count() > 0)
-                        <ul class="owl-carousel-paged testimonial-owl wow fadeIn list-unstyled" data-items="4" data-items-desktop="[1200,4]" data-items-desktop-small="[980,4]" data-items-tablet="[768,3]" data-items-mobile="[479,2]">
-                            @foreach ($galeries as $galery)
-                                <li>
-                                    <img src="{{ $galery->image }}" class="img-responsive" alt="">
-                                </li>
-                            @endforeach
-                        </ul>
-                        <div class="text-center">
-                            <p><small>left to right or right to left</small></p>
-                            <div class="row text-center text white">
-                                <a href="{{ route('user.library') }}" class="btn btn-primary btn-bg-primary p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
+                    {{-- Carousel galery --}}
+                    <section class="opaqued light-opaqued parallax">
+                        <div class="section-inner2">
+                            <div class="container">
+                                <div class="row"><h3 class="text-dark text-center">BBC on images</h3></div>
+                                <div class="row">
+                                    @if (isset($galeries) && $galeries->count() > 0)
+                                        <div class="col-12">
+                                            <ul class="owl-carousel-paged testimonial-owl wow fadeIn list-unstyled" data-items="4" data-items-desktop="[1200,4]" data-items-desktop-small="[980,4]" data-items-tablet="[768,3]" data-items-mobile="[479,2]">
+                                                @foreach ($galeries as $galery)
+                                                    <li>
+                                                        <img src="{{ $galery->image }}" class="img-responsive" alt="BBC SN IMAGE">
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <div class="text-center">
+                                                <p><small>left to right or right to left</small></p>
+                                                <a href="{{ route('user.library') }}" class="btn btn-primary btn-bg-primary text white p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <p class="text-center text-dark">Aucune image de la galerie pour le moment...</p>
+                                    @endif
+                                </div>
                             </div>
                         </div>
-                    @else
-                        <p class="text-center text-dark">Aucune image de la galerie pour le moment...</p>
-                    @endif
+                    </section>
+                    {{-- /end Carousel galery --}}
                 </div>
             </div>
         </div>
     </div>
 </section>
-{{-- /end Carousel galery --}}
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-@if (isset($posts) && $post->coun() > 0)
-<div class="bg-white text-center text-dark">
-    <div class="container mt-3">
-        <h3>Latest activities</h3>
-        <div class="row text-dark">
-            <div class="col-sm-3 p-3 mt-3 mb-3">
-                <div class="activity">
-                    <div class="card">
-                        <div class="card-title">
-                            <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
-                        </div>
-                        <div class="card-title text-left mt-3 mb-3 pl-3 pr-3 pt-3 pb-3">
-                            <a href="#">
-                                <h5 style="display:inline" class="text-left">BBC Graduation 2019  Dr Séne, BBC Director</h5>
-                                <p style="float:right;display:inline">March, 12</p>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <p class="text-left">Quis nulla cillum esse fugiat anim aliquip laborum. Labore qui laborum nostrud est adipisicing amet dolor do excepteur. Tempor qui consequat ea qui laborum reprehenderit. Elit excepteur magna commodo est ullamco ad laboris ex in tempor tempor et id ex.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 p-3 mt-3 mb-3">
-                <div class="activity">
-                    <div class="card">
-                        <div class="card-title">
-                            <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
-                        </div>
-                        <div class="card-title text-left mt-3 mb-3 pl-3 pr-3">
-                            <a href="#">
-                                <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
-                                <p style="float:right;display:inline">March, 12</p>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <p class="text-left">Quis nulla cillum esse fugiat anim aliquip laborum. Labore qui laborum nostrud est adipisicing amet dolor do excepteur. Tempor qui consequat ea qui laborum reprehenderit. Elit excepteur magna commodo est ullamco ad laboris ex in tempor tempor et id ex.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 p-3 mt-3 mb-3">
-                <div class="activity">
-                    <div class="card">
-                        <div class="card-title">
-                            <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
-                        </div>
-                        <div class="card-title text-left mt-3 mb-3 pl-3 pr-3">
-                            <a href="#">
-                                <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
-                                <p style="float:right;display:inline">March, 12</p>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <p class="text-left">Quis nulla cillum esse fugiat anim aliquip laborum. Labore qui laborum nostrud est adipisicing amet dolor do excepteur. Tempor qui consequat ea qui laborum reprehenderit. Elit excepteur magna commodo est ullamco ad laboris ex in tempor tempor et id ex.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 p-3 mt-3 mb-3">
-                <div class="activity">
-                    <div class="card">
-                        <div class="card-title">
-                            <img src="{{ asset('images/img-test.jpg') }}" alt="" srcset="" class="img-responsive">
-                        </div>
-                        <div class="card-title text-left mt-3 mb-3 pl-3 pr-3">
-                            <a href="#">
-                                <h5 style="display:inline" class="text-left">BBC Graduation 2019</h5>
-                                <p style="float:right;display:inline">March, 12</p>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <p class="text-left">Quis nulla cillum esse fugiat anim aliquip laborum. Labore qui laborum nostrud est adipisicing amet dolor do excepteur. Tempor qui consequat ea qui laborum reprehenderit. Elit excepteur magna commodo est ullamco ad laboris ex in tempor tempor et id ex.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row text-center text white">
-            <a href="{{ route('user.posts.index') }}" class="btn btn-primary btn-bg-primary p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
-        </div>
-    </div>
-</div>
-@endif
 
 <div class="bg-white text-center text-dark">
     <div class="container mt-3">
         <h3>Testimonials</h3>
-        <div class="row text-dark">
-            @if (isset($attests) && $attests->count() > 0)
+        @if (isset($attests) && $attests->count() > 0)
+            <div class="row text-dark">
                 @foreach ($attests as $attest)
                     <div class="col-sm-4 col-md-3 col-xs-6 p-3">
                         <div class="testi">
@@ -328,13 +242,13 @@
                         </div>
                     </div>
                 @endforeach
-            @else
-                <p class="text-dark">Pas de temoignage poure le moment...</p>
-            @endif
-        </div>
-        <div class="row text-center text white">
-            <a href="{{ route('user.attest') }}" class="btn btn-primary btn-bg-primary p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
-        </div>
+            </div>
+            <div class="row text-center text white">
+                <a href="{{ route('user.attest') }}" class="btn btn-primary btn-bg-primary p-3 mt-3 mb-5" style="border-radius: 10px;">See more +</a>
+            </div>
+        @else
+            <p class="text-dark">Pas de temoignage poure le moment...</p>
+        @endif
     </div>
 </div>
 
@@ -343,23 +257,23 @@
 
         <h3 class="text-center">Utils documents</h3>
         @if (isset($docs) && $docs->count() > 0)
-        <div class="row pt-5 pb-5 text-white text-bold">
-            @foreach ($docs as $doc)
-                <div class=" col-sm-6 col-xl-6 text-white p-3">
-                    <div class="row">
-                        <div class="col-sm-6 col-xs-6">
-                            <span style="font-size: 20px;font-weight:bold">{{ $doc->name }}</span> 
-                        </div>
-                        <div class="col-sm-6 col-xs-6">
-                            <a href="{{ asset($doc->url) }}" class="document">Download <i class="fas fa-download"></i></a>
+            <div class="row pt-5 pb-5 text-white text-bold">
+                @foreach ($docs as $doc)
+                    <div class=" col-sm-6 col-xl-6 text-white p-3">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6">
+                                <span style="font-size: 20px;font-weight:bold">{{ $doc->name }}</span> 
+                            </div>
+                            <div class="col-sm-6 col-xs-6">
+                                <a href="{{ asset($doc->url) }}" class="document">Download <i class="fas fa-download"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
-        {{ $docs->links() }}
+                @endforeach
+            </div>
+            {{ $docs->links() }}
         @else
-            <p>Aucun document pour le moment</p>
+            <p class="text-center">Aucun document pour le moment</p>
         @endif  
             
     </div>

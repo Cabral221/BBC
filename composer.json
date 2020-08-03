@@ -16,7 +16,8 @@
         "gonoware/laravel-maps": "^1.2",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^1.0",
-        "mercuryseries/flashy": "^1.0"
+        "mercuryseries/flashy": "^1.0",
+        "spatie/laravel-sitemap": "^5.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",

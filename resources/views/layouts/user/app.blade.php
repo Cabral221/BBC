@@ -1,40 +1,21 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+	@include('layouts.user.google-analytics')
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<meta name="title" content="BBC University Senegal">
-	<meta name="description" content="(BBC SN University) British Business College is a private university in Dakar that’s located in Mermoz- Dakar, Senegal. Our Mission is to create a first class British university in Senegal, offering British university degrees and solid links with universities in the United Kingdom. With its different streams including English, Business Administration (options: Management, Marketing, Human Resources, or Finance / Banking), Supply Chain Management, your new university wants to facilitate off-site access to British higher degrees.">
-	<meta name="keywords" content="BBC SN UNIVERSIY, bbc, bbc sn, bbc sn university, University, British Business College, BBC, BBC SN, bbc sn, BBC University, bbc senegal, bbc dakar, iniversity uk, uk university, senegal university UK, ecole, universite">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	
-	<title>@yield('title', "BBC SN University")</title>
-
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+
+	<meta name="title" content="BBC University Senegal">
+	<meta name="description" content="BBC - British Business College is a private university in Dakar that’s located in Mermoz- Dakar, Senegal. Our Mission is to create a first class British university in Senegal, offering British university degrees and solid links with universities in the United Kingdom.">
+	<meta name="keywords" content="UNIVERSIY, bbc, sn, University, British, Business, College,program, anglais, senegal, dakar, uk, united, kingdom, Sénégal, école, school, cours, université, session, class, senegalese, learning">
 	
-	<link rel="shortcut icon" href="{{ asset('images/logo1.png') }}">
-	<link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/logo1.png') }}">
-	<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/logo1.png') }}">
-	<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/logo1.pngg') }}">
-	<link rel="apple-touch-icon" href="{{ asset('images/logo1.png') }}">
-	<!-- Bootstrap Core CSS -->
-	<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-	<link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
-	<link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet">
-	<!-- Custom CSS -->
-	<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
-	<!-- Custom Fonts -->
-	{{-- <link href="{{ asset('assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"> --}}
-	<link href="{{ asset('assets/css/pe-icons.css') }}" rel="stylesheet">
-	
-	<!-- Fonts -->
-	<link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet">
+	<title>@yield('title', "BBC SN University")</title>
 	
 	<!-- Styles -->
-	
 	@include('layouts.user.style')
 	@mapstyles
 	@yield('css')

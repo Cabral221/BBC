@@ -71,26 +71,24 @@ Route::post('/admission/filiere','User\AdmissionController@getFiliere');
 // Route grouper des utilisateur
 Route::name('user.')->group(function(){
     Route::get('/', 'User\HomeController@welcome')->name('welcome');
-    // Route::get('/home', 'User\HomeController@index')->name('home');
-    // Route::get('/programs','User\PageController@programs')->name('programs');
-    
-    Route::get('/programs','User\ProgrammeController@index')->name('programs.index');
-    Route::get('/{program}/{filiere}','User\ProgrammeController@show')->name('programs.show');
-    // Route::resource('/programs','User\ProgrammeController')->only(['index','show']);
-    
-    Route::resource('/networks','User\NetworkController')->only(['store']);
-    // Route::resource('/programs/type','User\TypeController')->only(['index','show']);
     
     Route::get('/attests', 'User\PageController@attests')->name('attest');
     Route::get('/library','User\PageController@library')->name('library');
     Route::get('/contact','User\PageController@contact')->name('contact');
     Route::get('/member','User\PageController@member')->name('member');
+
+    // Route poour les news
+    Route::get('/news/{new}', 'User\NewsController@show')->name('news.show');
+    
+    // Route pour les programmes
+    Route::get('/programs','User\ProgrammeController@index')->name('programs.index');
+    Route::get('/{program}/{filiere}','User\ProgrammeController@show')->name('programs.show');
+    
+    // Route pour le newsletter
+    Route::resource('/networks','User\NetworkController')->only(['store']);
     
     // Routes pour lo post de  messages
     Route::post('/message','User\MessageController@store')->name('message');
-    
-    // Route poour les news
-    Route::get('/news/{new}', 'User\NewsController@index')->name('new');
 
     Route::get('/admission', 'User\AdmissionController@index')->name('admission');
     Route::post('/admission', 'User\AdmissionController@store')->name('admission');

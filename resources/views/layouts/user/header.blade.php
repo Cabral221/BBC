@@ -4,16 +4,15 @@
         <div class="container">
             <div class="clearfix">
                 <ul class="list-inline social-links wow pull-left">
-                    <li style="font-weight:500"><a href="tel:+221338692500">
-                        <i class="fa fa-mobile"></i> {{ $info->phone ?? ' +221 33 869 25 00' }}
-                    </li></a>
+                    <li style="font-weight:500">
+                        <a href="tel:+221338692500"><i class="fa fa-mobile"></i> {{ $info->phone ?? ' +221 33 869 25 00' }}</a>
+                    </li>
                 </ul>
 
                 <div class="pull-right text-right">
                     <ul class="list-inline">
                         <li  style="font-weight:500">
-                        <div><i class="fa fa-envelope-o"></i>{{ $info->address ?? '73 , Cité Keur Gorgui Sacré Coeur Pyrotechnie'}} - BP {{ $info->bp ??  ' 21784'}} Dakar – Senegal</div>
-
+                            <div><i class="fa fa-envelope-o"></i>{{ $info->address ?? '73 , Cité Keur Gorgui Sacré Coeur Pyrotechnie'}} - BP {{ $info->bp ??  ' 21784'}} Dakar – Senegal</div>
                         </li>
                     </ul>
                 </div>

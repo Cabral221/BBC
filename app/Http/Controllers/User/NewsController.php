@@ -15,9 +15,8 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Neew $new)
+    public function show(Neew $new)
     {
-
         $info = Info::first();
         $partners = Partner::all();
 
