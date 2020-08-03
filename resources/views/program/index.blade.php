@@ -66,7 +66,7 @@
                         @if (isset($news) && $news->count() > 0)
                             @foreach ($news as $new)
                                 <div class="mt-3 mb-3">
-                                    <a href="{{route('user.new',$new)}}">
+                                    <a href="{{route('user.news.show',$new)}}">
                                         <div class="card">
                                             <div class="card-header">
                                                 {{ $new->title }}
