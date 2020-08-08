@@ -1,4 +1,4 @@
-@extends('layouts.user.app')
+@extends('layouts.user.app', ['title' => 'Contact'])
 
 @section('text-header')
 <!-- Header -->
@@ -6,7 +6,7 @@
     <div class="section-inner pad-top-200">
         <div class="container vertical-center">
             <div class="intro-text vertical-center text-center smoothie">
-                <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s"><h2>Contact us !</h2></div>
+                <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s"><h1>Contact us !</h1></div>
                 <div class="intro-sub-heading wow fadeIn secondary-font" data-wow-delay="0.4s">The first UK university in <span class="rotate">Dakar, Senegal</span></div>
                 <a href="{{ route('user.admission') }}" class="btn btn-primary mt-5"><h4>Admission</h4></a>
             </div>
@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-dark">
-                    <p class="lead"><h3> Do you have any goals ? Contact us ! </h3></p>
+                    <p class="lead"><h2> Do you have any goals ? Contact us ! </h2></p>
                     <table class="table">
                         <tr>
                             <td>Address</td>
@@ -80,7 +80,7 @@
     </div>
 </section>
 <div style="">
-    <h1 class="text-center text-dark">Visit us !</h1>
+    <h2 class="text-center text-dark">Visit us !</h2>
     @map([
     'lat' => 14.706713569706585,
     'lng' => -17.472335847434977,

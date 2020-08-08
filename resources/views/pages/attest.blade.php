@@ -1,4 +1,4 @@
-@extends('layouts.user.app')
+@extends('layouts.user.app', ['title' => 'Attest'])
 
 @section('text-header')
 <!-- Header -->
@@ -6,7 +6,7 @@
     <div class="section-inner2 pad-top-200">
         <div class="container vertical-center">
             <div class="intro-text vertical-center text-center smoothie">
-                <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s"><h2>Attest of Alumni !</h2></div>
+                <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s"><h1>Attest of Alumni !</h1></div>
                 <div class="intro-sub-heading wow fadeIn secondary-font" data-wow-delay="0.4s">The first UK university in <span class="rotate">Dakar, Senegal</span></div>
                 <a href="{{ route('user.admission') }}" class="btn btn-primary mt-5"><h4>Admission</h4></a>
             </div>
@@ -18,7 +18,7 @@
 @section('content')
 <div class="bg-white text-center text-dark">
     <div class="container mt-3">
-        <h3>Témoignages</h3>
+        <h2>Témoignages</h2>
         <div class="row text-dark">
             
             @if (isset($attests) && $attests->count() > 0)

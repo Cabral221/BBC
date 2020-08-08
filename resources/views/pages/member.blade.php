@@ -1,4 +1,4 @@
-@extends('layouts.user.app')
+@extends('layouts.user.app', ['title' => 'Member'])
 
 @section('text-header')
 <!-- Header -->
@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 mt30 wow text-center">
-                    <h2 class="section-heading">Large Community</h2>
+                    <h1 class="section-heading">Large Community</h1>
                 </div>
             </div>
         </div>

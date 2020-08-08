@@ -1,4 +1,4 @@
-@extends('layouts.user.app')
+@extends('layouts.user.app',['title' => 'Welcome'])
 
 @section('css')
 <style>

@@ -1,4 +1,4 @@
-@extends('layouts.user.app')
+@extends('layouts.user.app', ['title' => $new->title ])
 
 @section('text-header')
 <!-- Header -->
@@ -6,7 +6,7 @@
     <div class="section-inner pad-top-200">
         <div class="container vertical-center">
             <div class="intro-text vertical-center text-center smoothie">
-                <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s"><h2>News</h2></div>
+                <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s"><h1>News</h1></div>
                 <div class="intro-sub-heading heading-font">
                     <h3>{{ $new->title }}</h3>
                 </div>

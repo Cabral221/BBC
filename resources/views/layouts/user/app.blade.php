@@ -13,7 +13,7 @@
 	<meta name="description" content="BBC - British Business College is a private university in Dakar that’s located in Mermoz- Dakar, Senegal. Our Mission is to create a first class British university in Senegal, offering British university degrees and solid links with universities in the United Kingdom.">
 	<meta name="keywords" content="UNIVERSIY, bbc, sn, University, British, Business, College,program, anglais, senegal, dakar, uk, united, kingdom, Sénégal, école, school, cours, université, session, class, senegalese, learning">
 	
-	<title>@yield('title', "BBC SN University")</title>
+	<title>{{ page_title($title ?? '') }}</title>
 	
 	<!-- Styles -->
 	@include('layouts.user.style')

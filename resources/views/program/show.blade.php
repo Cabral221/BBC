@@ -1,20 +1,19 @@
-@extends('layouts.user.app')
+@extends('layouts.user.app', ['title' => $filiere->libele])
 
-@section('text-header')
 <!-- Header -->
+@section('text-header')
 <section class="dark-wrapper opaqued parallax" data-parallax="scroll" data-image-src="{{asset('assets/img/bg/bg6.jpg')}}" data-speed="0.7">
     <div class="section-inner pad-top-200">
         <div class="container vertical-center">
             <div class="intro-text vertical-center text-center smoothie">
                 <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s"><h2> {{$program->libele}}  Program</h2></div>
-                <div><h3>{{ $filiere->libele }}</h3></div>
+                <div><h1>{{ $filiere->libele }}</h1></div>
                 <div class="intro-sub-heading wow fadeIn secondary-font" data-wow-delay="0.4s">The first UK university in <span class="rotate">Dakar, Senegal</span></div>
                 <a href="{{ route('user.admission') }}" class="btn btn-primary mt-5"><h4>Admission</h4></a>
             </div>
         </div>
     </div>
 </section>
-
 @endsection
 
 @section('content')
@@ -33,9 +32,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             <h3>{{ $program->libele . ' : ' .$filiere->libele }}</h3>
-                            <ul>
-                                <li>{!! $filiere->describe !!}</li>
-                            </ul>
+                            <p>{!! $filiere->describe !!}</p>
                         </div>
                     </div>
                 </div>
