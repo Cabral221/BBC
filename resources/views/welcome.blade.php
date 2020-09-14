@@ -327,20 +327,14 @@
                         <img src="{{ asset('images/logo1.png') }}" width="100px" alt="BBC University">
                     </div>
                 </div>
-                <div> 
-                    <p>Madame/Monsieur,</p>
-                    <p>Face au succ&eacute;s que nous avons connu dans nos sessions pr&eacute;c&eacute;dentes, le British Business Coll&egrave;ge a le plaisir de vous annoncer&nbsp; l'ouverture d'une nouvelle session de cours d'Anglais &agrave; compter du&nbsp;<strong class="text-info">lundi 13 Juillet (en pr&eacute;sentiel) et mardi 14 Juillet (en ligne) 2020</strong>&nbsp;pour une dur&eacute;e de&nbsp;<strong>2 mois</strong>.</p>
-                    <p>Nous n'oublions pas non plus que sans vous, nous ne serions pas une structure incontournable dans&nbsp; dans le domaine du coaching en Anglais.</p>
-                    <p>Pour plus de renseignement, contactez-nous:</p>
-                    <ul>
-                        <li>T&eacute;l&eacute;phone: +221 33 869 25 00</li>
-                    </ul>
-                    <p>Whatsapp:</p>
-                    <ul>
-                        <li>77 846 03 06</li>
-                        <li>78 424 61 92</li>
-                        <li>78 521 55 03</li>
-                    </ul>
+                <div class="text-center"> 
+                    <h3>Rentrée academique 2020/2021</h3>
+                    <p>Le british business Collège a le plaisir de vous annoncer la rentrée academique 2020/2021 prévus le <strong class="text-info">lundi 5 octobre</strong>. <br>Voici les programmes disponibles
+                        <p>BTEC - Britannique</p>
+                        <p>LMD - Sénégalaise</p>
+                        <p>COPACA - Canadienne</p>
+                    <h4 class="text-center text-info">Inscrivez Vous vite !</h4> 
+                    <p>Pour plus de renseignement, contactez-nous : <a href="tel:221338692500" class="text-danger">+221 33 869 25 00</a></p>
                 </div>
             </div>
             <div class="modal-footer">
