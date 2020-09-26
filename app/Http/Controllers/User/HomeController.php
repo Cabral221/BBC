@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Info;
 use App\Models\Neew;
 use App\Models\Word;
+use App\Models\Modal;
 use App\Models\Slide;
 use App\Models\Attest;
 use App\Models\Partner;
@@ -51,6 +52,7 @@ class HomeController extends Controller
         $info['books'] = Book::paginate(3);
         $info['galeries'] = Gallerie::orderBy('created_at','desc')->limit(10)->get();
         $info['news'] = Neew::orderBy('created_at', 'desc')->limit(5)->get();
+        $info['modalWelcome'] = Modal::first();
         
         return view('welcome',$info);
     }

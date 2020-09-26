@@ -27,19 +27,20 @@ class PartenerController extends Controller
         $part = new Partner();
 
     
-      $validator = Validator::make($request->all(), [
-        'name' => 'required|min:2',
-        'link' => 'required',
-        "logo" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
-    ]);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2',
+            'link' => 'required',
+            "logo" => 'required | image | mimes:jpeg,png,jpg,gif | max: 2048'
+        ]);
 
-    if ($validator->fails()) {
-            flashy::error($validator->messages()->first());
-        return redirect()->back();
-    }
+        if ($validator->fails()) {
+            Flashy::error($validator->messages()->first());
+            return redirect()->back();
+        }
         if($request->has('logo')){
             //On enregistre l'image dans un dossier
             $image = $request->file('logo');
+            dd($image);
             //Nous allons definir le nom de notre image en combinant le nom du produit et un timestamp
             $image_name = Str::slug($request->input('name')).'_'.time();
             //Nous enregistrerons nos fichiers dans /uploads/images dans public
@@ -49,10 +50,10 @@ class PartenerController extends Controller
             //Maintenant nous pouvons enregistrer l'image dans le dossier en utilisant la methode uploadImage();
             $this->uploadImage($image, $folder, 'public', $image_name);
         }
-            $part->name = $request->input('name');
-            $part->link = $request->input('link');
-            $part->save();
-            Flashy::success('Your partener has been successfully added');
+        $part->name = $request->input('name');
+        $part->link = $request->input('link');
+        $part->save();
+        Flashy::success('Your partener has been successfully added');
         return redirect()->route('admin.welcome');
     }
 

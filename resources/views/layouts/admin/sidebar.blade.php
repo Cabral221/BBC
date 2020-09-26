@@ -20,9 +20,6 @@
   <link href="{{asset('asset_admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
   <link href="{{asset('asset_admin/css/sb-admin-2.css')}}" rel="stylesheet">
 
-{{-- <script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script> --}}
-{{-- <script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/inline/ckeditor.js" defer></script> --}}
-  
 </head>
 
 <body id="page-top">

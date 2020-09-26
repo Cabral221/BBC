@@ -78,44 +78,47 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 
 
 $('#imageModal').on('show.bs.modal', function (event) {
+  console.log('image slide modal')
   var button = $(event.relatedTarget)
   var info_id = button.data('id') 
   var name = button.data('name') 
   var link = button.data('link') 
   var logo = button.data('logo') 
   var modal = $(this)
-  modal.find('.modal-body #info_id').val(info_id)
-  modal.find('.modal-body #name').val(name)
-  modal.find('.modal-body #link').val(link)
-  modal.find('.modal-body #logo').html("< img src= {{URL::to('/')}}/image"+logo+" width:'30' class='img-thumbnail' />")
-  modal.find('.modal-body #logo').append("<input type='hidden' name='hidden_image' value='"+logo+"'/>")
+  modal.find('.modal-body #partener-id-' + info_id).val(info_id)
+  modal.find('.modal-body #name-partener-' + info_id).val(name)
+  console.log(modal.find('.modal-body #name-partener-' + info_id))
+  modal.find('.modal-body #link-partener-' + info_id).val(link)
+  modal.find('.modal-body #logo-partener-' + info_id).html("< img src= {{URL::to('/')}}/image"+logo+" width:'30' class='img-thumbnail' />")
+  modal.find('.modal-body #logo-partener-' + info_id).append("<input type='hidden' name='hidden_image' value='"+logo+"'/>")
 })
 
 $('#update_slides').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
-  var info_id = button.data('id') 
+  var slide_id = button.data('id') 
   var image = button.data('image') 
   var modal = $(this)
-  modal.find('.modal-body #info_id').val(info_id)
-  modal.find('.modal-body #image').html("< img src= {{URL::to('/')}}/image"+image+" width:'30' class='img-thumbnail' />")
-  modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
+  modal.find('.modal-body #slide-id-' + slide_id).val(info_id)
+  Console.log(modal.find('.modal-body #slide-id-' + slide_id))
+  modal.find('.modal-body #image-slide-' + slide_id).html("< img src= {{URL::to('/')}}/image"+image+" width:'30' class='img-thumbnail' />")
+  modal.find('.modal-body #image-slide-' + slide_id).append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
 })
 
 
 $('#edit_teamsModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget)
-  var info_id = button.data('id') 
+  var team_id = button.data('id') 
   var firstname = button.data('firstname') 
   var lastname = button.data('lastname') 
   var job = button.data('job') 
   var image = button.data('image') 
   var modal = $(this)
-  modal.find('.modal-body #info_id').val(info_id)
-  modal.find('.modal-body #firstname').val(firstname)
-  modal.find('.modal-body #lastname').val(lastname)
-  modal.find('.modal-body #job').val(job)
-  modal.find('.modal-body #image').html("< img src= {{URL::to('/')}}/image"+image+" width:'30' class='img-thumbnail' />")
-  modal.find('.modal-body #image').append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
+  modal.find('.modal-body #team-id-' + team_id).val(team_id)
+  modal.find('.modal-body #firstname-team-'+ team_id).val(firstname)
+  modal.find('.modal-body #lastname-team-'+ team_id).val(lastname)
+  modal.find('.modal-body #job-team-'+ team_id).val(job)
+  modal.find('.modal-body #image-team-'+ team_id).html("< img src= {{URL::to('/')}}/image"+image+" width:'30' class='img-thumbnail' />")
+  modal.find('.modal-body #image-team-'+ team_id).append("<input type='hidden' name='hidden_image' value='"+image+"'/>")
 })
 
 
@@ -220,6 +223,19 @@ $('#edit_newModal').on('show.bs.modal', function (event) {
   tinyMCE.activeEditor.setContent(editor);
   // modal.find('.modal-body #editorModal').val(editor)
 })
+
+// Modification du modal d'accueil
+$('#form_modal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var modal_title = button.data('form-modal-title')
+  var modal_content = button.data('form-modal-content')
+  var modal = $(this)
+  console.log('modal title');
+  console.log(modal_title);
+  modal.find('.modal-body #form-modal-title').val(modal_title)
+  tinyMCE.activeEditor.setContent(modal_content)
+})
+
 </script>
     @yield('js')
 </body>

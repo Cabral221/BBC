@@ -3,13 +3,12 @@
 // window.axios = axios
 
 var textarea = document.querySelector('#editor')
+var textareaModal = document.querySelector('#editorModal')
+
 var csrf = $('meta[name="csrf-token"]').attr('content')
 
 if(window.tinyMCE)
 {
-    // const axios = require('axios')
-    // console.log('Tiny En marche');
-    
     tinyMCE.init({
         selector: '#editor',
         plugins: 'image,paste,lists,advlist',
@@ -67,11 +66,11 @@ if(window.tinyMCE)
         images_upload_handler: function (blobInfo, success, failure) {
             var data = new FormData()
 
-            data.append('attachable_id', textarea.dataset.id)
-            data.append('attachable_type', textarea.dataset.type)
+            data.append('attachable_id', textareaModal.dataset.id)
+            data.append('attachable_type', textareaModal.dataset.type)
             data.append('image', blobInfo.blob(), blobInfo.filename())
 
-            axios.post(textarea.dataset.url, data)
+            axios.post(textareaModal.dataset.url, data)
                 .then(function (res) {
                     success(res.data.url)
                 }).catch(function (err) {

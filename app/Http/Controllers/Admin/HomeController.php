@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Info;
 use App\Models\Team;
+use App\Models\Modal;
 use App\Models\Slide;
 use App\Models\Partner;
 use Illuminate\Http\Request;
@@ -35,13 +36,14 @@ class HomeController extends Controller
 
     public function welcome()
     {
-
         // dd(Auth::guard('admin')->user()->name);
         $info = Info::first();
         $part = Partner::get();
         $slide = Slide::get();
         $team = Team::get();
-        return view('admin.welcome',compact(['info','part','slide','team']));
+        $modalWelcome = Modal::first();
+        // dd($modalWelcome->is_active);
+        return view('admin.Welcome',compact(['info','part','slide','team', 'modalWelcome']));
     }
 
     public function update(Request $request)
