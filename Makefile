@@ -9,10 +9,10 @@ composer.lock: composer.json
 install: vendor composer.lock
 
 ssh:
-	ssh ./ sshlogin@sshserver.xxx -p ConnectionPort
+	ssh bbcsncomtb-empro@ssh.cluster028.hosting.ovh.net
 
 serve:
-	php -S localhost:8000 -t public/
+	php artisan serve
 
 cache-clear:
 	php artisan cache:clear

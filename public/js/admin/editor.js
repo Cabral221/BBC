@@ -11,7 +11,12 @@ if(window.tinyMCE)
 {
     tinyMCE.init({
         selector: '#editor',
-        plugins: 'image,paste,lists,advlist',
+        plugins: 'image,paste,lists,advlist,textcolor colorpicker,link,autolink,emoticons,autoresize,table,directionality,fullpage',
+        toolbar: "advlist,lists,forecolor backcolor,emoticons,table,directionality,fullpage",
+        table_toolbar: "tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol",
+        color_picker_callback: function (callback, value) {
+            callback('#FF00FF');
+        },
         paste_data_images: true,
         automatic_uploads: true,
         images_upload_handler: function (blobInfo,success,failure) {
@@ -29,38 +34,19 @@ if(window.tinyMCE)
                     alert(err.response.statusText)
                     success('http://placehold.it/350x350')
                 })
-            // var xhr;
-
-            // xhr = new XMLHttpRequest();
-            // xhr.withCredentials = false;
-            // xhr.open('POST', textarea.dataset.url);
-
-            // xhr.setRequestHeader('X-CSRF-TOKEN', csrf)
-            // xhr.setRequestHeader('Accept','application/json')
-            
-            // var data = new FormData()
-            // data.append('attachable_id', textarea.dataset.id)
-            // data.append('attachable_type', textarea.dataset.type)
-            // data.append('image', blobInfo.blob(), blobInfo.filename())
-
-            // xhr.send(data);
-            // xhr.onreadystatechange = function (){
-            //     if(xhr.readyState == 4){
-            //         var response = JSON.parse(xmlhttp.responseText);
-            //             if (xmlhttp.status === 200 && response.status === 'OK') {
-            //                 console.log('successful');
-            //             } else {
-            //                 console.log('failed');
-            //             }
-            //     }
-            // }
+         
         
         }
     })
 
     tinyMCE.init({
         selector: '#editorModal',
-        plugins: 'image,paste,lists,advlist',
+        plugins: 'image,paste,lists,advlist,textcolor colorpicker,link,autolink,emoticons,autoresize,table,directionality,fullpage',
+        toolbar: "advlist,lists,forecolor backcolor,emoticons,table,directionality,fullpage",
+        table_toolbar: "tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol",
+        color_picker_callback: function (callback, value) {
+            callback('#FF00FF');
+        },
         paste_data_images: true,
         automatic_uploads: true,
         images_upload_handler: function (blobInfo, success, failure) {

@@ -1,2 +1,2 @@
 #!/bin/sh
-rsync -av ./ bbcsncomtb-empro@ssh.cluster028.hosting.ovh.net:~/www --include=public/.htaccess --exclude-from=.gitignore --exclude=storage/* --exclude=boostrap/cache --exclude=".*"
+rsync -avp --delete ./ bbcsncomtb-empro@ssh.cluster028.hosting.ovh.net:~/www --include=public/.htaccess --exclude-from=.gitignore --exclude=storage/* --exclude=boostrap/cache --exclude=".*"
