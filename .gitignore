@@ -12,7 +12,8 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
 Makefile
-Makefile 2
 pgsql
 Procfile
+deploy
