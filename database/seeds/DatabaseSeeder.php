@@ -5,6 +5,7 @@ use App\Models\Info;
 use App\Models\Team;
 use App\Models\Word;
 use App\Models\Slide;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
