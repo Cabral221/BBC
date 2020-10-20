@@ -46,7 +46,7 @@
             <div>
                 <div class="pl-5 pr-5" style="border-left: none;">
 
-                    <div><h3>Course Learning Outcome</h3></div>
+                    <div><h3>Course Learning Details</h3></div>
                     <div>{!! $filiere->outCome !!}</div>
                     <hr>
                     

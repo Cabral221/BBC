@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  {{-- <script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/inline/ckeditor.js" ></script>   --}}
+  {{-- <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script> --}}
   @include('flashy::message')
   @include('layouts.admin.script2')
 

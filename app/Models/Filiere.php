@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 class Filiere extends Model
 {
 
+    public $guarded = [];
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -22,6 +24,32 @@ class Filiere extends Model
         static::creating(function($filiere) {
             $filiere->slug = Str::slug($filiere->libele);
         });
+
+        static::updating(function($filiere) {
+            $filiere->slug = Str::slug($filiere->libele);
+        });
+        
+    }
+
+
+
+    public static function draft()
+    {
+        return self::firstOrCreate([
+            'program_id' => null,
+            'icon'=> null,
+            'libele' => null,
+            'slug' => null,
+            'describe' => '',
+            'duration' => '',
+            'requirement' => '',
+            'outcome' => '',
+        ]);
+    }
+
+    public function scopeNotDraft($query)
+    {
+        return $query->whereNotNull('libele');
     }
 
     public function truncateDescribe($limit, $end='...')

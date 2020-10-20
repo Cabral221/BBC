@@ -19,7 +19,7 @@ class FillierController extends Controller
     public function index()
     {
         $progs = Program::All();
-        $fillier = Filiere::get();
+        $fillier = Filiere::notDraft()->get();
         return view('admin.programms.filliers.index',compact(['fillier','progs']));
     }
 

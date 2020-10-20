@@ -35,7 +35,7 @@
               @endif
               <form action="{{ route( 'admin.programms.programms.store' ) }}" method="POST">
                 @csrf
-                <!-- {{method_field('PUT')}} -->
+                <!-- {{method_field('POST')}} -->
                     <div class="row">
                         <div class="form-group col-xl-9 col-lg-9">
                         <input type="hidden" name="prog" id="prog_id">
@@ -271,7 +271,7 @@
         <div class="card-body">
         <form action=" {{route('admin.programms.filliers.store')}} " method="POST" enctype="multipart/form-data">
                 @csrf
-                <!-- {{method_field('PUT')}} -->
+                <!-- {{method_field('POST')}} -->
 
                 <div class="row">
 
@@ -293,7 +293,7 @@
 
                     <div class="form-group col-xl-4 col-lg-4">
                     <label for="icon">Icone</label>
-                    <input type="file" name="icon" class="form-control" id="icon" value="">
+                    <input type="file" name="icon" class="form-control" id="icon">
                     </div>
 
                 </div>
@@ -302,7 +302,14 @@
                     <div class="row">
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="outCome">Outcome</label>
-                        <textarea name="outCome" id="editor-outcome" class="form-control" cols="30" rows="6"></textarea>
+                        <textarea 
+                          name="outCome" 
+                          id="editor-outcome" 
+                          class="form-control" 
+                          data-id="{{ $newfil->id }}"
+                          data-type="{{ 'App\Models\Filiere' }}"
+                          data-url="{{ route('attachments.store') }}"
+                          cols="30" rows="6"></textarea>
                         </div>
                 
                     
@@ -369,7 +376,7 @@
               @endif
               <form action="{{ route('admin.programms.modules.store') }}" method="POST">
                 @csrf
-                <!-- {{method_field('PUT')}} -->
+                <!-- {{method_field('POST')}} -->
                     <div class="row">
                         <div class="form-group col-xl-4 col-lg-4">
                         <label for="libele">Wording</label>
@@ -702,10 +709,8 @@
 @endsection
 
 @section('js')
-  <script>
-    CKEDITOR.replace('describe');
-    CKEDITOR.replace( 'requirement' );
-    CKEDITOR.replace( 'duration' );
-    CKEDITOR.replace( 'outCome' );
-  </script>
+<script src="{{ asset('/tinymce/jquery.tinymce.min.js')}}"></script>
+<script src="{{ asset('/tinymce/tinymce.min.js')}}"></script>
+<script src="{{ asset('/js/admin/editor.js')}}"></script>
+
 @endsection

@@ -14,7 +14,7 @@ class AddSlugToNewsTable extends Migration
     public function up()
     {
         Schema::table('news', function (Blueprint $table) {
-            $table->string('slug')->after('content');
+            // $table->string('slug')->after('content');
         });
     }
 

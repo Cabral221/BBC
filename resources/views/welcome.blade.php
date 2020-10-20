@@ -118,7 +118,7 @@
                                                             <img src="{{ asset($filiere->icon) }}" alt="{{ $filiere->libele }}" width="100px" srcset="">
                                                         </div>
                                                         <div class="text-dark pt-2" style="color:black;">
-                                                            <h4 class="card-title">{{ strtoupper($filiere->libele) }}</h4>
+                                                            <h4 class="card-title text-capitalize">{{ $filiere->libele }}</h4>
                                                         </div>
                                                     </a>
                                                 </div>
@@ -126,9 +126,7 @@
                                         @else
                                             <p>No class for this program...</p>
                                         @endif
-
-                                    </div>
-                                    
+                                    </div>     
                                 </div>
                             </div>
                         @endforeach
@@ -314,7 +312,7 @@
 {{-- end Followers --}}
 
 {{-- Modal Alert --}}
-@if($modalWelcome->is_active == true)
+@if($modalWelcome->is_active === 1)
 <div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content text-dark">
@@ -342,15 +340,15 @@
 @endsection
 
 @section('js')
-{{-- Start Script Modal --}}
-@if($modalWelcome->is_active == true)
+
+@if($modalWelcome->is_active === 1)
 <script>
     $(window).on('load',function(){
         $('#newsModal').modal('show');
     });
 </script>
 @endif
-{{-- End Script Modal --}}
+
 <script>
         var coll = document.getElementsByClassName("collapsible");
         var i;
