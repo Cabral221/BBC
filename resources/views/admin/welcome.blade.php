@@ -1,4 +1,4 @@
-@extends('layouts/admin/app')
+@extends('layouts/admin/app2')
 @section('body')
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -30,8 +30,8 @@
                       <div class="mb-1"><img src="{{asset($p->logo)}}" class="img-responsive" alt="" srcset="" style="width:100px;height:100px;"></div>
                     </div>
                     <button data-toggle="modal"   data-target="#imageModal" data-id="{{$p->id}}" data-name="{{$p->name}}" data-logo="{{$p->logo}}" data-link="{{$p->link}}"   title="Edit" class="pd-setting-ed btn btn-primary text-white mr-3"><i class="far fa-edit"></i></button>
-                    <button type="submit" class="mr-3 btn btn-danger btn-xs"  onclick="event.preventDefault();document.querySelector('#form-delet-{{$p->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="fas fa-trash-alt"></i></button>
-                    <form id="form-delet-{{$p->id}}" action="{{route('admin.params.parteners.destroy',$p->id)}}" method="post">
+                    <button type="submit" class="mr-3 btn btn-danger btn-xs"  onclick="event.preventDefault();document.querySelector('#form-delete-partener-{{$p->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="fas fa-trash-alt"></i></button>
+                    <form id="form-delete-partener-{{$p->id}}" action="{{route('admin.params.parteners.destroy',$p->id)}}" method="post">
 
                       @csrf
                       @method('delete') 
@@ -47,7 +47,53 @@
       </div>
     </div>
   </div>
-  
+  {{-- Start Card for manage modal of welcome page--}}
+  <div class="row">
+    <div class="col-xl-12 col-lg-7">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Manager modal info for welcome page</h6>
+        </div>
+
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <th>Stat</th>
+              <th>Titre</th>
+              <th>Actions</th>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>
+                    @if($modalWelcome->is_active == true)
+                      <span class="badge badge-pill badge-success">Publish</span>
+                    @else
+                      <span class="badge badge-pill badge-danger">Not publish</span>
+                    @endif
+                  </td>
+                  <td>
+                    {{ ($modalWelcome->title !== '') ? $modalWelcome->title : 'not define' }}
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-xs mb-1" data-toggle="modal" data-target="#form_modal" data-form-modal-id="{{ $modalWelcome->id }}" data-form-modal-title="{{ $modalWelcome->title }}" data-form-modal-content="{{ $modalWelcome->content }}">
+                      <i class="far fa-edit"></i>
+                    </button>
+                    
+                    @if ($modalWelcome->is_active == true)
+                        <a href="{{ route('admin.blog.new-modal.toggle') }}" class="btn btn-xs btn-danger">Desable</a>
+                    @else
+                        <a href="{{ route('admin.blog.new-modal.toggle') }}" class="btn btn-xs btn-success">Enable</a>
+                    @endif
+
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- End modal for welcome page --}}
   
   <!-- row des slides -->
   <div class="row">
@@ -72,8 +118,8 @@
                   <h5 class="card-title" ><button type="button" data-id="{{$sl->id}}" data-image="{{$sl->image}}" class="btn btn-primary btn-xs mb-1" data-toggle="modal" data-target="#update_slides"><i class="far fa-edit"></i></button></h5>
                   </div>
                       <div class="col-xl-6">
-                      <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-{{$sl->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
-                  <form id="form-delete-{{$sl->id}}" action="{{route('admin.templaits.slides.destroy',$sl->id)}}" method="post">
+                      <button type="submit" class="mr-3 btn btn-danger btn-xs mb-1" class="" style='border-radius:5%;'  onclick="event.preventDefault();document.querySelector('#form-delete-slide-{{$sl->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="far fa-trash-alt"></i></button>
+                  <form id="form-delete-slide-{{$sl->id}}" action="{{route('admin.templaits.slides.destroy',$sl->id)}}" method="post">
                   @csrf
                   @method('delete') 
                   </form> 
@@ -123,8 +169,8 @@
                 <td><img src="{{asset($teams->image)}}" style="width:50px;height:50px;border-radius:100%;" alt="" srcset=""></td>
                 <td>
                   <button type="button" class="btn btn-primary btn-xs mb-1"  data-id="{{$teams->id}}" data-firstname="{{$teams->firstname}}" data-lastname="{{$teams->lastname}}" data-job="{{$teams->job}}" data-image="{{asset($teams->image)}}" data-toggle="modal" data-target="#edit_teamsModal"><i class="far fa-edit"></i></button>
-                  <button type="submit" class="mr-3 btn btn-danger btn-xs"  onclick="event.preventDefault();document.querySelector('#form-delete-{{$teams->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="fas fa-trash-alt"></i></button>
-                  <form id="form-delete-{{$teams->id}}" action="{{route('admin.members.teams.destroy',$teams->id)}}" method="post">
+                  <button type="submit" class="mr-3 btn btn-danger btn-xs"  onclick="event.preventDefault();document.querySelector('#form-delete-team-{{$teams->id}}').submit();"  name="delete" data-toggle="tooltip" title="supprimer"><i class="fas fa-trash-alt"></i></button>
+                  <form id="form-delete-team-{{$teams->id}}" action="{{route('admin.members.teams.destroy',$teams->id)}}" method="post">
                     @csrf
                     @method('delete') 
                   </form>
@@ -273,12 +319,12 @@
     </div>
   </div>
 </div>
-</div>
-</div>
 <!-- Fin du modal des infos -->
+{{-- </div> --}}
+{{-- </div> --}}
 
 
-<!-- modal edition des logo partners -->
+<!-- modal edition partners -->
 @foreach($part as $p)
 <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -292,28 +338,28 @@
       </div>
       <form action="{{route('admin.params.parteners.update','part')}}" method="post" enctype="multipart/form-data">
         {{method_field('patch')}}
-        {{@csrf_field()}}
+        {{csrf_field()}}
         <div class="modal-body">
-          <input type="hidden" name="part" id="info_id" value="{{$p->id}}">
+          <input type="hidden" name="part" id="partener-id-{{ $p->id }}" value="{{$p->id}}">
           
-          <label for="name" style="color:beige;" class="text-dark">{{ __('Name') }}</label>
-          <input  id="name" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <label for="name-partener-{{ $p->id }}" style="color:beige;" class="text-dark">{{ __('Name') }}</label>
+          <input  id="name-partener-{{ $p->id }}" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
           @error('name')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
           
-          <label for="link" style="color:beige;" class="text-dark">{{ __('Link') }}</label>
-          <input  id="link" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="link" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <label for="link-partener-{{ $p->id }}" style="color:beige;" class="text-dark">{{ __('Link') }}</label>
+          <input  id="link-partener-{{ $p->id }}" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="link" value="{{ old('name') }}" required autocomplete="name" autofocus>
           @error('lien')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
           
-          <label for="logo" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
-          <input  id="logo" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="logo" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <label for="logo-partener-{{ $p->id }}" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
+          <input  id="logo-partener-{{ $p->id }}" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="logo" required>
           @error('logo')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -329,8 +375,8 @@
     </div>
   </div>
 </div>
-</div>
-</div>
+{{-- </div> --}}
+{{-- </div> --}}
 @endforeach
 <!-- fin du modal des partners -->
 
@@ -378,10 +424,10 @@
         {{method_field('patch')}}
         {{@csrf_field()}}
         <div class="modal-body">
-          <input type="hidden" name="slides" id="info_id" value="{{$sl->id}}">
-          <label for="image" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
-          <input  id="image" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="image" value="{{ old('name') }}" required autocomplete="name" autofocus>
-          @error('logo')
+          <input type="hidden" name="slides" id="slide-id-{{$sl->id}}" value="{{$sl->id}}">
+          <label for="image-slide-{{ $sl }}" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
+          <input  id="image-slide-{{ $sl }}" type="file" class="form-control @error('image') is-invalid @enderror text-center" name="image" required>
+          @error('image')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
@@ -396,8 +442,8 @@
     </div>
   </div>
 </div>
-</div>
-</div>
+{{-- </div> --}}
+{{-- </div> --}}
 @endforeach
 <!-- fin du modal d'edition des slides -->
 
@@ -415,14 +461,14 @@
         @csrf
         <div class="modal-body">
           <label for="firstname" style="color:beige;" class="text-dark">{{ __('Firstname') }}</label>
-          <input  id="firstname" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="firstname" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <input  id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror text-center" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
           @error('firstname')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
           <label for="lastname" style="color:beige;" class="text-dark">{{ __('Lastname') }}</label>
-          <input  id="lastname" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="lastname" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <input  id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror text-center" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
           @error('lastname')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -430,15 +476,15 @@
           @enderror
           
           <label for="job" style="color:beige;" class="text-dark">{{ __('Job') }}</label>
-          <input  id="job" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="job" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <input  id="job" type="text" class="form-control @error('job') is-invalid @enderror text-center" name="job" value="{{ old('job') }}" required autocomplete="name" autofocus>
           @error('job')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
           
-          <label for="image" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
-          <input  id="image" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="image" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <label for="image-team" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
+          <input  id="image-team" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="image" value="{{ old('image') }}" required>
           @error('image')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -453,8 +499,8 @@
     </div>
   </div>
 </div>
-</div>
-</div>
+{{-- </div> --}}
+{{-- </div> --}}
 <!-- Fin du modal des teams -->
 
 
@@ -474,32 +520,32 @@
         {{method_field('patch')}}
         {{@csrf_field()}}
         <div class="modal-body">
-          <input type="hidden" name="team" id="info_id" value="{{$teams->id}}">
-          <label for="firstname" style="color:beige;" class="text-dark">{{ __('Firstname') }}</label>
-          <input  id="firstname" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="firstname" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <input type="hidden" name="team" id="team-id-{{$teams->id}}" value="{{$teams->id}}">
+          <label for="firstname-team-{{$teams->id}}" style="color:beige;" class="text-dark">{{ __('Firstname') }}</label>
+          <input  id="firstname-team-{{$teams->id}}" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="firstname" value="{{ old('name') }}" required autocomplete="name" autofocus>
           @error('firstname')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
-          <label for="lastname" style="color:beige;" class="text-dark">{{ __('Lastname') }}</label>
-          <input  id="lastname" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="lastname" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <label for="lastname-team-{{ $teams->id }}" style="color:beige;" class="text-dark">{{ __('Lastname') }}</label>
+          <input  id="lastname-team-{{ $teams->id }}" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="lastname" value="{{ old('name') }}" required autocomplete="name" autofocus>
           @error('lastname')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
           
-          <label for="job" style="color:beige;" class="text-dark">{{ __('Job') }}</label>
-          <input  id="job" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="job" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <label for="job-team-{{$teams->id }}" style="color:beige;" class="text-dark">{{ __('Job') }}</label>
+          <input  id="job-team-{{$teams->id }}" type="text" class="form-control @error('name') is-invalid @enderror text-center" name="job" value="{{ old('name') }}" required autocomplete="name" autofocus>
           @error('job')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
           
-          <label for="image" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
-          <input  id="image" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="image" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <label for="image-team-{{ $teams->id }}" style="color:beige;" class="text-dark">{{ __('Image') }}</label>
+          <input  id="image-team-{{ $teams->id }}" type="file" class="form-control @error('name') is-invalid @enderror text-center" name="image" value="{{ old('name') }}" required autocomplete="name" autofocus>
           @error('image')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -514,12 +560,57 @@
     </div>
   </div>
 </div>
-</div>
-</div>
+{{-- </div> --}}
+{{-- </div> --}}
 @endforeach
 <!-- Fin du modal edition des teams -->
 
+<div class="modal fade" id="form_modal" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newsModalLabel">Update modal of welcome</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{ route('admin.blog.new-modal.update',$modalWelcome->id) }}" method="post" novalidate>
+        @csrf
+        {{ method_field('patch') }}
+
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="form-modal-title">Title</label>
+            <input type="text" id="form-modal-title" class="form-control @error('title') is-invalid @enderror text-center" name="title" value="{{ old('title') }}" required>
+            @error('title')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="editor" style="color:beige;" class="text-dark">{{ 'Content' }}</label>
+            <textarea id="editor" cols="30" rows="10" name="body" required>{{ old('body') }}</textarea>
+            
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+
+{{-- </div> --}}
 @endsection
 
 
+@section('js')
+<script src="{{ asset('/tinymce/jquery.tinymce.min.js')}}"></script>
+<script src="{{ asset('/tinymce/tinymce.min.js')}}"></script>
+<script src="{{ asset('/js/admin/editor.js')}}"></script>
+@endsection

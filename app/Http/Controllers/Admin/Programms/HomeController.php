@@ -15,14 +15,18 @@ class HomeController extends Controller
     public function index()
     {
         $programms = Program::All();
-        $fil = Filiere::All();
+        $fil = Filiere::notDraft()->get();
         $diplome = Diplome::All();
         $niv = Niveau::All();
+
+        $newfil = Filiere::draft();
+        dd($newfIL);
+        // dd($newfIL);
         // foreach($niv as $nivo){
         //     dd($nivo->program->id);
         // }
 
-        return view('admin.programms.programms.index',compact(['programms','fil','niv','diplome']));
+        return view('admin.programms.programms.index',compact(['programms','fil', 'newfil','niv','diplome']));
     }
 
     public function create()

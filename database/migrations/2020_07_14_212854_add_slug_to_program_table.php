@@ -14,7 +14,7 @@ class AddSlugToProgramTable extends Migration
     public function up()
     {
         Schema::table('programs', function (Blueprint $table) {
-            $table->string('slug')->after('libele');
+            // $table->string('slug')->after('libele');
         });
     }
 

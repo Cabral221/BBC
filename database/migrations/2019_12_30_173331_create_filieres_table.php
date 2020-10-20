@@ -15,9 +15,10 @@ class CreateFilieresTable extends Migration
     {
         Schema::create('filieres', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('program_id');
-            $table->string('icon');
-            $table->string('libele');
+            $table->integer('program_id')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('libele')->nullable();
+            $table->string('slug')->nullable();
             $table->text('describe');
             $table->text('duration');
             $table->text('requirement');

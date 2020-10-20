@@ -10,7 +10,7 @@
 <script src="{{asset('asset_admin/js/sb-admin-2.min.js')}}"></script>
 
 <!-- Page level plugins -->
-<script src="{{asset('asset_admin/vendor/chart.js/Chart.min.js')}}"></script>
+{{-- <script src="{{asset('asset_admin/vendor/chart.js/Chart.min.js')}}"></script> --}}
 
 <!-- Page level custom scripts -->
 <script src="{{asset('asset_admin/js/demo/chart-area-demo.js')}}"></script>

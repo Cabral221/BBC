@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSlugToFiliereTable extends Migration
+class RefactFiliereColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,10 @@ class AddSlugToFiliereTable extends Migration
     public function up()
     {
         Schema::table('filieres', function (Blueprint $table) {
-            // $table->string('slug')->after('libele');
+            $table->integer('program_id')->nullable()->change();
+            $table->string('icon')->nullable()->change();
+            $table->string('libele')->nullable()->change();
+            $table->string('slug')->nullable()->change();
         });
     }
 
@@ -26,7 +29,7 @@ class AddSlugToFiliereTable extends Migration
     public function down()
     {
         Schema::table('filieres', function (Blueprint $table) {
-            $table->dropColumn('slug');
+            //
         });
     }
 }

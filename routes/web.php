@@ -103,6 +103,8 @@ Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin
         Route::resource('/books','Admin\Blog\BookController');
         Route::resource('/comments','Admin\Blog\CommentController');
         Route::resource('/news','Admin\Blog\NewController');
+        Route::resource('/new-modal','Admin\Blog\NewModalController')->only(['update']);
+        Route::get('/new-modal/toggle','Admin\Blog\NewModalController@toggle')->name('new-modal.toggle');
         Route::resource('/messages','Admin\Blog\MessageController');
         Route::resource('/documents','Admin\Blog\DocumentController');
         Route::post('/response','Admin\Blog\MessageController@response')->name('messages.response');

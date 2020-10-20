@@ -118,7 +118,7 @@
                                                             <img src="{{ asset($filiere->icon) }}" alt="{{ $filiere->libele }}" width="100px" srcset="">
                                                         </div>
                                                         <div class="text-dark pt-2" style="color:black;">
-                                                            <h4 class="card-title">{{ strtoupper($filiere->libele) }}</h4>
+                                                            <h4 class="card-title text-capitalize">{{ $filiere->libele }}</h4>
                                                         </div>
                                                     </a>
                                                 </div>
@@ -126,9 +126,7 @@
                                         @else
                                             <p>No class for this program...</p>
                                         @endif
-
-                                    </div>
-                                    
+                                    </div>     
                                 </div>
                             </div>
                         @endforeach
@@ -313,7 +311,8 @@
 </div>
 {{-- end Followers --}}
 
-<!-- Modal Alert -->
+{{-- Modal Alert --}}
+@if($modalWelcome->is_active === 1)
 <div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content text-dark">
@@ -327,31 +326,30 @@
                         <img src="{{ asset('images/logo1.png') }}" width="100px" alt="BBC University">
                     </div>
                 </div>
-                <div class="text-center"> 
-                    <h3>Rentrée academique 2020/2021</h3>
-                    <p>Le british business Collège a le plaisir de vous annoncer la rentrée academique 2020/2021 prévus le <strong class="text-info">lundi 5 octobre</strong>. <br>Voici les programmes disponibles
-                        <p>BTEC - Britannique</p>
-                        <p>LMD - Sénégalaise</p>
-                        <p>COPACA - Canadienne</p>
-                    <h4 class="text-center text-info">Inscrivez Vous vite !</h4> 
-                    <p>Pour plus de renseignement, contactez-nous : <a href="tel:221338692500" class="text-danger">+221 33 869 25 00</a></p>
-                </div>
+                <h3 class="text-center ">{{ $modalWelcome->title }}</h3>
+                {!! $modalWelcome->content !!}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-</div>  
+</div>
+@endif
+{{-- End Modal Alert --}}
 @endsection
 
 @section('js')
-    <script>
-        $(window).on('load',function(){
-            $('#newsModal').modal('show');
-        });
-    </script>
-    <script>
+
+@if($modalWelcome->is_active === 1)
+<script>
+    $(window).on('load',function(){
+        $('#newsModal').modal('show');
+    });
+</script>
+@endif
+
+<script>
         var coll = document.getElementsByClassName("collapsible");
         var i;
         
