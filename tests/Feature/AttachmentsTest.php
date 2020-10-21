@@ -32,7 +32,6 @@ class AttachmentsTest extends TestCase
 
     private function getFileForAttachment($attachment)
     {
-        dd($attachment);
         return dirname(__DIR__) . '/fixtures/uploads/'.$attachment['name'];
     }
 
