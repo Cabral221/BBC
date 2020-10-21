@@ -14,6 +14,7 @@ class AttachmentController extends Controller
         $type = $request->get('attachable_type');
         $id = $request->get('attachable_id');
         $file = $request->file('image');
+        // dd($type);
         if(class_exists($type) && method_exists($type,'attachments')){
             $subject = call_user_func($type . '::find',$id);
             if($subject){
@@ -22,7 +23,7 @@ class AttachmentController extends Controller
                 $attachment->save();
                 return $attachment;
             }else {
-                return new JsonResponse(['attachable_id' => 'Ce contenu ne peut pas recevoir de fichiers attachés'],422);
+                return new JsonResponse(['attachable_id' => 'Erreur sujet non trouvé : Ce contenu ne peut pas recevoir de fichiers attachés'],422);
             }
         }else{
             return new JsonResponse(['attachable_type' => 'Ce contenu ne peut pas recevoir de fichiers attachés'],422);

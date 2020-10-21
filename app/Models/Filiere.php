@@ -6,10 +6,12 @@ use App\Models\Module;
 use App\Models\Program;
 use App\Models\Admission;
 use Illuminate\Support\Str;
+use App\Concerns\AttachableConcern;
 use Illuminate\Database\Eloquent\Model;
 
 class Filiere extends Model
 {
+    use AttachableConcern;
 
     public $guarded = [];
 

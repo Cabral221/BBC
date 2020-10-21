@@ -32,6 +32,7 @@ class AttachmentsTest extends TestCase
 
     private function getFileForAttachment($attachment)
     {
+        dd($attachment);
         return dirname(__DIR__) . '/fixtures/uploads/'.$attachment['name'];
     }
 
@@ -46,7 +47,9 @@ class AttachmentsTest extends TestCase
             'image' => $file
         ];
         return $this
-        ->withHeaders(['X-Requested-With' => 'XMLHttpRequest'])
+        ->withHeaders([
+            'X-Requested-With' => 'XMLHttpRequest',
+        ])
         ->json('POST',route('attachments.store'),array_merge($defaults,$data));
     }
 

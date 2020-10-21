@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="Ousmane Diallo"> 
+  <meta name="author" content="Ousmane Diallo">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>BBC | Administration</title>
   <link rel="icon" href="images/logo1.png">

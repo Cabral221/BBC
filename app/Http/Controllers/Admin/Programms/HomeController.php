@@ -20,11 +20,6 @@ class HomeController extends Controller
         $niv = Niveau::All();
 
         $newfil = Filiere::draft();
-        dd($newfIL);
-        // dd($newfIL);
-        // foreach($niv as $nivo){
-        //     dd($nivo->program->id);
-        // }
 
         return view('admin.programms.programms.index',compact(['programms','fil', 'newfil','niv','diplome']));
     }

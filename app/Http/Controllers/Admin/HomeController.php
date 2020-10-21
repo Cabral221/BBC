@@ -43,7 +43,7 @@ class HomeController extends Controller
         $team = Team::get();
         $modalWelcome = Modal::first();
         // dd($modalWelcome->is_active);
-        return view('admin.Welcome',compact(['info','part','slide','team', 'modalWelcome']));
+        return view('admin.welcome',compact(['info','part','slide','team', 'modalWelcome']));
     }
 
     public function update(Request $request)

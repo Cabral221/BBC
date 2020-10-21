@@ -307,7 +307,7 @@
                           id="editor-outcome" 
                           class="form-control" 
                           data-id="{{ $newfil->id }}"
-                          data-type="{{ 'App\Models\Filiere' }}"
+                          data-type="{{ get_class($newfil) }}"
                           data-url="{{ route('attachments.store') }}"
                           cols="30" rows="6"></textarea>
                         </div>
@@ -315,7 +315,14 @@
                     
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="duration">Duration</label>
-                        <textarea name="duration" id="editor-duration" class="form-control" cols="30" rows="6"></textarea>
+                        <textarea 
+                          name="duration" 
+                          class="form-control" 
+                          id="editor-duration" 
+                          data-id="{{ $newfil->id }}"
+                          data-type="{{ get_class($newfil) }}"
+                          data-url="{{ route('attachments.store') }}"
+                          cols="30" rows="6"></textarea>
                         </div>
 
                     </div>
@@ -324,13 +331,27 @@
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="describe">Describe</label>
                         {{-- <div id="editor-describe"></div> --}}
-                        <textarea name="describe" id="editor-describe" class="form-control" cols="30" rows="6"></textarea>
+                        <textarea 
+                          name="describe" 
+                          class="form-control" 
+                          id="editor-describe" 
+                          data-id="{{ $newfil->id }}"
+                          data-type="{{ get_class($newfil) }}"
+                          data-url="{{ route('attachments.store') }}"
+                          cols="30" rows="6"></textarea>
                         </div>
                 
                     
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="requirement">Requirement</label>
-                        <textarea name="requirement" id="editor-requirement" class="form-control" cols="30" rows="6"></textarea>
+                        <textarea 
+                          name="requirement" 
+                          class="form-control" 
+                          id="editor-requirement"
+                          data-id="{{ $newfil->id }}"
+                          data-type="{{ get_class($newfil) }}"
+                          data-url="{{ route('attachments.store') }}" 
+                          cols="30" rows="6"></textarea>
                         </div>
 
                     </div>

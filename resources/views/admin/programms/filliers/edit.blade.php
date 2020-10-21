@@ -18,7 +18,7 @@
         </div>
         <!-- Card Body -->
         <div class="card-body">
-        <form action=" {{route('admin.programms.filliers.update',$fil->id)}} " method="POST" enctype="multipart/form-data">
+        <form action=" {{route('admin.programms.filliers.update',$fil->id)}} " method="POST" enctype="multipart/form-data" id="form_fil_edit">
                 @csrf
                 {{method_field('PUT')}}
 
@@ -49,13 +49,27 @@
                     <div class="row">
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="outCome">Outcome</label>
-                        <textarea name="outCome" id="editor2" value="" class="form-control" cols="30" rows="6" placeholder="">{{$fil->outCome}}</textarea>
+                        <textarea 
+                          name="outCome" 
+                          class="form-control" 
+                          id="editor-outcome" 
+                          data-id="{{ $fil->id }}"
+                          data-type="{{ get_class($fil) }}"
+                          data-url="{{ route('attachments.store') }}"
+                          cols="30" rows="6" >{{$fil->outCome}}</textarea>
                         </div>
                 
                     
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="duration">Duration</label>
-                        <textarea name="duration" id="editor2" value="" class="form-control" cols="30" rows="6" placeholder="">{{$fil->duration}}</textarea>
+                        <textarea 
+                          name="duration" 
+                          id="editor-duration" 
+                          data-id="{{ $fil->id }}"
+                          data-type="{{ get_class($fil) }}"
+                          data-url="{{ route('attachments.store') }}"
+                          class="form-control" 
+                          cols="30" rows="6" placeholder="">{{$fil->duration}}</textarea>
                         </div>
 
                     </div>
@@ -63,13 +77,27 @@
                     <div class="row">
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="describe">Describe</label>
-                        <textarea name="describe" id="editor2" value="" class="form-control" cols="30" rows="6" placeholder="">{{$fil->describe}}</textarea>
+                        <textarea 
+                          name="describe" 
+                          class="form-control" 
+                          id="editor-describe" 
+                          data-id="{{ $fil->id }}"
+                          data-type="{{ get_class($fil) }}"
+                          data-url="{{ route('attachments.store') }}"
+                          cols="30" rows="6">{{$fil->describe}}</textarea>
                         </div>
                 
                     
                         <div class="form-group col-xl-6 col-lg-6">
                         <label for="requirement">Requirement</label>
-                        <textarea name="requirement" id="editor2" value="" class="form-control" cols="30" rows="6" placeholder="">{{$fil->requirement}}</textarea>
+                        <textarea 
+                          name="requirement" 
+                          class="form-control" 
+                          id="editor-requirement"
+                          data-id="{{ $fil->id }}"
+                          data-type="{{ get_class($fil) }}"
+                          data-url="{{ route('attachments.store') }}" 
+                          cols="30" rows="6">{{$fil->requirement}}</textarea>
                         </div>
 
                     </div>
@@ -97,10 +125,7 @@
 @endsection
 
 @section('js')
-  <script>
-    CKEDITOR.replace( 'describe' );
-    CKEDITOR.replace( 'requirement' );
-    CKEDITOR.replace( 'duration' );
-    CKEDITOR.replace( 'outCome' );
-  </script>
+<script src="{{ asset('/tinymce/jquery.tinymce.min.js')}}"></script>
+<script src="{{ asset('/tinymce/tinymce.min.js')}}"></script>
+<script src="{{ asset('/js/admin/editor.js')}}"></script>
 @endsection
