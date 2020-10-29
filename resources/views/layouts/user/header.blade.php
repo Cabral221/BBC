@@ -28,8 +28,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand smoothie logo logo-light" href="{{ route('user.welcome') }}"><img src="{{ asset('images/logo1.png') }}" alt="logo"></a>
-            <a class="navbar-brand smoothie logo logo-dark" href="{{ route('user.welcome') }}"><img src="{{ asset('images/logo1.png') }}" alt="logo"></a>
+            <a class="navbar-brand smoothie logo logo-light" href="{{ route('user.welcome') }}"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
+            <a class="navbar-brand smoothie logo logo-dark" href="{{ route('user.welcome') }}"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,7 +68,7 @@
                 </li>
                 @endguest
                 <li class="dropdown">
-                    <a href="{{ route('user.admission') }}" class="btn-primary outline text-white">Admission</a>
+                    <a href="{{ route('user.admission') }}" class="btn-admission btn-primary outline text-white">Admission</a>
                 </li>
             </ul>
         </div>

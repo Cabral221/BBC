@@ -37,7 +37,7 @@
                                                         <div class="pull col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
                                                             <img 
                                                             class="img-circle img-responsive img-centered" 
-                                                            style="padding:10px; width:80%;" 
+                                                            style="padding:10px; width:60%;" 
                                                             src="{{ $filiere->icon }}" 
                                                             alt="logo-{{$filiere->slug}}">
                                                         </div>

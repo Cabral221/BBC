@@ -10,7 +10,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>BBC | Administration</title>
-  <link rel="icon" href="images/logo1.png">
+  <link rel="icon" href="images/logo.png">
 
   @include('layouts.admin.links2')
   @yield('css')

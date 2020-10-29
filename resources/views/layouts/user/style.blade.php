@@ -1,9 +1,9 @@
 
-<link rel="shortcut icon" href="{{ asset('images/logo1.png') }}">
-<link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/logo1.png') }}">
-<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/logo1.png') }}">
-<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/logo1.pngg') }}">
-<link rel="apple-touch-icon" href="{{ asset('images/logo1.png') }}">
+<link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+<link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/logo.png') }}">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/logo.png') }}">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/logo.pngg') }}">
+<link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
 <!-- Bootstrap Core CSS -->
 <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">

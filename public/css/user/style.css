@@ -22,7 +22,7 @@ body {
  }
 
 .bg-blue{
-  background-color: rgba(52, 144, 220, 0.226);
+  background-color: rgba(3, 0, 184, 0.3);
 }
 
 .bg-white{
@@ -30,7 +30,7 @@ body {
 }
 
 .bg-primary, .btn-primary{
-    background-color: #3490dc !important;   
+    background-color: #0300b6 !important;   
  }
  .btn{
    border: 1px solid white;
@@ -69,7 +69,12 @@ a.active-page:hover{
     background-color: #fff !important;
     transition: background-color 200ms linear;
   }
-
+.navbar-default.navbar-shrink .nav li>a.btn-admission {
+  color: white !important;
+}
+.navbar-default.navbar-shrink .nav li>a.btn-admission:hover{
+  color: #000000 !important;
+}
 .panel-dark{
   background-color: rgba(0, 0, 0, 0.295);
 }
@@ -98,11 +103,16 @@ a.active-page:hover{
 }
 
 .program {
-  background-color: rgba(52, 144, 220, 0.329);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: 1px solid rgb(3, 0, 184);
+  background: rgb(0, 0, 0, 0.05);
+  transition: background color 0.3;
+  border-radius: 10px;
 }
-
 .program:hover{
-  background-color: rgba(52, 144, 220, 0.158);
+  background: rgba(3, 0, 184);
+  color: white;
 }
 
 a.program-title{
@@ -168,7 +178,7 @@ a.document{
   /* background: linear-gradient(hsla(207, 71%, 53%, 0.329),white); */
   background: linear-gradient(to right, hsla(207, 71%, 53%, 0.329), #ffffff00);
 
-  /* background-color: rgba(52, 144, 220, 0.233); */
+  /* background-color: rgba(3, 0, 184, 0.3); */
   padding: 20px 40px;
 }
 
@@ -222,7 +232,7 @@ a.document{
   height: 100px;
   border: none;
   box-shadow: none;
-  background-color: #3490dc;
+  background-color: #0300b6;
   background-image: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -751,7 +761,7 @@ a.document{
   background-color: #fff;
   border-color: #a1cbef;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(3, 0, 184, 0.3;
 } */
 
 .form-control::-webkit-input-placeholder {

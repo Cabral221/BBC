@@ -4,7 +4,7 @@
 <style>
     /* Style the button that is used to open and close the collapsible content */
     .collapsible {
-        background-color: #3490dc;
+        background-color: #0300b6;
         color: white;
         cursor: pointer;
         padding: 20px;
@@ -323,7 +323,7 @@
             <div class="modal-body">
                 <div class="alert alert-info">
                     <div class="mt-auto mr-auto mb-3 text-center">
-                        <img src="{{ asset('images/logo1.png') }}" width="100px" alt="BBC University">
+                        <img src="{{ asset('images/logo.png') }}" width="100px" alt="BBC University">
                     </div>
                 </div>
                 <h3 class="text-center ">{{ $modalWelcome->title }}</h3>

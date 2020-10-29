@@ -10,7 +10,7 @@
   <meta name="author" content="Ousmane Diallo">
 
   <title>BBC | Administration</title>
-  <link rel="icon" href="images/logo1.png">
+  <link rel="icon" href="images/logo.png">
   
   <!-- Custom fonts for this template-->
   <link href="{{asset('asset_admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -33,7 +33,7 @@
       <!-- Sidebar - Brand -->
       
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.welcome') }}">
-        <img src="{{asset('images/logo1.png')}}" alt="" srcset="" style="width:70px;height:70px; padding:5px;" class="text-center rounded">
+        <img src="{{asset('images/logo.png')}}" alt="" srcset="" style="width:70px;height:70px; padding:5px;" class="text-center rounded">
       </a>
       
       <!-- Divider -->
