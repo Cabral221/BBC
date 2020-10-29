@@ -199,7 +199,7 @@ a.document{
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   height: 50px !important;
-  background-color: hsla(207, 71%, 53%, 0.747) !important;
+  background-color: rgb(3, 0, 184) !important;
 }
 
 .input-admission::placeholder{
