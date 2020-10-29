@@ -68,6 +68,9 @@ Route::post('/admission/degree','User\AdmissionController@getDedgree');
 Route::post('/admission/niveau','User\AdmissionController@getNiveau');
 Route::post('/admission/filiere','User\AdmissionController@getFiliere');
 
+// Route for load PDF newsletter
+Route::get('admin/generate-pdf','Admin\PDFController@generatePDF')->name('admin.generate-pdf')->middleware(['middleware' => 'auth:admin']);
+
 // Route grouper des utilisateur
 Route::name('user.')->group(function(){
     Route::get('/', 'User\HomeController@welcome')->name('welcome');
@@ -143,9 +146,6 @@ Route::middleware(['middleware' => 'auth:admin'])->prefix('admin/')->name('admin
     Route::get('/','Admin\HomeController@welcome')->name('welcome');
     Route::get('/admin.edite/{id}','Admin\Auth\AdminController@edite')->name('edite');
     Route::get('/{id}/admin.update','Admin\Auth\AdminController@update')->name('update');
-     
-    Route::get('/generate-pdf','Admin\PDFController@generatePDF')->name('generate-pdf');
-    
-    // Route::get('/','Admin\HomeController@welcome')->name('welcome');
+         
 });
                                     
