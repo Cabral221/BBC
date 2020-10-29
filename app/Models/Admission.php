@@ -28,10 +28,4 @@ class Admission extends Model
         return $this->belongsTo(Diplome::class);
     }
 
-    public function niveau()
-    {
-        return $this->belongsTo(Niveau::class);
-    }
-
-  
 }

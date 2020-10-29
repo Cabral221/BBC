@@ -19,8 +19,4 @@ class Niveau extends Model
         return $this->belongsTo(Program::class);
     }
 
-    public function admissions()
-    {
-        return $this->belongsTo(Admission::class);
-    }
 }
